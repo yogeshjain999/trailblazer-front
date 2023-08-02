@@ -1,2 +1,12 @@
-.flex
-  = image_tag "logo"
+%nav.flex.justify-between.text-base.items-center{ class: "h-[5.5rem] px-[5.5rem]" }
+  = link_to root_path do
+    = image_tag "logo", class: "h-9"
+  .flex.gap-10.items-center
+    .flex.gap-7.font-semibold
+      = link_to "Documentation", documentation_path
+      = link_to "Blog", blog_path
+      = link_to "About", about_path
+      = link_to "Community", "#"
+      = link_to "Learn", "#"
+    = link_to "Chat with us", "#", class: "w-[12.5rem] h-[3.25rem] bg-light-purple text-blue rounded flex items-center justify-center"
+    
