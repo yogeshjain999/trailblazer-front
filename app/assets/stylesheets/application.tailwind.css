@@ -43,8 +43,12 @@
   }
 
   .section-content-wrapper {
-    @apply w-10/12 max-w-[80rem] mx-auto
+    @apply mobile-section-width max-w-[80rem] mx-auto
       lg:w-11/12;
+  }
+
+  .mobile-section-width {
+    @apply w-10/12;
   }
 
   .base-button {

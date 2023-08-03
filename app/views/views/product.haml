@@ -1,15 +1,35 @@
-%section.bg-bg-grey
-  .section-content-wrapper.pt-12.pb-15{ class: "lg:flex lg:justify-between lg:pt-20 lg:pb-15 lg:gap-4" }
-    %div{ class: "max-w-[28rem] mx-auto lg:max-w-[33rem] lg:mx-0" }
-      %h1.text-blue.font-bold.text-4xl.leading-snug{ class: "lg:text-5xl lg:leading-snug" }
-        Save precious
-        %br time and join
-        .flex.uppercase.font-black.gap-3.items-center.text-3xl{ class: "lg:text-5xl" }
-          Trailblazer
-          %span.flex.bg-blue.text-white.justify-center.items-center.rounded.w-24.h-10{ class: "lg:h-[3.75rem] lg:w-[8.5rem]" }
-            Pro
-      %p.mt-6.text-xl{ class: "lg:mt-8 lg:text-2xl" }
-        Our web debugger is a beautiful, time-saving tool for your daily developing. Got more complex workflows?
-      = image_tag "product_hero_code_placeholder", class: "mt-8 lg:hidden"
-      = link_to "Learn more", "#", class: "base-button text-white bg-purple mt-10 lg:text-2xl"
-    = image_tag "product_hero_code_placeholder", class: "hidden lg:block w-1/2 max-w-[37.5rem] h-fit"
+%div
+  %section.bg-bg-grey
+    .section-content-wrapper.pt-12.pb-15{ class: "lg:flex lg:justify-between lg:pt-20 lg:pb-15 lg:gap-4" }
+      %div{ class: "max-w-[28rem] mx-auto lg:max-w-[33rem] lg:mx-0" }
+        %h1.text-blue.font-bold.text-4xl.leading-snug{ class: "lg:text-6xl lg:leading-snug" }
+          Save precious
+          %br time and join
+          .flex.uppercase.font-black.gap-3.items-center.text-3xl{ class: "lg:text-6xl" }
+            Trailblazer
+            %span.flex.bg-blue.text-white.justify-center.items-center.rounded.w-24.h-10{ class: "lg:h-[3.75rem] lg:w-[8.5rem]" }
+              Pro
+        %p.mt-6.text-xl{ class: "lg:mt-8 lg:text-2xl" }
+          Our web debugger is a beautiful, time-saving tool for your daily developing. Got more complex workflows?
+        = image_tag "code_placeholder_1.jpg", class: "mt-8 lg:hidden"
+        = link_to "Learn more", "#", class: "base-button text-white bg-purple mt-10 lg:text-2xl"
+      = image_tag "code_placeholder_1.jpg", class: "hidden lg:block w-1/2 max-w-[37.5rem] h-fit"
+  
+  %section.bg-light-purple.text-center
+    .mobile-section-width.mx-auto.py-12{ class: "max-w-[28rem] lg:max-w-[58.5rem] lg:py-22" }
+      %h2.text-blue.text-3xl{ class: "lg:text-5xl" }
+        %span.font-black
+          TRAILBLAZER PRO
+        %span.font-bold
+          in action
+      %p.text-xl.mt-5{ class: "text-2xl" }
+        We do have a visual editor and a gem for you! And the best:
+        %br
+        You're supporting our
+        %br{ class: "lg:hidden" }
+        %span.inline.font-black
+          TRAILBLAZER development.
+      = image_tag "code_placeholder_2", class: "rounded mt-10"
+      .flex.justify-center.mt-10.gap-10{ class: "mt-15" }
+        = link_to "Chat with us", "#", class: "base-button bg-white"
+        = link_to "Join Pro", "#", class: "base-button text-white bg-purple"
