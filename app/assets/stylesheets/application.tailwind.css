@@ -43,10 +43,12 @@
   }
 
   .section-content-wrapper {
-    @apply w-10/12 max-w-[75rem] mx-auto;
+    @apply w-10/12 max-w-[80rem] mx-auto
+      lg:w-11/12;
   }
 
   .base-button {
-    @apply w-[18.75rem] h-[4rem] rounded flex items-center justify-center text-base font-bold;
+    @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
+      lg:w-[18.75rem] lg:h-16;
   }
 }
