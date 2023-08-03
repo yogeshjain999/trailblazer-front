@@ -21,6 +21,7 @@ module.exports = {
       "red": "#E72F2B",
       "orange": "#EC651A",
       "grey": "#989CAA",
+      "bg-grey": "#F2F2F2",
       "light-grey": "#F1F1F1",
       "light-bg": "#FEFEFE",
       "white": "#FFFFFF"
@@ -45,15 +46,20 @@ module.exports = {
       "9xl": ["8rem", { lineHeight: "1" }],
     },
     borderRadius: {
-      'none': '0',
-      DEFAULT: '10px',
-      'md': '0.375rem',
-      'lg': '0.5rem',
-      'xl': '0.75rem',
-      'xxl': '1.25rem',
-      '3xl': '1.5rem',
-      'full': '9999px'
+      "none": "0",
+      DEFAULT: "10px",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "xxl": "1.25rem",
+      "3xl": "1.5rem",
+      "full": "9999px"
     },
+    extend: {
+      spacing: {
+        "15": "3.75rem",
+      }
+    }
   },
   plugins: [
     require("@tailwindcss/forms"),

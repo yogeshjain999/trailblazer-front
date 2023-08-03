@@ -1,3 +1,52 @@
+@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply font-medium text-base uppercase hover:scale-110
+      lg:normal-case lg:font-semibold;
+  }
+
+  .hamburger-bars {
+    @apply pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+      before:content-['']
+      before:absolute
+      before:w-full
+      before:h-0.5
+      before:bg-blue
+      before:-translate-y-2.5
+      before:transition-all
+      before:duration-150
+      after:content-['']
+      after:absolute
+      after:w-full
+      after:h-0.5
+      after:bg-blue
+      after:translate-y-2.5
+      after:transition-all
+      after:duration-150;
+  }
+
+  .hamburger-toggle {
+    @apply
+    [&>div]:h-0
+    [&>div::before]:translate-y-0
+    [&>div::before]:rotate-45
+    [&>div::after]:translate-y-0
+    [&>div::after]:-rotate-45
+  }
+
+  .active-mobile-navbar {
+    @apply sticky top-0 h-screen;
+  }
+
+  .section-content-wrapper {
+    @apply w-10/12 max-w-[75rem] mx-auto;
+  }
+
+  .base-button {
+    @apply w-[18.75rem] h-[4rem] rounded flex items-center justify-center text-base font-bold;
+  }
+}
