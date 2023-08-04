@@ -1,6 +1,6 @@
 %div
   %section.bg-bg-grey
-    .section-content-wrapper.pt-12.pb-15{ class: "lg:flex lg:justify-between lg:pt-20 lg:pb-15 lg:gap-4" }
+    .mobile-section-width.mx-auto.pt-12.pb-15{ class: "max-w-[80rem] lg:flex lg:justify-between lg:w-11/12 lg:pt-20 lg:pb-15 lg:gap-4" }
       %div{ class: "max-w-[28rem] mx-auto lg:max-w-[33rem] lg:mx-0" }
         %h1.text-blue.font-bold.text-4xl.leading-snug{ class: "lg:text-6xl lg:leading-snug" }
           Save precious
@@ -15,14 +15,14 @@
         = link_to "Learn more", "#", class: "base-button text-white bg-purple mt-10 lg:text-2xl"
       = image_tag "code_placeholder_1.jpg", class: "hidden lg:block w-1/2 max-w-[37.5rem] h-fit"
   
-  %section.bg-light-purple.text-center
-    .mobile-section-width.mx-auto.py-12{ class: "max-w-[28rem] lg:max-w-[58.5rem] lg:py-22" }
-      %h2.text-blue.text-3xl{ class: "lg:text-5xl" }
+  %section.bg-light-purple
+    .section-content-wrapper
+      %h2.section-header.text-blue
         %span.font-black
           TRAILBLAZER PRO
         %span.font-bold
           in action
-      %p.text-xl.mt-5{ class: "text-2xl" }
+      %p.section-description
         We do have a visual editor and a gem for you! And the best:
         %br
         You're supporting our
@@ -33,3 +33,53 @@
       .flex.justify-center.mt-10.gap-10{ class: "mt-15" }
         = link_to "Chat with us", "#", class: "base-button bg-white"
         = link_to "Join Pro", "#", class: "base-button text-white bg-purple"
+
+  %section.bg-bg-blue
+    .section-content-wrapper{ class: "max-w-[63rem]" }
+      %h2.section-header.text-white
+        %span.font-black
+          TRAILBLAZER PRO
+        %br{ class: "lg:hidden" }
+        in action
+      %p.section-description.text-white.text-lg{ class: "text-xl" }
+        Benefit from
+        %b TRAILBLAZER PRO
+        features that speed up your code development
+        %br.hidden{ class: "lg:inline" }
+        by simplified code snippets.
+      .flex.flex-col.mt-16.text-center{ class: "md:text-left md:flex-row md:gap-16 lg:gap-20
+                                                md:justify-between md:mt-[5.5rem]
+                                                xl:relative xl:-left-[3rem]" }
+        .flex.flex-col{ class: "md:max-w-[25rem]" }
+          %div.text-white
+            %h3.font-bold.text-2xl{ class: "lg:text-3xl" }
+              Debugging can be fun!
+            %p.mt-4{ class: "lg:text-lg lg:mt-5" }
+              Our web debugger takes you up where {#wtf?} left off: browse through operation traces,
+              inspect ctx variables at any time and fix bugs within minutes, not hours.
+            = link_to "Watch Intro Tutorial", "#", class: "base-button text-bg-blue bg-light-purple mt-10 mx-auto md:mx-0"
+        = image_tag "code_placeholder_3.jpg", class: "w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[26.25rem] md:mt-0 md:mx-0"
+      .flex.flex-col.mt-16.text-center{ class: "md:text-left md:flex-row md:gap-16 lg:gap-20
+                                                md:justify-between md:mt-[5.5rem]
+                                                xl:relative xl:-left-[3rem]" }
+        .flex.flex-col{ class: "md:max-w-[25rem] md:order-2 xl:relative xl:-left-[1.25rem]" }
+          %div.text-white
+            %h3.font-bold.text-2xl{ class: "lg:text-3xl" }
+              Start drawing, stop overthinking!
+            %p.mt-4{ class: "lg:text-lg lg:mt-5" }
+              We're bringing the industry-standard language BPMN to Ruby! Model complex, long-running business processes
+              with our web editor and let {trailblazer-workflow} do the flow control.
+            = link_to "Watch BPMN Tutorial", "#", class: "base-button text-bg-blue bg-light-purple mt-10 mx-auto md:mx-0"
+        = image_tag "code_placeholder_3.jpg", class: "w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[26.25rem] md:mt-0 md:mx-0"
+      .flex.flex-col.mt-16.text-center{ class: "md:text-left md:flex-row md:gap-16 lg:gap-20
+                                                md:justify-between md:mt-[5.5rem]
+                                                xl:relative xl:-left-[3rem]" }
+        .flex.flex-col{ class: "md:max-w-[25rem]" }
+          %div.text-white
+            %h3.font-bold.text-2xl{ class: "lg:text-3xl" }
+              It's ready!
+            %p.mt-4{ class: "lg:text-lg lg:mt-5" }
+              Sign up for free, check out how to leverage BPMN and our diagram editor in your Ruby code, and trace your
+              code on the web. Then you decide how much PRO you need.
+            = link_to "Watch Diagram Tutorial", "#", class: "base-button text-bg-blue bg-light-purple mt-10 mx-auto md:mx-0"
+        = image_tag "code_placeholder_3.jpg", class: "w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[26.25rem] md:mt-0 md:mx-0"

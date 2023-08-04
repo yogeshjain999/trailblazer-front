@@ -42,17 +42,25 @@
     @apply sticky top-0 h-screen;
   }
 
+  .base-button {
+    @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
+    lg:w-[18.75rem] lg:h-16;
+  }
+
   .section-content-wrapper {
-    @apply mobile-section-width max-w-[80rem] mx-auto
-      lg:w-11/12;
+    @apply mobile-section-width mx-auto py-12 max-w-[28rem]
+      lg:max-w-[58.5rem] lg:py-22;
   }
 
   .mobile-section-width {
     @apply w-10/12;
   }
 
-  .base-button {
-    @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
-      lg:w-[18.75rem] lg:h-16;
+  .section-header {
+    @apply text-center text-3xl lg:text-5xl;
+  }
+
+  .section-description {
+    @apply text-center text-lg mt-5 lg:text-2xl;
   }
 }

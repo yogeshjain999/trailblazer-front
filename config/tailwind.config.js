@@ -11,6 +11,7 @@ module.exports = {
     colors: {
       "text": "#211B3F",
       "blue": "#140F3F",
+      "bg-blue": "#05012C",
       "purple": "#582ABB",
       "selected": "#4D4499",
       "bg-purple-1": "#AEAAF7",
