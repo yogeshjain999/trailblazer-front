@@ -44,7 +44,8 @@
 
   .base-button {
     @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
-    lg:w-[18.75rem] lg:h-16;
+    lg:w-[18.75rem] lg:h-16
+    hover:scale-105;
   }
 
   .section-content-wrapper {
@@ -62,5 +63,9 @@
 
   .section-description {
     @apply text-center text-lg mt-5 lg:text-2xl;
+  }
+
+  .list-circle {
+    @apply list-image-[url(list_circle)] ml-10;
   }
 }
