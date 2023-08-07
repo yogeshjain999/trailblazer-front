@@ -13,6 +13,7 @@ module.exports = {
       "blue": "#140F3F",
       "bg-blue": "#05012C",
       "purple": "#582ABB",
+      "purple-text": "#998FF8",
       "selected": "#4D4499",
       "bg-purple-1": "#AEAAF7",
       "bg-purple-2": "#D6D4FB",

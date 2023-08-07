@@ -68,4 +68,8 @@
   .list-circle {
     @apply list-image-[url(list_circle)] ml-10;
   }
+
+  .list-checkmark {
+    @apply list-image-[url(list_checkmark)];
+  }
 }
