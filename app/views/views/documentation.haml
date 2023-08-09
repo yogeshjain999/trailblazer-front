@@ -1,1 +1,34 @@
-documentation
+%section{ data: {controller: "side-menu"} }
+  .bg-bg-blue.text-white.fixed.left-0.top-20.px-1.py-3.rounded-r{ class: "lg:hidden", style: "writing-mode: vertical-rl; text-orientation: upright;",
+                                                data: {action: "click->side-menu#showMenu"} }
+    Chapters
+  .bg-bg-blue.w-screen.h-screen.fixed.top-0.z-20.transition-all.ease-in-out{class: "right-[100vw] lg:hidden", data: {"side-menu-target": "sideNav"} }
+    .absolute.right-4.top-4.text-3xl.text-white{ data: {action: "click->side-menu#hideMenu"} }
+      X
+    .p-10.pl-20.text-white.text-base.leading-10
+      .flex.flex-col.pt-10
+        =link_to "Subject A", "#", class: "font-bold pl-3"
+        =link_to "Subject 01", "#", class: "pl-3"
+        =link_to "Subject 02", "#", class: "pl-3 bg-selected"
+        =link_to "Subject 03", "#", class: "pl-3"
+      .flex.flex-col.pt-5
+        =link_to "Subject B", "#", class: "font-bold pl-3"
+        =link_to "Subject 01", "#", class: "pl-3"
+        =link_to "Subject 02", "#", class: "pl-3"
+        =link_to "Subject 03", "#", class: "pl-3"
+        =link_to "Subject 04", "#", class: "pl-3"
+      .flex.flex-col.pt-5
+        =link_to "Subject C", "#", class: "font-bold pl-3"
+        =link_to "Subject 01", "#", class: "pl-3"
+        =link_to "Subject 02", "#", class: "pl-3"
+        =link_to "Subject 03", "#", class: "pl-3"
+        =link_to "Subject 04", "#", class: "pl-3"
+
+%section.px-10.py-22.bg-bg-purple-3
+  %h2.section-header.font-bold
+    Is there anything unanswered?
+    %br
+    Get in touch with
+    %span.font-black
+      TRAILBLAZER
+    = link_to "Chat with us", "#", class: "base-button bg-purple text-white mt-15 mx-auto"

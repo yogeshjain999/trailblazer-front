@@ -1,4 +1,4 @@
-%nav.bg-white.text-base.h-18{ class: "lg:flex lg:justify-between lg:items-center lg:h-[5.5rem] lg:px-[5.5rem]",
+%nav.bg-white.text-base.h-18.z-10{ class: "lg:flex lg:justify-between lg:items-center lg:h-[5.5rem] lg:px-[5.5rem]",
                               data: { controller: "hamburger-menu", "hamburger-menu-target": "navbar" } }
   = link_to root_path, class: "block shrink-0 w-fit mx-auto lg:mx-0" do
     = image_tag "logo_blue.svg", class: "w-40 my-3 lg:my-0"
@@ -21,4 +21,5 @@
       = link_to "About", about_path, class: "nav-link"
       = link_to "Community", "#", class: "nav-link"
       = link_to "Learn", "#", class: "nav-link"
-    = link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:scale-105"
+    = link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple |
+                                           text-blue hover:scale-105 hover:text-white hover:bg-purple"   |
