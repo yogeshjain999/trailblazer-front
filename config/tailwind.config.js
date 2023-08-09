@@ -9,6 +9,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      "neutral-500": "#1B2430",
       "text": "#211B3F",
       "blue": "#140F3F",
       "bg-blue": "#05012C",
@@ -24,6 +25,7 @@ module.exports = {
       "magenta": "#E72456",
       "red": "#E72F2B",
       "orange": "#EC651A",
+      "bg-orange": "#F5B18C",
       "grey": "#989CAA",
       "bg-grey": "#F2F2F2",
       "light-grey": "#F1F1F1",

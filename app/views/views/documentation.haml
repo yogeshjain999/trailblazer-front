@@ -1,29 +1,76 @@
 %section{ data: {controller: "side-menu"} }
-  .bg-bg-blue.text-white.fixed.left-0.top-20.px-1.py-3.rounded-r{ class: "lg:hidden", style: "writing-mode: vertical-rl; text-orientation: upright;",
+  .bg-bg-blue.text-white.fixed.left-0.top-20.pr-1.py-3.rounded-r{ class: "lg:hidden", style: "writing-mode: vertical-rl; text-orientation: upright;",
                                                 data: {action: "click->side-menu#showMenu"} }
     Chapters
-  .bg-bg-blue.w-screen.h-screen.fixed.top-0.z-20.transition-all.ease-in-out{class: "right-[100vw] lg:hidden", data: {"side-menu-target": "sideNav"} }
-    .absolute.right-4.top-4.text-3xl.text-white{ data: {action: "click->side-menu#hideMenu"} }
-      X
-    .p-10.pl-20.text-white.text-base.leading-10
-      .flex.flex-col.pt-10
-        =link_to "Subject A", "#", class: "font-bold pl-3"
-        =link_to "Subject 01", "#", class: "pl-3"
-        =link_to "Subject 02", "#", class: "pl-3 bg-selected"
-        =link_to "Subject 03", "#", class: "pl-3"
-      .flex.flex-col.pt-5
-        =link_to "Subject B", "#", class: "font-bold pl-3"
-        =link_to "Subject 01", "#", class: "pl-3"
-        =link_to "Subject 02", "#", class: "pl-3"
-        =link_to "Subject 03", "#", class: "pl-3"
-        =link_to "Subject 04", "#", class: "pl-3"
-      .flex.flex-col.pt-5
-        =link_to "Subject C", "#", class: "font-bold pl-3"
-        =link_to "Subject 01", "#", class: "pl-3"
-        =link_to "Subject 02", "#", class: "pl-3"
-        =link_to "Subject 03", "#", class: "pl-3"
-        =link_to "Subject 04", "#", class: "pl-3"
-
+  %div{ class: "lg:flex" }
+    %nav.documentation-side-nav{ data: {"side-menu-target": "sideNav"} }
+      .absolute.right-4.top-4.text-3xl.text-white{ class: "lg:hidden", data: {action: "click->side-menu#hideMenu"} }
+        X
+      .p-10.pl-20.text-white.text-base.leading-10{ class: "lg:pt-0 lg:pl-[5.75rem] lg:pl-[25%]" }
+        .flex.flex-col.pt-10
+          =link_to "Subject A", "#", class: "font-bold pl-3"
+          =link_to "Subject 01", "#", class: "pl-3"
+          =link_to "Subject 02", "#", class: "pl-3 bg-selected"
+          =link_to "Subject 03", "#", class: "pl-3"
+        .flex.flex-col.pt-5
+          =link_to "Subject B", "#", class: "font-bold pl-3"
+          =link_to "Subject 01", "#", class: "pl-3"
+          =link_to "Subject 02", "#", class: "pl-3"
+          =link_to "Subject 03", "#", class: "pl-3"
+          =link_to "Subject 04", "#", class: "pl-3"
+        .flex.flex-col.pt-5
+          =link_to "Subject C", "#", class: "font-bold pl-3"
+          =link_to "Subject 01", "#", class: "pl-3"
+          =link_to "Subject 02", "#", class: "pl-3"
+          =link_to "Subject 03", "#", class: "pl-3"
+          =link_to "Subject 04", "#", class: "pl-3"
+    .pl-8.pr-4.py-10.bg-light-grey.grow{ class: "lg:p-10" }
+      %h1.text-2xl.text-blue.font-bold{ class: "lg:text-3xl" }
+        %span.font-black
+          TRAILBLAZER
+        Documentation
+      .text-base.leading-10
+        %span.font-bold.text-bg-blue
+          = "Subject A |"
+        %span.text-purple
+          Subject 02
+      .mt-5{ class: "xl:flex xl:gap-0.5" }
+        .p-4.bg-white.text-bg-blue{ class: "lg:p-8" }
+          %p
+            This is an interactive prototype meant for documentation. We wanted to see if it is
+            possible (and feasible) to create a documentation template in the same figma file.
+            In this document we'll be discussing how to use this template.
+          %h3.documentation-sub-header.mt-6
+            Quick Start
+          %p.mt-2
+            When you duplicate this file from community, select all the elements and copy-paste
+            them into your design file. This way you can also copy the Master Components and use
+            them however you like. You can also apply your own styles on Master Components to
+            make it consistent with your design or leave it as it is.
+          .color-note{ class: "bg-bg-purple-1/50" }
+            = image_tag "info_icon.svg"
+            %p
+              We will only show an example to showcase this template. Feel free to add your own
+              creativity and share remixes in Figma Community.
+          %h3.documentation-sub-header.mt-7
+            Navigation
+          %p
+            It's a standard documentation layout so you can expect it to behave the same.
+            But for the sake of documentation 😁 and as example, let's take a look at how to navigate
+            through this Figma file. For main navigation, you should update the Master Components.
+          %p.mt-6
+            We have a left side bar for main navigation. You can hover your mouse on them in Prototype Mode
+            and click to navigate through the pages you have linked.
+          .color-note{ class: "bg-bg-orange" }
+            = image_tag "light_bulb_icon.svg"
+            %p
+              We will only show an example to showcase this template. Feel free to add your own
+              creativity and share remixes in Figma Community.
+          
+        .hidden.bg-white.pt-5.w-56.shrink-0{ class: "xl:block" }
+          In diesem Artikel
+          
+          
 %section.px-10.py-22.bg-bg-purple-3
   %h2.section-header.font-bold
     Is there anything unanswered?
