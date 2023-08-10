@@ -1,10 +1,9 @@
-%section{ data: {controller: "side-menu"} }
-  .bg-bg-blue.text-white.fixed.left-0.top-20.pr-1.py-3.rounded-r{ class: "lg:hidden", style: "writing-mode: vertical-rl; text-orientation: upright;",
-                                                data: {action: "click->side-menu#showMenu"} }
+%section
+  #sideNavShowButton.bg-bg-blue.text-white.fixed.left-0.top-20.pr-1.py-3.rounded-r{ class: "lg:hidden", style: "writing-mode: vertical-rl; text-orientation: upright;" }
     Chapters
   %div{ class: "lg:flex" }
-    %nav.documentation-side-nav{ data: {"side-menu-target": "sideNav"} }
-      .absolute.right-4.top-4.text-3xl.text-white{ class: "lg:hidden", data: {action: "click->side-menu#hideMenu"} }
+    %nav#sideNav.documentation-side-nav
+      #sideNavHideButton.absolute.right-4.top-4.text-3xl.text-white{ class: "lg:hidden" }
         X
       .p-10.pl-20.text-white.text-base.leading-10{ class: "lg:pt-0 lg:pl-6 xl:pl-20" }
         .flex.flex-col.pt-10
