@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+pre {
+  @apply mt-4;
+}
+
+pre code {
+  @apply rounded;
+}
+
 @layer components {
   .nav-link {
     @apply font-medium text-base uppercase hover:scale-110
