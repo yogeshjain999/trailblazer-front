@@ -1,0 +1,79 @@
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="documentation-side-nav" id="sideNav">
+      <div class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </div>
+      <div class="lg:pt-0 lg:pl-6 xl:pl-20 p-10 pl-20 text-white text-base leading-10">
+        <div class="flex flex-col pt-10">
+          <%= link_to "Activity", "#", class: "font-bold pl-3 hover:scale-105" %>
+          <%= link_to "TaskWrap", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 02", "#", class: "pl-3 bg-selected hover:scale-105" %>
+          <%= link_to "Subject 03", "#", class: "pl-3 hover:scale-105" %>
+        </div>
+        <div class="flex flex-col pt-5">
+          <%= link_to "Subject B", "#", class: "font-bold pl-3 hover:scale-105" %>
+          <%= link_to "Subject 01", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 02", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 03", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 04", "#", class: "pl-3 hover:scale-105" %>
+        </div>
+        <div class="flex flex-col pt-5">
+          <%= link_to "Subject C", "#", class: "font-bold pl-3 hover:scale-105" %>
+          <%= link_to "Subject 01", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 02", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 03", "#", class: "pl-3 hover:scale-105" %>
+          <%= link_to "Subject 04", "#", class: "pl-3 hover:scale-105" %>
+        </div>
+      </div>
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black">
+          TRAILBLAZER
+        </span>
+        Documentation
+      </h1>
+      <div class="text-base leading-10">
+        <span class="font-bold text-bg-blue">
+          <%= "Subject A |" %>
+        </span>
+        <span class="text-purple">
+          Subject 02
+        </span>
+      </div>
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-[57rem] lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue">
+          <%= yield %>
+        </div>
+        <div class="xl:block hidden bg-white pt-5 px-5 w-56 shrink-0 text-bg-blue">
+          <h4 class="font-base font-bold leading-10 pl-2">
+            TaskWrap
+          </h4>
+          <%= link_to "Runtime", "#", class: "documentation-right-nav-link mt-2" %>
+          <%= link_to "Thema 02 zweizeilig mit Zeilenumbruch", "#", class: "documentation-right-nav-link bg-bg-orange" %>
+          <%= link_to "Thema 03", "#", class: "documentation-right-nav-link" %>
+          <%= link_to "Thema 04", "#", class: "documentation-right-nav-link" %>
+          <%= link_to "Thema 05", "#", class: "documentation-right-nav-link" %>
+          <%= link_to "Thema 06", "#", class: "documentation-right-nav-link" %>
+          <%= link_to "Thema 07", "#", class: "documentation-right-nav-link" %>
+          <%= link_to "Thema 08", "#", class: "documentation-right-nav-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="px-10 py-22 bg-bg-purple-3">
+  <h2 class="section-header font-bold">
+    Is there anything unanswered?
+    <br/>
+    Get in touch with
+    <span class="font-black">
+      TRAILBLAZER
+    </span>
+    <%= link_to "Chat with us", "#", class: "base-button bg-purple text-white mt-15 mx-auto" %>
+  </h2>
+</section>

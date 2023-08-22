@@ -1,3 +1,16 @@
+PATH
+  remote: ../cells-5
+  specs:
+    cells (5.0.0.alpha1)
+      tilt (~> 2.1.0)
+
+PATH
+  remote: ../torture-server
+  specs:
+    torture-server (0.1.0)
+      kramdown
+      minitest-line
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +52,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    erbse (0.1.4)
+      temple
     erubi (1.12.0)
     haml (6.1.1)
       temple (>= 0.8.2)
@@ -52,6 +67,8 @@ GEM
     io-console (0.6.0)
     irb (1.7.4)
       reline (>= 0.3.6)
+    kramdown (2.4.0)
+      rexml
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -59,6 +76,8 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.19.0)
+    minitest-line (0.6.5)
+      minitest (~> 5.0)
     nio4r (2.5.9)
     nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
@@ -104,7 +123,8 @@ GEM
       railties (>= 6.0.0)
     temple (0.10.2)
     thor (1.2.2)
-    tilt (2.2.0)
+    tilt (2.1.0)
+    torture (0.0.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     web-console (4.2.0)
@@ -128,7 +148,9 @@ DEPENDENCIES
   actionpack
   actionview
   capybara
+  cells!
   debug
+  erbse
   haml
   importmap-rails
   puma (~> 5.0)
@@ -136,6 +158,8 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   tailwindcss-rails
+  torture
+  torture-server!
   tzinfo-data
   web-console
   webdrivers

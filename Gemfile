@@ -46,3 +46,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+gem "cells", path: "../cells-5"
+# gem "cells-erb"
+gem "erbse"
+
+# gem "torture", path: "../torture"
+gem "torture"
+gem "torture-server", path: "../torture-server"
