@@ -1,15 +1,19 @@
-PATH
-  remote: ../cells-5
-  specs:
-    cells (5.0.0.alpha1)
-      tilt (~> 2.1.0)
-
-PATH
-  remote: ../torture-server
+GIT
+  remote: https://github.com/apotonick/torture-server.git
+  revision: 405960390857a14ce5a4e280fb368ea5c6e25751
+  branch: cms
   specs:
     torture-server (0.1.0)
       kramdown
       minitest-line
+
+GIT
+  remote: https://github.com/trailblazer/cells.git
+  revision: 2a295b05ce1d8f6151de5eaefea105017a297ffe
+  branch: cells-5
+  specs:
+    cells (5.0.0.alpha1)
+      tilt (~> 2.1.0)
 
 GEM
   remote: https://rubygems.org/
