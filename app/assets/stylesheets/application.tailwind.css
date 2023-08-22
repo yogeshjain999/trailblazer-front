@@ -4,31 +4,6 @@
 @tailwind utilities;
 
 @layer components {
-  .nav-link {
-    @apply font-medium text-base uppercase hover:scale-110
-      lg:normal-case lg:font-semibold;
-  }
-
-  .hamburger-bars {
-    @apply pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
-      before:content-['']
-      before:absolute
-      before:w-full
-      before:h-0.5
-      before:bg-blue
-      before:-translate-y-2.5
-      before:transition-all
-      before:duration-150
-      after:content-['']
-      after:absolute
-      after:w-full
-      after:h-0.5
-      after:bg-blue
-      after:translate-y-2.5
-      after:transition-all
-      after:duration-150;
-  }
-
   .hamburger-toggle {
     @apply
     [&>div]:h-0
@@ -80,14 +55,6 @@
   .documentation-side-nav {
     @apply bg-bg-blue w-screen h-screen fixed top-0 z-20 transition-all ease-in-out right-[100vw] overflow-y-scroll
       lg:w-3/12 lg:max-w-[23rem] lg:static  lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem];
-  }
-
-  .documentation-sub-header {
-    @apply text-2xl font-bold text-neutral-500 lg:text-3xl;
-  }
-
-  .color-note {
-    @apply rounded flex p-4 gap-4 mt-5;
   }
 
   .documentation-right-nav-link {
