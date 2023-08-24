@@ -19,14 +19,50 @@ class ViewsController < ApplicationController
         include Torture::Cms::Helper::Header # needs {headers}
         include Torture::Cms::Helper::Code   # needs {extract}
 
-        def initialize(options)
-          @options = options
+        def initialize(controller:, **options)
+          @options = options.merge(controller: controller)
         end
 
         def vite_image_tag(*)
           # FIXME: implement etc
         end
 
+            # = image_tag "info_icon.svg"
+        def info(type: :info, &block) # TODO: use cell for this.
+          # TODO: allow kramdown
+          %(<div class="rounded flex p-4 gap-4 mt-5 bg-bg-purple-1/50">
+          #{@options[:controller].helpers.image_tag "info_icon.svg"}
+<p>
+  #{yield}
+</p>
+</div>)
+        end
+
+        def warning(&block)  # TODO: use info parametrized.
+          # TODO: allow kramdown
+          %(<div class="rounded flex p-4 gap-4 mt-5 bg-bg-orange">
+          #{@options[:controller].helpers.image_tag "light_bulb_icon.svg"}
+<p>
+  #{yield}
+</p>
+</div>)
+        end
+
+        module H
+          def h2(*args, **options)
+            super(*args, **options, classes: "text-2xl font-bold text-neutral-500 lg:text-3xl mt-6")
+          end
+
+          def h3(*args, **options)
+            super(*args, **options, classes: "font-bold text-neutral-500 lg:text-2xl mt-6 text-xl")
+          end
+
+          def h4(*args, **options)
+            super(*args, **options, classes: "font-bold text-neutral-500 lg:text-1xl mt-4 text-xl")
+          end
+        end
+
+        include H
       end
     end
   end
@@ -64,15 +100,17 @@ class ViewsController < ApplicationController
           snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
           section_dir: "../website-NEW/app/concepts/documentation/page/snippet/activity",
           target_file: "tmp/activity.html",
-          "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" }
+          "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
+          "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
         }
       }
     }
 
 
+    # raise helpers.image_tag( "info_icon.svg").inspect
 
     pages = pages.collect do |name, options|
-      Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section)
+      Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section, section_cell_options: {controller: self})
     end
 
     activity_content_html = File.open("tmp/activity.html").read
