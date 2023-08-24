@@ -39,41 +39,41 @@
             This is an interactive prototype meant for documentation. We wanted to see if it is
             possible (and feasible) to create a documentation template in the same figma file.
             In this document we'll be discussing how to use this template.
-          %h3.text-2xl.font-bold.text-neutral-500.lg:text-3xl.mt-6
+          %h3.text-2xl.font-bold.text-neutral-500.mt-6{ class: "lg:text-3xl" }
             Quick Start
           %p.mt-2
             When you duplicate this file from community, select all the elements and copy-paste
             them into your design file. This way you can also copy the Master Components and use
             them however you like. You can also apply your own styles on Master Components to
             make it consistent with your design or leave it as it is.
-          %div{ class: "rounded flex p-4 gap-4 mt-5 bg-bg-purple-1/50" }
+          .rounded.flex.p-4.gap-4.mt-5{ class: "bg-bg-purple-1/50" }
             = image_tag "info_icon.svg"
             %p
               We will only show an example to showcase this template. Feel free to add your own
               creativity and share remixes in Figma Community.
-          %h3.text-2xl.font-bold.text-neutral-500.lg:text-3xl.mt-7
+          %h3.text-2xl.font-bold.text-neutral-500.mt-7{ class: "lg:text-3xl" }
             Navigation
-          %p
+          %p.mt-2
             It's a standard documentation layout so you can expect it to behave the same.
             But for the sake of documentation 😁 and as example, let's take a look at how to navigate
             through this Figma file. For main navigation, you should update the Master Components.
-          %p.mt-6
+          %p.mt-2
             We have a left side bar for main navigation. You can hover your mouse on them in Prototype Mode
             and click to navigate through the pages you have linked.
-          %div{ class: "rounded flex p-4 gap-4 mt-5 bg-bg-orange" }
+          .rounded.flex.p-4.gap-4.mt-5.bg-bg-orange
             = image_tag "light_bulb_icon.svg"
             %p
               We will only show an example to showcase this template. Feel free to add your own
               creativity and share remixes in Figma Community.
-          = image_tag "code_placeholder_1", class: "mt-6"
-          %h3.font-bold.text-neutral-500.lg:text-2xl.mt-2.text-xl
+          = render "shared/example_code_snippet"
+          %h3.text-2xl.font-bold.text-neutral-500.mt-2.text-xl{ class: "lg:text-2xl" }
             Versions
           %p.mt-2
             You can see a dropdown in the header of this document. In case you are handling multiple documentations,
             you can use this dropdown to jump to another version. Don’t forget to update the main component
             %b Version Dropdown.
             If you don’t need it, just hide it in the main component.
-          %div{ class: "rounded flex p-4 gap-4 mt-5 bg-bg-orange" }
+          .rounded.flex.p-4.gap-4.mt-5.bg-bg-orange
             = image_tag "light_bulb_icon.svg"
             %p
               Create another page in the same figma file and set the interaction on dropdown elements of Version Dropdown to
@@ -81,7 +81,7 @@
               Add
               %b URL of the prototype
               of this second page here. Now your another version will open in a new tab with that version of document
-          %h3.text-2xl.font-bold.text-neutral-500.lg:text-3xl.mt-4
+          %h3.text-2xl.font-bold.text-neutral-500.mt-4{ class: "lg:text-3xl" }
             Limitations
           %p.mt-2
             Since this is a Figma prototype and not actual website, it is bound to have some limitations.

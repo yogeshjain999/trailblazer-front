@@ -3,6 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+pre {
+  @apply mt-4;
+}
+
+pre code {
+  @apply rounded;
+}
+
 @layer components {
   .hamburger-toggle {
     @apply
