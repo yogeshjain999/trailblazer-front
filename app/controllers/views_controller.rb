@@ -110,7 +110,15 @@ class ViewsController < ApplicationController
     # raise helpers.image_tag( "info_icon.svg").inspect
 
     pages = pages.collect do |name, options|
-      Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section, section_cell_options: {controller: self})
+      Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section,
+        section_cell_options: {
+          controller: self,
+          pre_attributes: {class: "mt-4"},
+          code_attributes: {class: "rounded"},  # FIXME: move this to application-wide styling directive.
+        },
+
+        kramdown_options: {input: "torture"}, # use Kramdown::Torture parser from the torture-server gem.
+        )
     end
 
     activity_content_html = File.open("tmp/activity.html").read
