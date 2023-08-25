@@ -10,7 +10,6 @@ class ViewsController < ApplicationController
   require "cell"
   require "cells/__erb__"
   require "torture/cms"
-  require "kramdown"
 
   module My
     module Cell
@@ -113,11 +112,11 @@ class ViewsController < ApplicationController
       Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section,
         section_cell_options: {
           controller: self,
-          pre_attributes: {class: "mt-4"},
-          code_attributes: {class: "rounded"},  # FIXME: move this to application-wide styling directive.
+          pre_attributes: Rails.application.config.tailwind.pre,
+          code_attributes: Rails.application.config.tailwind.code,
         },
 
-        kramdown_options: {input: "torture"}, # use Kramdown::Torture parser from the torture-server gem.
+        kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
         )
     end
 
