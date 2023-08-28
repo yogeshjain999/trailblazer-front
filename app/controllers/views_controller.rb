@@ -22,6 +22,30 @@ class ViewsController < ApplicationController
           @options = options.merge(controller: controller)
         end
 
+        def self.call(template:, exec_context:)
+          # html = super
+          _result = exec_context.(template: template) # returns {Result}.
+        end
+
+        def call(template:, &block)
+          html = ::Cell.render(template: template, exec_context: self, &block)
+
+          # DISCUSS: make this optional?
+          ::Cell::Result.new(
+            content: html,
+            **to_h,
+          ).freeze
+        end
+
+        def to_h
+          {
+            headers: @options[:headers]
+          }
+        end
+
+
+
+
         def vite_image_tag(*)
           # FIXME: implement etc
         end
@@ -120,7 +144,8 @@ class ViewsController < ApplicationController
         )
     end
 
-    activity_content_html = File.open("tmp/activity.html").read
+    # activity_content_html = File.open("tmp/activity.html").read
+    activity_content_html = pages[0].to_h["2.1"][:content]
 
     template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
 
@@ -128,6 +153,10 @@ class ViewsController < ApplicationController
     doc_layout_cell = Class.new do
       def link_to(text, url, **options)
         %(<a href="" class="#{options[:class]}">#{text}</a>)
+      end
+
+      def to_h
+        {}
       end
     end.new
 
