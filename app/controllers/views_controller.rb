@@ -93,6 +93,47 @@ class ViewsController < ApplicationController
   def docs
     # TODO: app layout is still AV
 
+    doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
+
+    doc_layout_cell = Class.new do
+      def link_to(text, url, **options)
+        %(<a href="" class="#{options[:class]}">#{text}</a>)
+      end
+
+      def initialize(left_toc_html:)
+        @options = {left_toc_html: left_toc_html}
+      end
+
+      def to_h
+        {}
+      end
+
+      def toc_left
+        @options[:left_toc_html]
+      end
+    end
+
+    left_toc = Class.new do
+      def initialize(headers:, current_page:)
+        @options = {
+          headers: headers,
+          current_page: current_page
+        }
+      end
+
+      def link_to(text, url, **options)
+        %(<a href="" class="#{options[:class]}">#{text}</a>)
+      end
+
+      def to_h
+        {}
+      end
+    end
+
+    left_toc_template = Cell::Erb::Template.new("app/concepts/cell/documentation/toc_left.erb")
+
+    layout_options = {cell: doc_layout_cell, template: doc_layout_template, left_toc: {cell: left_toc, template: left_toc_template}}
+
     pages = {
       # "cells" => {
       #   title: "Cells",
@@ -123,6 +164,9 @@ class ViewsController < ApplicationController
           snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
           section_dir: "../website-NEW/app/concepts/documentation/page/snippet/activity",
           target_file: "tmp/activity.html",
+          target_url:  "/2.1/docs/activity/index.html",
+          layout:      layout_options,
+
           "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
           "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
         }
@@ -131,40 +175,22 @@ class ViewsController < ApplicationController
 
 
     # raise helpers.image_tag( "info_icon.svg").inspect
+    pages = Torture::Cms::DSL.(pages)
 
-    pages = pages.collect do |name, options|
-      Torture::Cms::Site.new.render_versioned_pages(**options, section_cell: My::Cell::Section,
-        section_cell_options: {
-          controller: self,
-          pre_attributes: Rails.application.config.tailwind.pre,
-          code_attributes: Rails.application.config.tailwind.code,
-        },
+    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: My::Cell::Section,
+      section_cell_options: {
+        controller: self,
+        pre_attributes: Rails.application.config.tailwind.pre,
+        code_attributes: Rails.application.config.tailwind.code,
+      },
 
-        kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-        )
-    end
+      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+    )
 
-    # activity_content_html = File.open("tmp/activity.html").read
     activity_content_html = pages[0].to_h["2.1"][:content]
 
-    template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
-
-
-    doc_layout_cell = Class.new do
-      def link_to(text, url, **options)
-        %(<a href="" class="#{options[:class]}">#{text}</a>)
-      end
-
-      def to_h
-        {}
-      end
-    end.new
-
-    # Render docs in documentation layout.
-    result = Cell.({template: template, exec_context: doc_layout_cell}) { activity_content_html }
-
     # Render documentation layout in app layout. :D
-    render html: result.to_s.html_safe, layout: true
+    render html: activity_content_html.html_safe, layout: true
   end
 
   def about;end
