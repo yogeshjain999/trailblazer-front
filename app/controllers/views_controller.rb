@@ -7,7 +7,7 @@ class ViewsController < ApplicationController
 
   end
 
-  require "cell"
+  require "cells"
   require "cells/__erb__"
   require "torture/cms"
 
@@ -123,11 +123,8 @@ class ViewsController < ApplicationController
     end
 
     left_toc = Class.new do
-      def initialize(headers:, current_page:)
-        @options = {
-          headers: headers,
-          current_page: current_page
-        }
+      def initialize(headers:)
+        @options = {headers: headers}
       end
 
       def link_to(text, url, **options)
