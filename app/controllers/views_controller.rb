@@ -97,6 +97,7 @@ class ViewsController < ApplicationController
   end
 
   class Render < Torture::Cms::Page::RenderOther
+    step :right_tocs, after: "Start.default"
     step :application_layout
 
     def application_layout(ctx, content:, application_layout:, **options)
@@ -105,6 +106,19 @@ class ViewsController < ApplicationController
       result = ::Cell.({template: application_layout[:template], exec_context: layout_cell_instance}) { content }
 
       ctx[:content] = result.to_s
+    end
+
+    def right_tocs(ctx, headers:, right_toc:, **)
+      right_tocs =
+        headers[2].collect do |h2|
+          cell_instance = right_toc[:cell].new(h2: h2, **right_toc[:options]) # DISCUSS: what options to hand in here?
+
+          result = ::Cell.({template: right_toc[:template], exec_context: cell_instance})
+
+          result.to_s
+        end
+
+      ctx[:right_tocs_html] = right_tocs.join("\n")
     end
   end
 
@@ -140,6 +154,34 @@ class ViewsController < ApplicationController
     end
   end
 
+  module Documentation
+    module Cell
+      class TocRight
+        def initialize(controller:, h2:, **options)
+          @options = options.merge(controller: controller, h2: h2)
+        end
+
+        [:link_to].each do |name|
+          define_method name do |*args, **kws, &block|
+            @options[:controller].helpers.send(name, *args, **kws, &block)
+          end
+        end
+
+        def h2
+          @options[:h2]
+        end
+
+        def css_id
+          "right-toc-#{@options[:h2].id}"
+        end
+
+        def to_h
+          {}
+        end
+      end
+    end
+  end
+
   def docs
     # TODO: app layout is still AV
 
@@ -150,8 +192,8 @@ class ViewsController < ApplicationController
         %(<a href="" class="#{options[:class]}">#{text}</a>)
       end
 
-      def initialize(left_toc_html:, version_options:)
-        @options = {left_toc_html: left_toc_html, documentation_title: version_options[:title]||raise }
+      def initialize(left_toc_html:, right_tocs_html:, version_options:)
+        @options = {left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, documentation_title: version_options[:title]||raise }
       end
 
       def to_h
@@ -160,6 +202,10 @@ class ViewsController < ApplicationController
 
       def toc_left
         @options[:left_toc_html]
+      end
+
+      def tocs_right
+        @options[:right_tocs_html]
       end
 
       def documentation_title
@@ -267,6 +313,7 @@ class ViewsController < ApplicationController
 
       render_activity: Render,
       application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
+      right_toc: {cell: Documentation::Cell::TocRight, template: Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb"), options: {controller: self}},
     )
 
     activity_content_html = pages[0].to_h["2.1"][:content]

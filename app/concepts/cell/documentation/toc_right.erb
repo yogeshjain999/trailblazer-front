@@ -1,0 +1,10 @@
+<div class="xl:block hidden bg-white pt-5 px-5 w-56 shrink-0 text-bg-blue h-screen" id="<%= css_id %>">
+  <h4 class="font-base font-bold leading-10 pl-2">
+    <%= h2.title %>
+  </h4>
+  <!-- bg-bg-orange to "highlight" the link -->
+  <% h2.items.each do |h3| %>
+    <%= link_to h3.title, "##{h3.id}", class: "documentation-right-nav-link" %>
+  <% end %>
+</div>
+

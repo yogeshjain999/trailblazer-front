@@ -28,19 +28,7 @@
         <div class="max-w-[57rem] lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue">
           <%= yield %>
         </div>
-        <div class="xl:block hidden bg-white pt-5 px-5 w-56 shrink-0 text-bg-blue h-screen" id="right-toc">
-          <h4 class="font-base font-bold leading-10 pl-2">
-            TaskWrap
-          </h4>
-          <%= link_to "Runtime", "#", class: "documentation-right-nav-link mt-2" %>
-          <%= link_to "Thema 02 zweizeilig mit Zeilenumbruch", "#", class: "documentation-right-nav-link bg-bg-orange" %>
-          <%= link_to "Thema 03", "#", class: "documentation-right-nav-link" %>
-          <%= link_to "Thema 04", "#", class: "documentation-right-nav-link" %>
-          <%= link_to "Thema 05", "#", class: "documentation-right-nav-link" %>
-          <%= link_to "Thema 06", "#", class: "documentation-right-nav-link" %>
-          <%= link_to "Thema 07", "#", class: "documentation-right-nav-link" %>
-          <%= link_to "Thema 08", "#", class: "documentation-right-nav-link" %>
-        </div>
+        <%= tocs_right %>
       </div>
     </div>
   </div>
