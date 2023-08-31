@@ -192,7 +192,7 @@ class ViewsController < ApplicationController
           title: "Activity",
           snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
           section_dir: "../website-NEW/app/concepts/documentation/page/snippet/activity",
-          target_file: "tmp/activity.html",
+          target_file: "public/2.1/docs/activity.html",
           target_url:  "/2.1/docs/activity/index.html",
           layout:      layout_options,
 
@@ -222,7 +222,7 @@ class ViewsController < ApplicationController
           title: "Macro",
           snippet_dir: "../trailblazer-macro/test/docs",
           section_dir: "../website-NEW/app/concepts/documentation/page/snippet/macro",
-          target_file: "tmp/macro.html",
+          target_file: "public/2.1/docs/macro.html",
           target_url: "/2.1/docs/macro/index.html",
           layout: layout_options,
 
@@ -244,7 +244,7 @@ class ViewsController < ApplicationController
           title: "Operation",
           snippet_dir: "../trailblazer-operation/test/docs",
           section_dir: "../website-NEW/app/concepts/documentation/page/snippet/operation",
-          target_file: "tmp/operation.html",
+          target_file: "public/2.1/docs/operation.html",
           target_url: "/2.1/docs/operation/index.html",
           layout: layout_options,
         }
@@ -253,10 +253,10 @@ class ViewsController < ApplicationController
     }
 
 
-    # raise helpers.image_tag( "info_icon.svg").inspect
     pages = Torture::Cms::DSL.(pages)
 
     pages = Torture::Cms::Site.new.render_pages(pages, section_cell: My::Cell::Section,
+    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
       section_cell_options: {
         controller: self,
         pre_attributes: Rails.application.config.tailwind.pre,
