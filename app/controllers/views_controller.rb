@@ -27,6 +27,7 @@ class ViewsController < ApplicationController
           _result = exec_context.(template: template) # returns {Result}.
         end
 
+# FIXME: remove? abstract?
         def call(template:, &block)
           html = ::Cell.render(template: template, exec_context: self, &block)
 
@@ -91,6 +92,50 @@ class ViewsController < ApplicationController
         end
 
         include H
+      end
+    end
+  end
+
+  class Render < Torture::Cms::Page::RenderOther
+    step :application_layout
+
+    def application_layout(ctx, content:, application_layout:, **options)
+      layout_cell_instance = application_layout[:cell].new(**application_layout[:options]) # DISCUSS: what options to hand in here?
+
+      result = ::Cell.({template: application_layout[:template], exec_context: layout_cell_instance}) { content }
+
+      ctx[:content] = result.to_s
+    end
+  end
+
+
+  module Application
+    module Cell
+      class Layout
+        def initialize(controller:, **options)
+          @options = options.merge(controller: controller)
+        end
+
+        [:csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags,
+
+          :link_to, :image_tag, # navbar.erb
+        ].each do |name|
+          define_method name do |*args, **kws, &block|
+            @options[:controller].helpers.send(name, *args, **kws, &block)
+          end
+        end
+
+        def navbar_link_to(text, path)
+          link_to text, path, class: "font-medium text-base uppercase hover:scale-110 lg:normal-case lg:font-semibold"
+        end
+
+        def render(template)
+          ::Cell.({template: template, exec_context: self}) # DISCUSS: does {render} always mean we want the same exec_context?
+        end
+
+        def to_h
+          {}
+        end
       end
     end
   end
@@ -219,12 +264,14 @@ class ViewsController < ApplicationController
       },
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+
+      render_activity: Render,
+      application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
     )
 
     activity_content_html = pages[0].to_h["2.1"][:content]
 
-    # Render documentation layout in app layout. :D
-    render html: activity_content_html.html_safe, layout: true
+    render html: activity_content_html.html_safe
   end
 
   def about;end
