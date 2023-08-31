@@ -173,7 +173,7 @@ class ViewsController < ApplicationController
       end
 
       def link_to(text, url, **options)
-        %(<a href="" class="#{options[:class]}">#{text}</a>)
+        %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
       end
 
       def to_h
