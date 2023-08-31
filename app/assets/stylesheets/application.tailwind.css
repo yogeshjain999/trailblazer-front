@@ -58,6 +58,6 @@
   }
 
   .documentation-right-nav-link {
-    @apply block px-2 leading-8 hover:scale-105;
+    @apply block px-2 leading-8;
   }
 }
