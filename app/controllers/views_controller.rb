@@ -1,11 +1,6 @@
 class ViewsController < ApplicationController
   def landing;end
-
-  def product;end
-
-  def documentation
-
-  end
+  def documentation;end
 
   require "cells"
   require "cells/__erb__"
@@ -96,34 +91,28 @@ class ViewsController < ApplicationController
     end
   end
 
-  class Render < Torture::Cms::Page::RenderOther
-    step :right_tocs, after: "Start.default"
-    step :application_layout
-
-    def application_layout(ctx, content:, application_layout:, **options)
-      layout_cell_instance = application_layout[:cell].new(**application_layout[:options]) # DISCUSS: what options to hand in here?
-
-      result = ::Cell.({template: application_layout[:template], exec_context: layout_cell_instance}) { content }
-
-      ctx[:content] = result.to_s
-    end
-
-    def right_tocs(ctx, headers:, right_toc:, **)
-      right_tocs =
-        headers[2].collect do |h2|
-          cell_instance = right_toc[:cell].new(h2: h2, **right_toc[:options]) # DISCUSS: what options to hand in here?
-
-          result = ::Cell.({template: right_toc[:template], exec_context: cell_instance})
-
-          result.to_s
-        end
-
-      ctx[:right_tocs_html] = right_tocs.join("\n")
-    end
-  end
 
 
   module Application
+    class Render < Torture::Cms::Page::RenderOther # TODO: better naming.
+      step :application_layout
+
+
+        # step Page.method(:render_cell).clone,
+        #   id: :left_toc,
+        #   In() => ->(ctx, layout:, level_1_headers:, **) { {cell: {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template]}, options_for_cell: {headers: level_1_headers}} },
+        #   Out() => {:content => :left_toc_html}
+
+
+      def application_layout(ctx, content:, application_layout:, **options)
+        layout_cell_instance = application_layout[:cell].new(**application_layout[:options]) # DISCUSS: what options to hand in here?
+
+        result = ::Cell.({template: application_layout[:template], exec_context: layout_cell_instance}) { content }
+
+        ctx[:content] = result.to_s
+      end
+    end
+
     module Cell
       class Layout
         def initialize(controller:, **options)
@@ -151,10 +140,65 @@ class ViewsController < ApplicationController
           {}
         end
       end
+
+      # This is delibarately a PORO, and not a cell, to play with the "exec_context" concept.
+      class Section # #Torture::Cms::Section
+        include Torture::Cms::Helper::Header # needs {headers}
+
+        def initialize(controller:, **options)
+          @options = options.merge(controller: controller)
+        end
+
+#         def self.call(template:, exec_context:)
+#           # html = super
+#           _result = exec_context.(template: template) # returns {Result}.
+#         end
+
+# # FIXME: remove? abstract?
+#         def call(template:, &block)
+#           html = ::Cell.render(template: template, exec_context: self, &block)
+
+#           # DISCUSS: make this optional?
+#           ::Cell::Result.new(
+#             content: html,
+#             **to_h,
+#           ).freeze
+#         end
+
+        def to_h
+          {
+            headers: @options[:headers]
+          }
+        end
+      end
     end
   end
 
   module Documentation
+    class Render < Application::Render # TODO: better naming.
+      step :right_tocs, after: "Start.default"
+      step Torture::Cms::Page.method(:render_cell),
+          # id: :render_page,
+          replace: :render_page,
+          # inherit: [:variable_mapping],
+          # In() => [:right_tocs_html]
+          # TODO: allow adding to {options_for_cell} instead of repeating In() from Cms::Page.
+          In() => ->(ctx, layout:, left_toc_html:, right_tocs_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options}} }
+
+      def right_tocs(ctx, headers:, right_toc:, **)
+        right_tocs =
+          headers[2].collect do |h2|
+            cell_instance = right_toc[:cell].new(h2: h2, **right_toc[:options]) # DISCUSS: what options to hand in here?
+
+            result = ::Cell.({template: right_toc[:template], exec_context: cell_instance})
+
+            result.to_s
+          end
+
+        ctx[:right_tocs_html] = right_tocs.join("\n")
+      end
+    end
+
     module Cell
       class TocRight
         def initialize(controller:, h2:, **options)
@@ -179,57 +223,55 @@ class ViewsController < ApplicationController
           {}
         end
       end
+
+      class Layout
+        def link_to(text, url, **options)
+          %(<a href="" class="#{options[:class]}">#{text}</a>)
+        end
+
+        def initialize(left_toc_html:, right_tocs_html:, version_options:)
+          @options = {left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, documentation_title: version_options[:title]||raise }
+        end
+
+        def to_h
+          {}
+        end
+
+        def toc_left
+          @options[:left_toc_html]
+        end
+
+        def tocs_right
+          @options[:right_tocs_html]
+        end
+
+        def documentation_title
+          @options[:documentation_title]
+        end
+      end
+
+      class TocLeft
+        def initialize(headers:)
+          @options = {headers: headers}
+        end
+
+        def link_to(text, url, **options)
+          %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
+        end
+
+        def to_h
+          {}
+        end
+      end
     end
   end
 
   def docs
-    # TODO: app layout is still AV
-
     doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
-
-    doc_layout_cell = Class.new do
-      def link_to(text, url, **options)
-        %(<a href="" class="#{options[:class]}">#{text}</a>)
-      end
-
-      def initialize(left_toc_html:, right_tocs_html:, version_options:)
-        @options = {left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, documentation_title: version_options[:title]||raise }
-      end
-
-      def to_h
-        {}
-      end
-
-      def toc_left
-        @options[:left_toc_html]
-      end
-
-      def tocs_right
-        @options[:right_tocs_html]
-      end
-
-      def documentation_title
-        @options[:documentation_title]
-      end
-    end
-
-    left_toc = Class.new do
-      def initialize(headers:)
-        @options = {headers: headers}
-      end
-
-      def link_to(text, url, **options)
-        %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
-      end
-
-      def to_h
-        {}
-      end
-    end
 
     left_toc_template = Cell::Erb::Template.new("app/concepts/cell/documentation/toc_left.erb")
 
-    layout_options = {cell: doc_layout_cell, template: doc_layout_template, left_toc: {cell: left_toc, template: left_toc_template}}
+    layout_options = {context_class: Documentation::Cell::Layout, template: doc_layout_template, left_toc: {context_class: Documentation::Cell::TocLeft, template: left_toc_template}}
 
     pages = {
       "activity" => {
@@ -311,10 +353,52 @@ class ViewsController < ApplicationController
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
-      render_activity: Render,
+      render_activity: Documentation::Render,
       application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
       right_toc: {cell: Documentation::Cell::TocRight, template: Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb"), options: {controller: self}},
     )
+
+    activity_content_html = pages[0].to_h["2.1"][:content]
+
+    render html: activity_content_html.html_safe
+  end
+
+  def product
+    # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
+    # layout_options = {cell: Documentation::Cell::Layout, template: doc_layout_template}
+
+    pages = {
+      "pro_page" => {
+        toc_title: "Trailblazer PRO",
+        "2.1" => {
+          title: "Trailblazer PRO",
+          snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+          section_dir: "sections/page",
+          target_file: "public/2.1/pro.html",
+          target_url:  "/2.1/pro.html",
+          # layout:      layout_options,
+
+          "pro.md.erb" => { snippet_file: nil },
+        }
+      },
+    }
+
+    pages = Torture::Cms::DSL.(pages)
+
+    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: Application::Cell::Section,
+    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
+      section_cell_options: {
+        controller: self,
+      },
+      layout: {},
+
+      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+
+      render_activity: Application::Render,
+      application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
+    )
+
+    raise pages[0].to_h["2.1"].inspect
 
     activity_content_html = pages[0].to_h["2.1"][:content]
 
