@@ -1,5 +1,4 @@
 class ViewsController < ApplicationController
-  def landing;end
   def documentation;end
 
   require "cells"
@@ -91,10 +90,18 @@ class ViewsController < ApplicationController
     end
   end
 
-
-
   module Application
-    class Render < Torture::Cms::Page::RenderOther # TODO: better naming.
+    class Render < Trailblazer::Activity::Railway
+      # Render left_toc.
+      step Torture::Cms::Page.method(:render_cell).clone,
+        id: :left_toc,
+        In() => ->(ctx, layout:, level_1_headers:, **) { {cell: {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template]}, options_for_cell: {headers: level_1_headers}} },
+        Out() => {:content => :left_toc_html}
+
+      # Render "page layout" (not the app layout).
+      step Torture::Cms::Page.method(:render_cell),
+        id: :render_page,
+        In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
       step :application_layout
 
 
@@ -274,6 +281,7 @@ class ViewsController < ApplicationController
     layout_options = {context_class: Documentation::Cell::Layout, template: doc_layout_template, left_toc: {context_class: Documentation::Cell::TocLeft, template: left_toc_template}}
 
     pages = {
+      render: Documentation::Render,
       "activity" => {
         toc_title: "Activity",
         "2.1" => {
@@ -353,7 +361,6 @@ class ViewsController < ApplicationController
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
-      render_activity: Documentation::Render,
       application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
       right_toc: {cell: Documentation::Cell::TocRight, template: Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb"), options: {controller: self}},
     )
@@ -363,8 +370,15 @@ class ViewsController < ApplicationController
     render html: activity_content_html.html_safe
   end
 
+  class RenderLanding < Trailblazer::Activity::Railway
+    # Render "page layout" (not the app layout).
+    step Torture::Cms::Page.method(:render_cell),
+      id: :render_page,
+      In() => ->(ctx, controller:, page_template:, page_cell:, **options) { {cell: {context_class: page_cell, template: page_template}, options_for_cell: {yield_block: nil, controller: controller}} }
 
-  class RenderPro < Trailblazer::Activity::Railway
+  end
+
+  class RenderPro < RenderLanding
     class Cell
       def initialize(**options)
         @options = options
@@ -381,18 +395,13 @@ class ViewsController < ApplicationController
       end
     end
 
-
-    # Render "page layout" (not the app layout).
-    step Torture::Cms::Page.method(:render_cell),
-      id: :render_page,
-      In() => ->(ctx, controller:, **options) { {cell: {context_class: Cell, template: ::Cell::Erb::Template.new("app/concepts/cell/pro/pro.erb")}, options_for_cell: {yield_block: nil, controller: controller}} }
-
-    step Torture::Cms::Page.method(:render_cell),
+    step Torture::Cms::Page.method(:render_cell).clone,
       id: :render_application_layout,
       In() => ->(ctx, controller:, content:, **options) {
         {cell: {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb")},
         options_for_cell: {yield_block: content, controller: controller}} }
   end
+
 
   def product
     # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
@@ -408,26 +417,55 @@ class ViewsController < ApplicationController
           target_file: "public/2.1/pro.html",
           target_url:  "/2.1/pro.html",
           # layout:      layout_options,
-
-          "pro.md.erb" => { snippet_file: nil },
+          render: RenderPro,
         }
       },
     }
 
     pages = Torture::Cms::DSL.(pages)
 
-    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: Application::Cell::Section,
-    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
-      section_cell_options: {
-        controller: self,
-      },
-      layout: {},
+    pages = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
+
+      page_template: ::Cell::Erb::Template.new("app/concepts/cell/pro/pro.erb"),
+      page_cell:     RenderPro::Cell,
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
-      render_activity: RenderPro,
       # application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
+    )
+
+    # raise pages[0].to_h["2.1"].inspect
+
+    activity_content_html = pages[0].to_h["2.1"][:content]
+
+    render html: activity_content_html.html_safe
+  end
+
+  def landing
+    pages = {
+      "landing" => {
+        toc_title: "Trailblazer",
+        "2.1" => {
+          title: "Trailblazer",
+          snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+          section_dir: "sections/page",
+          target_file: "public/2.1/pro.html",
+          target_url:  "/2.1/pro.html",
+          render:      RenderLanding, # no layout, nothing!
+        }
+      },
+    }
+
+    pages = Torture::Cms::DSL.(pages)
+
+    pages = Torture::Cms::Site.new.render_pages(pages,
+    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
+      controller: self,
+      page_template: ::Cell::Erb::Template.new("app/concepts/cell/landing/landing.erb"),
+      page_cell:     RenderPro::Cell,
+
+      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
     )
 
     # raise pages[0].to_h["2.1"].inspect
