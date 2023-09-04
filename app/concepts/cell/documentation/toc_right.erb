@@ -5,6 +5,10 @@
   <!-- bg-bg-orange to "highlight" the link -->
   <% h2.items.each do |h3| %>
     <%= link_to h3.title, "##{h3.id}", class: "documentation-right-nav-link" %>
+
+    <% h3.items.each do |h4| %>
+      <%= link_to h4.title, "##{h4.id}", class: "documentation-right-nav-link text-grey" %>
+    <% end %>
   <% end %>
 </div>
 
