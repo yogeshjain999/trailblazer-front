@@ -363,6 +363,37 @@ class ViewsController < ApplicationController
     render html: activity_content_html.html_safe
   end
 
+
+  class RenderPro < Trailblazer::Activity::Railway
+    class Cell
+      def initialize(**options)
+        @options = options
+      end
+
+      [:image_tag, :link_to].each do |name|
+        define_method name do |*args, **kws, &block|
+          @options[:controller].helpers.send(name, *args, **kws, &block)
+        end
+      end
+
+      def to_h
+        {}
+      end
+    end
+
+
+    # Render "page layout" (not the app layout).
+    step Torture::Cms::Page.method(:render_cell),
+      id: :render_page,
+      In() => ->(ctx, controller:, **options) { {cell: {context_class: Cell, template: ::Cell::Erb::Template.new("app/concepts/cell/pro/pro.erb")}, options_for_cell: {yield_block: nil, controller: controller}} }
+
+    step Torture::Cms::Page.method(:render_cell),
+      id: :render_application_layout,
+      In() => ->(ctx, controller:, content:, **options) {
+        {cell: {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb")},
+        options_for_cell: {yield_block: content, controller: controller}} }
+  end
+
   def product
     # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
     # layout_options = {cell: Documentation::Cell::Layout, template: doc_layout_template}
@@ -391,14 +422,15 @@ class ViewsController < ApplicationController
         controller: self,
       },
       layout: {},
+      controller: self,
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
-      render_activity: Application::Render,
-      application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
+      render_activity: RenderPro,
+      # application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
     )
 
-    raise pages[0].to_h["2.1"].inspect
+    # raise pages[0].to_h["2.1"].inspect
 
     activity_content_html = pages[0].to_h["2.1"][:content]
 
