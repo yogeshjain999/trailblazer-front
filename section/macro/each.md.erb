@@ -101,7 +101,7 @@ If not configured, a failing iterated step leads the entire iteration to be stop
 
 You can still access `ctx[:collected_from_each]` for each iterated block. Note that you can even see which iteration failed in the trace!
 
-<%= vite_image_tag "images/each-failure-trace.png", class: "mx-auto d-block" %>
+<%= image_tag "each-failure-trace.png" %>
 
 In combination with TRB's debugger, this gives you a powerful tool for finding bugs in your code or understanding the flow, without having to jump around through iterations using `pry` or other tools.
 
@@ -116,7 +116,7 @@ You can use tracing with `Each()`.
 
 Note that a virtual step `invoke_block_activity` is displayed to group the iterations, suffixed with the number of the iteration.
 
-<%= vite_image_tag "images/each-trace.png", class: "mx-auto d-block" %>
+<%= image_tag "each-trace.png" %>
 
 TODO: show how runtime data can be accessed for each iterated block.
 

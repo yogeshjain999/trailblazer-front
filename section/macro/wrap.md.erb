@@ -20,7 +20,7 @@ Here, we simply return the original signal of the wrapped activity.
 
 Note that internally `#update` and `#transfer` are put into a separate activity. The terminus reached in that activity is the signal.
 
-<%= vite_image_tag "images/wrap.png", class: "mx-auto d-block" %>
+<%= image_tag "wrap.png" %>
 
 Given that both `#update` and `#transfer` are railway steps, the wrapped code can terminate in a `success` terminus, or a `failure`.
 Now, it's your handler that is responsible to interpret that. In the example above, we simply pass on the wrapped activity's terminal signal, making the `Upload` activity either continue from `success` or from `failure`.
@@ -33,7 +33,7 @@ Let's assume the `#transfer` step had a custom output that goes to a super-speci
 
 The resulting wrapped activity now has three termini.
 
-<%= vite_image_tag "images/wrap-timeout.png", class: "mx-auto d-block" %>
+<%= image_tag "wrap-timeout.png" %>
 
 
 
@@ -43,7 +43,7 @@ With our handler, which simply returns the wrapped activity's signal, it's possi
 
 Here's what the circuit would look like.
 
-<%= vite_image_tag "images/wrap-route.png", class: "mx-auto d-block" %>
+<%= image_tag "wrap-route.png" %>
 
 <%= h3 "Transaction" %>
 
@@ -80,7 +80,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Upload, params: {id: 1})
 
 The trace per default shows Wrap's ID.
 
-<%= vite_image_tag "images/wrap-trace.png", class: "mx-auto d-block" %>
+<%= image_tag "wrap-trace.png" %>
 
 <%= h4 "Introspect" %>
 

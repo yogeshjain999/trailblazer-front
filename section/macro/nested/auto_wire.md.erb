@@ -8,7 +8,7 @@ The `:auto_wire` option expects an array of nested activities. While this might 
 
 You can use any type of decider step. In this example, it's a instance method `#decide_file_type` on the `Nested()`-hosting class.
 
-<%= vite_image_tag "images/nested-static-create.png", class: "mx-auto d-block" %>
+<%= image_tag "nested-static-create.png" %>
 
 Internally, the "auto-wire" `Nested()` macro simply returns a small activity as illustrated above in gray. It has a `decide` step to figure out which nested activity to run, then runs the actual nested activity. All well-known termini (success, failure, pass_fast, fail_fast) of the nested activities are automatically connected to the `Nested()`'s activity's termini.
 
@@ -20,7 +20,7 @@ Given we had a nested activity `VorbisComment` implemented like so.
 
 If the `#encode_cover` step fails, the activity will stop in the `End.unsupported_file_format` terminus - an end event very specific to the `VorbisComment` activity.
 
-<%= vite_image_tag "images/nested-static-vorbiscomment.png", class: "mx-auto d-block" %>
+<%= image_tag "nested-static-vorbiscomment.png" %>
 
 This new terminus has to be wired explicitely in the nesting activity.
 
@@ -31,7 +31,7 @@ Using `Output(:unsupported_file_type)` from the Wiring API you can connect this 
 The complete activity graph would look a bit like the following diagram.
 
 
-<%= vite_image_tag "images/nested-static-complete.png", class: "mx-auto d-block" %>
+<%= image_tag "nested-static-complete.png" %>
 
 <%= h3 "Compliance" %>
 
@@ -45,7 +45,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Create, params: {type: "vorbis"})
 
 The above examples result in a flow as follows.
 
-<%= vite_image_tag "images/nested-static-trace.png", class: "mx-auto d-block" %>
+<%= image_tag "nested-static-trace.png" %>
 
 <%= h4 "Introspect" %>
 

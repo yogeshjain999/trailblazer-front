@@ -4,7 +4,7 @@ Working with `Subprocess` and nested activities is a great way to encapsulate an
 
 Suppose the following 3-level nested activity.
 
-<%= vite_image_tag "images/patch.png", class: "mx-auto d-block", width: "63%" %>
+<%= image_tag "patch.png", width: "63%" %>
 
 The public operation `Destroy` contains `Delete` as a nested activity, which itself contains `DeleteAssets`. In order to customize the latter one and add another step `tidy_storage`, you'd normally have to subclass all three activities and override steps.
 
@@ -24,7 +24,7 @@ patch(:delete, :delete_assets) { ... }
 
 The provided block is executed within that targeted activity and executed as if you'd extend that class. However, the entire modification will only change `Erase`, all other traversed activities are copied and then modified, leaving the original implemenation unchanged.
 
-<%= vite_image_tag "images/patch-trace.png", class: "mx-auto d-block" %>
+<%= image_tag "patch-trace.png" %>
 
 The `#patch` method is perfect when using inheritance to first copy over behavior and control flow, and then fine-tune it for the specific use case.
 

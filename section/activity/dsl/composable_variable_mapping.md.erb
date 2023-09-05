@@ -54,7 +54,7 @@ Picking up the example from above, here's how a mapping hash "translates" the se
 
 The `In()` filter will result in `:current_user` being renamed to `:user`. Since the policy step also needs `:model` we need to mention this variable as well, no renaming happening here. The beauty of I/O: this is only visible to `Policy::Create`!
 
-<%= vite_image_tag "images/ctx-in.png", class: "mx-auto d-block" %>
+<%= image_tag "ctx-in.png" %>
 
 To instantly see what new ctx is passed into the configured step, you could replace the original policy step with a `#show_ctx` method.
 
@@ -116,7 +116,7 @@ Keep in mind that when not defaulting the keyword argument your filter might cra
 
 Without any output configuration on the exemplary policy step, any variable written to `ctx` will be automatically set on the outer ctx, passing along internal variabes to the following step.
 
-<%= vite_image_tag "images/ctx-out-all.png", class: "mx-auto d-block" %>
+<%= image_tag "ctx-out-all.png" %>
 
 Here, both `:status` and `:message` variables that were written in `Policy::Create` are passed into the outer ctx. The behavior is identical to the way before you were using i/o.
 
@@ -140,7 +140,7 @@ In order to limit variables added to the outer ctx, `Out()` accepts an array sim
 
 This single `Out()` usage will result in only the `:message` variable being written to the outer ctx that is passed on. The `:status` variable is discarded.
 
-<%= vite_image_tag "images/ctx-out.png", class: "mx-auto d-block" %>
+<%= image_tag "ctx-out.png" %>
 
 You may pass any number of variables in the limiting array.
 

@@ -16,11 +16,6 @@ class ViewsController < ApplicationController
           @options = options.merge(controller: controller)
         end
 
-        def self.call(template:, exec_context:)
-          # html = super
-          _result = exec_context.(template: template) # returns {Result}.
-        end
-
         def to_h
           {
             headers: @options[:headers]
@@ -32,14 +27,6 @@ class ViewsController < ApplicationController
         end
         def api(*) # FIXME: implement
 
-        end
-
-        # TODO: make that {image_tag intermediate.png}.
-        def vite_image_tag(filename, **options)
-          filename = filename.sub("images/", "")
-
-          # FIXME: implement etc
-          @options[:controller].helpers.image_tag(filename)
         end
 
             # = image_tag "info_icon.svg"
@@ -61,6 +48,13 @@ class ViewsController < ApplicationController
   #{yield}
 </p>
 </div>)
+        end
+
+        [:image_tag
+        ].each do |name|
+          define_method name do |*args, **kws, &block|
+            @options[:controller].helpers.send(name, *args, **kws, &block)
+          end
         end
 
         module H

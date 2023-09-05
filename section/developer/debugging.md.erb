@@ -22,7 +22,7 @@ When working with a `Trailblazer::Operation` simply invoke its `#wtf?` method.
 
 On the console, you can see the printed trace in all its beauty.
 
-<%= vite_image_tag "images/wtf-trace-nice.png", class: "mx-auto d-block" %>
+<%= image_tag "wtf-trace-nice.png" %>
 
 This method is especially helpful if you want to
 
@@ -34,7 +34,7 @@ This method is especially helpful if you want to
 
 In case of an exception somewhere in the operation or its nested activities, `wtf?` will print the trace path to the closest point where the exception was thrown.
 
-<%= vite_image_tag "images/wtf-exception.png", class: "mx-auto d-block" %>
+<%= image_tag "wtf-exception.png" %>
 
 The original exception will be visible on the console, too.
 
@@ -67,7 +67,7 @@ As always with `Activity` subclasses, it operates with the [circuit interface](a
 
 The `color_map` option allows you to customize default coloring scheme being used to render passed or failed steps.
 
-<%= vite_image_tag "images/wtf-color-map.webp", class: "mx-auto d-block" %>
+<%= image_tag "wtf-color-map.webp" %>
 
 <%= h3 "Render" %>
 
