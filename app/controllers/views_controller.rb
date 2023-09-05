@@ -1,12 +1,19 @@
 class ViewsController < ApplicationController
-  def documentation;end
-
   require "cells"
   require "cells/__erb__"
   require "torture/cms"
 
   module My
     module Cell
+      def self.delegate_to_controller_helpers(target, *methods) # FIXME: move to cells gem
+        methods.each do |name|
+          target.define_method name do |*args, **kws, &block|
+            @options[:controller].helpers.send(name, *args, **kws, &block)
+          end
+        end
+      end
+
+
       # This is delibarately a PORO, and not a cell, to play with the "exec_context" concept.
       class Section # #Torture::Cms::Section
         include Torture::Cms::Helper::Header # needs {headers}
@@ -50,12 +57,7 @@ class ViewsController < ApplicationController
 </div>)
         end
 
-        [:image_tag
-        ].each do |name|
-          define_method name do |*args, **kws, &block|
-            @options[:controller].helpers.send(name, *args, **kws, &block)
-          end
-        end
+        My::Cell.delegate_to_controller_helpers(self, :image_tag)
 
         module H
           def h2(*args, **options)
@@ -109,12 +111,7 @@ class ViewsController < ApplicationController
           @options = options.merge(controller: controller)
         end
 
-        [:csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags
-        ].each do |name|
-          define_method name do |*args, **kws, &block|
-            @options[:controller].helpers.send(name, *args, **kws, &block)
-          end
-        end
+        My::Cell.delegate_to_controller_helpers(self, :csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags)
 
         def to_h
           {}
@@ -128,12 +125,7 @@ class ViewsController < ApplicationController
             @options = options.merge(controller: controller)
           end
 
-          [:link_to, :image_tag, # navbar.erb
-          ].each do |name|
-            define_method name do |*args, **kws, &block|
-              @options[:controller].helpers.send(name, *args, **kws, &block)
-            end
-          end
+          My::Cell.delegate_to_controller_helpers(self, :link_to, :image_tag) # navbar.erb
 
           def render(template)
             ::Cell.({template: template, exec_context: self}) # DISCUSS: does {render} always mean we want the same exec_context?
@@ -158,22 +150,6 @@ class ViewsController < ApplicationController
         def initialize(controller:, **options)
           @options = options.merge(controller: controller)
         end
-
-#         def self.call(template:, exec_context:)
-#           # html = super
-#           _result = exec_context.(template: template) # returns {Result}.
-#         end
-
-# # FIXME: remove? abstract?
-#         def call(template:, &block)
-#           html = ::Cell.render(template: template, exec_context: self, &block)
-
-#           # DISCUSS: make this optional?
-#           ::Cell::Result.new(
-#             content: html,
-#             **to_h,
-#           ).freeze
-#         end
 
         def to_h
           {
@@ -215,11 +191,7 @@ class ViewsController < ApplicationController
           @options = options.merge(controller: controller, h2: h2)
         end
 
-        [:link_to].each do |name|
-          define_method name do |*args, **kws, &block|
-            @options[:controller].helpers.send(name, *args, **kws, &block)
-          end
-        end
+        My::Cell.delegate_to_controller_helpers(self, :link_to)
 
         def h2
           @options[:h2]
@@ -392,11 +364,7 @@ class ViewsController < ApplicationController
         @options = options
       end
 
-      [:image_tag, :link_to].each do |name|
-        define_method name do |*args, **kws, &block|
-          @options[:controller].helpers.send(name, *args, **kws, &block)
-        end
-      end
+      My::Cell.delegate_to_controller_helpers(self, :image_tag, :link_to)
 
       def to_h
         {}
