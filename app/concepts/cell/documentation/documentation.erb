@@ -25,14 +25,17 @@
         </span>
       </div> -->
       <div class="xl:flex xl:gap-0.5 mt-5">
-        <div class="max-w-[57rem] lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue" id="documentation">
           <%= yield %>
         </div>
-        <%= tocs_right %>
+        <div class="relative" id="right-toc">
+          <%= tocs_right %>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="px-10 py-22 bg-bg-purple-3">
   <h2 class="section-header font-bold">
     Is there anything unanswered?
