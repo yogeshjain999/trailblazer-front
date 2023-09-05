@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/apotonick/torture-server.git
-  revision: 7a05c6f6ceb6c9891eb0b35394c85a1303310869
+  revision: 1f504cce1ae2180b37cd4323b4099033600686fb
   branch: cms
   specs:
     torture-server (0.1.0)
