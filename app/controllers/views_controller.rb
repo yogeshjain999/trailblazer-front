@@ -302,7 +302,7 @@ class ViewsController < ApplicationController
         "2.1" => {
           title: "Activity",
           snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-          section_dir: "../website-NEW/app/concepts/documentation/page/snippet/activity",
+          section_dir: "section/activity",
           target_file: "public/2.1/docs/activity.html",
           target_url:  "/2.1/docs/activity/index.html",
           layout:      layout_options,
@@ -322,7 +322,7 @@ class ViewsController < ApplicationController
           "internals/introspect.md.erb" => { snippet_file: "introspect_test.rb" },
           "interfaces.md.erb" => { snippet_file: "activity_test.rb" },
           "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
-          "troubleshooting.md.erb" => {section_dir: "../website-NEW/app/concepts/documentation/page/snippet/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
+          "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
           "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
         }
       },
@@ -332,7 +332,7 @@ class ViewsController < ApplicationController
         "2.1" => {
           title: "Macro",
           snippet_dir: "../trailblazer-macro/test/docs",
-          section_dir: "../website-NEW/app/concepts/documentation/page/snippet/macro",
+          section_dir: "section/macro",
           target_file: "public/2.1/docs/macro.html",
           target_url: "/2.1/docs/macro/index.html",
           layout: layout_options,
@@ -354,7 +354,7 @@ class ViewsController < ApplicationController
         "2.1" => {
           title: "Operation",
           snippet_dir: "../trailblazer-operation/test/docs",
-          section_dir: "../website-NEW/app/concepts/documentation/page/snippet/operation",
+          section_dir: "section/operation",
           target_file: "public/2.1/docs/operation.html",
           target_url: "/2.1/docs/operation/index.html",
           layout: layout_options,
