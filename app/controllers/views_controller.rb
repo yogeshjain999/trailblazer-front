@@ -21,17 +21,6 @@ class ViewsController < ApplicationController
           _result = exec_context.(template: template) # returns {Result}.
         end
 
-# FIXME: remove? abstract?
-        def call(template:, &block)
-          html = ::Cell.render(template: template, exec_context: self, &block)
-
-          # DISCUSS: make this optional?
-          ::Cell::Result.new(
-            content: html,
-            **to_h,
-          ).freeze
-        end
-
         def to_h
           {
             headers: @options[:headers]
