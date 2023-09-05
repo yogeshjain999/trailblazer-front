@@ -103,20 +103,18 @@ class ViewsController < ApplicationController
         id: :render_page,
         In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
 
-      step :application_layout
+      # application_layout
+      step Torture::Cms::Page.method(:render_cell).clone,
+        id: :application_layout,
+        In() => ->(ctx, content:, controller:, application_layout:, **) { {
+          cell: {context_class: application_layout[:cell], template: application_layout[:template]},
+          options_for_cell: {yield_block: content, controller: controller}} }
+
 
       # HTML level layout with {stylesheet_link_tag} etc
       step Torture::Cms::Page.method(:render_cell).clone,
         id: :container_layout,
         In() => ->(ctx, content:, controller:, **) { {cell: {context_class: Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb")}, options_for_cell: {yield_block: content, controller: controller}} }
-
-      def application_layout(ctx, content:, application_layout:, **options)
-        layout_cell_instance = application_layout[:cell].new(**application_layout[:options]) # DISCUSS: what options to hand in here?
-
-        result = ::Cell.({template: application_layout[:template], exec_context: layout_cell_instance}) { content }
-
-        ctx[:content] = result.to_s
-      end
     end
 
     module Cell
