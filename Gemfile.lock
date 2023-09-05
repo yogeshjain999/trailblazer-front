@@ -1,17 +1,20 @@
 GIT
-  remote: https://github.com/trailblazer/cells.git
-  revision: 2a295b05ce1d8f6151de5eaefea105017a297ffe
-  branch: cells-5
-  specs:
-    cells (5.0.0.alpha1)
-      tilt (~> 2.1.0)
-
-PATH
-  remote: ../torture-server
+  remote: https://github.com/apotonick/torture-server.git
+  revision: 7a05c6f6ceb6c9891eb0b35394c85a1303310869
+  branch: cms
   specs:
     torture-server (0.1.0)
       kramdown
       minitest-line
+      trailblazer-activity-dsl-linear
+
+GIT
+  remote: https://github.com/trailblazer/cells.git
+  revision: 3e87c147b0595555ef4b1e929da8d18f896bece3
+  branch: cells-5
+  specs:
+    cells (5.0.0.alpha1)
+      tilt (~> 2.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -61,6 +64,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -127,6 +131,16 @@ GEM
     thor (1.2.2)
     tilt (2.1.0)
     torture (0.0.2)
+    trailblazer-activity (0.16.1)
+      trailblazer-context (~> 0.5.0)
+      trailblazer-option (~> 0.1.0)
+    trailblazer-activity-dsl-linear (1.2.4)
+      trailblazer-activity (>= 0.16.0, < 0.17.0)
+      trailblazer-declarative (>= 0.0.1, < 0.1.0)
+    trailblazer-context (0.5.1)
+      hashie (>= 3.0.0)
+    trailblazer-declarative (0.0.2)
+    trailblazer-option (0.1.2)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     web-console (4.2.0)
