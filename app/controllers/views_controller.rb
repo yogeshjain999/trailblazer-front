@@ -83,26 +83,26 @@ class ViewsController < ApplicationController
       # Render left_toc.
       step Torture::Cms::Page.method(:render_cell).clone,
         id: :left_toc,
-        In() => ->(ctx, layout:, level_1_headers:, **) { {cell: {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template]}, options_for_cell: {headers: level_1_headers}} },
+        In() => ->(ctx, layout:, level_1_headers:, **) { {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template], options_for_cell: {headers: level_1_headers}} },
         Out() => {:content => :left_toc_html}
 
       # Render "page layout" (not the app layout).
       step Torture::Cms::Page.method(:render_cell),
         id: :render_page,
-        In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
+        In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {**layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
 
       # application_layout
       step Torture::Cms::Page.method(:render_cell).clone,
         id: :application_layout,
         In() => ->(ctx, content:, controller:, application_layout:, **) { {
-          cell: {context_class: application_layout[:cell], template: application_layout[:template]},
+          context_class: application_layout[:cell], template: application_layout[:template],
           options_for_cell: {yield_block: content, controller: controller}} }
 
 
       # HTML level layout with {stylesheet_link_tag} etc
       step Torture::Cms::Page.method(:render_cell).clone,
         id: :container_layout,
-        In() => ->(ctx, content:, controller:, **) { {cell: {context_class: Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb")}, options_for_cell: {yield_block: content, controller: controller}} }
+        In() => ->(ctx, content:, controller:, **) { {context_class: Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb"), options_for_cell: {yield_block: content, controller: controller}} }
     end
 
     module Cell
@@ -169,7 +169,7 @@ class ViewsController < ApplicationController
           # inherit: [:variable_mapping],
           # In() => [:right_tocs_html]
           # TODO: allow adding to {options_for_cell} instead of repeating In() from Cms::Page.
-          In() => ->(ctx, layout:, left_toc_html:, right_tocs_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options}} }
+          In() => ->(ctx, layout:, left_toc_html:, right_tocs_html:, content:, **options) { {**layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options}} }
 
       def right_tocs(ctx, headers:, right_toc:, **)
         right_tocs =
@@ -241,7 +241,7 @@ class ViewsController < ApplicationController
           %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
         end
 
-        def to_h
+        def to_h # FIXME: why are we not returning headers here?
           {}
         end
       end
@@ -351,11 +351,11 @@ class ViewsController < ApplicationController
     # Render "page layout" (not the app layout).
     step Torture::Cms::Page.method(:render_cell),
       id: :render_page,
-      In() => ->(ctx, controller:, page_template:, page_cell:, **options) { {cell: {context_class: page_cell, template: page_template}, options_for_cell: {yield_block: nil, controller: controller}} }
+      In() => ->(ctx, controller:, page_template:, page_cell:, **options) { {context_class: page_cell, template: page_template, options_for_cell: {yield_block: nil, controller: controller}} }
 
     step Torture::Cms::Page.method(:render_cell).clone,
         id: :container_layout,
-        In() => ->(ctx, content:, controller:, **) { {cell: {context_class: Application::Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb")}, options_for_cell: {yield_block: content, controller: controller}} }
+        In() => ->(ctx, content:, controller:, **) { {context_class: Application::Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb"), options_for_cell: {yield_block: content, controller: controller}} }
   end
 
   class RenderPro < RenderLanding
@@ -374,7 +374,7 @@ class ViewsController < ApplicationController
     step Torture::Cms::Page.method(:render_cell).clone,
       id: :render_application_layout,
       In() => ->(ctx, controller:, content:, **options) {
-        {cell: {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb")},
+        {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"),
         options_for_cell: {yield_block: content, controller: controller}} }
 
 
