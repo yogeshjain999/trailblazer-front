@@ -45,9 +45,12 @@ class ViewsController < ApplicationController
 
         end
 
+        # TODO: make that {image_tag intermediate.png}.
+        def vite_image_tag(filename, **options)
+          filename = filename.sub("images/", "")
 
-        def vite_image_tag(*)
           # FIXME: implement etc
+          @options[:controller].helpers.image_tag(filename)
         end
 
             # = image_tag "info_icon.svg"
