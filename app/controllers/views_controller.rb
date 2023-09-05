@@ -139,27 +139,32 @@ class ViewsController < ApplicationController
       end
 
       class Layout
-        def initialize(controller:, **options)
-          @options = options.merge(controller: controller)
-        end
+        # TODO: abstract into cells-5.
+        module Render
+          def initialize(controller:, **options)
+            @options = options.merge(controller: controller)
+          end
 
-        [:link_to, :image_tag, # navbar.erb
-        ].each do |name|
-          define_method name do |*args, **kws, &block|
-            @options[:controller].helpers.send(name, *args, **kws, &block)
+          [:link_to, :image_tag, # navbar.erb
+          ].each do |name|
+            define_method name do |*args, **kws, &block|
+              @options[:controller].helpers.send(name, *args, **kws, &block)
+            end
+          end
+
+          def render(template)
+            ::Cell.({template: template, exec_context: self}) # DISCUSS: does {render} always mean we want the same exec_context?
+          end
+
+          def to_h
+            {}
           end
         end
 
+        include Render
+
         def navbar_link_to(text, path)
           link_to text, path, class: "font-medium text-base uppercase hover:scale-110 lg:normal-case lg:font-semibold"
-        end
-
-        def render(template)
-          ::Cell.({template: template, exec_context: self}) # DISCUSS: does {render} always mean we want the same exec_context?
-        end
-
-        def to_h
-          {}
         end
       end
 
@@ -425,6 +430,13 @@ class ViewsController < ApplicationController
   end
 
 
+  module Landing
+    class Cell
+      include Application::Cell::Layout::Render
+    end
+  end
+
+
   def product
     # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
     # layout_options = {cell: Documentation::Cell::Layout, template: doc_layout_template}
@@ -485,7 +497,7 @@ class ViewsController < ApplicationController
     # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
       controller: self,
       page_template: ::Cell::Erb::Template.new("app/concepts/cell/landing/landing.erb"),
-      page_cell:     RenderPro::Cell,
+      page_cell:     Landing::Cell,
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
     )
