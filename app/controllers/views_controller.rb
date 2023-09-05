@@ -102,14 +102,13 @@ class ViewsController < ApplicationController
       step Torture::Cms::Page.method(:render_cell),
         id: :render_page,
         In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {cell: layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
+
       step :application_layout
 
-
-        # step Page.method(:render_cell).clone,
-        #   id: :left_toc,
-        #   In() => ->(ctx, layout:, level_1_headers:, **) { {cell: {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template]}, options_for_cell: {headers: level_1_headers}} },
-        #   Out() => {:content => :left_toc_html}
-
+      # HTML level layout with {stylesheet_link_tag} etc
+      step Torture::Cms::Page.method(:render_cell).clone,
+        id: :container_layout,
+        In() => ->(ctx, content:, controller:, **) { {cell: {context_class: Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb")}, options_for_cell: {yield_block: content, controller: controller}} }
 
       def application_layout(ctx, content:, application_layout:, **options)
         layout_cell_instance = application_layout[:cell].new(**application_layout[:options]) # DISCUSS: what options to hand in here?
@@ -121,14 +120,29 @@ class ViewsController < ApplicationController
     end
 
     module Cell
+      class Container
+        def initialize(controller:, **options)
+          @options = options.merge(controller: controller)
+        end
+
+        [:csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags
+        ].each do |name|
+          define_method name do |*args, **kws, &block|
+            @options[:controller].helpers.send(name, *args, **kws, &block)
+          end
+        end
+
+        def to_h
+          {}
+        end
+      end
+
       class Layout
         def initialize(controller:, **options)
           @options = options.merge(controller: controller)
         end
 
-        [:csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags,
-
-          :link_to, :image_tag, # navbar.erb
+        [:link_to, :image_tag, # navbar.erb
         ].each do |name|
           define_method name do |*args, **kws, &block|
             @options[:controller].helpers.send(name, *args, **kws, &block)
@@ -363,6 +377,8 @@ class ViewsController < ApplicationController
 
       application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
       right_toc: {cell: Documentation::Cell::TocRight, template: Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb"), options: {controller: self}},
+
+      controller: self, # TODO: pass this to all cells.
     )
 
     activity_content_html = pages[0].to_h["2.1"][:content]
@@ -376,6 +392,9 @@ class ViewsController < ApplicationController
       id: :render_page,
       In() => ->(ctx, controller:, page_template:, page_cell:, **options) { {cell: {context_class: page_cell, template: page_template}, options_for_cell: {yield_block: nil, controller: controller}} }
 
+    step Torture::Cms::Page.method(:render_cell).clone,
+        id: :container_layout,
+        In() => ->(ctx, content:, controller:, **) { {cell: {context_class: Application::Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb")}, options_for_cell: {yield_block: content, controller: controller}} }
   end
 
   class RenderPro < RenderLanding
@@ -400,6 +419,8 @@ class ViewsController < ApplicationController
       In() => ->(ctx, controller:, content:, **options) {
         {cell: {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb")},
         options_for_cell: {yield_block: content, controller: controller}} }
+
+
   end
 
 
