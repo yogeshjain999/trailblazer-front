@@ -220,7 +220,7 @@ class ViewsController < ApplicationController
           %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
         end
 
-        def to_h # FIXME: why are we not returning headers here?
+        def to_h
           {}
         end
       end
@@ -370,9 +370,6 @@ class ViewsController < ApplicationController
   end
 
   def product
-    # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
-    # layout_options = {cell: Documentation::Cell::Layout, template: doc_layout_template}
-
     pages = {
       "pro_page" => {
         toc_title: "Trailblazer PRO",
@@ -382,7 +379,6 @@ class ViewsController < ApplicationController
           section_dir: "sections/page",
           target_file: "public/2.1/pro.html",
           target_url:  "/2.1/pro.html",
-          # layout:      layout_options,
           render: Pro::Flow,
         }
       },
@@ -393,8 +389,6 @@ class ViewsController < ApplicationController
     pages = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-
-      # application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
     )
 
     # raise pages[0].to_h["2.1"].inspect
