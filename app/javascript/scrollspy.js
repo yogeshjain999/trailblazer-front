@@ -59,6 +59,6 @@ export default {
   init() {
     rightTOCScrollSpy();
     tocLinkScrollSpy('#sideNav', '#documentation h2', 'xl:bg-selected');
-    tocLinkScrollSpy('#right-toc', '#documentation h3', 'xl:bg-bg-orange');
+    tocLinkScrollSpy('#right-toc', '#documentation h3, #documentation h4', 'xl:bg-bg-orange');
   }
 };
