@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', function () {
   ScrollSpy.init();
 
   var anchors = new anchorJS();
-  anchors.add('h2, h3');
+  anchors.add('h2, h3, h4');
 });
