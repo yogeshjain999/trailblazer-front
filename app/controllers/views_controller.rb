@@ -261,12 +261,6 @@ class ViewsController < ApplicationController
   end
 
   def docs
-    doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
-
-    left_toc_template = Cell::Erb::Template.new("app/concepts/cell/documentation/toc_left.erb")
-
-    layout_options = {context_class: Documentation::Cell::Layout, template: doc_layout_template, left_toc: {context_class: Documentation::Cell::TocLeft, template: left_toc_template}}
-
     pages = {
       render: Documentation::Render,
       "activity" => {
@@ -277,7 +271,6 @@ class ViewsController < ApplicationController
           section_dir: "section/activity",
           target_file: "public/2.1/docs/activity.html",
           target_url:  "/2.1/docs/activity/index.html",
-          layout:      layout_options,
 
           "activity.md.erb" => { snippet_file: "basics_test.rb" },
           "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
@@ -307,7 +300,6 @@ class ViewsController < ApplicationController
           section_dir: "section/macro",
           target_file: "public/2.1/docs/macro.html",
           target_url: "/2.1/docs/macro/index.html",
-          layout: layout_options,
 
           "overview.md.erb"   => {snippet_file: "model_test.rb"},
           "nested/dynamic.md.erb"   => {snippet_file: "nested_static_test.rb"},
@@ -329,7 +321,6 @@ class ViewsController < ApplicationController
           section_dir: "section/operation",
           target_file: "public/2.1/docs/operation.html",
           target_url: "/2.1/docs/operation/index.html",
-          layout: layout_options,
         }
       }
 
