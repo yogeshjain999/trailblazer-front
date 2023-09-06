@@ -3,34 +3,6 @@ class ViewsController < ApplicationController
   require "cells/__erb__"
   require "torture/cms"
 
-  module Flow # DISCUSS: or "Steps" or something like that?
-    def self.build(**steps)
-      Class.new(Trailblazer::Activity::Railway) do
-        steps.each do |name, options|
-          step Torture::Cms::Page.method(:render_cell), **Flow.normalize_options(name, **options)
-        end
-      end
-    end
-
-    def self.normalize_options(name, template_file:, context_class:, options_for_cell:, **trb_options)
-        template = ::Cell::Erb::Template.new(template_file) # TODO: of course, the cell should decide that.
-        id = "render_#{name}"
-
-        {
-          id: id,
-          Trailblazer::Activity::Railway.In() => [], # DISCUSS: change in TRB?
-          Trailblazer::Activity::Railway.Inject(:context_class,     override: true) => ->(*) { context_class },
-          Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { template },
-          Trailblazer::Activity::Railway.Inject(:options_for_cell,  override: true) => options_for_cell,
-          **trb_options
-        }
-    end
-
-    # Defaults for this app.
-    @options_for_cell_without_content = ->(ctx, controller:, **) { {controller: controller} }
-    @options_for_cell = ->(ctx, controller:, content:, **) { {yield_block: content, controller: controller} }
-    singleton_class.attr_reader :options_for_cell_without_content, :options_for_cell
-  end
 
   module My
     module Cell
@@ -226,7 +198,7 @@ class ViewsController < ApplicationController
       end
     end
 
-    Flow = Flow.build(
+    Flow = Cms::Flow.build(
       toc_left:     {template_file: "app/concepts/cell/documentation/toc_left.erb", context_class: Documentation::Cell::TocLeft,
         options_for_cell: ->(ctx, level_1_headers:, **) { {headers: level_1_headers} },
         Trailblazer::Activity::Railway.Out() => {:content => :left_toc_html}},
@@ -234,8 +206,8 @@ class ViewsController < ApplicationController
       page:         {template_file: "app/concepts/cell/documentation/documentation.erb", context_class: Documentation::Cell::Layout,
         options_for_cell: ->(ctx, left_toc_html:, right_tocs_html:, content:, **options) { {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options} }},
 
-      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Flow.options_for_cell},
-      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
 
     class Render < Trailblazer::Activity::Railway
@@ -351,9 +323,9 @@ class ViewsController < ApplicationController
       include Application::Cell::Layout::Render
     end
 
-    Flow = Flow.build(
-      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell, options_for_cell: Flow.options_for_cell_without_content},
-      html: {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+    Flow = Cms::Flow.build(
+      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell, options_for_cell: Cms::Flow.options_for_cell_without_content},
+      html: {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
   end
 
@@ -362,10 +334,10 @@ class ViewsController < ApplicationController
       include Application::Cell::Layout::Render
     end
 
-    Flow = Flow.build(
-      page:         {template_file: "app/concepts/cell/pro/pro.erb", context_class: Pro::Cell, options_for_cell: Flow.options_for_cell_without_content},
-      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Flow.options_for_cell},
-      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+    Flow = Cms::Flow.build(
+      page:         {template_file: "app/concepts/cell/pro/pro.erb", context_class: Pro::Cell, options_for_cell: Cms::Flow.options_for_cell_without_content},
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
   end
 
