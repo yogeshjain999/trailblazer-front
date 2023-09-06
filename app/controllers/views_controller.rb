@@ -3,6 +3,34 @@ class ViewsController < ApplicationController
   require "cells/__erb__"
   require "torture/cms"
 
+  module Flow # DISCUSS: or "Steps" or something like that?
+    def self.build(**steps)
+      Class.new(Trailblazer::Activity::Railway) do
+        steps.each do |name, options|
+          step Torture::Cms::Page.method(:render_cell), **Flow.normalize_options(name, **options)
+        end
+      end
+    end
+
+    def self.normalize_options(name, template_file:, context_class:, options_for_cell:)
+        template = ::Cell::Erb::Template.new(template_file) # TODO: of course, the cell should decide that.
+        id = "render_#{name}"
+
+        {
+          id: id,
+          Trailblazer::Activity::Railway.In() => [], # DISCUSS: change in TRB?
+          Trailblazer::Activity::Railway.Inject(:context_class,     override: true) => ->(*) { context_class },
+          Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { template },
+          Trailblazer::Activity::Railway.Inject(:options_for_cell,  override: true) => options_for_cell
+        }
+    end
+
+    # Defaults for this app.
+    @options_for_cell_without_content = ->(ctx, controller:, **) { {controller: controller} }
+    @options_for_cell = ->(ctx, controller:, content:, **) { {yield_block: content, controller: controller} }
+    singleton_class.attr_reader :options_for_cell_without_content, :options_for_cell
+  end
+
   module My
     module Cell
       def self.delegate_to_controller_helpers(target, *methods) # FIXME: move to cells gem
@@ -97,7 +125,6 @@ class ViewsController < ApplicationController
         In() => ->(ctx, content:, controller:, application_layout:, **) { {
           context_class: application_layout[:cell], template: application_layout[:template],
           options_for_cell: {yield_block: content, controller: controller}} }
-
 
       # HTML level layout with {stylesheet_link_tag} etc
       step Torture::Cms::Page.method(:render_cell).clone,
@@ -347,46 +374,28 @@ class ViewsController < ApplicationController
     render html: activity_content_html.html_safe
   end
 
-  class RenderLanding < Trailblazer::Activity::Railway
-    # Render "page layout" (not the app layout).
-    step Torture::Cms::Page.method(:render_cell),
-      id: :render_page,
-      In() => ->(ctx, controller:, page_template:, page_cell:, **options) { {context_class: page_cell, template: page_template, options_for_cell: {yield_block: nil, controller: controller}} }
-
-    step Torture::Cms::Page.method(:render_cell).clone,
-        id: :container_layout,
-        In() => ->(ctx, content:, controller:, **) { {context_class: Application::Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb"), options_for_cell: {yield_block: content, controller: controller}} }
-  end
-
-  class RenderPro < RenderLanding
-    class Cell
-      def initialize(**options)
-        @options = options
-      end
-
-      My::Cell.delegate_to_controller_helpers(self, :image_tag, :link_to)
-
-      def to_h
-        {}
-      end
-    end
-
-    step Torture::Cms::Page.method(:render_cell).clone,
-      id: :render_application_layout,
-      In() => ->(ctx, controller:, content:, **options) {
-        {context_class: Application::Cell::Layout, template: ::Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"),
-        options_for_cell: {yield_block: content, controller: controller}} }
-
-
-  end
-
-
   module Landing
     class Cell
       include Application::Cell::Layout::Render
     end
+
+    Flow = Flow.build(
+      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell, options_for_cell: Flow.options_for_cell_without_content},
+      html: {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+    )
   end
 
+  module Pro
+    class Cell
+      include Application::Cell::Layout::Render
+    end
+
+    Flow = Flow.build(
+      page:         {template_file: "app/concepts/cell/pro/pro.erb", context_class: Pro::Cell, options_for_cell: Flow.options_for_cell_without_content},
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Flow.options_for_cell},
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+    )
+  end
 
   def product
     # doc_layout_template = Cell::Erb::Template.new("app/concepts/cell/documentation/documentation.erb")
@@ -402,7 +411,7 @@ class ViewsController < ApplicationController
           target_file: "public/2.1/pro.html",
           target_url:  "/2.1/pro.html",
           # layout:      layout_options,
-          render: RenderPro,
+          render: Pro::Flow,
         }
       },
     }
@@ -411,10 +420,6 @@ class ViewsController < ApplicationController
 
     pages = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
-
-      page_template: ::Cell::Erb::Template.new("app/concepts/cell/pro/pro.erb"),
-      page_cell:     RenderPro::Cell,
-
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
       # application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
@@ -437,7 +442,7 @@ class ViewsController < ApplicationController
           section_dir: "sections/page",
           target_file: "public/2.1/pro.html",
           target_url:  "/2.1/pro.html",
-          render:      RenderLanding, # no layout, nothing!
+          render:      Landing::Flow,
         }
       },
     }
@@ -447,8 +452,6 @@ class ViewsController < ApplicationController
     pages = Torture::Cms::Site.new.render_pages(pages,
     # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
       controller: self,
-      page_template: ::Cell::Erb::Template.new("app/concepts/cell/landing/landing.erb"),
-      page_cell:     Landing::Cell,
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
     )
