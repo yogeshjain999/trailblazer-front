@@ -12,7 +12,7 @@ class ViewsController < ApplicationController
       end
     end
 
-    def self.normalize_options(name, template_file:, context_class:, options_for_cell:)
+    def self.normalize_options(name, template_file:, context_class:, options_for_cell:, **trb_options)
         template = ::Cell::Erb::Template.new(template_file) # TODO: of course, the cell should decide that.
         id = "render_#{name}"
 
@@ -21,7 +21,8 @@ class ViewsController < ApplicationController
           Trailblazer::Activity::Railway.In() => [], # DISCUSS: change in TRB?
           Trailblazer::Activity::Railway.Inject(:context_class,     override: true) => ->(*) { context_class },
           Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { template },
-          Trailblazer::Activity::Railway.Inject(:options_for_cell,  override: true) => options_for_cell
+          Trailblazer::Activity::Railway.Inject(:options_for_cell,  override: true) => options_for_cell,
+          **trb_options
         }
     end
 
@@ -107,31 +108,6 @@ class ViewsController < ApplicationController
   end
 
   module Application
-    class Render < Trailblazer::Activity::Railway
-      # Render left_toc.
-      step Torture::Cms::Page.method(:render_cell).clone,
-        id: :left_toc,
-        In() => ->(ctx, layout:, level_1_headers:, **) { {context_class: layout[:left_toc][:context_class], template: layout[:left_toc][:template], options_for_cell: {headers: level_1_headers}} },
-        Out() => {:content => :left_toc_html}
-
-      # Render "page layout" (not the app layout).
-      step Torture::Cms::Page.method(:render_cell),
-        id: :render_page,
-        In() => ->(ctx, layout:, left_toc_html:, content:, **options) { {**layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, version_options: options}} }
-
-      # application_layout
-      step Torture::Cms::Page.method(:render_cell).clone,
-        id: :application_layout,
-        In() => ->(ctx, content:, controller:, application_layout:, **) { {
-          context_class: application_layout[:cell], template: application_layout[:template],
-          options_for_cell: {yield_block: content, controller: controller}} }
-
-      # HTML level layout with {stylesheet_link_tag} etc
-      step Torture::Cms::Page.method(:render_cell).clone,
-        id: :container_layout,
-        In() => ->(ctx, content:, controller:, **) { {context_class: Cell::Container, template: ::Cell::Erb::Template.new("app/concepts/cell/application/container.erb"), options_for_cell: {yield_block: content, controller: controller}} }
-    end
-
     module Cell
       class Container
         def initialize(controller:, **options)
@@ -188,30 +164,6 @@ class ViewsController < ApplicationController
   end
 
   module Documentation
-    class Render < Application::Render # TODO: better naming.
-      step :right_tocs, after: "Start.default"
-      step Torture::Cms::Page.method(:render_cell),
-          # id: :render_page,
-          replace: :render_page,
-          # inherit: [:variable_mapping],
-          # In() => [:right_tocs_html]
-          # TODO: allow adding to {options_for_cell} instead of repeating In() from Cms::Page.
-          In() => ->(ctx, layout:, left_toc_html:, right_tocs_html:, content:, **options) { {**layout, options_for_cell: {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options}} }
-
-      def right_tocs(ctx, headers:, right_toc:, **)
-        right_tocs =
-          headers[2].collect do |h2|
-            cell_instance = right_toc[:cell].new(h2: h2, **right_toc[:options]) # DISCUSS: what options to hand in here?
-
-            result = ::Cell.({template: right_toc[:template], exec_context: cell_instance})
-
-            result.to_s
-          end
-
-        ctx[:right_tocs_html] = right_tocs.join("\n")
-      end
-    end
-
     module Cell
       class TocRight
         def initialize(controller:, h2:, **options)
@@ -271,6 +223,39 @@ class ViewsController < ApplicationController
         def to_h # FIXME: why are we not returning headers here?
           {}
         end
+      end
+    end
+
+    Flow = Flow.build(
+      toc_left:     {template_file: "app/concepts/cell/documentation/toc_left.erb", context_class: Documentation::Cell::TocLeft,
+        options_for_cell: ->(ctx, level_1_headers:, **) { {headers: level_1_headers} },
+        Trailblazer::Activity::Railway.Out() => {:content => :left_toc_html}},
+
+      page:         {template_file: "app/concepts/cell/documentation/documentation.erb", context_class: Documentation::Cell::Layout,
+        options_for_cell: ->(ctx, left_toc_html:, right_tocs_html:, content:, **options) { {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options} }},
+
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Flow.options_for_cell},
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Flow.options_for_cell}
+    )
+
+    class Render < Trailblazer::Activity::Railway
+      step :render_right_tocs
+      step Subprocess(Flow)
+
+      def render_right_tocs(ctx, headers:, controller:, **)
+        context_class = Documentation::Cell::TocRight
+        template = ::Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb")
+
+        right_tocs =
+          headers[2].collect do |h2|
+            cell_instance = context_class.new(h2: h2, controller: controller) # DISCUSS: what options to hand in here?
+
+            result = ::Cell.({template: template, exec_context: cell_instance})
+
+            result.to_s
+          end
+
+        ctx[:right_tocs_html] = right_tocs.join("\n")
       end
     end
   end
@@ -362,10 +347,6 @@ class ViewsController < ApplicationController
       },
 
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-
-      application_layout: {cell: Application::Cell::Layout, template: Cell::Erb::Template.new("app/concepts/cell/application/layout.erb"), options: {controller: self}},
-      right_toc: {cell: Documentation::Cell::TocRight, template: Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb"), options: {controller: self}},
-
       controller: self, # TODO: pass this to all cells.
     )
 
