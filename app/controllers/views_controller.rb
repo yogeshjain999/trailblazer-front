@@ -232,92 +232,6 @@ class ViewsController < ApplicationController
     end
   end
 
-  def docs
-    pages = {
-      render: Documentation::Render,
-      "activity" => {
-        toc_title: "Activity",
-        "2.1" => {
-          title: "Activity",
-          snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-          section_dir: "section/activity",
-          target_file: "public/2.1/docs/activity.html",
-          target_url:  "/2.1/docs/activity/index.html",
-
-          "activity.md.erb" => { snippet_file: "basics_test.rb" },
-          "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
-          "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
-          "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
-          "dsl/subprocess.md.erb" => { snippet_file: "subprocess_test.rb" },
-          "dsl/options.md.erb" => { snippet_file: "subprocess_test.rb" },
-          "dsl/sequence.md.erb" => { snippet_file: "sequence_options_test.rb" },
-          "dsl/patching.md.erb" => { snippet_file: "patching_test.rb" },
-          "dsl/composable_variable_mapping.md.erb" => { snippet_file: "composable_variable_mapping_test.rb" },
-          "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
-          "dsl/macro.md.erb" => { snippet_file: "macro_test.rb" },
-          "internals.md.erb" => { snippet_file: "macro_test.rb" },
-          "internals/introspect.md.erb" => { snippet_file: "introspect_test.rb" },
-          "interfaces.md.erb" => { snippet_file: "activity_test.rb" },
-          "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
-          "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
-          "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
-        }
-      },
-
-      "macro" => {
-        toc_title: "Macro",
-        "2.1" => {
-          title: "Macro",
-          snippet_dir: "../trailblazer-macro/test/docs",
-          section_dir: "section/macro",
-          target_file: "public/2.1/docs/macro.html",
-          target_url: "/2.1/docs/macro/index.html",
-
-          "overview.md.erb"   => {snippet_file: "model_test.rb"},
-          "nested/dynamic.md.erb"   => {snippet_file: "nested_static_test.rb"},
-          "nested/auto_wire.md.erb"   => {snippet_file: "nested_static_test.rb"},
-          "wrap.md.erb"   => {snippet_file: "wrap_test.rb"},
-          "each.md.erb"   => {snippet_file: "each_test.rb"},
-          "model_find.md.erb"   => {snippet_file: "model/find_test.rb"},
-          "model.md.erb"   => {snippet_file: "model_test.rb"},
-          "rescue.md.erb"   => {snippet_file: "rescue_test.rb"},
-          "policy.md.erb"   => {snippet_file: "policy_test.rb"},
-        }
-      },
-
-      "operation" => {
-        toc_title: "Operation",
-        "2.1" => {
-          title: "Operation",
-          snippet_dir: "../trailblazer-operation/test/docs",
-          section_dir: "section/operation",
-          target_file: "public/2.1/docs/operation.html",
-          target_url: "/2.1/docs/operation/index.html",
-        }
-      }
-
-    }
-
-
-    pages = Torture::Cms::DSL.(pages)
-
-    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: My::Cell::Section,
-    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
-      section_cell_options: {
-        controller: self,
-        pre_attributes: Rails.application.config.tailwind.pre,
-        code_attributes: Rails.application.config.tailwind.code,
-      },
-
-      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-      controller: self, # TODO: pass this to all cells.
-    )
-
-    activity_content_html = pages[0].to_h["2.1"][:content]
-
-    render html: activity_content_html.html_safe
-  end
-
   module Landing
     class Cell
       include Application::Cell::Layout::Render
@@ -339,6 +253,105 @@ class ViewsController < ApplicationController
       application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
       html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
+  end
+
+  Pages = {
+    render: Documentation::Render,
+    "activity" => {
+      toc_title: "Activity",
+      "2.1" => {
+        title: "Activity",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/activity.html",
+        target_url:  "/2.1/docs/activity/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" },
+        "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
+        "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
+        "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
+        "dsl/subprocess.md.erb" => { snippet_file: "subprocess_test.rb" },
+        "dsl/options.md.erb" => { snippet_file: "subprocess_test.rb" },
+        "dsl/sequence.md.erb" => { snippet_file: "sequence_options_test.rb" },
+        "dsl/patching.md.erb" => { snippet_file: "patching_test.rb" },
+        "dsl/composable_variable_mapping.md.erb" => { snippet_file: "composable_variable_mapping_test.rb" },
+        "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
+        "dsl/macro.md.erb" => { snippet_file: "macro_test.rb" },
+        "internals.md.erb" => { snippet_file: "macro_test.rb" },
+        "internals/introspect.md.erb" => { snippet_file: "introspect_test.rb" },
+        "interfaces.md.erb" => { snippet_file: "activity_test.rb" },
+        "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
+        "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
+        "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
+      }
+    },
+
+    "macro" => {
+      toc_title: "Macro",
+      "2.1" => {
+        title: "Macro",
+        snippet_dir: "../trailblazer-macro/test/docs",
+        section_dir: "section/macro",
+        target_file: "public/2.1/docs/macro.html",
+        target_url: "/2.1/docs/macro/index.html",
+
+        "overview.md.erb"   => {snippet_file: "model_test.rb"},
+        "nested/dynamic.md.erb"   => {snippet_file: "nested_static_test.rb"},
+        "nested/auto_wire.md.erb"   => {snippet_file: "nested_static_test.rb"},
+        "wrap.md.erb"   => {snippet_file: "wrap_test.rb"},
+        "each.md.erb"   => {snippet_file: "each_test.rb"},
+        "model_find.md.erb"   => {snippet_file: "model/find_test.rb"},
+        "model.md.erb"   => {snippet_file: "model_test.rb"},
+        "rescue.md.erb"   => {snippet_file: "rescue_test.rb"},
+        "policy.md.erb"   => {snippet_file: "policy_test.rb"},
+      }
+    },
+
+    "operation" => {
+      toc_title: "Operation",
+      "2.1" => {
+        title: "Operation",
+        snippet_dir: "../trailblazer-operation/test/docs",
+        section_dir: "section/operation",
+        target_file: "public/2.1/docs/operation.html",
+        target_url: "/2.1/docs/operation/index.html",
+      }
+    },
+
+
+    "pro_page" => {
+      toc_title: "Trailblazer PRO",
+      toc_left: false,
+      "2.1" => {
+        title: "Trailblazer PRO",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "sections/page",
+        target_file: "public/2.1/pro.html",
+        target_url:  "/2.1/pro.html",
+        render: Pro::Flow,
+      }
+    },
+
+  }
+
+  def docs
+    pages = Torture::Cms::DSL.(Pages)
+
+    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: My::Cell::Section,
+    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
+      section_cell_options: {
+        controller: self,
+        pre_attributes: Rails.application.config.tailwind.pre,
+        code_attributes: Rails.application.config.tailwind.code,
+      },
+
+      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+      controller: self, # TODO: pass this to all cells.
+    )
+
+    activity_content_html = pages[0].to_h["2.1"][:content]
+
+    render html: activity_content_html.html_safe
   end
 
   def product
