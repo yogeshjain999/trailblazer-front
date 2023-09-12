@@ -256,7 +256,17 @@ class ViewsController < ApplicationController
   end
 
   Pages = {
+    # top-level options, going to all books.
     render: Documentation::Render,
+
+    section_cell: My::Cell::Section,
+    section_cell_options: {
+      controller: self,
+      pre_attributes: Rails.application.config.tailwind.pre,
+      code_attributes: Rails.application.config.tailwind.code,
+    },
+    kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+
     "activity" => {
       toc_title: "Activity",
       "2.1" => {
@@ -318,7 +328,6 @@ class ViewsController < ApplicationController
       }
     },
 
-
     "pro_page" => {
       toc_title: "Trailblazer PRO",
       toc_left: false,
@@ -337,15 +346,7 @@ class ViewsController < ApplicationController
   def docs
     pages = Torture::Cms::DSL.(Pages)
 
-    pages = Torture::Cms::Site.new.render_pages(pages, section_cell: My::Cell::Section,
-    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
-      section_cell_options: {
-        controller: self,
-        pre_attributes: Rails.application.config.tailwind.pre,
-        code_attributes: Rails.application.config.tailwind.code,
-      },
-
-      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+    pages = Torture::Cms::Site.new.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
     )
 
