@@ -31,13 +31,14 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  # gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "guard"
 end
 
 group :test do
@@ -55,5 +56,5 @@ gem "erbse"
 
 # gem "torture", path: "../torture"
 gem "torture"
-# gem "torture-server", path: "../torture-server"
-gem "torture-server", github: "apotonick/torture-server", branch: "cms"
+gem "torture-server", path: "../torture-server"
+# gem "torture-server", github: "apotonick/torture-server", branch: "cms"
