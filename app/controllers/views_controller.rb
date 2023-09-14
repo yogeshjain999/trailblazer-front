@@ -267,13 +267,66 @@ class ViewsController < ApplicationController
     },
     kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
+
+    "trailblazer" => { # FIXME
+      toc_title: "Trailblazer",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/trailblazer/index.html",
+        target_url:  "/2.1/docs/trailblazer/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "rails_integration" => { # FIXME
+      toc_title: "Rails integration",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/rails_integration/index.html",
+        target_url:  "/2.1/docs/rails_integration/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "test" => { # FIXME
+      toc_title: "Test",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/test/index.html",
+        target_url:  "/2.1/docs/test/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "internals" => { # FIXME
+      toc_title: "Internals",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/internals/index.html",
+        target_url:  "/2.1/docs/internals/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
     "activity" => {
       toc_title: "Activity",
       "2.1" => {
         title: "Activity",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
-        target_file: "public/2.1/docs/activity.html",
+        target_file: "public/2.1/docs/activity/index.html",
         target_url:  "/2.1/docs/activity/index.html",
 
         "activity.md.erb" => { snippet_file: "basics_test.rb" },
@@ -302,7 +355,7 @@ class ViewsController < ApplicationController
         title: "Macro",
         snippet_dir: "../trailblazer-macro/test/docs",
         section_dir: "section/macro",
-        target_file: "public/2.1/docs/macro.html",
+        target_file: "public/2.1/docs/macro/index.html",
         target_url: "/2.1/docs/macro/index.html",
 
         "overview.md.erb"   => {snippet_file: "model_test.rb"},
@@ -323,8 +376,112 @@ class ViewsController < ApplicationController
         title: "Operation",
         snippet_dir: "../trailblazer-operation/test/docs",
         section_dir: "section/operation",
-        target_file: "public/2.1/docs/operation.html",
+        target_file: "public/2.1/docs/operation/index.html",
         target_url: "/2.1/docs/operation/index.html",
+      }
+    },
+
+    "workflow" => { # FIXME
+      toc_title: "Workflow",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/workflow/index.html",
+        target_url:  "/2.1/docs/workflow/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "endpoint" => { # FIXME
+      toc_title: "Endpoint",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/endpoint/index.html",
+        target_url:  "/2.1/docs/endpoint/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "reform" => { # FIXME
+      toc_title: "Reform",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/reform/index.html",
+        target_url:  "/2.1/docs/reform/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "cells" => { # FIXME
+      toc_title: "Cells",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/cells/index.html",
+        target_url:  "/2.1/docs/cells/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "representable" => { # FIXME
+      toc_title: "Representable",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/representable/index.html",
+        target_url:  "/2.1/docs/representable/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "disposable" => { # FIXME
+      toc_title: "Trailblazer",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/disposable/index.html",
+        target_url:  "/2.1/docs/disposable/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "roar" => { # FIXME
+      toc_title: "Roar",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/roar/index.html",
+        target_url:  "/2.1/docs/roar/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+      }
+    },
+
+    "tutorials" => { # FIXME
+      toc_title: "Tutorials",
+      "2.1" => {
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/tutorial/index.html",
+        target_url:  "/2.1/docs/tutorial/index.html",
+
+        "activity.md.erb" => { snippet_file: "basics_test.rb" }
       }
     },
 
@@ -343,10 +500,10 @@ class ViewsController < ApplicationController
 
   }
 
-  def docs
+  def docs # TODO: remove me, this is only for development.
     pages = Torture::Cms::DSL.(Pages)
 
-    pages = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
     )
 
@@ -372,7 +529,7 @@ class ViewsController < ApplicationController
 
     pages = Torture::Cms::DSL.(pages)
 
-    pages = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
     )
@@ -386,6 +543,7 @@ class ViewsController < ApplicationController
 
   def landing
     pages = {
+      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
       "landing" => {
         toc_title: "Trailblazer",
         "2.1" => {
@@ -401,14 +559,9 @@ class ViewsController < ApplicationController
 
     pages = Torture::Cms::DSL.(pages)
 
-    pages = Torture::Cms::Site.new.render_pages(pages,
-    # pages = Torture::Cms::Site.new.produce_versioned_pages(pages, section_cell: My::Cell::Section,
+    pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
-
-      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
     )
-
-    # raise pages[0].to_h["2.1"].inspect
 
     activity_content_html = pages[0].to_h["2.1"][:content]
 

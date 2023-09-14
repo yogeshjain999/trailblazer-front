@@ -1,18 +1,20 @@
 GIT
+  remote: https://github.com/apotonick/torture-server.git
+  revision: 00bfa6c0d7c232b95f711101236122d6a879d894
+  branch: cms
+  specs:
+    torture-server (0.1.0)
+      kramdown
+      minitest-line
+      trailblazer-activity-dsl-linear
+
+GIT
   remote: https://github.com/trailblazer/cells.git
   revision: 3e87c147b0595555ef4b1e929da8d18f896bece3
   branch: cells-5
   specs:
     cells (5.0.0.alpha1)
       tilt (~> 2.1.0)
-
-PATH
-  remote: ../torture-server
-  specs:
-    torture-server (0.1.0)
-      kramdown
-      minitest-line
-      trailblazer-activity-dsl-linear
 
 GEM
   remote: https://rubygems.org/

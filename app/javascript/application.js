@@ -2,8 +2,8 @@ import hljs from 'highlight.js/lib/core';
 import ruby from 'highlight.js/lib/languages/ruby';
 import anchorJS from 'anchor-js';
 
-import ScrollSpy from './scrollspy';
-import './navigations';
+import ScrollSpy from 'scrollspy';
+import 'navigations';
 
 document.addEventListener('DOMContentLoaded', function () {
   hljs.registerLanguage('ruby', ruby);
