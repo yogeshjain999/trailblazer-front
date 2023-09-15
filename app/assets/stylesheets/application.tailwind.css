@@ -14,7 +14,7 @@
   }
 
   .active-mobile-navbar {
-    @apply sticky top-0 h-screen;
+    @apply sticky top-0 h-screen bg-purple;
   }
 
   .base-button {
