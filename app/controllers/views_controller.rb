@@ -39,6 +39,9 @@ class ViewsController < ApplicationController
 
 
         INFO_MARGIN_TOP = "mt-7"
+        # DISCUSS: do we want those variables in initializer/tailwind?
+        # INFO_CLASSES = Rails.application.config.tailwind.info.fetch(:class)
+        # WARNING_CLASSES = Rails.application.config.tailwind.warning.fetch(:class)
 
             # = image_tag "info_icon.svg"
         def info(type: :info, &block) # TODO: use cell for this.
@@ -69,7 +72,11 @@ class ViewsController < ApplicationController
               step :render_breadcrumb, replace: :render_header
 
               def render_breadcrumb(ctx, header:, classes:, title:, parent_header:, **)
-                ctx[:html] = %{<h4 id="#{header.id}" class="#{classes}">#{parent_header.title} / #{title}</h4>}
+
+                ctx[:html] = %(<h4 id="#{header.id}" class="#{classes}">#{parent_header.title}
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">#{title}</span>
+
+                  </h4>)
               end
             end
           end

@@ -5,9 +5,10 @@ module.exports = {
     "./public/*.html",
     // "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
-    "./app/views/**/*.{erb,haml,html,slim}",
-    "./app/concepts/**/*.{erb,haml,html,slim}",
-    "./app/controllers/views_controller.rb"
+    "./app/views/**/*.erb",
+    "./app/concepts/**/*.erb",
+    "./app/controllers/views_controller.rb",
+    "./config/initializers/tailwind.rb",
   ],
   theme: {
     colors: {
@@ -20,9 +21,10 @@ module.exports = {
       "purple-text": "#998FF8",
       "selected": "#4D4499",
       "bg-purple-1": "#AEAAF7",
-      "bg-purple-2": "#D6D4FB",
+      // "purple-light": "#D6D4FB",
       "bg-purple-3": "#CAC6F3",
       "light-purple": "#C5C0F5",
+      "lighter-purple": "#D6D4FA",
       "violet": "#5A1B4D",
       "magenta": "#E72456",
       "red": "#E72F2B",
