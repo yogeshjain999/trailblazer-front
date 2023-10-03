@@ -3,6 +3,9 @@ Rails.application.config.tailwind = OpenStruct.new(
     pre: {class: "mt-4"},
     code: {class: "rounded"},
     codespan: {class: "text-purple"},
+    h2: {class: "text-2xl font-bold text-neutral-500 lg:text-3xl mt-15"}, # mt-15 is from spacing/15 in tailwind.config.js.
+    h3: {class: "font-bold text-neutral-500 lg:text-2xl mt-15 text-xl"}, # mt-15 is from spacing/15 in tailwind.config.js.
+    h4: {class: "font-bold text-neutral-500 lg:text-1xl mt-15 text-xl"}, # mt-15 is from spacing/15 in tailwind.config.js.
   ).freeze
 
 

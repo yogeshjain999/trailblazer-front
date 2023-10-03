@@ -37,10 +37,13 @@ class ViewsController < ApplicationController
 
         end
 
+
+        INFO_MARGIN_TOP = "mt-7"
+
             # = image_tag "info_icon.svg"
         def info(type: :info, &block) # TODO: use cell for this.
           # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 mt-5 bg-bg-purple-1/50">
+          %(<div class="rounded flex p-4 gap-4 #{INFO_MARGIN_TOP} bg-bg-purple-1/50">
           #{@options[:controller].helpers.image_tag "info_icon.svg"}
 <p>
   #{yield}
@@ -50,7 +53,7 @@ class ViewsController < ApplicationController
 
         def warning(&block)  # TODO: use info parametrized.
           # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 mt-5 bg-bg-orange">
+          %(<div class="rounded flex p-4 gap-4 #{INFO_MARGIN_TOP} bg-bg-orange">
           #{@options[:controller].helpers.image_tag "light_bulb_icon.svg"}
 <p>
   #{yield}
@@ -61,16 +64,30 @@ class ViewsController < ApplicationController
         My::Cell.delegate_to_controller_helpers(self, :image_tag)
 
         module H
+          module Render
+            class H4 < Torture::Cms::Helper::Header::Render
+              step :render_breadcrumb, replace: :render_header
+
+              def render_breadcrumb(ctx, header:, classes:, title:, parent_header:, **)
+                ctx[:html] = %{<h4 id="#{header.id}" class="#{classes}">#{parent_header.title} / #{title}</h4>}
+              end
+            end
+          end
+
+          H2_CLASSES = Rails.application.config.tailwind.h2.fetch(:class)
+          H3_CLASSES = Rails.application.config.tailwind.h3.fetch(:class)
+          H4_CLASSES = Rails.application.config.tailwind.h4.fetch(:class)
+
           def h2(*args, **options)
-            super(*args, **options, classes: "text-2xl font-bold text-neutral-500 lg:text-3xl mt-6")
+            super(*args, **options, classes: H2_CLASSES)
           end
 
           def h3(*args, **options)
-            super(*args, **options, classes: "font-bold text-neutral-500 lg:text-2xl mt-6 text-xl")
+            super(*args, **options, classes: H3_CLASSES)
           end
 
-          def h4(*args, **options)
-            super(*args, **options, classes: "font-bold text-neutral-500 lg:text-1xl mt-4 text-xl")
+          def h4(*args, render: Render::H4, **options)
+            super(*args, **options, render: render, classes: H4_CLASSES)
           end
         end
 
@@ -507,7 +524,7 @@ class ViewsController < ApplicationController
       controller: self, # TODO: pass this to all cells.
     )
 
-    activity_content_html = pages[0].to_h["2.1"][:content]
+    activity_content_html = pages[4].to_h["2.1"][:content]
 
     render html: activity_content_html.html_safe
   end
