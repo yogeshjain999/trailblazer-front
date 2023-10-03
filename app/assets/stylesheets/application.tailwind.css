@@ -60,4 +60,12 @@
   .documentation-right-nav-link {
     @apply block px-2 leading-8;
   }
+
+  .documentation-right-toc-h3-active {
+    @apply text-white bg-dark-purple;
+  }
+
+  .documentation-right-toc-h4-active {
+    @apply bg-light-purple;
+  }
 }

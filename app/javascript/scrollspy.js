@@ -47,11 +47,13 @@ export function tocLinkScrollSpy(tocId, headerSelector, activeClass) {
     if (scenes[index - 1]) {
       var headerId = `#${headers[index - 1].getAttribute('id')}`;
 
-      if (event.scrollDirection === 'FORWARD') {
-        document.querySelector(getLinkHref(headerId)).classList.remove(activeClass);
-      } else {
-        document.querySelector(getLinkHref(headerId)).classList.add(activeClass);
-      }
+      // if (event.scrollDirection === 'FORWARD') {
+      //   document.querySelector(getLinkHref(headerId)).classList.remove(activeClass);
+      // } else {
+      //   document.querySelector(getLinkHref(headerId)).classList.add(activeClass);
+      // }
+
+      document.querySelector(getLinkHref(headerId)).classList.toggle(activeClass);
     }
   }
 
@@ -76,6 +78,7 @@ export default {
   init() {
     rightTOCScrollSpy();
     tocLinkScrollSpy('#sideNav', '#documentation h2', 'xl:bg-selected');
-    tocLinkScrollSpy('#right-toc', '#documentation h3, #documentation h4', 'xl:bg-bg-orange');
+    tocLinkScrollSpy('#right-toc', '#documentation h3', 'documentation-right-toc-h3-active');
+    tocLinkScrollSpy('#right-toc', '#documentation h4', 'documentation-right-toc-h4-active');
   }
 };
