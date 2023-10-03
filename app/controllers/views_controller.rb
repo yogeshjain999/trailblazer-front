@@ -7,11 +7,15 @@ class ViewsController < ApplicationController
   module My
     module Cell
       def self.delegate_to_controller_helpers(target, *methods) # FIXME: move to cells gem
-        methods.each do |name|
-          target.define_method name do |*args, **kws, &block|
-            @options[:controller].helpers.send(name, *args, **kws, &block)
+        helpers = Module.new do
+          methods.each do |name|
+            define_method name do |*args, **kws, &block|
+              @options[:controller].helpers.send(name, *args, **kws, &block)
+            end
           end
         end
+
+        target.include(helpers)
       end
 
 
@@ -37,8 +41,7 @@ class ViewsController < ApplicationController
 
         end
 
-
-        INFO_MARGIN_TOP = "mt-7"
+        INFO_MARGIN_TOP = "mt-9"
         # DISCUSS: do we want those variables in initializer/tailwind?
         # INFO_CLASSES = Rails.application.config.tailwind.info.fetch(:class)
         # WARNING_CLASSES = Rails.application.config.tailwind.warning.fetch(:class)
@@ -65,6 +68,14 @@ class ViewsController < ApplicationController
         end
 
         My::Cell.delegate_to_controller_helpers(self, :image_tag)
+
+        module ImageTag
+          def image_tag(*args, **options)
+            super(*args, class: INFO_MARGIN_TOP, **options)
+          end
+        end
+
+        include ImageTag
 
         module H
           module Render
