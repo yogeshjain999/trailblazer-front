@@ -41,7 +41,7 @@ class ViewsController < ApplicationController
 
         end
 
-        INFO_MARGIN_TOP = "mt-9"
+        # INFO_MARGIN_TOP = "mt-9"
         # DISCUSS: do we want those variables in initializer/tailwind?
         # INFO_CLASSES = Rails.application.config.tailwind.info.fetch(:class)
         # WARNING_CLASSES = Rails.application.config.tailwind.warning.fetch(:class)
@@ -49,7 +49,7 @@ class ViewsController < ApplicationController
             # = image_tag "info_icon.svg"
         def info(type: :info, &block) # TODO: use cell for this.
           # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 #{INFO_MARGIN_TOP} bg-bg-purple-1/50">
+          %(<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
           #{@options[:controller].helpers.image_tag "info_icon.svg"}
 <p>
   #{yield}
@@ -59,7 +59,7 @@ class ViewsController < ApplicationController
 
         def warning(&block)  # TODO: use info parametrized.
           # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 #{INFO_MARGIN_TOP} bg-bg-orange">
+          %(<div class="rounded flex p-4 gap-4 bg-bg-orange">
           #{@options[:controller].helpers.image_tag "light_bulb_icon.svg"}
 <p>
   #{yield}
@@ -71,7 +71,7 @@ class ViewsController < ApplicationController
 
         module ImageTag
           def image_tag(*args, **options)
-            super(*args, class: INFO_MARGIN_TOP, **options)
+            super(*args, class: "mt-12", **options)
           end
         end
 
