@@ -9,14 +9,15 @@ module Cms
     end
 
     def self.normalize_options(name, template_file:, context_class:, options_for_cell:, **trb_options)
-        template = ::Cell::Erb::Template.new(template_file) # TODO: of course, the cell should decide that.
+        # template = ::Cell::Erb::Template.new(template_file) # TODO: of course, the cell should decide that.
         id = "render_#{name}"
 
         {
           id: id,
           Trailblazer::Activity::Railway.In() => [], # DISCUSS: change in TRB?
           Trailblazer::Activity::Railway.Inject(:context_class,     override: true) => ->(*) { context_class },
-          Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { template },
+          # Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { template }, # DISCUSS: "cached"
+          Trailblazer::Activity::Railway.Inject(:template,          override: true) => ->(*) { ::Cell::Erb::Template.new(template_file) },   # FIXME: "development mode"
           Trailblazer::Activity::Railway.Inject(:options_for_cell,  override: true) => options_for_cell,
           **trb_options
         }
