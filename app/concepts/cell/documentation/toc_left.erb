@@ -2,10 +2,10 @@
   <% @options[:headers].each do |header| %>
     <% next if header.options[:visible] == false %> <!-- # TODO: abstract to torture-cms -->
 
-    <div class="flex flex-col pt-10">
-      <%= link_to header.title, header.options[:target], class: "font-bold pl-3 #{header.items.any? ? 'bg-selected' : ''}" %>
+    <div class="flex flex-col pt-1">
+      <%= link_to header.title, header.options[:target], class: "pl-3 font-bold #{header.items.any? ? 'bg-dark-purple' : ''}" %>
       <% header.items.each do |h2| %>
-        <%= link_to h2.title, "##{h2.id}", class: "pl-3" %>
+        <%= link_to h2.title, "##{h2.id}", class: "pl-6" %>
       <% end %>
     </div>
   <% end %>
