@@ -148,8 +148,10 @@ class ViewsController < ApplicationController
 
         include Render
 
-        def navbar_link_to(text, path)
-          link_to text, path, class: "font-medium text-base uppercase hover:scale-110 lg:normal-case lg:font-semibold"
+        def navbar_link_to(text, path, is: nil)
+          classes = @options[:belongs_to] == is ? "underline decoration-[5px] decoration-purple underline-offset-[15px]" : ""
+
+          link_to text, path, class: "font-medium text-base uppercase lg:normal-case lg:font-semibold #{classes}"
         end
       end
 
@@ -241,7 +243,8 @@ class ViewsController < ApplicationController
       page:         {template_file: "app/concepts/cell/documentation/documentation.erb", context_class: Documentation::Cell::Layout,
         options_for_cell: ->(ctx, left_toc_html:, right_tocs_html:, content:, **options) { {yield_block: content, left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, version_options: options} }},
 
-      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
+      # application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: ->(ctx, controller:, content:, belongs_to:, **) { {yield_block: content, controller: controller, belongs_to: belongs_to} }},
       html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
 
@@ -302,6 +305,7 @@ class ViewsController < ApplicationController
     },
     kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
+    belongs_to: :documentation,
 
     "trailblazer" => { # FIXME
       toc_title: "Trailblazer",

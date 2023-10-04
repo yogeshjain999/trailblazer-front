@@ -14,17 +14,17 @@
       <%= navbar_link_to "About", "/2.1/about" %>
       <%= navbar_link_to "Community", "#" %>
       <%= navbar_link_to "Learn", "#" %>
-      <%= navbar_link_to "Chat with us", "#" %>
+      <%= navbar_link_to "Chat with us", "https://trailblazer.zulipchat.com" %>
     </div>
   </div>
   <div class="lg:flex hidden gap-10 items-center">
     <div class="flex gap-7">
-      <%= navbar_link_to "Documentation", "/2.1/docs" %>
-      <%= navbar_link_to "Blog", "/2.1/blog" %>
-      <%= navbar_link_to "About", "/2.1/about" %>
-      <%= navbar_link_to "Community", "#" %>
-      <%= navbar_link_to "Learn", "#" %>
+      <%= navbar_link_to "Documentation", "/2.1/docs", is: :documentation %>
+      <%= navbar_link_to "Blog", "/2.1/blog", is: :blog %>
+      <%= navbar_link_to "About", "/2.1/about", is: :about %>
+      <%= navbar_link_to "Community", "#", is: :community %>
+      <%= navbar_link_to "Learn", "#", is: :learn %>
     </div>
-    <%= link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:scale-105 hover:text-white hover:bg-purple" %>
+    <%= link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" %>
   </div>
 </nav>
