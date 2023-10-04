@@ -71,7 +71,7 @@ class ViewsController < ApplicationController
 
         module ImageTag
           def image_tag(*args, **options)
-            super(*args, class: "mt-12", **options)
+            super(*args, class: "mt-12 mb-12 mx-auto", **options)
           end
         end
 
