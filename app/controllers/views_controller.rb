@@ -35,7 +35,17 @@ class ViewsController < ApplicationController
         end
 
         def code_tabs(*args, **kws) # TODO: implement tabs
-          code(*args, **kws)
+          return %(<div class="spacing-y-0">) +
+
+          %(<div class="spacing-x-1 mb-[6px] ml-[6px]">
+            <a href=""><span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t">Activity</span></a>
+            <a href=""><span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t">Operation</span></a>
+          </div>) +
+
+          # raise args.inspect
+          code(*args, **kws) +
+
+          %(</div>)
         end
         def api(*) # FIXME: implement
 
