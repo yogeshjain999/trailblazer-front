@@ -58,8 +58,8 @@ class ViewsController < ApplicationController
 
         # INFO_MARGIN_TOP = "mt-9"
         # DISCUSS: do we want those variables in initializer/tailwind?
-        # INFO_CLASSES = Rails.application.config.tailwind.info.fetch(:class)
-        # WARNING_CLASSES = Rails.application.config.tailwind.warning.fetch(:class)
+        # INFO_CLASSES = Cms::Config.tailwind.info.fetch(:class)
+        # WARNING_CLASSES = Cms::Config.tailwind.warning.fetch(:class)
 
             # = image_tag "info_icon.svg"
         def info(type: :info, &block) # TODO: use cell for this.
@@ -114,9 +114,9 @@ class ViewsController < ApplicationController
             end
           end
 
-          H2_CLASSES = Rails.application.config.tailwind.h2.fetch(:class)
-          H3_CLASSES = Rails.application.config.tailwind.h3.fetch(:class)
-          H4_CLASSES = Rails.application.config.tailwind.h4.fetch(:class)
+          H2_CLASSES = Cms::Config.tailwind.h2.fetch(:class)
+          H3_CLASSES = Cms::Config.tailwind.h3.fetch(:class)
+          H4_CLASSES = Cms::Config.tailwind.h4.fetch(:class)
 
           def h2(*args, **options)
             super(*args, **options, classes: H2_CLASSES)
@@ -322,8 +322,8 @@ class ViewsController < ApplicationController
     section_cell: My::Cell::Section,
     section_cell_options: {
       controller: self,
-      pre_attributes: Rails.application.config.tailwind.pre,
-      code_attributes: Rails.application.config.tailwind.code,
+      pre_attributes: Cms::Config.tailwind.pre,
+      code_attributes: Cms::Config.tailwind.code,
     },
     kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
