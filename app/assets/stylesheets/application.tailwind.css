@@ -57,10 +57,6 @@
       lg:w-3/12 lg:max-w-[23rem] lg:static  lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem];
   }
 
-  .documentation-right-nav-link {
-    @apply block px-2 leading-8;
-  }
-
   .documentation-right-toc-h3-active {
     @apply text-white bg-dark-purple;
   }

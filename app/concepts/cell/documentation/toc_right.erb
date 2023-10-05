@@ -4,10 +4,10 @@
   </h4>
   <!-- bg-bg-orange to "highlight" the link -->
   <% h2.items.each do |h3| %>
-    <%= link_to h3.title, "##{h3.id}", class: "documentation-right-nav-link" %>
+    <%= link_to h3.title, "##{h3.id}", class: "block px-2 leading-8" %>
 
     <% h3.items.each do |h4| %>
-      <%= link_to h4.title, "##{h4.id}", class: "documentation-right-nav-link text-purple pl-6" %>
+      <%= link_to h4.title, "##{h4.id}", class: "block px-2 leading-8 text-purple pl-6" %>
     <% end %>
   <% end %>
 </div>
