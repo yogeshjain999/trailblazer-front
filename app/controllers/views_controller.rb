@@ -62,23 +62,27 @@ class ViewsController < ApplicationController
         # WARNING_CLASSES = Cms::Config.tailwind.warning.fetch(:class)
 
             # = image_tag "info_icon.svg"
-        def info(type: :info, &block) # TODO: use cell for this.
-          # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
-          #{@options[:controller].helpers.image_tag "info_icon.svg"}
-<p>
-  #{yield}
-</p>
-</div>)
+        def info(type: :info, &block)
+          box(img: "info_icon.svg", bg: "bg-bg-purple-1/50", &block)
         end
 
-        def warning(&block)  # TODO: use info parametrized.
-          # TODO: allow kramdown
-          %(<div class="rounded flex p-4 gap-4 bg-bg-orange">
-          #{@options[:controller].helpers.image_tag "light_bulb_icon.svg"}
-<p>
-  #{yield}
-</p>
+        def warning(&block)
+          box(img: "light_bulb_icon.svg", bg: "bg-bg-orange", &block)
+        end
+
+        def box(bg:, img:, &block) # TODO: use cell for this.
+          kramdown_options  = @options.fetch(:kramdown_options)
+          convert_method    = kramdown_options.fetch(:converter)
+
+          icon_tag = @options[:controller].helpers.image_tag img
+          html  = yield
+
+          html = Kramdown::Document.new(html, kramdown_options).send(convert_method) # TODO: encapsulate that.
+
+          %(
+<div class="rounded flex p-4 gap-4 #{bg}">
+  #{icon_tag}
+  #{html}
 </div>)
         end
 
@@ -318,14 +322,15 @@ class ViewsController < ApplicationController
   Pages = {
     # top-level options, going to all books.
     render: Documentation::Render,
+    kramdown_options: kramdown_options = {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
     section_cell: My::Cell::Section,
     section_cell_options: {
       controller: self,
       pre_attributes: Cms::Config.tailwind.pre,
       code_attributes: Cms::Config.tailwind.code,
+      kramdown_options: kramdown_options
     },
-    kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
 
     belongs_to: :documentation,
 
