@@ -42,7 +42,7 @@ class ViewsController < ApplicationController
 
           return %(<div class="spacing-y-0">) +
 
-          %(<div class="spacing-x-1 mb-[6px] ml-[6px]">
+          %(<div class="spacing-x-1 mb-[5px] ml-[6px]">
             <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
               <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" #{colors}>Activity</span>
             </a>
@@ -95,9 +95,12 @@ class ViewsController < ApplicationController
 
         def gem_version(name, version, **)
           # <a href="https://github.com/trailblazer/trailblazer-activity-dsl-linear" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-activity-dsl-linear 1.2.0</a>
-          svg = %(<svg class="mt-1 fill-grey" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z"/></svg>)
+          svg = %(<svg class="fill-grey" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z"/></svg>)
+          link = %(<a href="" class="ml-1" target="_blank">#{name} #{version}</a>)
 
-          %(<span class="flex inline-block border border-grey text-grey pt-1 pb-1 pl-2 pr-1 rounded">#{svg} <a href="" class="ml-1">#{name} #{version}</a></span>)
+          # Added `!-mt-2 !mb-2` to remove the margin added by parent element using `space-y-*`
+          # More details about `!` on https://tailwindcss.com/docs/configuration#important-modifier
+          %(<p class="flex items-center text-sm leading-6 font-semibold text-purple !-mt-2 !mb-2">#{svg} #{link}</p>)
         end
 
         My::Cell.delegate_to_controller_helpers(self, :image_tag)
