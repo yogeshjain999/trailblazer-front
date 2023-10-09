@@ -350,7 +350,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/trailblazer/index.html",
         target_url:  "/2.1/docs/trailblazer/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -363,7 +363,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/rails_integration/index.html",
         target_url:  "/2.1/docs/rails_integration/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -376,7 +376,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/test/index.html",
         target_url:  "/2.1/docs/test/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -389,7 +389,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/internals/index.html",
         target_url:  "/2.1/docs/internals/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -402,7 +402,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/activity/index.html",
         target_url:  "/2.1/docs/activity/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" },
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" },
         "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
         "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
         "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
@@ -418,7 +418,7 @@ class ViewsController < ApplicationController
         "interfaces.md.erb" => { snippet_file: "activity_test.rb" },
         "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
         "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
-        "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
+        # "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
       }
     },
 
@@ -463,7 +463,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/workflow/index.html",
         target_url:  "/2.1/docs/workflow/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -476,7 +476,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/endpoint/index.html",
         target_url:  "/2.1/docs/endpoint/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -489,7 +489,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/reform/index.html",
         target_url:  "/2.1/docs/reform/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -502,7 +502,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/cells/index.html",
         target_url:  "/2.1/docs/cells/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -515,7 +515,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/representable/index.html",
         target_url:  "/2.1/docs/representable/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -528,7 +528,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/disposable/index.html",
         target_url:  "/2.1/docs/disposable/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -541,7 +541,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/roar/index.html",
         target_url:  "/2.1/docs/roar/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -554,7 +554,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/tutorial/index.html",
         target_url:  "/2.1/docs/tutorial/index.html",
 
-        "activity.md.erb" => { snippet_file: "basics_test.rb" }
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
