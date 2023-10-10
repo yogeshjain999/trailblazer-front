@@ -12,7 +12,7 @@ module Cms
       a: {class: "underline text-purple"},
       img: {class: "mt-12 mb-12 mx-auto"},
       ul: {class: "list-disc pl-8"},
-      li: {class: "mt-2"},
+      li: {class: ""},
     ).freeze
 
     def self.tailwind
