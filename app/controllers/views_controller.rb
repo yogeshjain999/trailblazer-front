@@ -89,7 +89,9 @@ class ViewsController < ApplicationController
           %(
 <div class="rounded flex p-4 gap-4 #{bg}">
   #{icon_tag}
-  #{html}
+  <div class="space-y-3">
+    #{html}
+  </div>
 </div>)
         end
 
