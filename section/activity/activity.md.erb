@@ -45,7 +45,7 @@ Steps can instruct the activity about the step outcome by returning a truthy or 
 
 Since we're dealing with business logic in steps, you're allowed to write state to the `ctx` object. The subsequential steps can access the new variables just as any other variable on `ctx`.
 
-<%= code_tabs "save" %>
+<%= code "save" %>
 
 After running the activity, `ctx` variables can also be retrieved, for example for rendering in a controller view, or in your unit tests.
 

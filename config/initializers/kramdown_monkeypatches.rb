@@ -13,4 +13,14 @@ class Kramdown::Converter::Fuckyoukramdown < Kramdown::Converter::Html
     el.attr.merge!(Cms::Config.tailwind.a)
     super
   end
+
+  def convert_ul(el, *args)
+    el.attr.merge!(Cms::Config.tailwind.ul)
+    super
+  end
+
+  def convert_li(el, *args)
+    el.attr.merge!(Cms::Config.tailwind.li)
+    super
+  end
 end
