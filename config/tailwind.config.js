@@ -35,7 +35,8 @@ module.exports = {
       "bg-grey": "#F2F2F2",
       "light-grey": "#F1F1F1",
       "light-bg": "#FEFEFE",
-      "white": "#FFFFFF"
+      "white": "#FFFFFF",
+      "black": "#000000",
 
     },
     fontFamily: {
