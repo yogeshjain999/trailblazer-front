@@ -11,8 +11,8 @@ module Cms
       h4: {class: "font-bold text-neutral-500 lg:text-1xl text-xl py-2"}, # mt-15 is from spacing/15 in tailwind.config.js.
       a: {class: "underline text-purple"},
       img: {class: "mt-12 mb-12 mx-auto"},
-      ul: {class: "list-disc pl-8"},
-      li: {class: ""},
+      ul: {class: "space-y-2"},
+      li: {class: "list-image-[url('list_circle.svg')] ml-10"},
     ).freeze
 
     def self.tailwind

@@ -8,7 +8,7 @@ module.exports = {
     "./app/views/**/*.erb",
     "./app/concepts/**/*.erb",
     "./app/controllers/views_controller.rb",
-    "./config/initializers/tailwind.rb",
+    "./app/concepts/cms/*.rb", // config.rb
   ],
   theme: {
     colors: {

@@ -39,10 +39,6 @@
     @apply text-center text-lg mt-5 lg:text-2xl;
   }
 
-  .list-circle {
-    @apply list-image-[url(list_circle)] ml-10;
-  }
-
   .list-checkmark {
     @apply list-image-[url(list_checkmark)];
   }
