@@ -1,5 +1,5 @@
-<section class="bg-orange pt-[5.5rem] pb-40 sm:flex sm:justify-end sm:pr-10">
-  <div class="w-fit mx-auto bg-bg-blue/40 py-10 px-8 sm:mx-0 lg:max-w-[33rem]">
+<section class="pt-[5.5rem] pb-40 sm:flex sm:justify-end sm:pr-10">
+  <div class="w-fit mx-auto bg-bg-blue/60 py-10 px-8 sm:mx-0 lg:max-w-[33rem] z-40">
     <h1 class="text-white font-bold text-4xl lg:text-6xl">
       High-level
       <br>
@@ -16,9 +16,9 @@
     <%= link_to "Chat with us", "#", class: "base-button text-white bg-purple mt-10 lg:text-2xl" %>
   </div>
 
-  <div class="parallax">
-    <div class="parallax-part front" data-parallax='{"y" : -600}'></div>
-    <div class="parallax-part middle" data-parallax='{"y" : -300}'></div>
-    <div class="parallax-part back" data-parallax='{"y" : -150}'></div>
+  <div class="overflow-hidden top-0 bottom-0 left-0 right-0 absolute w-full h-screen">
+    <div class="z-30 bg-[url('parallax/front.webp')]  -bottom-[210px] top-0 left-0 right-0 absolute bg-right-bottom bg-no-repeat bg-cover" data-parallax='{"y" : -600}'></div>
+    <div class="z-20 bg-[url('parallax/middle.webp')] -bottom-[35px]  top-0 left-0 right-0 absolute bg-right-bottom bg-no-repeat bg-cover" data-parallax='{"y" : -300}'></div>
+    <div class="z-10 bg-[url('parallax/back.webp')]   -bottom-[30px]  top-0 left-0 right-0 absolute bg-right-bottom bg-no-repeat bg-cover" data-parallax='{"y" : -150}'></div>
   </div>
 </section>

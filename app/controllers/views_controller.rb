@@ -326,7 +326,7 @@ class ViewsController < ApplicationController
       class Layout < Application::Cell::Layout
         # include Application::Cell::Layout::Render
         def navbar_options
-          "bg-orange"
+          ""
         end
 
         private def navbar_link_classes
