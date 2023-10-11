@@ -20,7 +20,6 @@
   .base-button {
     @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
     lg:w-[18.75rem] lg:h-16 lg:text-2xl
-    hover:scale-105;
   }
 
   .section-content-wrapper {
