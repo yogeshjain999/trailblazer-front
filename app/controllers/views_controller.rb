@@ -152,11 +152,15 @@ class ViewsController < ApplicationController
   module Application
     module Cell
       class Container
-        def initialize(controller:, **options)
-          @options = options.merge(controller: controller)
+        def initialize(controller:, page_identifier:, **options)
+          @options = options.merge(controller: controller, page_identifier: page_identifier) # TODO: find way how to specify required kws.
         end
 
         My::Cell.delegate_to_controller_helpers(self, :csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags)
+
+        def script_for_page_identifier
+          %(<script>pageIdentifier = "#{@options.fetch(:page_identifier)}";</script>)
+        end
 
         def to_h
           {}
@@ -186,7 +190,19 @@ class ViewsController < ApplicationController
         def navbar_link_to(text, path, is: nil)
           classes = @options[:belongs_to] == is ? "underline decoration-[5px] decoration-purple underline-offset-[15px]" : ""
 
-          link_to text, path, class: "font-medium text-base uppercase lg:normal-case lg:font-semibold #{classes}"
+          link_to text, path, class: "font-medium text-base uppercase lg:normal-case lg:font-semibold #{classes} #{navbar_link_classes}"
+        end
+
+        private def navbar_link_classes
+          ""
+        end
+
+        def navbar_logo
+          "logo_blue_ruby.svg"
+        end
+
+        def navbar_options
+          "bg-white sticky"
         end
       end
 
@@ -306,12 +322,25 @@ class ViewsController < ApplicationController
   end
 
   module Landing
-    class Cell
-      include Application::Cell::Layout::Render
+    module Cell
+      class Layout < Application::Cell::Layout
+        # include Application::Cell::Layout::Render
+        def navbar_options
+          "bg-orange"
+        end
+
+        private def navbar_link_classes
+          "text-white"
+        end
+
+        def navbar_logo
+          "logo_white_ruby.svg"
+        end
+      end
     end
 
     Flow = Cms::Flow.build(
-      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell, options_for_cell: Cms::Flow.options_for_cell_without_content},
+      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell_without_content},
       html: {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
   end
@@ -580,6 +609,7 @@ class ViewsController < ApplicationController
 
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
+      page_identifier: "docs",
     )
 
     activity_content_html = pages[4].to_h["2.1"][:content]
@@ -607,6 +637,7 @@ class ViewsController < ApplicationController
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
       kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
+      page_identifier: "landing",
     )
 
     # raise pages[0].to_h["2.1"].inspect
@@ -636,6 +667,7 @@ class ViewsController < ApplicationController
 
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self,
+      page_identifier: "landing",
     )
 
     activity_content_html = pages[0].to_h["2.1"][:content]

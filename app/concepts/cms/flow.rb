@@ -24,8 +24,8 @@ module Cms
     end
 
     # Defaults for this app.
-    @options_for_cell_without_content = ->(ctx, controller:, **) { {controller: controller} }
-    @options_for_cell = ->(ctx, controller:, content:, **) { {yield_block: content, controller: controller} }
+    @options_for_cell_without_content = ->(ctx, controller:, page_identifier:, **) { {controller: controller, page_identifier: page_identifier} }
+    @options_for_cell = ->(ctx, controller:, page_identifier:, content:, **) { {yield_block: content, controller: controller, page_identifier: page_identifier} }
     singleton_class.attr_reader :options_for_cell_without_content, :options_for_cell
   end
 
