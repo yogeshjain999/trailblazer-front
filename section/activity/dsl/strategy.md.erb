@@ -1,5 +1,7 @@
 <%= h2 "Strategy" %>
 
+The `trailblazer-activity-dsl-linear` gem ships with three base layouts: `Activity::Path`, `Activity::Railway` and `Activity::FastTrack`. Those "strategies" extend the DSL and the `#step` method to add extensive wiring to your activities.
+
 <%= h3 "Path" %>
 
 The simplest strategy is `Path`, which does nothing but connecting each task's `:success` output to the following task.
@@ -8,7 +10,7 @@ The simplest strategy is `Path`, which does nothing but connecting each task's `
 
 Without any additional DSL options, this results in a straight path.
 
-<%= image_tag "path.webp" %>
+<%= image_tag "path.png" %>
 
 In turn, this means that only `true` return values in your tasks will work. The DSL will, per default, wrap every task with the `Binary` interface, meaning returning `true` will result in `Activity::Right`, and false in `Activity::Left`. Currently, only `Right` signals are wired up.
 
@@ -28,7 +30,7 @@ The `End()` helper allows creating a new end event labelled with the specified s
 
 This will result in the following circuit.
 
-<%= image_tag "path-end.webp" %>
+<%= image_tag "path-end.png" %>
 
 The `validate` task now has a `success` and a `failure` output. Since it's wrapped using `Binary` it may return `true` or `false` to dictate the used output (or `Activity::Right`/`Activity::Left` since it's the [task interface]).
 
@@ -50,17 +52,18 @@ Since we're adding a `:failure` output, `create` now has two outgoing connection
 
 <%= h3 "Railway" %>
 
-The [`Railway` pattern](http://fsharpforfunandprofit.com/rop/) is used for "automatic" error handling. You arrange your actual chain of logic on the "success" track, if a problem occurs, the processing jumps to the parallel "failure" track, skipping the rest of the tasks on the success track.
+The [`Railway` layout](http://fsharpforfunandprofit.com/rop/) is used for "automatic" error handling. You arrange your actual chain of logic on the "success" track, if a problem occurs, the processing jumps to the parallel "failure" track, skipping the rest of the tasks on the success track.
 
 Once on the failure track, it stays there (unless you instruct not to do so!).
 
-<%= image_tag "railway.webp" %>
+<%= image_tag "memo-create.png" %>
 
-Three possible execution paths this activity might take.
+Four possible execution paths this activity might take.
 
-* No errors: First `validate`, then `create`, then ends in `End.success`. The activity was successful.
-* Validation error: First `validate`, which returns a `Left` (failure) signal, leading to `log_error`, then `End.failure`.
-* Creation error: First `validate`, then `create`, which deviates to the failure track, leading to `End.failure`. Note this doesn't hit the logging error handler due to the sequence order.
+* No errors: First `validate`, then `save`, then `notify`, then terminate in `End.success`. The activity was successful.
+* Validation error: First `validate`, which returns a `Left` (failure) signal, leading to `handle_errors`, then terminate in `End.failure`.
+* DB error: First `validate`, then `save`, which deviates to the failure track, leading to `End.failure`.
+* Notify error: `validate`, `save`, then `notify` fails, terminating in `End.failure`. Note that this doesn't hit the error handler due to the sequence order.
 
 To place tasks on the failure track, use `#fail`. Note that the order of tasks corresponds to the order in the Railway.
 
