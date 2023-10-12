@@ -336,6 +336,8 @@ class ViewsController < ApplicationController
         def navbar_logo
           "logo_white_ruby.svg"
         end
+
+        My::Cell.delegate_to_controller_helpers(self, :asset_path)
       end
     end
 
