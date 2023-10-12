@@ -12,6 +12,20 @@ import { ParallaxScroll } from "jquery.parallax-scroll";
 if (pageIdentifier == "landing") {
   jquery(document).ready(function() {
     ParallaxScroll.init();
+
+    // TODO: move to separate  function/file.
+    jquery('div.user-group').click(function (event) {
+      var tab_clicked     = jquery(event.target);
+      var class_selected  = tab_clicked.attr("data-selected-class");
+
+      jquery('div.user-group').removeClass(class_selected);
+
+      var content = tab_clicked.next();
+
+      tab_clicked.addClass(class_selected);
+      // jquery('#users-content').replaceWith(content);
+      jquery('#users-content').html(content.html()) ;
+    });
   });
 }
 
