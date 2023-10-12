@@ -73,6 +73,9 @@ module.exports = {
         "9": "2.0rem",
         "15": "3.75rem",
         "22": "5.5rem",
+      },
+      listStyleImage: {
+        'disc': "url('list_circle.svg')"
       }
     }
   },
