@@ -26,6 +26,8 @@ if (pageIdentifier == "landing") {
       jquery('#users-content').children().replaceWith(content);
       jquery('#users-content ul').removeClass('hidden');
     });
+
+    jquery('div.user-group').first().click();
   });
 }
 
