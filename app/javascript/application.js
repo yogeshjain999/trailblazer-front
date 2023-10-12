@@ -23,8 +23,8 @@ if (pageIdentifier == "landing") {
       var content = tab_clicked.next();
 
       tab_clicked.addClass(class_selected);
-      // jquery('#users-content').replaceWith(content);
-      jquery('#users-content').html(content.html()) ;
+      jquery('#users-content').children().replaceWith(content);
+      jquery('#users-content ul').removeClass('hidden');
     });
   });
 }
