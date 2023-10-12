@@ -20,7 +20,7 @@ if (pageIdentifier == "landing") {
 
       jquery('div.user-group').removeClass(class_selected);
 
-      var content = tab_clicked.next();
+      var content = tab_clicked.next().clone();
 
       tab_clicked.addClass(class_selected);
       jquery('#users-content').children().replaceWith(content);
