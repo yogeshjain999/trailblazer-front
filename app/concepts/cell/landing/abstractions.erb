@@ -1,0 +1,66 @@
+<section class="bg-bg-blue pt-20 pb-32 px-10">
+  <h2 class="section-header text-white font-bold text-4xl lg:text-6xl">
+    Our 
+    <span class="text-purple-text">abstraction</span>
+    layers
+  </h2>
+  <p class="text-white text-lg text-center mt-10 mx-auto max-w-[45rem]">
+    Trailblazer's main objective: <span class="font-bold uppercase text-purple-text">keep software maintainable</span>. We do so by providing a range of additional abstraction layers, where code is moved from conservative "MVC" to new layers and objects.
+  </p>
+  <div class="max-w-[63rem] section-content-wrapper md:py-0">
+    <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-[5.5rem] flex flex-col mt-10 text-center">
+
+      <div class="max-w-50">
+      <pre><code class="rounded">class MemosController < ApplicationController
+  def create
+    if Memo::Operation::Create.(params: params)
+      render
+    end
+  end</code></pre>
+
+      <pre><code class="rounded mt-4">class Memo < ApplicationRecord
+  belongs_to :user
+  has_many :memos</code></pre>
+      </div>
+
+      <div class="md:max-w-[28rem] flex flex-col">
+        <div class="text-white">
+          <h3 class="lg:text-3xl font-bold text-3xl">
+            <span class="text-purple-text">Lean</span>
+            MVC
+          </h3>
+          <p class="mt-4 text-lg lg:text-xl lg:mt-5">
+            Move your
+            <span class="uppercase text-purple-text">business logic</span>
+            out of controllers and models.
+            </p>
+          <p class="mt-4 text-lg lg:text-xl lg:mt-5">
+            Let controllers do routing and rendering, let models be SQL abstractions instead
+            of being dumps for all sorts of application code. Your messy callback chains go to operations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-40 flex flex-col mt-10 text-center">
+      <div class="md:max-w-[28rem] flex flex-col">
+        <div class="text-white">
+          <h3 class="lg:text-3xl font-bold text-3xl">
+            <span class="text-purple-text">Orchestrate</span>
+            activities
+          </h3>
+          <p class="mt-4 text-lg lg:text-xl lg:mt-5">
+            In
+            <span class="uppercase text-purple-text">Trailblazer</span>
+            , each function or task of an application is encapsulated into an activity. An activity represents a specific step or action
+            within the application's workflow. Activities can range from simple ad-hoc Ruby methods to more complex nested activities.
+          </p>
+        </div>
+      </div>
+      <%= image_tag "code_placeholder_3.jpg", class: "w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[27rem] md:mt-0 md:mx-0" %>
+    </div>
+  </div>
+</section>
+architecture is the concept of an operation, which is a stateless object that encapsulates the overall behavior and logic
+            of a specific use case or feature within the application. It orchestrates the activities, validations, policies, models,
+            callbacks, and other components necessary to execute the use case.

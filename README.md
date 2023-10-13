@@ -25,3 +25,10 @@ will copy the library to `vendor/javascript/jquery.js`
 ## Troubleshooting
 
 1. Changes not picked up? Run `rails assets:clobber`
+
+## Publishing
+
+RAILS_ENV=production rails assets:precompile
+RAILS_ENV=production be guard
+cp -R public/2.1 docs/ && cp -R public/assets docs/
+touch docs/index.html

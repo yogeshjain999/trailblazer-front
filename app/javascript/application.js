@@ -9,6 +9,9 @@ import jquery from 'jquery';
 
 import { ParallaxScroll } from "jquery.parallax-scroll";
 
+hljs.registerLanguage('ruby', ruby);
+hljs.highlightAll();
+
 if (pageIdentifier == "landing") {
   jquery(document).ready(function() {
     ParallaxScroll.init();
@@ -33,9 +36,6 @@ if (pageIdentifier == "landing") {
 
 if (pageIdentifier == "docs") {
   jquery(document).ready(function() {
-    hljs.registerLanguage('ruby', ruby);
-    hljs.highlightAll();
-
     ScrollSpy.init();
 
     var anchors = new anchorJS();
