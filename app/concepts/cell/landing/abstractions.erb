@@ -46,21 +46,28 @@
       <div class="md:max-w-[28rem] flex flex-col">
         <div class="text-white">
           <h3 class="lg:text-3xl font-bold text-3xl">
-            <span class="text-purple-text">Orchestrate</span>
-            activities
+            A place for your
+            <span class="text-purple-text">business logic</span>
+
           </h3>
           <p class="mt-4 text-lg lg:text-xl lg:mt-5">
-            In
-            <span class="uppercase text-purple-text">Trailblazer</span>
-            , each function or task of an application is encapsulated into an activity. An activity represents a specific step or action
-            within the application's workflow. Activities can range from simple ad-hoc Ruby methods to more complex nested activities.
+            Don't reinvent the wheel! Trailblazer ships with a comprehensive service object, the
+            <span class="uppercase text-purple-text">operation</span>.
+          </p>
+          <p class="mt-4 text-lg lg:text-xl lg:mt-5">
+            It takes over control flow, maximizes reusability, and lets your team focus on writing features.
           </p>
         </div>
       </div>
-      <%= image_tag "code_placeholder_3.jpg", class: "w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[27rem] md:mt-0 md:mx-0" %>
+      <div class="max-w-50">
+      <pre><code class="rounded">module Memo::Operation
+  class Create < Trailblazer::Operation
+    step :validate
+    step :save
+    step :send_email
+    step :increase_counter
+    fail :errors</code></pre>
+
     </div>
   </div>
 </section>
-architecture is the concept of an operation, which is a stateless object that encapsulates the overall behavior and logic
-            of a specific use case or feature within the application. It orchestrates the activities, validations, policies, models,
-            callbacks, and other components necessary to execute the use case.
