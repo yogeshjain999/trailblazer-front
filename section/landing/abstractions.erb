@@ -11,7 +11,7 @@
     <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-[5.5rem] flex flex-col mt-10 text-center">
 
       <div class="max-w-50">
-      <pre><code class="rounded">class MemosController < ApplicationController
+        <pre><code class="rounded">class MemosController < ApplicationController
   def create
     if Memo::Operation::Create.(params: params)
       render
@@ -58,7 +58,7 @@ end</code></pre>
         </div>
       </div>
       <div class="max-w-50">
-      <pre><code class="rounded">module Memo::Operation
+        <pre><code class="rounded">module Memo::Operation
   class Create < Trailblazer::Operation
     step :validate
     step :save
@@ -66,31 +66,31 @@ end</code></pre>
     step :increase_counter
     fail :errors</code></pre>
 
-    </div>
-  </div>
-
-  <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-24 flex flex-col mt-10 text-center">
-
-    <div class="max-w-50">
-    <pre><code class="rounded">module Memo::Contract
-  class Create < Reform::Form
-    property :text
-    property :author
-
-    validates :text, presence: true
-  end</code></pre>
-</code></pre>
+      </div>
     </div>
 
-    <div class="md:max-w-[28rem] flex flex-col">
-      <div class="text-white">
-        <h3 class="lg:text-3xl font-bold text-3xl">
-          <span class="text-purple-text">Tackling</span>
-          Problems
-        </h3>
-        <p class="mt-4 text-lg lg:text-xl lg:mt-5">
-          Our self-contained solutions include <a href="/2.1/docs/reform" class="underline text-light-purple">form objects</a>, <a href="/2.1/docs/reform" class="underline text-light-purple">representers</a> for parsing and rendering, and our popular <a href="/2.1/docs/reform" class="underline text-light-purple">view component</a> library.
-        </p>
+    <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-24 flex flex-col mt-10 text-center">
+
+      <div class="max-w-50">
+        <pre><code class="rounded">module Memo::Contract
+    class Create < Reform::Form
+      property :text
+      property :author
+
+      validates :text, presence: true
+    end</code></pre>
+      </div>
+
+      <div class="md:max-w-[28rem] flex flex-col">
+        <div class="text-white">
+          <h3 class="lg:text-3xl font-bold text-3xl">
+            <span class="text-purple-text">Tackling</span>
+            Problems
+          </h3>
+          <p class="mt-4 text-lg lg:text-xl lg:mt-5">
+            Our self-contained solutions include <a href="/2.1/docs/reform" class="underline text-light-purple">form objects</a>, <a href="/2.1/docs/reform" class="underline text-light-purple">representers</a> for parsing and rendering, and our popular <a href="/2.1/docs/reform" class="underline text-light-purple">view component</a> library.
+          </p>
+        </div>
       </div>
     </div>
   </div>
