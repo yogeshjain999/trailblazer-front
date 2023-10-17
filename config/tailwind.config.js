@@ -76,7 +76,7 @@ module.exports = {
         "22": "5.5rem",
       },
       listStyleImage: {
-        'disc': "url('list_circle.svg')"
+        'disc': "url('list-circle-full.svg')"
       }
     }
   },
