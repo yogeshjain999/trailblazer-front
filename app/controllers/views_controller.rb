@@ -328,10 +328,6 @@ class ViewsController < ApplicationController
   module Landing
     module Cell
       class Layout < Application::Cell::Layout
-        def initialize(page_identifier:, **options)
-          super(page_identifier: page_identifier, **options)
-        end
-
         # include Application::Cell::Layout::Render
         def navbar_options
           ""
@@ -619,7 +615,6 @@ class ViewsController < ApplicationController
 
         section_cell_options: {
           controller: self,
-          page_identifier: "landing", # FIXME: THIS IS NOT PASSED INTO the navbar snippet cell?!?!
         },
       }
     },
@@ -640,7 +635,6 @@ class ViewsController < ApplicationController
         section_cell: Landing::Cell::Layout,
         section_cell_options: {
           controller: self,
-          page_identifier: "landing", # FIXME: THIS IS NOT PASSED INTO the navbar snippet cell?!?!
         },
 
 

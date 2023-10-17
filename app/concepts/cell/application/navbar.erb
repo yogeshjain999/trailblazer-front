@@ -1,35 +1,31 @@
-<nav class=" text-base z-[50] top-0 absolute w-full <%= navbar_options %>" id="navbar">
-  <div class="w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center <%= navbar_div_options %>">
-    <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
-      <%= image_tag navbar_logo, class: "w-40 lg:my-0" %>
-    </a>
-    <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
-      <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
-                    before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
-                    after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+<nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center <%= navbar_options %>" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <%= image_tag navbar_logo, class: "w-40 lg:my-0" %>
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <%= navbar_link_to "Documentation", "/2.1/docs" %>
+      <%= navbar_link_to "Blog", "/2.1/blog" %>
+      <%= navbar_link_to "About", "/2.1/about" %>
+      <%= navbar_link_to "Community", "#" %>
+      <%= navbar_link_to "Learn", "#" %>
+      <%= navbar_link_to "Chat with us", "https://trailblazer.zulipchat.com" %>
     </div>
-    <div class="lg:hidden flex flex-col text-center hidden" id="navList">
-      <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
-        <%= navbar_link_to "Documentation", "/2.1/docs" %>
-        <%= navbar_link_to "Blog", "/2.1/blog" %>
-        <%= navbar_link_to "About", "/2.1/about" %>
-        <%= navbar_link_to "Community", "#" %>
-        <%= navbar_link_to "Learn", "#" %>
-        <%= navbar_link_to "Chat with us", "https://trailblazer.zulipchat.com" %>
-      </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <%= navbar_link_to "Documentation", "/2.1/docs", is: :documentation %>
+      <%= navbar_link_to "Blog", "/2.1/blog", is: :blog %>
+      <%= navbar_link_to "About", "/2.1/about", is: :about %>
+      <%= navbar_link_to "Community", "#", is: :community %>
+      <%= navbar_link_to "Learn", "#", is: :learn %>
     </div>
-    <div class="lg:flex hidden gap-10 items-center">
-      <div class="flex gap-7">
-        <%= navbar_link_to "Documentation", "/2.1/docs", is: :documentation %>
-        <%= navbar_link_to "Blog", "/2.1/blog", is: :blog %>
-        <%= navbar_link_to "About", "/2.1/about", is: :about %>
-        <%= navbar_link_to "Community", "#", is: :community %>
-        <%= navbar_link_to "Learn", "#", is: :learn %>
-      </div>
 
-      <% if @options[:page_identifier] != "landing" %>
-        <%= link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" %>
-      <% end -%>
-    </div>
+    <%= link_to "Chat with us", "#", class: "base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" %>
   </div>
 </nav>
