@@ -9,6 +9,7 @@ module.exports = {
     "./app/concepts/**/*.erb",
     "./app/controllers/views_controller.rb",
     "./app/concepts/cms/*.rb", // config.rb
+    "section/**/*.erb",
   ],
   theme: {
     colors: {

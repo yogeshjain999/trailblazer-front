@@ -152,8 +152,8 @@ class ViewsController < ApplicationController
   module Application
     module Cell
       class Container
-        def initialize(controller:, page_identifier:, **options)
-          @options = options.merge(controller: controller, page_identifier: page_identifier) # TODO: find way how to specify required kws.
+        def initialize(controller:, **options)
+          @options = options.merge(controller: controller) # TODO: find way how to specify required kws.
         end
 
         My::Cell.delegate_to_controller_helpers(self, :csrf_meta_tags, :csp_meta_tag, :stylesheet_link_tag, :javascript_importmap_tags)
@@ -299,7 +299,7 @@ class ViewsController < ApplicationController
       html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
 
-    class Render < Trailblazer::Activity::Railway
+    class Render < Torture::Cms::Page::Render::WithToc
       step :render_right_tocs
       step Subprocess(Flow)
 
@@ -324,6 +324,10 @@ class ViewsController < ApplicationController
   module Landing
     module Cell
       class Layout < Application::Cell::Layout
+        def initialize(page_identifier:, **options)
+          super(page_identifier: page_identifier, **options)
+        end
+
         # include Application::Cell::Layout::Render
         def navbar_options
           ""
@@ -342,7 +346,7 @@ class ViewsController < ApplicationController
     end
 
     Flow = Cms::Flow.build(
-      page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell_without_content},
+      # page: {template_file: "app/concepts/cell/landing/landing.erb", context_class: Landing::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell_without_content},
       html: {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
     )
   end
@@ -372,6 +376,7 @@ class ViewsController < ApplicationController
       kramdown_options: kramdown_options
     },
 
+    page_identifier: "docs",
     belongs_to: :documentation,
 
     "trailblazer" => { # FIXME
@@ -592,15 +597,54 @@ class ViewsController < ApplicationController
     },
 
     "pro_page" => {
+      page_identifier: "landing",
       toc_title: "Trailblazer PRO",
       toc_left: false,
+      toc: false,
       "2.1" => {
         title: "Trailblazer PRO",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "sections/page",
+        section_dir: "section/page",
         target_file: "public/2.1/pro.html",
         target_url:  "/2.1/pro.html",
         render: Pro::Flow,
+
+        section_cell_options: {
+          controller: self,
+          page_identifier: "landing", # FIXME: THIS IS NOT PASSED INTO the navbar snippet cell?!?!
+        },
+      }
+    },
+
+    "landing" => {
+      toc_title: "Trailblazer",
+      toc_left: false,
+      toc: false, # TODO: iMPLEMENT something like that
+      "2.1" => {
+        page_identifier: "landing",
+        title: "Trailblazer",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/landing",
+        target_file: "public/2.1/index.html",
+        target_url:  "/2.1/index.html",
+        render: Landing::Flow,
+
+        section_cell: Landing::Cell::Layout,
+        section_cell_options: {
+          controller: self,
+          page_identifier: "landing", # FIXME: THIS IS NOT PASSED INTO the navbar snippet cell?!?!
+        },
+
+
+        "../../app/concepts/cell/application/navbar.erb" => {snippet_file: ""},
+        "hero_section.erb" => { snippet_file: "" },
+        "video_section.erb" => { snippet_file: "" },
+        "snippets_section.erb" => { snippet_file: "" },
+        "for_whom_section.erb" => { snippet_file: "" },
+        "abstractions.erb" => { snippet_file: "" },
+        "features_section.erb" => { snippet_file: "" },
+        "testimonials_section.erb" => { snippet_file: "" },
+        "learn_more_section.erb" => { snippet_file: "" },
       }
     },
 
@@ -611,7 +655,7 @@ class ViewsController < ApplicationController
 
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
-      page_identifier: "docs",
+      # page_identifier: "docs",
     )
 
     activity_content_html = pages[4].to_h["2.1"][:content]
@@ -625,7 +669,7 @@ class ViewsController < ApplicationController
         toc_title: "Trailblazer PRO",
         "2.1" => {
           title: "Trailblazer PRO",
-          snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+          snippet_dir: "",
           section_dir: "sections/page",
           target_file: "public/2.1/pro.html",
           target_url:  "/2.1/pro.html",
@@ -650,29 +694,17 @@ class ViewsController < ApplicationController
   end
 
   def landing
-    pages = {
-      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-      "landing" => {
-        toc_title: "Trailblazer",
-        "2.1" => {
-          title: "Trailblazer",
-          snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-          section_dir: "sections/page",
-          target_file: "public/2.1/pro.html",
-          target_url:  "/2.1/pro.html",
-          render:      Landing::Flow,
-        }
-      },
-    }
+    pages = Torture::Cms::DSL.(Pages)
 
-    pages = Torture::Cms::DSL.(pages)
+    # pp pages
+
 
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
-      controller: self,
-      page_identifier: "landing",
+      controller: self, # TODO: pass this to all cells.
     )
 
-    activity_content_html = pages[0].to_h["2.1"][:content]
+    # raise pages.keys.inspect
+    activity_content_html = pages[-1].to_h["2.1"][:content]
 
     render html: activity_content_html.html_safe
   end
