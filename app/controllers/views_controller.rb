@@ -204,6 +204,10 @@ class ViewsController < ApplicationController
         def navbar_options
           "bg-white sticky"
         end
+
+        def navbar_div_options
+          ""
+        end
       end
 
       # This is delibarately a PORO, and not a cell, to play with the "exec_context" concept.
@@ -331,6 +335,10 @@ class ViewsController < ApplicationController
         # include Application::Cell::Layout::Render
         def navbar_options
           ""
+        end
+
+        def navbar_div_options
+          "max-w-[1440px]"
         end
 
         private def navbar_link_classes
