@@ -11,14 +11,14 @@
     <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-[5.5rem] flex flex-col mt-10 text-center">
 
       <div class="max-w-50">
-        <pre><code class="rounded">class MemosController < ApplicationController
+        <pre><code class="rounded  border-light-purple border border-light-purple border">class MemosController < ApplicationController
   def create
     if Memo::Operation::Create.(params: params)
       render
     end
   end</code></pre>
 
-      <pre><code class="rounded mt-4">class Memo < ApplicationRecord
+      <pre><code class="rounded  border-light-purple border mt-4">class Memo < ApplicationRecord
   belongs_to :user
   has_many :memos
 end</code></pre>
@@ -58,7 +58,7 @@ end</code></pre>
         </div>
       </div>
       <div class="max-w-50">
-        <pre><code class="rounded">module Memo::Operation
+        <pre><code class="rounded  border-light-purple border">module Memo::Operation
   class Create < Trailblazer::Operation
     step :validate
     step :save
@@ -72,7 +72,7 @@ end</code></pre>
     <div class="md:text-left md:flex-row md:gap-16 lg:gap-20 md:justify-between md:mt-24 flex flex-col mt-10 text-center">
 
       <div class="max-w-50">
-        <pre><code class="rounded">module Memo::Contract
+        <pre><code class="rounded  border-light-purple border">module Memo::Contract
   class Create < Reform::Form
     property :text
     property :author
