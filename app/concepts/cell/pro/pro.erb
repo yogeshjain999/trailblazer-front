@@ -236,17 +236,5 @@
       </div>
     </div>
   </section>
-  <section class="bg-purple-text/50">
-    <div class="max-w-[67.5rem] section-content-wrapper">
-      <h2 class="section-header font-bold">
-        Get started with the
-        <br/>
-        <span class="font-black">
-          TRAILBLAZER PRO
-        </span>
-        mission
-      </h2>
-      <%= link_to "Chat with us", "#", class: "base-button bg-purple text-white mt-15 mx-auto" %>
-    </div>
-  </section>
-</div>
+  <%= render Cell::Erb::Template.new("app/concepts/cell/application/chat_with_us.erb") %>
+

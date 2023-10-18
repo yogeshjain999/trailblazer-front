@@ -652,6 +652,8 @@ class ViewsController < ApplicationController
         "features_section.erb" => { snippet_file: "" },
         "testimonials_section.erb" => { snippet_file: "" },
         "learn_more_section.erb" => { snippet_file: "" },
+        "../../app/concepts/cell/application/chat_with_us.erb" => { snippet_file: "" },
+        "../../app/concepts/cell/application/footer.erb" => { snippet_file: "" },
       }
     },
 
@@ -671,31 +673,14 @@ class ViewsController < ApplicationController
   end
 
   def product
-    pages = {
-      "pro_page" => {
-        toc_title: "Trailblazer PRO",
-        "2.1" => {
-          title: "Trailblazer PRO",
-          snippet_dir: "",
-          section_dir: "sections/page",
-          target_file: "public/2.1/pro.html",
-          target_url:  "/2.1/pro.html",
-          render: Pro::Flow,
-        }
-      },
-    }
-
-    pages = Torture::Cms::DSL.(pages)
+   pages = Torture::Cms::DSL.(Pages)
 
     pages, _ = Torture::Cms::Site.new.render_pages(pages,
-      controller: self,
-      kramdown_options: {converter: "to_fuckyoukramdown"}, # use Kramdown::Torture parser from the torture-server gem.
-      page_identifier: "landing",
+      controller: self, # TODO: pass this to all cells.
+      # page_identifier: "docs",
     )
 
-    # raise pages[0].to_h["2.1"].inspect
-
-    activity_content_html = pages[0].to_h["2.1"][:content]
+    activity_content_html = pages[-2].to_h["2.1"][:content]
 
     render html: activity_content_html.html_safe
   end
