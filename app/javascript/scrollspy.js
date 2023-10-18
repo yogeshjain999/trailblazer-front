@@ -1,10 +1,12 @@
 import ScrollMagic from 'scrollmagic';
 
+import jquery from 'jquery';
+
 export function rightTOCScrollSpy() {
   var controller = new ScrollMagic.Controller();
-  var documentationContainer = document.querySelector('#documentation');
-  var calloutSection = document.querySelector('#callout-section');
-  var relativeDocumentationHeight = documentationContainer.offsetHeight - calloutSection.offsetHeight - 210;
+  var documentationContainer = jquery('#documentation');
+  var relativeDocumentationHeight = documentationContainer.height()- 550; // - calloutSection.offsetHeight - 210;
+
   var leftSidebarLinks = document.querySelectorAll('#sideNav a[href^="#"]');
 
   leftSidebarLinks.forEach(function (anchor, index) {
@@ -22,7 +24,7 @@ export function rightTOCScrollSpy() {
       .setClassToggle(tocElement, 'xl:block')
       .addTo(controller);
 
-    // Make TOC position fixed once it's header is scrolled to the top of screen till the end of documentation
+    // Make TOC position fixed once its header is scrolled to the top of screen till the end of documentation
     scene.on('enter', function () {
       new ScrollMagic.Scene({
         offset: 100,
