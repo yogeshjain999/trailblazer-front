@@ -51,9 +51,9 @@ if (pageIdentifier == "docs") {
       // console.log(right_toc_id)
       h2_map.push(
         {
-          offset_top: trigger_el.offsetTop,
-          element:    trigger_element,
-          toc_element: jquery(right_toc_id), // for
+          offset_top:   trigger_el.offsetTop,
+          element:      trigger_element,
+          toc_element:  jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
         }
       )
     });
@@ -68,70 +68,35 @@ if (pageIdentifier == "docs") {
       let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
       let scroll_bottom = _window.innerHeight() + scroll_top;
 
-      // var current_h2 = "";
 
-      // find out direction of scrolling.
-      // var direction = 'up';
-      // if (last_scrolltop < scroll_top) {
-      //   direction = 'down';
-      // }
-      // last_scrolltop = scroll_top;
-
-      // if (direction == 'down') {
-        // find closest trigger_element (e.g. h2).
-      for (let i = 0; i < h2_map.length - 1; i++) {
-        let h2 = h2_map[i];
-        let h2_top = h2['offset_top'];
-// console.log("o")
-// console.log(h2)
-
-        // console.log(`${scroll_top} ${h2_top}`)
-        if (h2_top > scroll_top) {
-          if (h2_top < scroll_bottom) {
-            // trigger_element is within viewport.
-            current_h2 = h2;
-          } else {
-            // trigger_element is not yet in viewport.
-            current_h2 = h2_map[i-1];
-          }
-          break;
-        } else {
-          // console.log(`couldn't find > ${scroll_top} ${current_h2['element']}`)
-        }
-            // current_h2 = h2_map[i-1];
-      }
-      // } else {
-      //   // scrolling up
-      //   // FIXME: redundant.
-      //   for (let i = 0; i < h2_map.length - 1; i++) {
-      //     let h2 = h2_map[i];
-      //     let h2_top = h2['offset_top'];
-
-      //     // console.log(`${scroll_top} ${h2_top}`)
-      //     if (h2_top > scroll_top) {
-      //       if (h2_top < scroll_bottom) {
-      //         // trigger_element is within viewport.
-      //         current_h2 = h2;
-      //       } else {
-      //         // trigger_element is not yet in viewport.
-      //         // use the one below!
-      //         current_h2 = h2_map[i-1];
-      //       }
-      //       break;
-      //     }
-      //   }
-      // }
-
-      // console.log(current_h2)
+      current_h2 = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
 
 
       jquery(h2_map).each(function(i, h2) {
-        console.log(h2)
         h2['toc_element'].removeClass("display_block");
         // h2['toc_element'].addClass("display_none");  // FIXME: optimize.
       });
 
       jquery(current_h2['toc_element']).addClass("display_block");
+    }
+
+    function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
+      for (let i = 0; i < trigger_element_map.length - 1; i++) {
+        let h2 = trigger_element_map[i];
+        let h2_top = h2['offset_top'];
+
+        // console.log(`${scroll_top} ${h2_top}`)
+        if (h2_top > scroll_top) {
+          if (h2_top < scroll_bottom) {
+            // trigger_element is within viewport.
+            return h2;
+          } else {
+            // trigger_element is not yet in viewport.
+            return trigger_element_map[i-1];
+          }
+          // break;
+        }
+      }
     }
 
     // console.log(jquery("#documentation"))
