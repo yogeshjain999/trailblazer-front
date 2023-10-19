@@ -42,22 +42,55 @@ if (pageIdentifier == "docs") {
     // jquery("#documentation").scrollSpy();
 
     let h2_map = [];
+    let h3_map = [];
+    let h4_map = [];
 
     // compile time!
     jquery("#documentation h2").each(function(index, trigger_el) {
       var trigger_element = jquery(trigger_el);
       var right_toc_id    = `#right-toc-${trigger_element.attr('id')}`; // toc div that belongs to this trigger_element/h2.
 
-      // console.log(right_toc_id)
       h2_map.push(
         {
           offset_top:   trigger_el.offsetTop,
           element:      trigger_element,
-          toc_element:  jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
+          target:  jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
         }
       )
     });
-    console.log(h2_map)
+
+    // DISCUSS: we could key H3/H4 under H2.
+    jquery("#documentation h3").each(function(index, trigger_el) {
+      var trigger_element = jquery(trigger_el);
+
+      let h3_id = trigger_element.attr('id');
+      let h3_in_toc = jquery(`#right-toc [href="#${h3_id}"]`);
+
+      h3_map.push(
+        {
+          offset_top:   trigger_el.offsetTop,
+          element:      trigger_element,
+          target:       h3_in_toc,
+        }
+      )
+    });
+
+    // DISCUSS: we could key H3/H4 under H2.
+    jquery("#documentation h4").each(function(index, trigger_el) {
+      var trigger_element = jquery(trigger_el);
+
+      let h3_id = trigger_element.attr('id');
+      let h3_in_toc = jquery(`#right-toc [href="#${h3_id}"]`);
+
+      h4_map.push(
+        {
+          offset_top:   trigger_el.offsetTop,
+          element:      trigger_element,
+          target:       h3_in_toc,
+        }
+      )
+    });
+
 
     let current_h2 = h2_map[0]; // FIXME: how to initialize that?
 
@@ -68,16 +101,34 @@ if (pageIdentifier == "docs") {
       let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
       let scroll_bottom = _window.innerHeight() + scroll_top;
 
-
+    // H2 / TOC right
       current_h2 = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
 
-
       jquery(h2_map).each(function(i, h2) {
-        h2['toc_element'].removeClass("display_block");
-        // h2['toc_element'].addClass("display_none");  // FIXME: optimize.
+        h2['target'].removeClass("display_block");
       });
 
-      jquery(current_h2['toc_element']).addClass("display_block");
+      jquery(current_h2['target']).addClass("display_block");
+
+
+    // H3 in TOC right
+      let current_h3 = find_closest_trigger_element(h3_map, scroll_top, scroll_bottom);
+
+      jquery(h3_map).each(function(i, trigger_el) {
+        trigger_el['target'].removeClass("documentation-right-toc-h3-active");
+      });
+
+      jquery(current_h3['target']).addClass("documentation-right-toc-h3-active");
+
+
+    // H4 in TOC right
+      let current_h4 = find_closest_trigger_element(h4_map, scroll_top, scroll_bottom);
+
+      jquery(h4_map).each(function(i, trigger_el) {
+        trigger_el['target'].removeClass("documentation-right-toc-h4-active");
+      });
+
+      jquery(current_h4['target']).addClass("documentation-right-toc-h4-active");
     }
 
     function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
