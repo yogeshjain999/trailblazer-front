@@ -9,6 +9,9 @@ import jquery from 'jquery';
 
 import { ParallaxScroll } from "jquery.parallax-scroll";
 
+
+// import  './jquery.scrollspy';
+
 hljs.registerLanguage('ruby', ruby);
 hljs.highlightAll();
 
@@ -36,7 +39,82 @@ if (pageIdentifier == "landing") {
 
 if (pageIdentifier == "docs") {
   jquery(document).ready(function() {
-    ScrollSpy.init();
+    // jquery("#documentation").scrollSpy();
+
+    let h2_map = [];
+
+
+    jquery("#documentation h2").each(function(index, trigger_element) {
+      h2_map.push(
+        {
+          offset_top: trigger_element.offsetTop,
+          element:    trigger_element,
+        }
+      )
+    });
+      // console.log(h2_map)
+
+    let current_h2 = "";
+    let last_scrolltop = 0; // FIXME: can we avoid those globals?
+
+    let h2_listener = function (event) {
+      var _window = jquery(window);
+      let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
+      let scroll_bottom = _window.innerHeight() + scroll_top;
+
+      // find out direction of scrolling.
+      var direction = 'up';
+      if (last_scrolltop < scroll_top) {
+        direction = 'down';
+      }
+      last_scrolltop = scroll_top;
+
+      if (direction == 'down') {
+        // find closest trigger_element (e.g. h2).
+        for (let i = 0; i < h2_map.length - 1; i++) {
+          let h2 = h2_map[i];
+          let h2_top = h2['offset_top'];
+
+          // console.log(`${scroll_top} ${h2_top}`)
+          if (h2_top > scroll_top) {
+            if (h2_top < scroll_bottom) {
+              // trigger_element is within viewport.
+              current_h2 = h2;
+            } else {
+              // trigger_element is not yet in viewport.
+              current_h2 = h2_map[i-1];
+            }
+            break;
+          }
+        }
+      } else {
+        // scrolling up
+        for (let i = h2_map.length - 1; i >= 0; i--) {
+          let h2 = h2_map[i];
+          let h2_top = h2['offset_top'];
+
+          if (h2_top > scroll_top) {
+            if (h2_top < scroll_bottom) {
+              // trigger_element is within viewport.
+              current_h2 = h2;
+            } else {
+              // trigger_element is not yet in viewport.
+              current_h2 = h2_map[i-1];
+            }
+            break;
+          }
+        }
+      }
+
+      console.log(current_h2)
+    }
+
+    // console.log(jquery("#documentation"))
+    jquery(window).on("scroll", h2_listener);
+
+
+
+    // ScrollSpy.init();
 
     var anchors = new anchorJS();
     anchors.add('h2, h3, h4');
