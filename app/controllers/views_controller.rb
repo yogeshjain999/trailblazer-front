@@ -567,9 +567,9 @@ class ViewsController < ApplicationController
     },
 
     "disposable" => { # FIXME
-      toc_title: "Trailblazer",
+      toc_title: "Disposable",
       "2.1" => {
-        title: "Trailblazer",
+        title: "Disposable",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
         target_file: "public/2.1/docs/disposable/index.html",
