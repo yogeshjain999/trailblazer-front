@@ -43,70 +43,95 @@ if (pageIdentifier == "docs") {
 
     let h2_map = [];
 
+    // compile time!
+    jquery("#documentation h2").each(function(index, trigger_el) {
+      var trigger_element = jquery(trigger_el);
+      var right_toc_id    = `#right-toc-${trigger_element.attr('id')}`; // toc div that belongs to this trigger_element/h2.
 
-    jquery("#documentation h2").each(function(index, trigger_element) {
+      // console.log(right_toc_id)
       h2_map.push(
         {
-          offset_top: trigger_element.offsetTop,
+          offset_top: trigger_el.offsetTop,
           element:    trigger_element,
+          toc_element: jquery(right_toc_id), // for
         }
       )
     });
-      // console.log(h2_map)
+    console.log(h2_map)
 
-    let current_h2 = "";
-    let last_scrolltop = 0; // FIXME: can we avoid those globals?
+    let current_h2 = h2_map[0]; // FIXME: how to initialize that?
+
+    // let last_scrolltop = 0; // FIXME: can we avoid those globals?
 
     let h2_listener = function (event) {
       var _window = jquery(window);
       let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
       let scroll_bottom = _window.innerHeight() + scroll_top;
 
+      // var current_h2 = "";
+
       // find out direction of scrolling.
-      var direction = 'up';
-      if (last_scrolltop < scroll_top) {
-        direction = 'down';
-      }
-      last_scrolltop = scroll_top;
+      // var direction = 'up';
+      // if (last_scrolltop < scroll_top) {
+      //   direction = 'down';
+      // }
+      // last_scrolltop = scroll_top;
 
-      if (direction == 'down') {
+      // if (direction == 'down') {
         // find closest trigger_element (e.g. h2).
-        for (let i = 0; i < h2_map.length - 1; i++) {
-          let h2 = h2_map[i];
-          let h2_top = h2['offset_top'];
+      for (let i = 0; i < h2_map.length - 1; i++) {
+        let h2 = h2_map[i];
+        let h2_top = h2['offset_top'];
+// console.log("o")
+// console.log(h2)
 
-          // console.log(`${scroll_top} ${h2_top}`)
-          if (h2_top > scroll_top) {
-            if (h2_top < scroll_bottom) {
-              // trigger_element is within viewport.
-              current_h2 = h2;
-            } else {
-              // trigger_element is not yet in viewport.
-              current_h2 = h2_map[i-1];
-            }
-            break;
+        // console.log(`${scroll_top} ${h2_top}`)
+        if (h2_top > scroll_top) {
+          if (h2_top < scroll_bottom) {
+            // trigger_element is within viewport.
+            current_h2 = h2;
+          } else {
+            // trigger_element is not yet in viewport.
+            current_h2 = h2_map[i-1];
           }
+          break;
+        } else {
+          // console.log(`couldn't find > ${scroll_top} ${current_h2['element']}`)
         }
-      } else {
-        // scrolling up
-        for (let i = h2_map.length - 1; i >= 0; i--) {
-          let h2 = h2_map[i];
-          let h2_top = h2['offset_top'];
-
-          if (h2_top > scroll_top) {
-            if (h2_top < scroll_bottom) {
-              // trigger_element is within viewport.
-              current_h2 = h2;
-            } else {
-              // trigger_element is not yet in viewport.
-              current_h2 = h2_map[i-1];
-            }
-            break;
-          }
-        }
+            // current_h2 = h2_map[i-1];
       }
+      // } else {
+      //   // scrolling up
+      //   // FIXME: redundant.
+      //   for (let i = 0; i < h2_map.length - 1; i++) {
+      //     let h2 = h2_map[i];
+      //     let h2_top = h2['offset_top'];
 
-      console.log(current_h2)
+      //     // console.log(`${scroll_top} ${h2_top}`)
+      //     if (h2_top > scroll_top) {
+      //       if (h2_top < scroll_bottom) {
+      //         // trigger_element is within viewport.
+      //         current_h2 = h2;
+      //       } else {
+      //         // trigger_element is not yet in viewport.
+      //         // use the one below!
+      //         current_h2 = h2_map[i-1];
+      //       }
+      //       break;
+      //     }
+      //   }
+      // }
+
+      // console.log(current_h2)
+
+
+      jquery(h2_map).each(function(i, h2) {
+        console.log(h2)
+        h2['toc_element'].removeClass("display_block");
+        // h2['toc_element'].addClass("display_none");  // FIXME: optimize.
+      });
+
+      jquery(current_h2['toc_element']).addClass("display_block");
     }
 
     // console.log(jquery("#documentation"))
