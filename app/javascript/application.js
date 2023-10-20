@@ -127,18 +127,12 @@ if (pageIdentifier == "docs") {
 
       // Only mark h3 if it is in viewport. E.g. H2/Overview has a long intro and we shouldn't mark any H3 just yet
       if (current_h3 != null) {
-        jquery(h3_map).each(function(i, trigger_el) {
-          trigger_el['target'].removeClass("documentation-right-toc-h3-active");
-        });
+        remove_class_for(h3_map, "documentation-right-toc-h3-active")
 
         jquery(current_h3['target']).addClass("documentation-right-toc-h3-active");
       } else {
-        // guess we're between h2 and h3 (out-of-sight)
-        // console.log("guess we're between h2 and h3 (out-of-sight)")
-        // console.log(current_h3)
-        jquery(h3_map).each(function(i, trigger_el) {
-          trigger_el['target'].removeClass("documentation-right-toc-h3-active");
-        });
+        // when we are after a H2 in the intro, there's no H3, yet.
+        remove_class_for(h3_map, "documentation-right-toc-h3-active")
       }
 
       if (in_viewport === false && current_h3 === null) {
@@ -177,6 +171,12 @@ if (pageIdentifier == "docs") {
           }
         }
       }
+    }
+
+    function remove_class_for(hx_map, removed_class) {
+      jquery(hx_map).each(function(i, trigger_el) {
+        trigger_el.target.removeClass(removed_class);
+      });
     }
 
     // console.log(jquery("#documentation"))
