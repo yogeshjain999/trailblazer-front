@@ -28,7 +28,9 @@
         <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
           <%= yield %>
         </div>
-        <div class="bg-white relative" id="right-toc">
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
           <%= tocs_right %>
         </div>
       </div>
