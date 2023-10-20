@@ -49,12 +49,13 @@ if (pageIdentifier == "docs") {
     jquery("#documentation h2").each(function(index, trigger_el) {
       var trigger_element = jquery(trigger_el);
       var right_toc_id    = `#right-toc-${trigger_element.attr('id')}`; // toc div that belongs to this trigger_element/h2.
+      var left_toc_id     = `#${trigger_element.attr('id')}`; // link in left toc.
 
       h2_map.push(
         {
-          offset_top:   trigger_el.offsetTop,
           element:      trigger_element,
-          target:  jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
+          target:       jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
+          left_target:  jquery(`#sideNav a[href="${left_toc_id}"]`),
         }
       )
     });
@@ -72,7 +73,6 @@ if (pageIdentifier == "docs") {
       if (trigger_element.prop("tagName") == "H3") {
         h3_map.push(
           {
-            offset_top:   trigger_el.offsetTop,
             element:      trigger_element,
             target:       h_in_toc,
           }
@@ -86,7 +86,6 @@ if (pageIdentifier == "docs") {
         // FIXME: we should do some error handling here.
         h4_map.get(current_h3).push(
           {
-            offset_top:   trigger_el.offsetTop,
             element:      trigger_element,
             target:       h_in_toc,
           }
@@ -94,17 +93,13 @@ if (pageIdentifier == "docs") {
       }
     });
 
-    // console.log(h4_map);
-
-
     let active_h2 = h2_map[0]; // FIXME: how to initialize that?
+    let active_left_h2 = null;
     let active_h3 = null;
     let active_h4 = null;
-
-    // let last_scrolltop = 0; // FIXME: can we avoid those globals?
+    let _window = jquery(window);
 
     let h2_listener = function (event) {
-      var _window = jquery(window);
       let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
       let scroll_bottom = _window.innerHeight() + scroll_top;
 
@@ -112,6 +107,7 @@ if (pageIdentifier == "docs") {
       let current_h2 = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
 
       active_h2 = swap_classes(active_h2, current_h2, "display_block");
+      active_left_h2 = swap_classes(active_left_h2, current_h2, 'xl:bg-selected', 'left_target')
 
     // H3 in TOC right
       let current_h3 = find_closest_trigger_element(h3_map, scroll_top, scroll_bottom);
@@ -123,11 +119,9 @@ if (pageIdentifier == "docs") {
         let local_h4_map = h4_map.get(current_h3.element);
 
         // many H3 don't have H4!
-        // if (local_h4_map.length > 0) {
-          let current_h4 = find_closest_trigger_element(local_h4_map, scroll_top, scroll_bottom);
+        let current_h4 = find_closest_trigger_element(local_h4_map, scroll_top, scroll_bottom);
 
-          active_h4 = swap_classes(active_h4, current_h4, "documentation-right-toc-h4-active");
-        // }
+        active_h4 = swap_classes(active_h4, current_h4, "documentation-right-toc-h4-active");
       }
     }
 
@@ -135,7 +129,7 @@ if (pageIdentifier == "docs") {
     function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
       for (let i = 0; i <= trigger_element_map.length - 1; i++) {
         let hx = trigger_element_map[i];
-        let hx_top = hx['offset_top'];
+        let hx_top = hx.element.offset().top; //  DISCUSS: this could be cached in the maps and recomputed when screen changes.
 
         if (hx_top > scroll_top) {
           if (hx_top < scroll_bottom) {
@@ -153,15 +147,20 @@ if (pageIdentifier == "docs") {
       }
     }
 
-    function swap_classes(active_hx, current_hx, removed_class) {
+    function swap_classes(active_hx, current_hx, removed_class, target='target') {
+      if (active_hx === current_hx) {
+        return active_hx
+      }
+
       if (active_hx != null) {
-        active_hx.target.removeClass(removed_class);
+        active_hx[target].removeClass(removed_class);
       }
 
       // many H3 don't have H4!
-      if (current_hx != null) {
-      current_hx.target.addClass(removed_class);
-    }
+      if (current_hx != null) { // this is the case when there are no H4s under a H3, for example.
+        console.log(`add ${removed_class}    +++++++++ ${current_hx[target].attr("href")}`)
+        current_hx[target].addClass(removed_class);
+      }
 
       return current_hx;
     }
