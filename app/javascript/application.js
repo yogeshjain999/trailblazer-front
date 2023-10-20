@@ -2,7 +2,6 @@ import hljs from 'highlight.js/lib/core';
 import ruby from 'highlight.js/lib/languages/ruby';
 import anchorJS from 'anchor-js';
 
-import ScrollSpy from 'scrollspy';
 import 'navigations'; // FIXME: here, part of the code should only be run when "docs".
 
 import jquery from 'jquery';
@@ -39,12 +38,9 @@ if (pageIdentifier == "landing") {
 
 if (pageIdentifier == "docs") {
   jquery(document).ready(function() {
-    // jquery("#documentation").scrollSpy();
-
     let h2_map = [];
 
     // wyof-scrollspy
-
     // compile time!
     jquery("#documentation h2").each(function(index, trigger_el) {
       var trigger_element = jquery(trigger_el);
