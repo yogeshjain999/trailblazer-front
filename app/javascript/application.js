@@ -42,8 +42,8 @@ if (pageIdentifier == "docs") {
     // jquery("#documentation").scrollSpy();
 
     let h2_map = [];
-    let h3_map = [];
-    let h4_map = [];
+
+    // wyof-scrollspy
 
     // compile time!
     jquery("#documentation h2").each(function(index, trigger_el) {
@@ -60,36 +60,41 @@ if (pageIdentifier == "docs") {
     });
 
     // DISCUSS: we could key H3/H4 under H2.
-    jquery("#documentation h3").each(function(index, trigger_el) {
+    let h3_map = [];
+    let h4_map = new Map();
+
+    jquery("#documentation h3, #documentation h4").each(function(index, trigger_el) {
       var trigger_element = jquery(trigger_el);
 
-      let h3_id = trigger_element.attr('id');
-      let h3_in_toc = jquery(`#right-toc [href="#${h3_id}"]`);
+      let h_id = trigger_element.attr('id');
+      let h_in_toc = jquery(`#right-toc [href="#${h_id}"]`);
 
-      h3_map.push(
-        {
-          offset_top:   trigger_el.offsetTop,
-          element:      trigger_element,
-          target:       h3_in_toc,
-        }
-      )
+      if (trigger_element.prop("tagName") == "H3") {
+        h3_map.push(
+          {
+            offset_top:   trigger_el.offsetTop,
+            element:      trigger_element,
+            target:       h_in_toc,
+          }
+        )
+
+        h4_map.set(trigger_element, []);
+      } else {
+        // h4
+        let current_h3 = h3_map[h3_map.length - 1].element;
+
+        // FIXME: we should do some error handling here.
+        h4_map.get(current_h3).push(
+          {
+            offset_top:   trigger_el.offsetTop,
+            element:      trigger_element,
+            target:       h_in_toc,
+          }
+        )
+      }
     });
 
-    // DISCUSS: we could key H3/H4 under H2.
-    jquery("#documentation h4").each(function(index, trigger_el) {
-      var trigger_element = jquery(trigger_el);
-
-      let h3_id = trigger_element.attr('id');
-      let h3_in_toc = jquery(`#right-toc [href="#${h3_id}"]`);
-
-      h4_map.push(
-        {
-          offset_top:   trigger_el.offsetTop,
-          element:      trigger_element,
-          target:       h3_in_toc,
-        }
-      )
-    });
+    console.log(h4_map);
 
 
     let current_h2 = h2_map[0]; // FIXME: how to initialize that?
@@ -101,8 +106,12 @@ if (pageIdentifier == "docs") {
       let scroll_top = _window.scrollTop(); // where are we at the top of viewport?
       let scroll_bottom = _window.innerHeight() + scroll_top;
 
+      let in_viewport = null
+
     // H2 / TOC right
-      current_h2 = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
+      let result = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
+      in_viewport = result[0]
+      current_h2  = result[1]
 
       jquery(h2_map).each(function(i, h2) {
         h2['target'].removeClass("display_block");
@@ -112,40 +121,60 @@ if (pageIdentifier == "docs") {
 
 
     // H3 in TOC right
-      let current_h3 = find_closest_trigger_element(h3_map, scroll_top, scroll_bottom);
+      result = find_closest_trigger_element(h3_map, scroll_top, scroll_bottom);
+      in_viewport = result[0]
+      let current_h3  = result[1]
 
-      jquery(h3_map).each(function(i, trigger_el) {
-        trigger_el['target'].removeClass("documentation-right-toc-h3-active");
-      });
+      // Only mark h3 if it is in viewport. E.g. H2/Overview has a long intro and we shouldn't mark any H3 just yet
+      if (current_h3 != null) {
+        jquery(h3_map).each(function(i, trigger_el) {
+          trigger_el['target'].removeClass("documentation-right-toc-h3-active");
+        });
 
-      jquery(current_h3['target']).addClass("documentation-right-toc-h3-active");
+        jquery(current_h3['target']).addClass("documentation-right-toc-h3-active");
+      } else {
+        // guess we're between h2 and h3 (out-of-sight)
+        // console.log("guess we're between h2 and h3 (out-of-sight)")
+        // console.log(current_h3)
+        jquery(h3_map).each(function(i, trigger_el) {
+          trigger_el['target'].removeClass("documentation-right-toc-h3-active");
+        });
+      }
 
+      if (in_viewport === false && current_h3 === null) {
 
-    // H4 in TOC right
-      let current_h4 = find_closest_trigger_element(h4_map, scroll_top, scroll_bottom);
+      }
 
-      jquery(h4_map).each(function(i, trigger_el) {
-        trigger_el['target'].removeClass("documentation-right-toc-h4-active");
-      });
+    // // H4 in TOC right
+    //   // only "offer" the H3's h4 list as closest elements.
+    //   let local_h4_map = h4_map.get(current_h3.element);
+    //   console.log("find closest for ")
+    //   console.log(current_h3.element)
+    //   console.log(local_h4_map)
 
-      jquery(current_h4['target']).addClass("documentation-right-toc-h4-active");
+    //   let current_h4 = find_closest_trigger_element(local_h4_map, scroll_top, scroll_bottom);
+
+    //   jquery(h4_map).each(function(i, trigger_el) {
+    //     trigger_el['target'].removeClass("documentation-right-toc-h4-active");
+    //   });
+
+    //   jquery(current_h4['target']).addClass("documentation-right-toc-h4-active");
     }
 
     function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
       for (let i = 0; i < trigger_element_map.length - 1; i++) {
-        let h2 = trigger_element_map[i];
-        let h2_top = h2['offset_top'];
+        let hx = trigger_element_map[i];
+        let hx_top = hx['offset_top'];
 
-        // console.log(`${scroll_top} ${h2_top}`)
-        if (h2_top > scroll_top) {
-          if (h2_top < scroll_bottom) {
+        // console.log(`${scroll_top} ${hx_top}`)
+        if (hx_top > scroll_top) {
+          if (hx_top < scroll_bottom) {
             // trigger_element is within viewport.
-            return h2;
+            return [true, hx];
           } else {
             // trigger_element is not yet in viewport.
-            return trigger_element_map[i-1];
+            return [false, trigger_element_map[i-1]];
           }
-          // break;
         }
       }
     }
