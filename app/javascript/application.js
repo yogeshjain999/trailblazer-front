@@ -109,9 +109,7 @@ if (pageIdentifier == "docs") {
       let in_viewport = null
 
     // H2 / TOC right
-      let result = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
-      in_viewport = result[0]
-      current_h2  = result[1]
+      let current_h2 = find_closest_trigger_element(h2_map, scroll_top, scroll_bottom);
 
       jquery(h2_map).each(function(i, h2) {
         h2['target'].removeClass("display_block");
@@ -121,38 +119,18 @@ if (pageIdentifier == "docs") {
 
 
     // H3 in TOC right
-      result = find_closest_trigger_element(h3_map, scroll_top, scroll_bottom);
-      in_viewport = result[0]
-      let current_h3  = result[1]
+      let current_h3 = mark_hx(h3_map, scroll_top, scroll_bottom, "documentation-right-toc-h3-active");
 
-      // Only mark h3 if it is in viewport. E.g. H2/Overview has a long intro and we shouldn't mark any H3 just yet
+      // // H4 in TOC right
+      //   // only "offer" the H3's h4 list as closest elements.
       if (current_h3 != null) {
-        remove_class_for(h3_map, "documentation-right-toc-h3-active")
+        let local_h4_map = h4_map.get(current_h3.element);
+        console.log("find closest for ")
+      //   console.log(current_h3.element)
+        console.log(local_h4_map)
 
-        jquery(current_h3['target']).addClass("documentation-right-toc-h3-active");
-      } else {
-        // when we are after a H2 in the intro, there's no H3, yet.
-        remove_class_for(h3_map, "documentation-right-toc-h3-active")
-      }
-
-      if (in_viewport === false && current_h3 === null) {
 
       }
-
-    // // H4 in TOC right
-    //   // only "offer" the H3's h4 list as closest elements.
-    //   let local_h4_map = h4_map.get(current_h3.element);
-    //   console.log("find closest for ")
-    //   console.log(current_h3.element)
-    //   console.log(local_h4_map)
-
-    //   let current_h4 = find_closest_trigger_element(local_h4_map, scroll_top, scroll_bottom);
-
-    //   jquery(h4_map).each(function(i, trigger_el) {
-    //     trigger_el['target'].removeClass("documentation-right-toc-h4-active");
-    //   });
-
-    //   jquery(current_h4['target']).addClass("documentation-right-toc-h4-active");
     }
 
     function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
@@ -164,10 +142,10 @@ if (pageIdentifier == "docs") {
         if (hx_top > scroll_top) {
           if (hx_top < scroll_bottom) {
             // trigger_element is within viewport.
-            return [true, hx];
+            return hx;
           } else {
             // trigger_element is not yet in viewport.
-            return [false, trigger_element_map[i-1]];
+            return trigger_element_map[i-1];
           }
         }
       }
@@ -177,6 +155,22 @@ if (pageIdentifier == "docs") {
       jquery(hx_map).each(function(i, trigger_el) {
         trigger_el.target.removeClass(removed_class);
       });
+    }
+
+    function mark_hx(hx_map, scroll_top, scroll_bottom, active_class) {
+      let current_hx = find_closest_trigger_element(hx_map, scroll_top, scroll_bottom);
+
+      // Only mark h3 if it is in viewport. E.g. H2/Overview has a long intro and we shouldn't mark any H3 just yet
+      if (current_hx != null) {
+        remove_class_for(hx_map, active_class)
+
+        jquery(current_hx['target']).addClass(active_class);
+      } else {
+        // when we are after a H2 in the intro, there's no H3, yet.
+        remove_class_for(hx_map, active_class)
+      }
+
+      return current_hx;
     }
 
     // console.log(jquery("#documentation"))
