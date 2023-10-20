@@ -54,4 +54,12 @@
   .documentation-right-toc-h4-active {
     @apply bg-lighter-purple;
   }
+
+  .display_none {
+    display: none;
+  }
+
+  .display_block {
+    display: block;
+  }
 }

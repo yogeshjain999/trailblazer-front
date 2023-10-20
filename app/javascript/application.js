@@ -93,7 +93,7 @@ if (pageIdentifier == "docs") {
       }
     });
 
-    let active_h2 = h2_map[0]; // FIXME: how to initialize that?
+    let active_h2 = null;
     let active_left_h2 = null;
     let active_h3 = null;
     let active_h4 = null;
@@ -141,7 +141,6 @@ if (pageIdentifier == "docs") {
           }
         } else if(i == trigger_element_map.length - 1) {
           // obviously, we're beyond the last h.
-          // console.log("beyond last element")
           return hx; // return the last element.
         }
       }
@@ -158,7 +157,7 @@ if (pageIdentifier == "docs") {
 
       // many H3 don't have H4!
       if (current_hx != null) { // this is the case when there are no H4s under a H3, for example.
-        console.log(`add ${removed_class}    +++++++++ ${current_hx[target].attr("href")}`)
+        // console.log(`add ${removed_class}    +++++++++ ${current_hx[target].attr("href")}`)
         current_hx[target].addClass(removed_class);
       }
 
@@ -167,10 +166,7 @@ if (pageIdentifier == "docs") {
 
     // console.log(jquery("#documentation"))
     jquery(window).on("scroll", h2_listener);
-
-
-
-    // ScrollSpy.init();
+    h2_listener(null); // init wyof-scrollspy
 
     var anchors = new anchorJS();
     anchors.add('h2, h3, h4');
