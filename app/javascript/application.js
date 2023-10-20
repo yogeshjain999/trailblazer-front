@@ -122,23 +122,20 @@ if (pageIdentifier == "docs") {
       let current_h3 = mark_hx(h3_map, scroll_top, scroll_bottom, "documentation-right-toc-h3-active");
 
       // // H4 in TOC right
-      //   // only "offer" the H3's h4 list as closest elements.
       if (current_h3 != null) {
+        // only "offer" the H3's h4 list as closest elements.
         let local_h4_map = h4_map.get(current_h3.element);
-        console.log("find closest for ")
-      //   console.log(current_h3.element)
-        console.log(local_h4_map)
 
-
+        console.log("h4   ")
+        mark_hx(local_h4_map, scroll_top, scroll_bottom, "documentation-right-toc-h4-active");
       }
     }
 
     function find_closest_trigger_element(trigger_element_map, scroll_top, scroll_bottom) {
-      for (let i = 0; i < trigger_element_map.length - 1; i++) {
+      for (let i = 0; i <= trigger_element_map.length - 1; i++) {
         let hx = trigger_element_map[i];
         let hx_top = hx['offset_top'];
 
-        // console.log(`${scroll_top} ${hx_top}`)
         if (hx_top > scroll_top) {
           if (hx_top < scroll_bottom) {
             // trigger_element is within viewport.
