@@ -281,13 +281,15 @@ class ViewsController < ApplicationController
       end
 
       class TocLeft
-        def initialize(headers:)
-          @options = {headers: headers}
+        def initialize(headers:, controller:)
+          @options = {headers: headers, controller: controller}
         end
 
-        def link_to(text, url, **options)
-          %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
-        end
+        My::Cell.delegate_to_controller_helpers(self, :link_to)
+
+        # def link_to(text, url, **options)
+        #   %(<a href="#{url}" class="#{options[:class]}">#{text}</a>)
+        # end
 
         def to_h
           {}
@@ -297,7 +299,7 @@ class ViewsController < ApplicationController
 
     Flow = Cms::Flow.build(
       toc_left:     {template_file: "app/concepts/cell/documentation/toc_left.erb", context_class: Documentation::Cell::TocLeft,
-        options_for_cell: ->(ctx, level_1_headers:, **) { {headers: level_1_headers} },
+        options_for_cell: ->(ctx, level_1_headers:, controller:, **) { {headers: level_1_headers, controller: controller} },
         Trailblazer::Activity::Railway.Out() => {:content => :left_toc_html}},
 
       page:         {template_file: "app/concepts/cell/documentation/documentation.erb", context_class: Documentation::Cell::Layout,

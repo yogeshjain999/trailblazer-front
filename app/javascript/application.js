@@ -44,14 +44,15 @@ if (pageIdentifier == "docs") {
     // compile time!
     jquery("#documentation h2").each(function(index, trigger_el) {
       var trigger_element = jquery(trigger_el);
-      var right_toc_id    = `#right-toc-${trigger_element.attr('id')}`; // toc div that belongs to this trigger_element/h2.
-      var left_toc_id     = `#${trigger_element.attr('id')}`; // link in left toc.
+      let trigger_id      = trigger_element.attr('id');
+      var right_toc_id    = `#right-toc-${trigger_id}`; // toc div that belongs to this trigger_element/h2.
+      var left_toc_id     = `#left-toc-${trigger_id}`; // div with link in left toc.
 
       h2_map.push(
         {
           element:      trigger_element,
           target:       jquery(right_toc_id), // for H2 -> h3/h4 right tocs.
-          left_target:  jquery(`#sideNav a[href="${left_toc_id}"]`),
+          left_target:  jquery(left_toc_id),
         }
       )
     });
