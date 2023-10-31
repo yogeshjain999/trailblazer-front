@@ -2,27 +2,47 @@
   <% separator_after = {3 => true, 9 => true}
       separator_class = "border-t-[1px] border-[#D6D4FB]"
   %>
-  <% @options[:headers].each_with_index do |header, i| %>
-    <% next if header.options[:visible] == false %>
+
+
+  <% i = 0 %>
+  <% iterate @book_headers, controller: @options[:controller] do |name, book_h1| %><%- next if book_h1.include_in_toc == false %>
+
+    <div>
+      <b><a href="<%= default_version_target %>"><%= version_folder %><%= book_h1.toc_title %></a></b><% expanded_items.each do |h2| %>
+        <a href="#<%= h2.id %>"><%= h2.title %></a><% end %>
+    </div>
 
     <div class="flex flex-col <%= separator_after[i] ? separator_class : nil %>">
-      <%= link_to %(#{header.title}), header.options[:target], class: "pl-4 font-bold #{header.items.any? ? 'bg-dark-purple' : ''}" %>
-      <% header.items.each do |h2| %>
+      <div class="<%= expanded_items.any? ? 'bg-dark-purple' : '' %>">
+        <%= link_to %(#{book_h1.toc_title}), default_version_target, class: "pl-4 font-bold" %>
+
+        <% if older_versions %>
+          <span class="flex-inline">
+            <%= older_versions %>
+
+          </span>
+
+        <% end %>
+      </div>
 
 
+      <% expanded_items.each do |h2| %>
         <%#= link_to "##{h2.id}", class: "pl-8" do  %>
         <!-- FIXME: link should know its IDs. -->
         <div class="flex items-center" id="left-toc-<%= h2.id %>">
           <a href="<%= "##{h2.id}" %>" class="pl-8"><%= h2.title %></a>
 
           <% if h2.options[:outdated] %>
-            <a href="" class="">
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+            <%= icon_class = nil %>
+            <a href="<%= h2.options[:outdated][:url] %>" class="" title="<%= h2.options[:outdated][:tooltip] %>">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
             </a>
           <% end %>
         </div>
       <% end %>
     </div>
+
+    <% i += 1 %>
   <% end %>
 </div>
 

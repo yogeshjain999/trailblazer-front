@@ -281,8 +281,32 @@ class ViewsController < ApplicationController
       end
 
       class TocLeft
-        def initialize(headers:, controller:)
-          @options = {headers: headers, controller: controller}
+        include Torture::Cms::Helper::Toc::Versioned
+
+        class MyIterated < Torture::Cms::Helper::Toc::Versioned::Iterated
+          My::Cell.delegate_to_controller_helpers(self, :link_to)
+
+          def initialize(controller:, **options)
+            super(**options)
+
+            @options = {controller: controller}
+          end
+
+          def older_versions
+            _, h1 = @item
+
+            versions = h1.versions_to_h2_headers.keys
+
+            return false if versions.size == 1
+            versions[1..-1]
+          end
+        end
+
+        def initialize(level_1_headers:, controller:)
+
+          @options = {controller: controller}
+
+          super(level_1_headers: level_1_headers, iterate_context_class: MyIterated)
         end
 
         My::Cell.delegate_to_controller_helpers(self, :link_to)
@@ -299,7 +323,7 @@ class ViewsController < ApplicationController
 
     Flow = Cms::Flow.build(
       toc_left:     {template_file: "app/concepts/cell/documentation/toc_left.erb", context_class: Documentation::Cell::TocLeft,
-        options_for_cell: ->(ctx, level_1_headers:, controller:, **) { {headers: level_1_headers, controller: controller} },
+        options_for_cell: ->(ctx, level_1_headers:, controller:, **) { {level_1_headers: level_1_headers, controller: controller} },
         Trailblazer::Activity::Railway.Out() => {:content => :left_toc_html}},
 
       page:         {template_file: "app/concepts/cell/documentation/documentation.erb", context_class: Documentation::Cell::Layout,
@@ -314,12 +338,17 @@ class ViewsController < ApplicationController
       step :render_right_tocs
       step Subprocess(Flow)
 
-      def render_right_tocs(ctx, headers:, controller:, **)
+      def render_right_tocs(ctx, level_1_headers:, controller:, **)
+        books, (book_name, version) = level_1_headers
+
+        h2_headers = books.fetch(book_name).versions_to_h2_headers.fetch(version).items
+
         context_class = Documentation::Cell::TocRight
         template = ::Cell::Erb::Template.new("app/concepts/cell/documentation/toc_right.erb")
 
+
         right_tocs =
-          headers[2].collect do |h2|
+          h2_headers.collect do |h2|
             cell_instance = context_class.new(h2: h2, controller: controller) # DISCUSS: what options to hand in here?
 
             result = ::Cell.({template: template, exec_context: cell_instance})
@@ -460,7 +489,6 @@ class ViewsController < ApplicationController
         "dsl/sequence.md.erb" => { snippet_file: "sequence_options_test.rb" },
         "dsl/patching.md.erb" => { snippet_file: "patching_test.rb" },
         "dsl/composable_variable_mapping.md.erb" => { snippet_file: "composable_variable_mapping_test.rb" },
-        "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
         "dsl/macro.md.erb" => { snippet_file: "macro_test.rb" },
         "internals.md.erb" => { snippet_file: "macro_test.rb" },
         "internals/introspect.md.erb" => { snippet_file: "introspect_test.rb" },
@@ -468,8 +496,20 @@ class ViewsController < ApplicationController
         "task_wrap.md.erb" => { snippet_file: "task_wrap_test.rb" },
         "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
         # "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
-      }
+      },
+      "pre-1.2" => {
+        h1_options: {outdated: true},
+        title: "Activity / Deprecated",
+        # toc: false,
+        # toc_left: false,
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/activity/pre-1.2/input_output.html",
+        target_url: "/2.1/docs/activity/pre-1.2/input_output.html",
+        "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
+      },
     },
+
 
     "macro" => {
       toc_title: "Macro",
@@ -610,8 +650,7 @@ class ViewsController < ApplicationController
     "pro_page" => {
       page_identifier: "landing",
       toc_title: "Trailblazer PRO",
-      toc_left: false,
-      toc: false,
+      include_in_toc: false,
       "2.1" => {
         title: "Trailblazer PRO",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
@@ -628,8 +667,7 @@ class ViewsController < ApplicationController
 
     "landing" => {
       toc_title: "Trailblazer",
-      toc_left: false,
-      toc: false, # TODO: iMPLEMENT something like that
+      include_in_toc: false,
       "2.1" => {
         page_identifier: "landing",
         title: "Trailblazer",
@@ -670,6 +708,19 @@ class ViewsController < ApplicationController
     )
 
     activity_content_html = pages[4].to_h["2.1"][:content]
+
+    render html: activity_content_html.html_safe
+  end
+
+  def docs_deprecated
+    pages = Torture::Cms::DSL.(Pages)
+
+    pages, _ = Torture::Cms::Site.new.render_pages(pages,
+      controller: self, # TODO: pass this to all cells.
+      # page_identifier: "docs",
+    )
+
+    activity_content_html = pages[4].to_h["pre-1.2"][:content]
 
     render html: activity_content_html.html_safe
   end
