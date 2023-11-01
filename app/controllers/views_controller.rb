@@ -284,6 +284,8 @@ class ViewsController < ApplicationController
         include Torture::Cms::Helper::Toc::Versioned
 
         class MyIterated < Torture::Cms::Helper::Toc::Versioned::Iterated
+          include Torture::Cms::Helper::Toc::Versioned::Iterate
+
           My::Cell.delegate_to_controller_helpers(self, :link_to)
 
           def initialize(controller:, **options)
@@ -295,10 +297,35 @@ class ViewsController < ApplicationController
           def older_versions
             _, h1 = @item
 
-            versions = h1.versions_to_h2_headers.keys
+            versions = h1.versions_to_h2_headers
+            return false if versions.size <= 1
 
-            return false if versions.size == 1
-            versions[1..-1]
+            _older_versions = versions.to_a[1..-1].collect do |version, h2|
+              {version: version, target: h2.options[:target]}
+            end
+          end
+        end
+
+        class MyIterateVersion
+          def initialize(item:, expanded_version:, **)
+            @version = item
+            @expanded_version = expanded_version
+          end
+
+          def color_class
+            if @expanded_version == version
+              return "border border-white text-white bg-purple"
+            end
+
+            "hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey"
+          end
+
+          def target
+            @version[:target]
+          end
+
+          def version
+            @version[:version]
           end
         end
 
@@ -497,7 +524,7 @@ class ViewsController < ApplicationController
         "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
         # "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
       },
-      "pre-1.2" => {
+      "< 1.2" => {
         h1_options: {outdated: true},
         title: "Activity / Deprecated",
         # toc: false,
@@ -720,7 +747,7 @@ class ViewsController < ApplicationController
       # page_identifier: "docs",
     )
 
-    activity_content_html = pages[4].to_h["pre-1.2"][:content]
+    activity_content_html = pages[4].to_h["< 1.2"][:content]
 
     render html: activity_content_html.html_safe
   end
