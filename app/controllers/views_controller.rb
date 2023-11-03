@@ -260,7 +260,7 @@ class ViewsController < ApplicationController
         end
 
         def initialize(left_toc_html:, right_tocs_html:, version_options:)
-          @options = {left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, documentation_title: version_options[:title]||raise }
+          @options = {left_toc_html: left_toc_html, right_tocs_html: right_tocs_html, documentation_title: version_options[:title]||raise, version_options: version_options }
         end
 
         def to_h
@@ -277,6 +277,11 @@ class ViewsController < ApplicationController
 
         def documentation_title
           @options[:documentation_title]
+        end
+
+        def version_badge
+          version = @options[:version_options][:book_version][1]
+          %(<span class="py-1 px-3 border border rounded border border-white text-white bg-purple">#{version}</span>)
         end
       end
 
@@ -301,7 +306,7 @@ class ViewsController < ApplicationController
             return false if versions.size <= 1
 
             _older_versions = versions.to_a[1..-1].collect do |version, h2|
-              {version: version, target: h2.options[:target]}
+              {version: version, target: h2.options[:target], h2: h2}
             end
           end
         end
@@ -313,11 +318,15 @@ class ViewsController < ApplicationController
           end
 
           def color_class
-            if @expanded_version == version
+            if expanded?
               return "border border-white text-white bg-purple"
             end
 
             "hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey"
+          end
+
+          def expanded?
+            @expanded_version == version
           end
 
           def target
@@ -368,6 +377,9 @@ class ViewsController < ApplicationController
       def render_right_tocs(ctx, level_1_headers:, controller:, **)
         books, (book_name, version) = level_1_headers
 
+        raise "wrong format" unless level_1_headers[1].is_a?(Array)
+
+        puts "@@@@@ #{level_1_headers.inspect} / #{version}"
         h2_headers = books.fetch(book_name).versions_to_h2_headers.fetch(version).items
 
         context_class = Documentation::Cell::TocRight
@@ -524,15 +536,15 @@ class ViewsController < ApplicationController
         "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
         # "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
       },
-      "< 1.2" => {
-        h1_options: {outdated: true},
-        title: "Activity / Deprecated",
-        # toc: false,
-        # toc_left: false,
+      "< 2.1.1" => {
+        options_for_toc: {outdated: true, tooltip: "Deprecated activity docs: :input/:output, ..."},
+        title: "Activity",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
-        target_file: "public/2.1/docs/activity/pre-1.2/input_output.html",
-        target_url: "/2.1/docs/activity/pre-1.2/input_output.html",
+        target_file: "public/2.1/docs/activity/deprecated/index.html",
+        target_url: "/2.1/docs/activity/deprecated/index.html",
+
+        "deprecated.md.erb" => { snippet_file: "variable_mapping_test.rb" },
         "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
       },
     },
@@ -599,27 +611,45 @@ class ViewsController < ApplicationController
     "reform" => { # FIXME
       toc_title: "Reform",
       "2.1" => {
-        title: "Trailblazer",
+        title: "Reform 2",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
         target_file: "public/2.1/docs/reform/index.html",
         target_url:  "/2.1/docs/reform/index.html",
 
         "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+      },
+      "3.0" => {
+        title: "Reform 3",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/reform-3",
+        target_file: "public/2.1/docs/reform/3.0/index.html",
+        target_url:  "/2.1/docs/reform/3.0/index.html",
+
+        "internals.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
-    },
+     },
 
     "cells" => { # FIXME
       toc_title: "Cells",
       "2.1" => {
-        title: "Trailblazer",
+        title: "Cells 4",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
         target_file: "public/2.1/docs/cells/index.html",
         target_url:  "/2.1/docs/cells/index.html",
 
         "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
-      }
+      },
+      "5.0" => {
+        title: "Cells 5",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/activity",
+        target_file: "public/2.1/docs/cells/5.0/index.html",
+        target_url:  "/2.1/docs/cells/5.0/index.html",
+
+        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+      },
     },
 
     "representable" => { # FIXME
@@ -729,7 +759,7 @@ class ViewsController < ApplicationController
   def docs # TODO: remove me, this is only for development.
     pages = Torture::Cms::DSL.(Pages)
 
-    pages, _ = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
       # page_identifier: "docs",
     )
@@ -742,12 +772,12 @@ class ViewsController < ApplicationController
   def docs_deprecated
     pages = Torture::Cms::DSL.(Pages)
 
-    pages, _ = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
       # page_identifier: "docs",
     )
 
-    activity_content_html = pages[4].to_h["< 1.2"][:content]
+    activity_content_html = pages[4].to_h["< 2.1.1"][:content]
 
     render html: activity_content_html.html_safe
   end
@@ -755,7 +785,7 @@ class ViewsController < ApplicationController
   def product
    pages = Torture::Cms::DSL.(Pages)
 
-    pages, _ = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
       # page_identifier: "docs",
     )
@@ -771,7 +801,7 @@ class ViewsController < ApplicationController
     # pp pages
 
 
-    pages, _ = Torture::Cms::Site.new.render_pages(pages,
+    pages, _ = Torture::Cms::Site.render_pages(pages,
       controller: self, # TODO: pass this to all cells.
     )
 

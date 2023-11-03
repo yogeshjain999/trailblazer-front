@@ -6,7 +6,6 @@
 
   <% i = 0 %>
   <% iterate @book_headers, controller: @options[:controller] do |name, book_h1| %><%- next if book_h1.include_in_toc == false %>
-
     <div class="flex flex-col <%= separator_after[i] ? separator_class : nil %>">
       <div class="<%= expanded_items.any? ? 'bg-dark-purple' : '' %> flex items-center">
         <%= link_to %(#{book_h1.toc_title}), default_version_target, class: "pl-4 font-bold" %>
@@ -14,11 +13,26 @@
         <% if older_versions %>
 
           <% iterate older_versions, exec_context_class: MyIterateVersion do |v| %>
-            <a href="<%= target %>" class="">
-              <span class="h-5 text-[8pt] p-[3px] rounded-[6px] ml-3 <%= color_class %>">
-                <%= version %>
-              </span>
-            </a>
+
+            <% if v[:h2].options[:options_for_toc] && v[:h2].options[:options_for_toc][:outdated] %>
+              <a href="<%= target %>" class="" title="<%= v[:h2].options[:options_for_toc][:tooltip] %>">
+                <% if expanded? %>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-purple pl-3"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448 480H64c-35.3 0-64-28.7-64-64V192H512V416c0 35.3-28.7 64-64 64zm64-320H0V96C0 60.7 28.7 32 64 32H192c20.1 0 39.1 9.5 51.2 25.6l19.2 25.6c6 8.1 15.5 12.8 25.6 12.8H448c35.3 0 64 28.7 64 64z"/></svg>
+                <% else %>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple flex-inline"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+                 <% end %>
+              </a>
+
+            <% else %>
+
+              <a href="<%= target %>" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 <%= color_class %>">
+                  <%= version %>
+                </span>
+              </a>
+            <% end %>
+
+
           <% end %>
 
         <% end %>
