@@ -13,17 +13,11 @@
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="font-black uppercase">
           <%= documentation_title %>
+          <%= version_badge %>
         </span>
         Documentation
       </h1>
-      <!-- <div class="text-base leading-10">
-        <span class="font-bold text-bg-blue">
-          <%= "Subject A |" %>
-        </span>
-        <span class="text-purple">
-          Subject 02
-        </span>
-      </div> -->
+
       <div class="xl:flex xl:gap-0.5 mt-5">
         <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
           <%= yield %>

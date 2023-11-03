@@ -13,12 +13,12 @@ req = ActionDispatch::Request.new 'HTTP_HOST' => 'example.com'
 controller.instance_variable_set(:@_request, req)
 
 puts "here comes full site compile"
-pages, returned = ::Torture::Cms::Site.new.produce_versioned_pages(pages_config,
+pages, returned = ::Torture::Cms::Site.produce_versioned_pages(pages_config,
   controller: controller, # TODO: pass this to all cells.
 )
 
 file_to_page_map  = returned.fetch(:file_to_page_map)
-h1_headers        = returned[:h1_headers]
+book_headers        = returned[:book_headers]
 
 guard :torture do
   pages = {"section/rails/cells.md.erb" => 99}
@@ -34,10 +34,10 @@ guard :torture do
     book_options = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:options)
     book_sections = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:sections)
 
-    page, _ = ::Torture::Cms::Site.new.render_page(name: book_name, sections: book_sections, **book_options)
+    page, _ = ::Torture::Cms::Site.render_page(name: book_name, sections: book_sections, book_headers: book_headers, version: version, **book_options)
 
-    page, _ = ::Torture::Cms::Site.new.render_final_page(book_name, h1_headers: h1_headers,  controller: controller, **page)
-    page, _ = ::Torture::Cms::Site.new.produce_page(**page)
+    page, _ = ::Torture::Cms::Site.render_final_page([book_name, version], book_headers: book_headers,  controller: controller, **page)
+    page, _ = ::Torture::Cms::Site.produce_page(**page)
   end
   # # This calls the plugin with a new file name - which may not even exist
   # watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
