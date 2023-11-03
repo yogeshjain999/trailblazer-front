@@ -379,7 +379,6 @@ class ViewsController < ApplicationController
 
         raise "wrong format" unless level_1_headers[1].is_a?(Array)
 
-        puts "@@@@@ #{level_1_headers.inspect} / #{version}"
         h2_headers = books.fetch(book_name).versions_to_h2_headers.fetch(version).items
 
         context_class = Documentation::Cell::TocRight

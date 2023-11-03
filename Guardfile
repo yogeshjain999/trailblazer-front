@@ -34,6 +34,8 @@ guard :torture do
     book_options = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:options)
     book_sections = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:sections)
 
+    book_headers[book_name].versions_to_h2_headers[version].items = [] # FIXME: they will be recomputed in {render_page}.
+
     page, _ = ::Torture::Cms::Site.render_page(name: book_name, sections: book_sections, book_headers: book_headers, version: version, **book_options)
 
     page, _ = ::Torture::Cms::Site.render_final_page([book_name, version], book_headers: book_headers,  controller: controller, **page)
