@@ -232,6 +232,14 @@ class ViewsController < ApplicationController
     end
   end
 
+  # app/concept/application
+  #                         cell/landing
+  #                         cell/documentation
+  #                         cell/documentation/toc_right.rb
+  #                         cell/documentation/toc_right.erb
+
+
+
   module Documentation
     module Cell
       class TocRight
@@ -462,11 +470,14 @@ class ViewsController < ApplicationController
       "2.1" => {
         title: "Trailblazer",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/",
         target_file: "public/2.1/docs/trailblazer/index.html",
         target_url:  "/2.1/docs/trailblazer/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "trailblazer/generic.md.erb"  => {snippet_dir: "../trailblazer-activity-dsl-linear/test/docs", snippet_file: "activity_test.rb"},
+        "trailblazer/to_2.1.md.erb"   => {snippet_dir: "../trailblazer-activity-dsl-linear/test/docs", snippet_file: "activity_test.rb"},
+        "developer/debugging.md.erb"  => {snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb"},
+        "developer/graph.md.erb"      => {snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "graph_test.rb"},
       }
     },
 
