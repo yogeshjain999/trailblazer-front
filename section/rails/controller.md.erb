@@ -1,4 +1,4 @@
-Trailblazer runs with any Ruby web framework, whether that is Rails, Hanami or Grape. Why? Because it's a set of additional abstraction layers like forms, service objects ("operations") or view components. Those are designed to be completely isolated and decoupled from the hosting infrastructure framework.
+Trailblazer runs with any Ruby web framework - Rails, Hanami or Grape. Why? Because it's a set of additional abstraction layers like forms, service objects ("operations") or view components. Those are designed to be completely isolated and decoupled from the hosting infrastructure framework.
 
 Nevertheless, you're lucky if your project is using Rails since we provide convenient glue code in the `trailblazer-rails` gem.
 
@@ -14,12 +14,13 @@ There's a beautiful QUICK START tutorial introducing you to [Trailblazer in Rail
 
 <%= h2 "Controller" %>
 
+<%= gem_version "trailblazer-rails", "0.0.4" %>
 <a href="https://github.com/trailblazer/trailblazer-rails" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-rails</a>
 
 Controller extensions help with
 
-* invoking operations and dealing with the outcome
-* rendering cells that access variables from the operation's result object
+* invoking operations and dealing with the outcome in controller actions.
+* rendering cells that access variables from the operation's result object.
 
 Please note, though, that we're slowly moving towards using [endpoint](/2.1/docs/endpoint.html)s in controllers. Once this new layer becomes stable we will support both approaches.
 
