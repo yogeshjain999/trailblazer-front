@@ -1,5 +1,19 @@
 # README
 
+## Writing
+
+To write docs, use `guard` and `rails` as a server.
+
+```
+bundle exec guard
+rails s
+```
+
+
+## Extending
+
+To work on CSS and new features, you need to run the "development mode" where Tailwind constantly recompiles its CSS file, etc.
+
 Run with
 
 ```

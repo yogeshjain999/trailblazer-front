@@ -610,32 +610,40 @@ class ViewsController < ApplicationController
         section_dir: "section/operation",
         target_file: "public/2.1/docs/operation/index.html",
         target_url: "/2.1/docs/operation/index.html",
+
+          "overview.md.erb" =>  {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "operation_test.rb"},
+          "contract.md.erb" =>  {snippet_dir: "../trailblazer-macro-contract/test/docs", snippet_file: "contract_test.rb"},
+          "class_dependencies.md.erb" => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "class_dependencies_test.rb"},
+
       }
     },
 
     "workflow" => { # FIXME
       toc_title: "Workflow",
       "2.1" => {
-        title: "Trailblazer",
+        title: "Workflow/BPMN",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/workflow",
         target_file: "public/2.1/docs/workflow/index.html",
         target_url:  "/2.1/docs/workflow/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
     "endpoint" => { # FIXME
       toc_title: "Endpoint",
       "2.1" => {
-        title: "Trailblazer",
-        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        title: "Endpoint",
+        snippet_dir: "../trailblazer-endpoint/test/rails-app",
+        section_dir: "section/endpoint",
         target_file: "public/2.1/docs/endpoint/index.html",
         target_url:  "/2.1/docs/endpoint/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb"      => {snippet_file: "basics_test.rb"},
+        "api.md.erb"           => {snippet_file: "basics_test.rb"},
+        "web.md.erb"           => {snippet_file: "basics_test.rb"},
+
       }
     },
 
