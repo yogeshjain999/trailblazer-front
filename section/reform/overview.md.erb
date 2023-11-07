@@ -19,43 +19,36 @@ For a technical architecture overview, read the [Architecture](#reform-overview-
 
 Forms are defined in classes. Often, these classes partially map to a model.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'dry-validation', active: true) do %>
-    <%= code 'basic' %>
-  <% end %>
+<%@ tab_2_content = capture do %>
+class AlbumForm < Reform::Form
+  property :title
 
-  <%= tab.(title: 'ActiveModel') do %>
-    class AlbumForm < Reform::Form
-      property :title
-
-      validates :title, presence: true
-    end
-  <% end %>
+  validates :title, presence: true
+end
 <% end %>
+
+<%= tabs( {title: 'dry-validation', options_for_code: {marker: "basic"}},
+         {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 Form fields are specified using `property` and `collection`, validations for the fields using the respective validation engine's API.
 
 Forms can also be nested and map to more complex object graphs.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'dry-validation', active: true) do %>
-    <%= code 'nested' %>
-  <% end %>
+<%@ tab_2_content = capture do %>
+class AlbumForm < Reform::Form
+  property :title
 
-  <%= tab.(title: 'ActiveModel') do %>
-    class AlbumForm < Reform::Form
-      property :title
+  validates :title, presence: true
 
-      validates :title, presence: true
+  property :artist do
+    property :name
 
-      property :artist do
-        property :name
-
-        validates :name, presence: true
-      end
-    end
-  <% end %>
+    validates :name, presence: true
+  end
+end
 <% end %>
+<%= tabs( {title: 'dry-validation', options_for_code: {marker: "nested"}},
+         {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 While Reform is perfectly suited to map nested models with associations, it also allows mapping via composition, to hash fields, and more. Check out the [supported data types](#reform-data-types).
 
@@ -161,9 +154,8 @@ This will updated the model's attributes using its setter methods, but not `save
 
 <%= h3 "Installation" %>
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'dry-validation', active: true) do %>
-  Add this your Gemfile.
+<%@ tab_1_content = capture do %>
+Add this your Gemfile.
 
     gem "reform"
     gem "dry-validation"
@@ -175,10 +167,10 @@ This will updated the model's attributes using its setter methods, but not `save
     Reform::Form.class_eval do
       include Reform::Form::Dry
     end
-  <% end %>
+<% end %>
 
-  <%= tab.(title: 'ActiveModel') do %>
-  Add this to your Gemfile.
+<%@ tab_2_content = capture do %>
+Add this to your Gemfile.
 
     gem "reform"
     gem "reform-rails"
@@ -196,8 +188,9 @@ This will updated the model's attributes using its setter methods, but not `save
   * `ActiveModel` support is provided by the `reform-rails` gem. You have to add it to your `Gemfile`.
   * The above last step of including `ActiveModel::Validations` is done automatically in a Rails environment.
   * Reform works fine with Rails 3.1-4.2. However, inheritance of validations with `ActiveModel::Validations` is broken in Rails 3.2 and 4.0.
-  <% end %>
 <% end %>
+<%= tabs( {title: 'dry-validation', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 
 <%= h3 "Design Concepts" %>
