@@ -103,6 +103,7 @@ class ViewsController < ApplicationController
         GemVersions = {
           dsl: ["trailblazer-activity-dsl-linear", "https://github.com/trailblazer/trailblazer-activity-dsl-linear/tree/v"],
           "trailblazer-rails" => ["trailblazer-rails", "https://github.com/trailblazer/trailblazer-rails/tree/v"],
+          "trailblazer-macro" => ["trailblazer-macro", "https://github.com/trailblazer/trailblazer-macro/tree/v"],
 
         }
 
@@ -524,26 +525,19 @@ class ViewsController < ApplicationController
     "test" => { # FIXME
       toc_title: "Test",
       "2.1" => {
-        title: "Trailblazer",
-        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        title: "Trailblazer Test",
+        snippet_dir: "../trailblazer-test/test/docs",
+        section_dir: "section/trailblazer/test",
         target_file: "public/2.1/docs/test/index.html",
         target_url:  "/2.1/docs/test/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
-      }
-    },
-
-    "internals" => { # FIXME
-      toc_title: "Internals",
-      "2.1" => {
-        title: "Trailblazer",
-        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
-        target_file: "public/2.1/docs/internals/index.html",
-        target_url:  "/2.1/docs/internals/index.html",
-
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb" => {snippet_file: "assertions/pass_fail_test.rb"},
+        "assertions/pass_fail.md.erb" => {snippet_file: "assertions/pass_fail_test.rb"},
+        "assertions/expose.md.erb" => {snippet_file: "assertions/expose_test.rb"},
+        "helpers/callable.md.erb" => {snippet_file: "helpers/callable_test.rb"},
+        "helpers/mocking.md.erb" => {snippet_file: "helpers/mocking_test.rb"},
+        "rspec.md.erb" => {snippet_file: "helpers/mocking_test.rb"},
+        "system.md.erb" => {snippet_file: "helpers/mocking_test.rb"},
       }
     },
 
@@ -642,6 +636,29 @@ class ViewsController < ApplicationController
         target_url:  "/2.1/docs/endpoint/index.html",
 
         "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+      }
+    },
+
+    "internals" => { # FIXME
+      toc_title: "Internals",
+      "2.1" => {
+        title: "Internals",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/internals",
+        target_file: "public/2.1/docs/internals/index.html",
+        target_url:  "/2.1/docs/internals/index.html",
+
+        "overview.md.erb" => {snippet_file: "internals_test.rb"},
+        "dsl.md.erb" => {snippet_file: "internals_test.rb"},
+        "introspect.md.erb" => {snippet_file: "internals_test.rb"},
+        "wiring_api.md.erb" => {snippet_file: "internals_test.rb"},
+        "activity.md.erb"   => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "option_test.rb"},
+        "operation.md.erb"   => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "option_test.rb"},
+        "context.md.erb"  => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "operation_test.rb"},
+        "option.md.erb"   => {snippet_dir: "../trailblazer-option/test/docs", snippet_file: "option_test.rb"},
+        "developer.md.erb"   => {snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "debugger_test.rb"},
+        "core.md.erb"   => {snippet_dir: "../trailblazer-activity/test/docs", snippet_file: "internals_test.rb"},
+        "core/deprecate.md.erb"   => {snippet_dir: "../trailblazer-activity/test/docs", snippet_file: "internals_test.rb"},
       }
     },
 
