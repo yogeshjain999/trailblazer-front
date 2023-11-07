@@ -100,16 +100,23 @@ class ViewsController < ApplicationController
 </div>)
         end
 
+        GemVersions = {
+          dsl: ["trailblazer-activity-dsl-linear"],
+
+        }
+
         def gem_version(name, version, **)
+          full_name = GemVersions[name] || name
+
           # <a href="https://github.com/trailblazer/trailblazer-activity-dsl-linear" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-activity-dsl-linear 1.2.0</a>
           svg = %(<svg class="mt-1 fill-grey" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z"/></svg>)
 
-          %({::nomarkdown}
-          <span class="flex max-w-fit border border-grey text-grey text-sm pt-1 pb-1 pl-2 pr-2 pr-1 rounded">
+          %(
+          <span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
             #{svg}
             <a href="" class="ml-1">#{name} #{version}</a>
           </span>
-{:/})
+)
         end
 
         My::Cell.delegate_to_controller_helpers(self, :image_tag)
@@ -123,12 +130,19 @@ class ViewsController < ApplicationController
         include ImageTag
 
         module H
-          module Render
-            class H4 < Torture::Cms::Helper::Header::Render
+          class Render < Torture::Cms::Helper::Header::Render
+            step :embed, before: :render_header # append {:embed} to {:display_title}.
+
+            def embed(ctx, embed: nil, display_title:, **)
+              return true unless embed
+
+              ctx[:display_title] = display_title + embed
+            end
+
+            class H4 < Render
               step :render_breadcrumb, replace: :render_header
 
               def render_breadcrumb(ctx, header:, classes:, title:, parent_header:, **)
-
                 ctx[:html] = %(<h4 id="#{header.id}" class="#{classes}">#{parent_header.title}
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium">#{title}</span>
 
@@ -141,11 +155,11 @@ class ViewsController < ApplicationController
           H3_CLASSES = Cms::Config.tailwind.h3.fetch(:class)
           H4_CLASSES = Cms::Config.tailwind.h4.fetch(:class)
 
-          def h2(*args, **options)
+          def h2(*args, render: Render, **options)
             super(*args, **options, classes: H2_CLASSES)
           end
 
-          def h3(*args, **options)
+          def h3(*args, render: Render, **options)
             super(*args, **options, classes: H3_CLASSES)
           end
 
