@@ -47,5 +47,6 @@ GH pages: ONLY docs/ is published under mia.trb.to
 
 RAILS_ENV=production rails assets:precompile
 RAILS_ENV=production be guard
-cp -R public/2.1 docs/ && cp -R public/assets docs/
+rm -r docs/*
+cp -R public/2.1/ docs/ && cp -R public/assets docs/
 touch docs/index.html
