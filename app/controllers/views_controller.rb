@@ -752,11 +752,17 @@ class ViewsController < ApplicationController
       "2.1" => {
         title: "Trailblazer",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/representable",
         target_file: "public/2.1/docs/representable/index.html",
         target_url:  "/2.1/docs/representable/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "3.0/overview.md.erb"                 =>  {snippet_file: "activity_basics_test.rb"},
+        "3.0/api.md.erb"                 =>  {snippet_file: "activity_basics_test.rb"},
+        "3.0/function_api.md.erb"        =>  {snippet_file: "activity_basics_test.rb"},
+        "3.0/xml.md.erb"                 =>  {snippet_file: "activity_basics_test.rb"},
+        "3.0/yaml.md.erb"                =>  {snippet_file: "activity_basics_test.rb"},
+        "debugging.md.erb"               =>  {snippet_file: "activity_basics_test.rb"},
+        "upgrading_guide.md.erb"         =>  {snippet_file: "activity_basics_test.rb"},
       }
     },
 
@@ -765,11 +771,13 @@ class ViewsController < ApplicationController
       "2.1" => {
         title: "Disposable",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/disposable",
         target_file: "public/2.1/docs/disposable/index.html",
         target_url:  "/2.1/docs/disposable/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "api.md.erb"                        =>  {snippet_file: "activity_basics_test.rb"},
+        "default.md.erb"                    =>  {snippet_file: "activity_basics_test.rb"},
+        "callback.md.erb"                   =>  {snippet_file: "activity_basics_test.rb"},
       }
     },
 
@@ -778,16 +786,18 @@ class ViewsController < ApplicationController
       "2.1" => {
         title: "Trailblazer",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/roar",
         target_file: "public/2.1/docs/roar/index.html",
         target_url:  "/2.1/docs/roar/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "index.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
+# TODO: add learn/tutorial page.
     "tutorials" => { # FIXME
       toc_title: "Tutorials",
+      include_in_toc: false,
       "2.1" => {
         title: "Trailblazer",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",

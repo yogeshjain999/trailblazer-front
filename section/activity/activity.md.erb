@@ -1,7 +1,8 @@
-
 <%= h2 "Overview" %>
 
 An activity is the central building block in a Trailblazer architecture. It's an abstraction that helps structuring your business code while taking over the control flow for you.
+
+Operations are often confused as *god objects* that “do everything”. However, operations are nothing but orchestrators. Where to implement the actual code and when to call it is up to the developer.
 
 <%= info do %>
 You're confused about `Operation` and `Activity`? It's simple: an operation is a very thin high-level API around the activity, providing you a less clumsy `Operation.call()` along with the result object.
