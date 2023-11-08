@@ -567,8 +567,9 @@ class ViewsController < ApplicationController
         target_url:  "/2.1/docs/activity/index.html",
 
         "overview.md.erb" => { snippet_file: "activity_basics_test.rb" },
-        "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
+        "mechanics.md.erb" => { snippet_file: "mechanics_test.rb",          snippet_dir: "../trailblazer-operation/test/docs" },
         "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
+        "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
         "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
         "dsl/subprocess.md.erb" => { snippet_file: "subprocess_test.rb" },
         "dsl/options.md.erb" => { snippet_file: "subprocess_test.rb" },

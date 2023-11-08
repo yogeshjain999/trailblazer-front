@@ -1,8 +1,84 @@
 <%= h2 "Mechanics" %>
 
-instance method
-class method (also with module)
-callable
+This chapter discusses the fundamental building blocks and concepts of operations: steps, signals, the ctx object and how to run operations.
+
+<%= h3 "Invocation" %>
+
+Operations represent functions in your application, both in a domain-oriented way and from a programmatical point of view. That is why there's only one way to run an operation.
+
+<%= h4 "Call" %>
+
+The `#call` class method is how you run your operation along with its steps.
+
+<%= code "instance-method-call" %>
+
+And that's literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or change the wiring to achieve the same effect.
+
+<%= h4 "Implicit call" %>
+
+In Ruby, it's possible to skip the word `call`. That's why you might often see invocations of operations that might look a bit cryptic in the beginning.
+
+<%= code "instance-method-implicit-call" %>
+
+Anyhow, the implicit call style underlines the functional aspect of an operation. Since, per convention, the operation name is a verb (e.g. `Create`) there's no need to think of another verb to actually _run_ that "verb". That's why we love the implicit call style!
+
+<%= h4 "Input variables" %>
+
+Whatever variables you pass into the invocation will be readable by the steps of the operation.
+
+<%= h3 "Step" %>
+
+An operation can be composed of any number of steps. Steps can be callable Ruby objects or instance methods of the operation itself.
+
+<%= h4 "Instance method" %>
+
+A step declared with a `:symbol`, as done here with `#validate`, will be considered an instance method of the operation class.
+
+<%= code "instance-method" %>
+
+Signature and return value are identical to all other step types.
+
+<%= h4 "Class method" %>
+
+A class method can come in handy if you want to reuse this particular step in an entirely different operation.
+
+<%= code "class-method" %>
+
+Note that the actual class method has to be defined before retrieving the method object via `method(:validate)`. Again, signature and return value are identical to other styles.
+
+<%= h4 "Module method" %>
+
+Just like a class method, steps can come from any module - this makes it straight-forward to create reusable chunks of logic.
+
+<%= code "module-step" %>
+
+The mechanics to use a "foreign" method as a step are identical to using a class method - they simply rely on [Ruby's `#method` function](https://ruby-doc.org/3.2.2/Method.html).
+
+<%= code "module-method" %>
+
+This is a common technique in complex Trailblazer applications for creating reusable steps with a high degree of maintainability.
+
+<%= h4 "Callable" %>
+
+As a matter of fact, any object, module or class exposing a `#call` method can be a step!
+
+<%= code "callable-step" %>
+
+Callable objects are often used when the step's logic exceeds a certain threshold of complexity and you want to introduce additional methods, as the above `#valid?` function.
+
+<%= info do %>
+Keep in mind that a step can also be implemented using a second *operation*. You can use the [`Subprocess()` macro](#activity-wiring-api-subprocess) to nest operations.
+<% end -%>
+
+<%= h4 "Lambda" %>
+
+Another trick, mostly used for debugging, is to use a lambda as a step.
+
+<%= code "lambda-step" %>
+
+Obviously, this is not really sustainable and should be replaced with one of the above options.
+
+<%= h3 "Ctx" %>
 
 ctx#[]
 keyword arguments
@@ -11,3 +87,6 @@ ctx#[]=
 
 return value
 Signal
+circuit interface
+
+invocation
