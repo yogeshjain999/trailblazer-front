@@ -1,3 +1,11 @@
+Out of the frustration with Rails' view layer, its lack of encapsulation and the convoluted code resulting from partials and helpers both accessing global state, the [Cells](https://github.com/apotonick/cells) gem emerged.
+
+The cells gem is completely stand-alone and can be used without Trailblazer.
+
+A cell is an object that represent a fragment of your UI. The scope of that fragment is up to you: it can embrace an entire page, a single comment container in a thread or just an avatar image link.
+
+In other words: **A cell is an object that can render a template.**
+
 <%= h2 "Overview" %>
 
 Cells are faster than ActionView. While exposing a better performance, you step-wise encapsulate fragments into cell widgets and enforce interfaces.

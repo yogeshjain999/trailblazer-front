@@ -16,45 +16,45 @@ Since this is quite a bit of logic, it's a good idea to encapsulate that into an
 
 Here's what the old legacy `layout.html.haml` looks like.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'HAML', active: true) do %>
-      %html
-        %head
+<%@ tab_1_content = capture do %>
+%html
+  %head
 
-        %body
-          %nav.top-bar
-            %ul
-              %li SUPPORT CHAT
-              %li GUIDES
-              %li
-                - if signed_in?
-                  %img{src: avatar_url}
-                - else
-                  "SIGN IN"
-  <% end %>
-
-  <%= tab.(title: 'ERB') do %>
-    <html>
-      <head></head>
-
-      <body>
-        <nav class="top-bar">
-          <ul>
-            <li>SUPPORT CHAT</li>
-            <li>GUIDES</li>
-            <li>
-              <<% %>% if signed_in? %>
-                <img src="<<% %>%= avatar_url %>">
-              <<% %>% else %>
-                SIGN IN
-              <<% %>% end %>
-            </li>
-          </ul>
-        </nav>
-      </body>
-    </html>
-  <% end %>
+  %body
+    %nav.top-bar
+      %ul
+        %li SUPPORT CHAT
+        %li GUIDES
+        %li
+          - if signed_in?
+            %img{src: avatar_url}
+          - else
+            "SIGN IN"
 <% end %>
+<%@ tab_2_content = capture do %>
+<html>
+  <head></head>
+
+  <body>
+    <nav class="top-bar">
+      <ul>
+        <li>SUPPORT CHAT</li>
+        <li>GUIDES</li>
+        <li>
+          <<% %>% if signed_in? %>
+            <img src="<<% %>%= avatar_url %>">
+          <<% %>% else %>
+            SIGN IN
+          <<% %>% end %>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+<% end %>
+
+<%= tabs( {title: 'HAML', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "ERB",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 Of course, this navigation bar doesn't really make sense without any links added. I've left that out so we can focus on the structure. We will discuss how helpers work in the per-framework sections below.
 
@@ -62,50 +62,49 @@ Of course, this navigation bar doesn't really make sense without any links added
 
 In order to convert all markup below the `<nav>` node into a cell, we first need to add the respective gems to our `Gemfile`.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Ruby', active: true) do %>
-    gem "trailblazer-cells"
-    gem "cells-hamlit"
+<%@ tab_1_content = capture do %>
+gem "trailblazer-cells"
+gem "cells-hamlit"
 
-  For now, all you need is the `trailblazer-cells` gem and the Cells template engine.
-  <% end %>
-
-  <%= tab.(title: 'Rails') do %>
-    gem "trailblazer-cells"
-    gem "cells-hamlit"
-    gem "cells-rails"
-
-  In Rails, you need the `trailblazer-cells` gem and the Cells template engine.
-
-  The `cells-rails` gem will add cell invocation helpers to controllers and views, and supply the URL helpers in cells.
-  <% end %>
+#  For now, all you need is the `trailblazer-cells` gem and the Cells template engine.
 <% end %>
+<%@ tab_2_content = capture do %>
+gem "trailblazer-cells"
+gem "cells-hamlit"
+gem "cells-rails"
+
+# In Rails, you need the `trailblazer-cells` gem and the Cells template engine.
+
+# The `cells-rails` gem will add cell invocation helpers to controllers and views, and supply the URL helpers in cells.
+<% end %>
+<%= tabs( {title: 'Ruby', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "Rails",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 Please note that `trailblazer-cells` simply loads the `cells` gem and then adds some simple semantics on top of it. Also, [Cells supports Haml, Hamlit, ERB, and Slim](#cells-api-template-formats).
 
 Cut the `%nav` fragment from the original `layout.html.haml` and replace it with the cell invocation.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Ruby', active: true) do %>
-    %html
-      %head
+<%@ tab_1_content = capture do %>
+%html
+  %head
 
-      %body
-        = Pro::Cell::Navigation.(nil, current_user: current_user).()
+  %body
+    = Pro::Cell::Navigation.(nil, current_user: current_user).()
 
-  Cells can be invoked using the call style.
-  <% end %>
-
-  <%= tab.(title: 'Rails', active: true) do %>
-    %html
-      %head
-
-      %body
-        = cell(Pro::Cell::Navigation, nil, current_user: current_user)
-
-  In Rails, you can use the handy `cell` helper to invoke the view model.
-  <% end %>
+Cells can be invoked using the call style.
 <% end %>
+<%@ tab_2_content = capture do %>
+%html
+  %head
+
+  %body
+    = cell(Pro::Cell::Navigation, nil, current_user: current_user)
+
+In Rails, you can use the handy `cell` helper to invoke the view model.
+<% end %>
+<%= tabs( {title: 'Ruby', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "Rails",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
+
 
 Instead of keeping navigation view code in the layout, or rendering a partial, the `Pro::Cell::Navigation` cell is now responsible to provide the HTML fragment representing the menu bar.
 
@@ -154,7 +153,7 @@ The reason the cell class lives in the `Pro` namespace is because that's the exa
 
 Adding the class is enough to re-render your application, and you will see, the navigation menu now comes from a cell, presenting you with a hip gravatar icon when logged in, or a string to do so otherwise. Congratulations.
 
-<%= image_tagcells-nav-bar.webp" %>
+<%= image_tag "cells-nav-bar.webp" %>
 
 <%= h3 "Discussion: Navigation" %>
 
@@ -199,39 +198,38 @@ Besides indicating the logged-in status of the use, the `Navigation` cell should
 
 In `app/concepts/pro/view/navigation.haml`, add actual links to the view.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Ruby', active: true) do %>
-      %nav
-        %ul
-          %li SUPPORT CHAT
-            %a{href: "/support"}
-          %li GUIDES
-            %a{href: "/guides"}
-          %li
-            - if signed_in?
-              %img{src: avatar_url}
-            - else
-              "SIGN IN"
+<%@ tab_1_content = capture do %>
+%nav
+  %ul
+    %li SUPPORT CHAT
+      %a{href: "/support"}
+    %li GUIDES
+      %a{href: "/guides"}
+    %li
+      - if signed_in?
+        %img{src: avatar_url}
+      - else
+        "SIGN IN"
 
-  Without any URL system, you can create links using Haml, or delegate to your own URL objects.
-  <% end %>
-
-  <%= tab.(title: 'Rails') do %>
-      %nav
-        %ul
-          %li
-            = link_to "SUPPORT CHAT", chat_path
-          %li
-            = link_to "GUIDES", guides_path
-          %li
-            - if signed_in?
-              %img{src: avatar_url}
-            - else
-              "SIGN IN"
-
-  The `cells-rails` gem conveniently allows to use URL helpers in cell views.
-  <% end %>
+Without any URL system, you can create links using Haml, or delegate to your own URL objects.
 <% end %>
+<%@ tab_2_content = capture do %>
+%nav
+  %ul
+    %li
+      = link_to "SUPPORT CHAT", chat_path
+    %li
+      = link_to "GUIDES", guides_path
+    %li
+      - if signed_in?
+        %img{src: avatar_url}
+      - else
+        "SIGN IN"
+
+The `cells-rails` gem conveniently allows to use URL helpers in cell views.
+<% end %>
+<%= tabs( {title: 'Ruby', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "Rails",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 <%= h3 "Content Cell" %>
 
@@ -239,25 +237,24 @@ View models are not only great to encapsulate small fragments, but also the enti
 
 In the controller, invoke this new cell instead of letting the framework render the content.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Ruby', active: true) do %>
-      def show
-        comment = Comment.find(1)
-        html = Comment::Cell::Show.(comment).()
-      end
-  <% end %>
-
-  <%= tab.(title: 'Rails') do %>
-      class CommentsController < ApplicationController
-        def show
-          comment = Comment.find(1)
-          render html: cell(Comment::Cell::Show, comment)
-        end
-      end
+<%@ tab_1_content = capture do %>
+def show
+  comment = Comment.find(1)
+  html = Comment::Cell::Show.(comment).()
+end
+<% end %>
+<%@ tab_2_content = capture do %>
+class CommentsController < ApplicationController
+  def show
+    comment = Comment.find(1)
+    render html: cell(Comment::Cell::Show, comment)
+  end
+end
 
   This instructs the controller to render the `Comment::Cell::Show` cell, pass the `comment` into it, and let Rails wrap it in the application layout.
-  <% end %>
 <% end %>
+<%= tabs( {title: 'Ruby', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "Rails",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 Note that we now pass the `comment` as the cell's *model* without passing any additional *options*.
 
@@ -307,30 +304,30 @@ The content cell's HTML markup will be passed to the layout cell and can be `yie
 
 In the controller, the content cell needs to get instructed it will be wrapped by a layout cell.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Ruby', active: true) do %>
-      def show
-        comment = Comment.find(1)
+<%@ tab_1_content = capture do %>
+def show
+  comment = Comment.find(1)
 
-        html = Comment::Cell::Show.(comment,
-          context: { current_user: current_user },
-          layout:  Pro::Cell::Layout).()
-      end
-  <% end %>
-
-  <%= tab.(title: 'Rails') do %>
-      class CommentsController < ApplicationController
-        def show
-          comment = Comment.find(params[:id])
-
-          render html: cell(Comment::Cell::Show, comment,
-            context: { current_user: current_user },
-            layout:  Pro::Cell::Layout
-            )
-        end
-      end
-  <% end %>
+  html = Comment::Cell::Show.(comment,
+    context: { current_user: current_user },
+    layout:  Pro::Cell::Layout).()
+end
 <% end %>
+<%@ tab_2_content = capture do %>
+class CommentsController < ApplicationController
+  def show
+    comment = Comment.find(params[:id])
+
+    render html: cell(Comment::Cell::Show, comment,
+      context: { current_user: current_user },
+      layout:  Pro::Cell::Layout
+      )
+  end
+end
+<% end %>
+<%= tabs( {title: 'Ruby', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+         {title: "Rails",   block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
+<%= nav_tabs do |tab| %>
 
 The following happens now.
 

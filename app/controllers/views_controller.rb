@@ -712,7 +712,8 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/reform/3.0/index.html",
         target_url:  "/2.1/docs/reform/3.0/index.html",
 
-        "internals.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb" => { snippet_file: "activity_basics_test.rb" },
+        "internals.md.erb" => { snippet_file: "activity_basics_test.rb" },
       }
      },
 
@@ -721,11 +722,19 @@ class ViewsController < ApplicationController
       "2.1" => {
         title: "Cells 4",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/cells",
         target_file: "public/2.1/docs/cells/index.html",
         target_url:  "/2.1/docs/cells/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb"                        => {snippet_file: "activity_basics_test.rb"},
+        "getting_started.md.erb"                 => {snippet_file: "activity_basics_test.rb"},
+        "api.md.erb"                             => {snippet_file: "activity_basics_test.rb"},
+        "trailblazer.md.erb"                     => {snippet_file: "activity_basics_test.rb"},
+        "testing.md.erb"                         => {snippet_file: "activity_basics_test.rb"},
+        "render.md.erb"                          => {snippet_file: "activity_basics_test.rb"},
+        "rails.md.erb"                           => {snippet_file: "activity_basics_test.rb"},
+        "templates.md.erb"                       => {snippet_file: "activity_basics_test.rb"},
+        "troubleshooting.md.erb"                 => {snippet_file: "activity_basics_test.rb"},
       },
       "5.0" => {
         title: "Cells 5",
