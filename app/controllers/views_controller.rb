@@ -566,7 +566,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/activity/index.html",
         target_url:  "/2.1/docs/activity/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" },
+        "overview.md.erb" => { snippet_file: "activity_basics_test.rb" },
         "dsl/strategy.md.erb" => { snippet_file: "strategy_test.rb" },
         "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
         "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
@@ -739,11 +739,11 @@ class ViewsController < ApplicationController
       "5.0" => {
         title: "Cells 5",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
-        section_dir: "section/activity",
+        section_dir: "section/cells-5",
         target_file: "public/2.1/docs/cells/5.0/index.html",
         target_url:  "/2.1/docs/cells/5.0/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        "overview.md.erb" => { snippet_file: "activity_basics_test.rb" }
       },
     },
 
@@ -805,7 +805,7 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/docs/tutorial/index.html",
         target_url:  "/2.1/docs/tutorial/index.html",
 
-        "activity.md.erb" => { snippet_file: "activity_basics_test.rb" }
+        # "overview.md.erb" => { snippet_file: "activity_basics_test.rb" }
       }
     },
 
@@ -848,7 +848,7 @@ class ViewsController < ApplicationController
         "../../app/concepts/cell/application/navbar.erb" => {snippet_file: ""},
         "hero_section.erb" => { snippet_file: "" },
         "video_section.erb" => { snippet_file: "" },
-        "snippets_section.erb" => { snippet_file: "" },
+        "animations.erb" => { snippet_file: "" },
         "for_whom_section.erb" => { snippet_file: "" },
         "abstractions.erb" => { snippet_file: "" },
         "features_section.erb" => { snippet_file: "" },

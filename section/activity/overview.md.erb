@@ -10,11 +10,15 @@ You're confused about `Operation` and `Activity`? It's simple: an operation is a
 Both come with the exact same DSL.
 <% end %>
 
+<%= h3 "Step DSL" %>
+
 Most of the times, activities are defined via our "step DSL".
 
 <%= code_tabs "memo-create", collapse: "meths" %>
 
 It's a convenient way for you to define _what_ happens. The activity takes care of the _when_ - which reduces your application code while providing a great amount of beautiful features, such as tracing.
+
+<%= h3 "Railway" %>
 
 Internally, the above activity compiles to some kind of "circuit" which looks as follows.
 
@@ -22,9 +26,9 @@ Internally, the above activity compiles to some kind of "circuit" which looks as
 
 As visible, your "steps" are placed onto two tracks, forming a "railway".
 
-<%= h3 "Railway" %>
-
 This is a great concept [stolen from functional programming](https://fsharpforfunandprofit.com/rop/)! The railway is your mental model of the code flow. If a step fails, the execution will deviate to the "failure track", skipping the remaining "success" steps, and eventually stopping on the "failure terminus". The terminus is how you communicate the outcome of your activity run to the outer world.
+
+<%= h3 "Invocation" %>
 
 Now, that's why when running your activity, the outcome will always be either "success" or "failure".
 
@@ -34,7 +38,7 @@ This is how you invoke an activity. Note how the input data goes into the activi
 
 <%= h3 "Step" %>
 
-With activities, your application code is structured into steps. These steps can be any callable Ruby object, but very often, developers use instance methods.
+In an activity your application code is structured into steps. These steps can be any callable Ruby object, but very often, developers use instance methods.
 
 <%= h4 "Signature" %>
 

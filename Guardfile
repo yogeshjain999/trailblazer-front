@@ -25,16 +25,19 @@ guard :torture do
 
   # This runs the modified test
   watch /section\/(.*)/ do |m|
-    puts %(Re-rendering #{m[0].inspect}...)
     # pp file_to_page_map
 
     book_name, version = file_to_page_map.fetch(m[0])
+    puts %(Re-rendering #{book_name}/#{version} because #{m[0].inspect} changed...)
 
 
     book_options = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:options)
     book_sections = pages_config.fetch(book_name)[:versions].fetch(version).fetch(:sections)
 
-    book_headers[book_name].versions_to_h2_headers[version].items = [] # FIXME: they will be recomputed in {render_page}.
+    if book_headers[book_name].versions_to_h2_headers[version]
+      # only applies to docs with h2 headers, not landing page.
+      book_headers[book_name].versions_to_h2_headers[version].items = [] # FIXME: they will be recomputed in {render_page}.
+    end
 
     page, _ = ::Torture::Cms::Site.render_page(name: book_name, sections: book_sections, book_headers: book_headers, version: version, **book_options)
 
