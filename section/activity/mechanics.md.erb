@@ -24,7 +24,25 @@ Anyhow, the implicit call style underlines the functional aspect of an operation
 
 <%= h4 "Input variables" %>
 
-Whatever variables you pass into the invocation will be readable by the steps of the operation.
+Any variables you pass into the invocation will be readable by all steps of the operation (unless configured otherwise).
+
+<%= code "ctx-read-call" %>
+
+Here, the `:params` variable can be accessed in each step via the `ctx` object, which is the first positional argument passed to each step.
+
+<%= code "ctx-read", collapse: :meths %>
+
+While this is a breathtaking feature of Trailblazer, it's a bit clumsy and we got a more convenient way to read from `ctx`.
+
+<%= h4 "Keyword arguments" %>
+
+Instead of manually checking `ctx` for the presence of a particular variable, you can add a keyword argument to your step's signature.
+
+<%= code "ctx-read-kwargs" %>
+
+The `:params` variable is now a local variable `params` in your step method.
+
+Another benefit: if the caller of your operation fails to provide `:params`, Ruby will complain automatically of a missing keyword!
 
 <%= h3 "Step" %>
 
