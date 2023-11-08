@@ -33,19 +33,16 @@ If you're looking for a specific feature, make sure to check the [Disposable doc
 
 Forms are defined in classes. Often, these classes partially map to one or many model(s).
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'dry-validation', active: true) do %>
-    <%= code 'basic' %>
-  <% end %>
+<%@ tab_2_content = capture do %>
+class AlbumForm < Reform::Form
+  property :title
 
-  <%= tab.(title: 'ActiveModel') do %>
-    class AlbumForm < Reform::Form
-      property :title
-
-      validates :title, presence: true
-    end
-  <% end %>
+  validates :title, presence: true
+end
 <% end %>
+<%= tabs( {title: 'dry-validation', options_for_code: {marker: "basic"}},
+          {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
+
 
 Form fields are declared using `::property`.
 
@@ -148,25 +145,21 @@ Injecting Objects: safe args can be passed in constructor
 
 You can define validation for every form property and for nested forms.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'dry-validation', active: true) do %>
-    <%= code 'nested' %>
-  <% end %>
+<%@ tab_2_content = capture do %>
+class AlbumForm < Reform::Form
+  property :title
 
-  <%= tab.(title: 'ActiveModel') do %>
-    class AlbumForm < Reform::Form
-      property :title
+  validates :title, presence: true
 
-      validates :title, presence: true
+  property :artist do
+    property :name
 
-      property :artist do
-        property :name
-
-        validates :name, presence: true
-      end
-    end
-  <% end %>
+    validates :name, presence: true
+  end
+end
 <% end %>
+<%= tabs( {title: 'dry-validation', options_for_code: {marker: "nested"}},
+          {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 Validations will be run in `validate`.
 

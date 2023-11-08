@@ -8,7 +8,7 @@ This page discusses the latter.
 
 Populators, matching by IDs, deleting items, and much more, is discussed in detail in the chapters _Nested Forms_ and _Mastering Forms_ of the [Trailblazer book](/books/trailblazer.html).
 
-<%= h3 "Populators: The Problem" %>
+<%= h3 "The Problem" %>
 
 Populators in Reform are only involved when validating the form.
 
@@ -109,7 +109,7 @@ Reform now creates a `Song` instance and nests it in the form since it couldn't 
 
 Note that the matching from fragment to form works by index, any additional matching heuristic has to be implemented manually.
 
-<%= h3 "Populate_if_empty: Custom" %>
+<%= h4 "Custom" %>
 
 You can also create the object yourself and leverage data from the traversed fragment, for instance, to try to find a `Song` object by name, first, before creating a new one.
 
@@ -135,7 +135,7 @@ You can also provide an instance method on the respective form.
         Song.find_by(name: fragment["name"]) or Song.new
       end
 
-<%= h3 "Populate_if_empty: Arguments" %>
+<%= h4 "Arguments" %>
 
 The only argument passed to `:populate_if_empty` block or method is an options hash. It contains currently traversed `:fragment`, the `:index` (collections, only) and several more options.
 
@@ -147,7 +147,7 @@ While the `:populate_if_empty` option is only called when no matching form was f
 
 Again, note that populators won't be invoked if there's no incoming fragment(s) for the populator's property.
 
-<%= h3 "Populator: Collections" %>
+<%= h4 "Collections" %>
 
 A `:populator` for collections is executed for every collection fragment in the incoming hash.
 
@@ -176,7 +176,7 @@ Note that you manually have to check whether or not a nested form is already ava
 
 BTW, the `:populator` option accepts blocks and instance method names.
 
-<%= h3 "Populator: Return Value" %>
+<%= h4 "Return Value" %>
 
 It is very important that each `:populator` invocation returns the *form* that represents the fragment, and not the model. Otherwise, deserialization will fail.
 
@@ -192,7 +192,7 @@ Here are some return values.
 
 Always make sure you return a form object, and not a model.
 
-<%= h3 "Populator: Avoiding Index" %>
+<%= h4 "Avoiding Index" %>
 
 In many ORMs, the order of has_many associations doesn't matter, and you don't need to use the `index` for appending.
 
@@ -207,7 +207,7 @@ In many ORMs, the order of has_many associations doesn't matter, and you don't n
 
 Often, it is better to [match by ID](#reform-populators-populator-match-by-id) instead of indexes.
 
-<%= h3 "Populator: Single Property" %>
+<%= h4 "Single Property" %>
 
 Naturally, a `:populator` for a single property is only called once.
 
@@ -219,7 +219,7 @@ Naturally, a `:populator` for a single property is only called once.
 
 A single populator works identical to a collection one, except for the `model` argument, which is equally to `self.composer`.
 
-<%= h3 "Populator: Match by ID" %>
+<%= h4 "Match by ID" %>
 
 [This is described in chapter _Authentication_ in the Trailblazer book.]
 

@@ -44,14 +44,14 @@ class ViewsController < ApplicationController
 
           tabs = [{title: "Activity", options_for_code: {marker: marker_for_activity}}, {title: "Operation", options_for_code: {marker: marker_for_activity, file: operation_file}}]
 
-          render_tabs(**kws, tabs: tabs)
+          render_code_tabs(**kws, tabs: tabs)
         end
 
         def tabs(tab_1_options, tab_2_options)
-          render_tabs(tabs: [tab_1_options, tab_2_options])
+          render_code_tabs(tabs: [tab_1_options, tab_2_options])
         end
 
-        def render_tabs(tabs:, **kws)
+        def render_code_tabs(tabs:, **kws)
           colors =  %(data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]")
           code_tag_class = @options[:code_attributes][:class] # DISCUSS: do we always get this? this should be {required :code_attributes} in the cell's exec_context.
           code_tag_class = code_tag_class.sub("rounded", "")
@@ -696,14 +696,14 @@ class ViewsController < ApplicationController
         target_url:  "/2.1/docs/reform/index.html",
 
         "overview.md.erb"                       => {snippet_file: "validation_test.rb"},
-        # "api.md.erb"                            => {snippet_file: "validation_test.rb"},
-        # "options.md.erb"                        => {},
-        # "data_types.md.erb"                     => {},
-        # "populators.md.erb"                     => {},
-        # "prepopulators.md.erb"                  => {},
-        # "validation.md.erb"                     => {snippet_file: "validation_test.rb"},
-        # "rails.md.erb"                          => {},
-        # "upgrading_guide.md.erb"                => {},
+        "api.md.erb"                            => {snippet_file: "validation_test.rb"},
+        "options.md.erb"                        => {snippet_file: nil},
+        "data_types.md.erb"                     => {snippet_file: nil},
+        "populators.md.erb"                     => {snippet_file: nil},
+        "prepopulators.md.erb"                  => {snippet_file: nil},
+        "validation.md.erb"                     => {snippet_file: "validation_test.rb"},
+        "rails.md.erb"                          => {snippet_file: nil},
+        "upgrading_guide.md.erb"                => {snippet_file: nil},
       },
       "3.0" => {
         title: "Reform 3",

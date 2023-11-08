@@ -18,19 +18,21 @@ Since Reform 2.0, you can pick your validation engine. This can either be `Activ
 
 Note that you are not limited to one validation engine. When switching from `ActiveModel::Validation` to `dry-validation`, you should set the first as the default validation engine.
 
-<%= nav_tabs do |tab| %>
-  <%= tab.(title: 'Rails', active: true) do %>
+<%@ tab_1_content = capture do %>
     config.reform.validations = :active_model
 
-  The configuration assumes you have `reform-rails` installed.
-  <% end %>
-
-  <%= tab.(title: 'Ruby') do %>
-      Reform::Form.send(:include, Reform::Form::ActiveModel::Validations)
-
-  In a Ruby environment, you'd usually monkey-patch the `Form` class.
-  <% end %>
+The configuration assumes you have `reform-rails` installed.
 <% end %>
+
+<%@ tab_2_content = capture do %>
+    Reform::Form.send(:include, Reform::Form::ActiveModel::Validations)
+
+In a Ruby environment, you'd usually monkey-patch the `Form` class.
+<% end %>
+
+
+<%= tabs( {title: 'dry-validation', block_for_code: tab_1_content, options_for_code: {marker: nil}},
+          {title: "ActiveModel", block_for_code: tab_2_content, options_for_code: {marker: nil}}) %>
 
 In forms you're upgrading to dry-validation, you can include the validation module explicitly.
 
