@@ -12,7 +12,7 @@ The `#call` class method is how you run your operation along with its steps.
 
 <%= code "instance-method-call" %>
 
-And that's literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or change the wiring to achieve the same effect.
+And that's literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or [change the wiring](#activity-wiring-api) to achieve the same effect.
 
 <%= h4 "Implicit call" %>
 
@@ -43,6 +43,24 @@ Instead of manually checking `ctx` for the presence of a particular variable, yo
 The `:params` variable is now a local variable `params` in your step method.
 
 Another benefit: if the caller of your operation fails to provide `:params`, Ruby will complain automatically of a missing keyword!
+
+<%= code "kwargs-error" %>
+
+Ruby's epic [keyword arguments](https://thoughtbot.com/blog/ruby-2-keyword-arguments) even allow defaulting of variables, should they be absent in `ctx`.
+
+Note that you can use any number of keyword arguments in your signature.
+
+<%= h4 "Writing state" %>
+
+It is also possible to _write_ to `ctx`, should you fancy to publish information out of the step.
+
+<%= code "ctx-write" %>
+
+The following steps will be able to read the `:model` variable exactly the same way it works with `:params`.
+
+<%= code "ctx-write-read", collapse: :body %>
+
+Keep in mind that the above is the default behavior. You may configure what comes in and goes out of a step using [variable mapping](#activity-variable-mapping).
 
 <%= h3 "Step" %>
 
@@ -103,7 +121,7 @@ keyword arguments
 ctx#[]=
 
 
-return value
+return value FLOW CONTROL
 Signal
 circuit interface
 
