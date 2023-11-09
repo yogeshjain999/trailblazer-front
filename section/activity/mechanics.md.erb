@@ -56,11 +56,58 @@ It is also possible to _write_ to `ctx`, should you fancy to publish information
 
 <%= code "ctx-write" %>
 
-The following steps will be able to read the `:model` variable exactly the same way it works with `:params`.
+The following steps will be able to read the `:model` variable exactly the same way it worked with `:params`.
 
 <%= code "ctx-write-read", collapse: :body %>
 
 Keep in mind that the above is the default behavior. You may configure what comes in and goes out of a step using [variable mapping](#activity-variable-mapping).
+
+<%= h3 "Flow control" %>
+
+When being invoked with `#call`, the operation works off its steps in the order they were defined with `#step`. This is called the "happy path", or the success track.
+
+<%= image_tag "memo-create.png" %>
+
+
+Once a step returns a "failure", the operation will deviate to the "failure track" and skip the remaining steps on the success track. Instead, the remaining steps added using `#left` (formerly `#fail`) will be executed.
+
+Steps can communicate their outcome to the operation's flow control with their return value.
+
+<%= h4 "Success" %>
+
+The `#validate` step in our example does a simple check to see if `params[:memo]` is present.
+
+<%= code "return-success" %>
+
+Since this is the only line in the method, the return value will be either true, signalizing a successful validation, or false, indicating there's a formal problem with the incoming user data.
+
+The return value doesn't have to `true` or `false`, but can be any "truthy" or "falsey" (e.g. `nil`) value.
+
+<%= h4 "Failure" %>
+
+A falsey return value will deviate the operation's path to the failure track.
+
+<%= code "return-failure" %>
+
+This depressive step will always return a falsey value (`nil` is evaluated to `false`), the remaining success path steps will always be skipped. Don't do this!
+
+<%= h4 "Signal" %>
+
+The binary `true`/`false` outcome is useful for many scenarios. However, sometimes a step might have a third outcome - for example, to indicate a network error that needs to be handled off the failure track.
+
+<%= code "return-signal" %>
+
+In this step, we're returning a "third" possible value. The trick is: the `NetworkError` needs to be a subclass of `Signal`.
+
+<%= code "signal-operation", collapse: :meths %>
+
+That way, the operation's routing will recognize this third outcome. Speaking of, the third scenario needs to be properly connected using the [Wiring API](#activity-wiring-api).
+
+<%= code "signal-steps" %>
+
+Here, `#notify` encountering a disastrous network error will make the operation stop executing in a new, third terminus called `network_error`.
+
+Check out the Wiring API to learn how to leverage multiple outcomes in operations.
 
 <%= h3 "Step" %>
 
@@ -123,6 +170,8 @@ ctx#[]=
 
 return value FLOW CONTROL
 Signal
+result
+termini
 circuit interface
 
 invocation
