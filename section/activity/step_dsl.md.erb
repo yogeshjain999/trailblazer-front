@@ -1,0 +1,61 @@
+<%= h2 "Step DSL", embed: gem_version(:dsl, "1.2.2") %>
+
+When writing operations, most of the time you will use `#step` and `#left` to configure your activity's circuit. While it is possible to model any kind of flow, the operation's "Step DSL" is optimized for building a railway layout.
+
+<%= h3 "Railway" %>
+
+In operations, the [`Railway` layout](http://fsharpforfunandprofit.com/rop/) is used to build circuits with "automatic" error handling. You arrange your actual chain of logic on the "success" track, if a problem occurs, the processing jumps to the parallel "failure" track, skipping the rest of the tasks on the success track.
+
+Once on the failure track, it stays there (unless you instruct not to do so!).
+
+<%= code "railway", collapse: :meths %>
+
+This operation will look as follows.
+
+<%= image_tag "memo-create.png" %>
+
+Four possible execution paths this operation might take.
+
+* No errors: First `validate`, then `save`, then `notify`, then terminate in `End.success`. The operation was successful.
+* Validation error: First `validate`, which returns a `Left` (failure) signal, leading to `handle_errors`, then terminate in `End.failure`.
+* DB error: First `validate`, then `save`, which deviates to the failure track, leading to `End.failure`.
+* Notify error: `validate`, `save`, then `notify` fails, terminating in `End.failure`. Note that this doesn't hit the error handler due to the sequence order.
+
+<%= h4 "Step" %>
+
+For placing a step onto the success track, use `#step`.
+
+<%= code "railway", collapse: :step %>
+
+This simply puts one step after another, in the order you define, on the success track.
+
+<%= info do %>
+Note that it's possible to insert steps by using inheritance or modules. # FIXME
+<% end %>
+
+Without any options, the step's interface is expected to follow the "step interface". # FIXME
+
+<%= h4 "Left" %>
+
+To place tasks on the failure track, use `#left`. Again, the order and position defines where this particular step will sit on the failure track.
+
+<%= code "railway", collapse: "left" %>
+
+Obviously, you may use as many tasks as you need on this track - there are no limitations.
+
+<%= info do %>
+Historically, the success path is called "right" whereas the error handling track is "left". The signals `Right` and `Left` in Trailblazer are still named following this convention.
+<% end %>
+
+
+<%= h4 "Fail" %>
+
+Before we introduced `#left`, the DSL method to place steps onto the failure track was named `#fail`.
+
+<%= code "fail", collapse: :meths %>
+
+Both methods are identical. It is not deprecated, feel free to use it instead of `#left,` should your editor allow it.
+
+<%= h4 "Pass" %>
+
+

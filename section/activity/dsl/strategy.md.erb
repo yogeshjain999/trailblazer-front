@@ -50,30 +50,12 @@ Since we're adding a `:failure` output, `create` now has two outgoing connection
 
 <%= image_tag "double-end.webp" %>
 
-<%= h3 "Railway" %>
 
-The [`Railway` layout](http://fsharpforfunandprofit.com/rop/) is used for "automatic" error handling. You arrange your actual chain of logic on the "success" track, if a problem occurs, the processing jumps to the parallel "failure" track, skipping the rest of the tasks on the success track.
 
-Once on the failure track, it stays there (unless you instruct not to do so!).
 
-<%= image_tag "memo-create.png" %>
 
-Four possible execution paths this activity might take.
 
-* No errors: First `validate`, then `save`, then `notify`, then terminate in `End.success`. The activity was successful.
-* Validation error: First `validate`, which returns a `Left` (failure) signal, leading to `handle_errors`, then terminate in `End.failure`.
-* DB error: First `validate`, then `save`, which deviates to the failure track, leading to `End.failure`.
-* Notify error: `validate`, `save`, then `notify` fails, terminating in `End.failure`. Note that this doesn't hit the error handler due to the sequence order.
 
-To place tasks on the failure track, use `#fail`. Note that the order of tasks corresponds to the order in the Railway.
-
-<%= code "railway", collapse: "mod" %>
-
-Obviously, you may use as many tasks as you need on both tracks. There are no limitations.
-
-<%= info do %>
-Historically, the success path is called "right" whereas the error handling track is "left". The signals `Right` and `Left` in Trailblazer are still named following this convention.
-<% end %>
 
 <%= h4 "Wiring" %>
 

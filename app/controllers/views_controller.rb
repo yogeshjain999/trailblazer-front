@@ -164,9 +164,9 @@ class ViewsController < ApplicationController
             class H4 < Render
               step :render_breadcrumb, replace: :render_header
 
-              def render_breadcrumb(ctx, header:, classes:, title:, parent_header:, **)
+              def render_breadcrumb(ctx, header:, classes:, display_title:, parent_header:, **)
                 ctx[:html] = %(<h4 id="#{header.id}" class="#{classes}">#{parent_header.title}
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">#{title}</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">#{display_title}</span>
 
                   </h4>)
               end
@@ -568,6 +568,10 @@ class ViewsController < ApplicationController
 
         "overview.md.erb" => { snippet_file: "activity_basics_test.rb" },
         "mechanics.md.erb" => { snippet_file: "mechanics_test.rb",          snippet_dir: "../trailblazer-operation/test/docs" },
+        "step_dsl.md.erb" => { snippet_file: "step_dsl_test.rb",          snippet_dir: "../trailblazer-operation/test/docs" },
+
+
+
         "dsl/api.md.erb" => { snippet_file: "basics_test.rb" },
         "dsl/path.md.erb" => { snippet_file: "path_test.rb" },
         "dsl/subprocess.md.erb" => { snippet_file: "subprocess_test.rb" },
