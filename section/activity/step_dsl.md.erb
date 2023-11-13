@@ -58,4 +58,10 @@ Both methods are identical. It is not deprecated, feel free to use it instead of
 
 <%= h4 "Pass" %>
 
+If the return value of a task on the success path shouldn't matter, use `#pass`.
 
+<%= code "pass", collapse: "meths" %>
+
+`#save`'s return value is ignored in the operation run, the next step will always be `#notify` on the success track.
+
+<%= image_tag "memo-pass.png" %>

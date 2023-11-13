@@ -87,27 +87,7 @@ The return value of `log_error` now does matter.
 
 <%= code "railway-fail", collapse: "flow" %>
 
-<%= h4 "Pass" %>
 
-If the return value of a "right" task shouldn't matter, use `#pass`.
-
-<%= code "railway-pass", collapse: "mod" %>
-
-Regardless of `create`'s return value, it will always flow to the next success task.
-
-<%= image_tag "railway-pass.webp" %>
-
-Both outputs are connected to the following task on the success path (or, in this case, the success end).
-
-<%= h4 "Left" %>
-
-<%= gem_version :dsl, "1.2.2" %>
-
-To avoid syntax problems with several editors, `#fail` is also aliased as `#left`.
-
-<%= code "railway-left", collapse: :mod %>
-
-The signature and accepted arguments are identical to `#fail`.
 
 <%= h4 "Notes" %>
 
