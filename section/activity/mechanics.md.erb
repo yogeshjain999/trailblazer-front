@@ -131,9 +131,11 @@ For your convenience, the result object also exposes `#failure?` as a counter-pa
 
 An operation can be composed of any number of steps. Steps can be callable Ruby objects or instance methods of the operation itself.
 
+When adding a step using `#step` or `#left`, the step's interface is considered to be exposing the "step interface". Note that you can also implement steps with a [low-level interface](#activity-internals-circuit-interface) called the "circuit interface" that is clumsier but also richer.
+
 <%= h4 "Instance method" %>
 
-A step declared with a `:symbol`, as done here with `#validate`, will be considered an instance method of the operation class.
+A step declared with a `:symbol`, as done here with `#validate`, will be considered an instance method of the operation class. This style allows to define the operation layout before implementing the steps in the same class.
 
 <%= code "instance-method" %>
 
