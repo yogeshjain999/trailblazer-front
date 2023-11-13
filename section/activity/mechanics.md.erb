@@ -60,6 +60,8 @@ The following steps will be able to read the `:model` variable exactly the same 
 
 <%= code "ctx-write-read", collapse: :body %>
 
+Once an operation run finished, variables added to the `ctx` are readable by the caller on the outside via the [result object](#activity-mechanics-result).
+
 Keep in mind that the above is the default behavior. You may configure what comes in and goes out of a step using [variable mapping](#activity-variable-mapping).
 
 <%= h3 "Flow control" %>
@@ -105,9 +107,25 @@ That way, the operation's routing will recognize this third outcome. Speaking of
 
 <%= code "signal-steps" %>
 
-Here, `#notify` encountering a disastrous network error will make the operation stop executing in a new, third terminus called `network_error`.
+Here, `#notify` encountering a disastrous network error will make the operation stop the execution in a new, third terminus called `network_error`.
+
+<%= image_tag "memo-network-error.png" %>
 
 Check out the Wiring API to learn how to leverage multiple outcomes in operations.
+
+<%= h3 "Result" %>
+
+As the `ctx` is being passed from step to step, it accumulates data. In order to access this data on the outside, the `ctx` is converted to a result object after the run is finished.
+
+You can read variables using the `#[]` reader.
+
+<%= code "result-read" %>
+
+In addition to the ctx variables, the result object also exposes the outcome of the entire operation run.
+
+<%= code "result-success" %>
+
+For your convenience, the result object also exposes `#failure?` as a counter-part.
 
 <%= h3 "Step" %>
 
@@ -161,17 +179,7 @@ Another trick, mostly used for debugging, is to use a lambda as a step.
 
 Obviously, this is not really sustainable and should be replaced with one of the above options.
 
-<%= h3 "Ctx" %>
-
-ctx#[]
-keyword arguments
-ctx#[]=
 
 
-return value FLOW CONTROL
-Signal
-result
 termini
 circuit interface
-
-invocation
