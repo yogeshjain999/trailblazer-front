@@ -133,3 +133,23 @@ For your convenience, the result object also exposes `#failure?` as a counter-pa
 FIXME
 
 <%= h3 "Inheritance" %>
+
+Operations are classes that provide a DSL to model the logic circuit.
+
+<%= code "inherit-create", collapse: :meths %>
+
+You can use Ruby's inheritance to derive subclasses from operations, allowing you to share logic and behavior across any number of subclasses.
+
+<%= code "inherit-update-empty", collapse: :meths %>
+
+Subclassing will not only copy over methods, but the entire circuit of `Create` along with its three steps.
+
+<%= h4 "Subclass" %>
+
+You can now insert, replace or even delete new steps in the `Update` class.
+
+<%= code "inherit-update", collapse: :meths %>
+
+This will replace the `create_model` step with new `find_model` logic. Obviously, you have to provide the `#find_model` method in the `Update` class.
+
+When inserting steps into subclasses you can use any [step DSL options](#activity-step-dsl-sequence-options). You might even drill into deeply nested, inherited class compounds [using `#patch`](#FIXME).
