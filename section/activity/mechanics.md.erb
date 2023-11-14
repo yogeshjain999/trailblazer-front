@@ -127,60 +127,9 @@ In addition to the ctx variables, the result object also exposes the outcome of 
 
 For your convenience, the result object also exposes `#failure?` as a counter-part.
 
-<%= h3 "Step" %>
-
-An operation can be composed of any number of steps. Steps can be callable Ruby objects or instance methods of the operation itself.
-
-When adding a step using `#step` or `#left`, the step's interface is considered to be exposing the "step interface". Note that you can also implement steps with a [low-level interface](#activity-internals-circuit-interface) called the "circuit interface" that is clumsier but also richer.
-
-<%= h4 "Instance method" %>
-
-A step declared with a `:symbol`, as done here with `#validate`, will be considered an instance method of the operation class. This style allows to define the operation layout before implementing the steps in the same class.
-
-<%= code "instance-method" %>
-
-Signature and return value are identical to all other step types.
-
-<%= h4 "Class method" %>
-
-A class method can come in handy if you want to reuse this particular step in an entirely different operation.
-
-<%= code "class-method" %>
-
-Note that the actual class method has to be defined before retrieving the method object via `method(:validate)`. Again, signature and return value are identical to other styles.
-
-<%= h4 "Module method" %>
-
-Just like a class method, steps can come from any module - this makes it straight-forward to create reusable chunks of logic.
-
-<%= code "module-step" %>
-
-The mechanics to use a "foreign" method as a step are identical to using a class method - they simply rely on [Ruby's `#method` function](https://ruby-doc.org/3.2.2/Method.html).
-
-<%= code "module-method" %>
-
-This is a common technique in complex Trailblazer applications for creating reusable steps with a high degree of maintainability.
-
-<%= h4 "Callable" %>
-
-As a matter of fact, any object, module or class exposing a `#call` method can be a step!
-
-<%= code "callable-step" %>
-
-Callable objects are often used when the step's logic exceeds a certain threshold of complexity and you want to introduce additional methods, as the above `#valid?` function.
-
-<%= info do %>
-Keep in mind that a step can also be implemented using a second *operation*. You can use the [`Subprocess()` macro](#activity-wiring-api-subprocess) to nest operations.
-<% end -%>
-
-<%= h4 "Lambda" %>
-
-Another trick, mostly used for debugging, is to use a lambda as a step.
-
-<%= code "lambda-step" %>
-
-Obviously, this is not really sustainable and should be replaced with one of the above options.
 
 <%= h3 "Terminus" %>
 
 FIXME
+
+<%= h3 "Inheritance" %>
