@@ -138,13 +138,17 @@ Operations are classes that provide a DSL to model the logic circuit.
 
 <%= code "inherit-create", collapse: :meths %>
 
-You can use Ruby's inheritance to derive subclasses from operations, allowing you to share logic and behavior across any number of subclasses.
+You can use Ruby's inheritance to derive subclasses from operations.
+
+<%= h4 "Subclass" %>
+
+Inheritance allows you to share logic and behavior across any number of subclasses.
 
 <%= code "inherit-update-empty", collapse: :meths %>
 
 Subclassing will not only copy over methods, but the entire circuit of `Create` along with its three steps.
 
-<%= h4 "Subclass" %>
+<%= h4 "Customize" %>
 
 You can now insert, replace or even delete new steps in the `Update` class.
 
