@@ -39,3 +39,15 @@ The `validate` task now has a `success` and a `failure` output. Since it's wrapp
 The activity will halt on the `:invalid`-labelled end if `validate` was falsey.
 
 <%= code "validate-call", collapse: "flow" %>
+
+<%= h3 "Railway layout" %>
+
+The `Activity::Railway` layout is great for simple railway activities. It's used in many places in our gems for two-track code flow where additional features such as `:fast_track` are not needed.
+
+<%= code "memo-create", collapse: "meths" %>
+
+It has two tracks and two termini leading to `success` and `failure`.
+
+<%= image_tag "memo-create.png" %>
+
+This layout is perfect for internal "mini activities" in your applications.
