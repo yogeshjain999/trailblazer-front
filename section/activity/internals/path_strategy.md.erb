@@ -1,0 +1,41 @@
+<%= h3 "Path Layout" %>
+
+Most of your code will be using `Trailblazer::Operation`, which is nothing more than a `Activity::FastTrack` layout.
+
+However, if you only need a linear layout of steps, where each step is connected to its follower, you can use the `Activity::Path` layout.
+
+Per default, this activity will only expose one `success` terminus but you're free to customize it using the Wiring API.
+
+<%= code "step", collapse: "mod" %>
+
+Without any additional DSL options, this results in a straight path.
+
+<%= image_tag "path.png" %>
+
+In turn, this means that only `true` return values in your tasks will work. The DSL will, per default, wrap every task with the `Binary` interface, meaning returning `true` will result in `Activity::Right`, and false in `Activity::Left`. Currently, only `Right` signals are wired up.
+
+<%= h4 "Output" %>
+
+You may add as many outputs to a task as you need. The DSL provides the `Output()` helper to do so.
+
+<%= code "validate", collapse: "mod" %>
+
+The `Path` strategy only maintains the `:success`/`Activity::Right` semantic/signal combination. Any other combination you need to define explicitly using `Output(signal, semantic)`.
+
+<%= h4 "End" %>
+
+The `End()` helper allows creating a new end event labelled with the specified semantic.
+
+<%= code "validate", collapse: "mod" %>
+
+This will result in the following circuit.
+
+<%= image_tag "path-end.png" %>
+
+The `validate` task now has a `success` and a `failure` output. Since it's wrapped using `Binary` it may return `true` or `false` to dictate the used output (or `Activity::Right`/`Activity::Left` since it's the [task interface]).
+
+<%= code "validate", collapse: "flow" %>
+
+The activity will halt on the `:invalid`-labelled end if `validate` was falsey.
+
+<%= code "validate-call", collapse: "flow" %>
