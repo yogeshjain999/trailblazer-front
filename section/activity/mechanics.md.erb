@@ -107,11 +107,31 @@ That way, the operation's routing will recognize this third outcome. Speaking of
 
 <%= code "signal-steps" %>
 
-Here, `#notify` encountering a disastrous network error will make the operation stop the execution in a new, third terminus called `network_error`.
+Using tools the Wiring API provides, this adds new connections plus an entire new terminus of our operation!
+
+<%= h3 "Terminus" %>
+
+Here, `#notify` encountering a disastrous network error will make the operation stop the execution in a third terminus called `network_error`.
 
 <%= image_tag "memo-network-error.png" %>
 
-Check out the Wiring API to learn how to leverage multiple outcomes in operations.
+<%= h4 "Semantic" %>
+
+In general, a terminus is a way to communicate an outcome state of a particular operation to the user. This can be as simple as manually running an operation and checking which terminus it stopped in.
+
+<%= code "terminus" %>
+
+You can ask the terminus for its _semantic_ by calling `#to_h`. The semantic can be any meaningful term you want, for instance, we named the success path terminus `:success`.
+
+<%= h4 "Nesting" %>
+
+Those termini start making even more sense when nesting operations.
+
+<%= code "terminus-subprocess" %>
+
+It is possible (and required!) to wire termini of a nested operation into the container circuit - this is much cleaner than handling different outcomes by hand, and allows for tracing and debugging.
+
+Check out the [Wiring API](#activity-wiring-api) to learn how to leverage multiple outcomes in operations.
 
 <%= h3 "Result" %>
 
@@ -127,10 +147,6 @@ In addition to the ctx variables, the result object also exposes the outcome of 
 
 For your convenience, the result object also exposes `#failure?` as a counter-part.
 
-
-<%= h3 "Terminus" %>
-
-FIXME
 
 <%= h3 "Inheritance" %>
 
