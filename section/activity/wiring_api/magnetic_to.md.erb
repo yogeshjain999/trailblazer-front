@@ -1,0 +1,19 @@
+<%= h3 "Magnetic_to" %>
+
+Most of the times, the step DSL will wire your steps automatically. Sometimes it might be necessary to make one or several steps "snap to" a particular track.
+
+The `:magnetic_to` option allows to configure what incoming connections a step attracts.
+
+<%= code "magnetic_to" %>
+
+Using this option, the `charge_paypal` step will not be placed on the success track, but the `paypal` track.
+
+<%= image_tag "magnetic_to.png" %>
+
+As you can see, outgoing connections are still automatically connected. You can use [`Output()`](#activity-wiring-api-output-) to change that.
+
+<%= info do %>
+The `:magnetic_to` option is very low-level and shouldn't be used without knowing what and why you're doing it.
+
+Consider using the [`Path()` helper](#activity-wiring-api-path-) instead.
+<% end %>
