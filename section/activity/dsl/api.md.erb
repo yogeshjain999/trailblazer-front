@@ -1,20 +1,29 @@
 <%= h2 "Wiring API" %>
 
-You can use the wiring API to model more complicated flows in activities.
+You can use the wiring API to model more complicated circuits in operations.
 
 <%= info do %>
-The wiring API is implemented in the [`trailblazer-activity-dsl-linear` gem].
-
-Feel invited to write your own DSL using our [low-level mechanics], or if your activities get too complex, please use the [visual editor].
+Since the wiring API is part of the Step DSL, it's implemented in the [`trailblazer-activity-dsl-linear` gem](https://github.com/trailblazer/trailblazer-activity-dsl-linear). Feel invited to extend our DSL!
 <% end %>
 
-In addition to your friends `step`, `pass` and `fail`, the DSL provides helpers to fine-tune your wiring.
+<%= h3 "Railway" %>
 
-<%= code "pay-implicit" %>
+Without additional configuration, when using `#step` the following happens.
 
-By default, and without additional helpers used, the DSL will connect every `step` task's two outputs to the two respective tracks of a "railway".
+1. The new step is put either on the success or failure track, depending on whether you used `#step` or [`#left`](#activity-step-dsl-railway-left) for insertion (internally, this happens via the `:magnetic_to` option).
+2. The respective predecessor step is connected to the new step.
+3. As, in a railway, a step typically has two logical outcomes, the step's `success` output is connected to the following step on the success track. Usually, this would be the `success` terminus.
+4. The exact same thing happens for the step's `failure` output.
 
-<%= image_tag "wire-output.webp" %>
+<%= image_tag "memo-create.png" %>
+
+Looking closer at a step, the orange circle on a step's edge represents the `failure` output. The outgoing line without any circle is the `success` output.
+
+<%= info do %>
+Technically, this diagram is incorrect since steps sitting on the `failure` track have two outputs as well. However, as both outputs are linked to the next failure step, this is usually depicted as a single line.
+<% end %>
+
+Now, let's see how we can customize this operation using the Wiring API.
 
 <%= h3 "Output()" %>
 
