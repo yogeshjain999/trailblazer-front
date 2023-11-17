@@ -43,3 +43,12 @@ This, by the way, is how `#pass` is implemented.
 
 <%= h4 "Explicit output" %>
 
+If needed, a step can have more than two outcomes. For instance, `#save` could detect and report a database error in addition to its binary outcomes of success and failure.
+
+<%= code "output-explicit", collapse: "meths" %>
+
+To add an output, you call `Output()` with two arguments: the signal to indicate, and the semantic of that new output. Note that the signal has to be derived from `Trailblazer::Activity::Signal`.
+
+<%= image_tag "wiring-explicit-output.png" %>
+
+In this example, the new output `:database_error` is routed straight to the failure track. When the operation teminates, you might not be able to see why it failed.
