@@ -68,6 +68,7 @@ Two things happen here: first, the new terminus `:db_error` is added to the oper
 
 You may use `End()` multiple times in one operation. This will connect the steps to the same terminus.
 
+<%#= h3 "Terminus", embed: gem_version(:dsl, "1.0.0") %>
 <%= h3 "Terminus" %>
 
 Instead of `End()` you may add additional termini to an operation using `#terminus`.
@@ -95,7 +96,7 @@ For instance, a step (or terminus) sitting on the success track will be attracti
 
 <%= code "output-track", collapse: "meths" %>
 
-Track() expects the track name, or the "polarization", as we call it sometimes.
+`Track()` expects the track name, or the "polarization", as we call it sometimes.
 
 <%= image_tag "wiring-output.png" %>
 
