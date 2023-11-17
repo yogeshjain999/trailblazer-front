@@ -25,6 +25,14 @@ Technically, this diagram is incorrect since steps sitting on the `failure` trac
 
 Now, let's see how we can customize this operation using the Wiring API.
 
+<%= h4 "Debugging" %>
+
+When modeling more complex circuits and becoming familiar with the Wiring API, do not get frustrated! Use our `trailblazer-developer` gem to quickly visualize what you've just built.
+
+<%= code "render" %>
+
+The `render` method returns the actual circuit in a more or less human-readable form.
+
 <%= h3 "Output()" %>
 
 Rewiring a particular step always starts with `Output()`. This DSL helper allows you to specify which _outgoing_ connection you're planning to reconnect.

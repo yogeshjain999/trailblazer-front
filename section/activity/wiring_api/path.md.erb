@@ -1,40 +1,38 @@
 <%= h3 "Path()", embed: gem_version(:dsl, "1.2.0", introduced: true) %>
 
-For branching out a separate path in an activity, use the `Path()` macro. It's a convenient, simple way to declare alternative routes, even if you could do everything it does manually.
+For branching out a separate path in an operation, use the `Path()` macro. It's a convenient, simple way to declare alternative routes, even if you could do everything it does [manually](#activity-wiring-api-track-custom-track).
 
-<%= code_tabs "path", collapse: "meths" %>
+<%= h4 "Terminus" %>
 
-If `#decide_type` returns false, the path will be executed and terminate on the new terminus `End.with_cc` because of the `:terminus` option.
+You can use the `:terminus` option for `Path()` to lead the path to an existing or new terminus.
 
-<%= image_tag "path-cc.png" %>
+<%= code "path-helper", collapse: "meths" %>
 
-Note that you don't necessarily have to reuse the `:failure` output in order to branch out a new path. You might as well use an [additional signal](#activity-wiring-api-path-railway), or any other predefined output of the task.
+If the `#find_provider` steps returns false, the steps on the "paypal" path will be executed. Since we are using the `:terminus` option, the run stops in the new terminus `:paypal` .
 
-<%= h4 "Join" %>
+<%= image_tag "wiring-path-helper.png" %>
 
-If you want the path to reconnect and join the activity at some point, use the `:connect_to` option.
+You don't necessarily have to use the `:failure` output in order to branch out a new path. You might as well use an [additional signal](##activity-mechanics-flow-control-signal), or any other predefined output of the task.
 
-<%= code_tabs "path-join", collapse: "meths" %>
+When using `Path()`, the steps on the path will only have one `:success` output. Note that there's no connection going to the failure track from `#charge_paypal`.
 
-There won't be an additional terminus created.
+<%= h4 "Failure" %>
 
-<%= image_tag "path-join.png" %>
+<%= info do %>
+We're working on a `:failure` option for `Path()` to allow steps with a failure output.
+<% end %>
 
-<%= h4 "Railway" %>
+<%= h4 "Connect_to" %>
 
-You can use `Path()` in any Trailblazer strategy, for example in `Railway`.
+If you want the path to reconnect and join the railway at some point, use the `:connect_to` option.
 
-<%= code_tabs "path-railway", collapse: "meths" %>
+<%= code "path-helper-connect-to", collapse: "meths" %>
 
-In this example, we add a third output to `#decide_type` to handle the credit card payment scenario (you could also "override" or re-configure the existing `:failure` or `:success` outputs).
+Instead of creating an additional terminus, the last path step will be connected to whatever step is specified via the `Id()` helper.
 
-<%= image_tag "path-railway.png" %>
+<%= image_tag "wiring-path-connect-to.png" %>
 
-Only when `decide_type` returns `MySignal`, the new path alternative is taken.
-
-<%= code "path-decider", collapse: "meths" %>
-
-`Output()` in combination with `Path()` allows for a simple modeling of alternative routes.
+You can easily branch out and handle specific edge cases using this helper.
 
 <!-- OLD link https://trailblazer.to/2.1/docs/activity.html#activity-wiring-api-path-end_task-end_id-deprecation -->
 <%= h4 "End_task/End_id Deprecation" %>
