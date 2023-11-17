@@ -1,0 +1,45 @@
+<%= h2 "Wiring API" %>
+
+You can use the wiring API to model more complicated circuits in operations.
+
+<%= info do %>
+Since the wiring API is part of the Step DSL, it's implemented in the [`trailblazer-activity-dsl-linear` gem](https://github.com/trailblazer/trailblazer-activity-dsl-linear). Feel invited to extend our DSL!
+<% end %>
+
+<%= h3 "Railway" %>
+
+Without additional configuration, when using `#step` the following happens.
+
+1. The new step is put either on the success or failure track, depending on whether you used `#step` or [`#left`](#activity-step-dsl-railway-left) for insertion (internally, this happens via the `:magnetic_to` option).
+2. The respective predecessor step is connected to the new step.
+3. As, in a railway, a step typically has two logical outcomes, the step's `success` output is connected to the following step on the success track. Usually, this would be the `success` terminus.
+4. The exact same thing happens for the step's `failure` output.
+
+<%= image_tag "memo-create.png" %>
+
+Looking closer at a step, the orange circle on a step's edge represents the `failure` output. The outgoing line without any circle is the `success` output.
+
+<%= info do %>
+Technically, this diagram is incorrect since steps sitting on the `failure` track have two outputs as well. However, as both outputs are linked to the next failure step, this is usually depicted as a single line.
+<% end %>
+
+Now, let's see how we can customize this operation using the Wiring API.
+
+<%= h3 "Output()" %>
+
+Rewiring a particular step always starts with `Output()`. This DSL helper allows you to specify which _outgoing_ connection you're planning to reconnect.
+
+<%= h4 "Implicit output" %>
+
+In a railway-based activity, such as `Trailblazer::Operation`, each step exposes two outputs per default: `:success` and `:failure`. This is why you can simply reference that well-known output by its semantic. The one-argument form of `Output()` we call "implicit output".
+
+<%= code "output-track", collapse: "meths" %>
+
+With this customization, you're building a bullet-proof `#save` step, that even in case of failure goes back to the success track. Hopefully, your `#save` logic is failsafe.
+
+<%= image_tag "wiring-output.png" %>
+
+This, by the way, is how `#pass` is implemented.
+
+<%= h4 "Explicit output" %>
+
