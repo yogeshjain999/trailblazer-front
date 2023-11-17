@@ -86,12 +86,33 @@ Note that there are more inheritance mechanics for building template operations,
 
 <%= h3 "Track()" %>
 
-Use `Track()` when you want a step's output to connect to the next step that is "magnetic to" the desired track. For instance, a step (or terminus) sitting on the success track will be attracting the predecessor step to connect to it.
+Use `Track()` when you want a step's output to connect to the next
+step that is "magnetic to" the desired track.
+
+<%= h4 "Helper" %>
+
+For instance, a step (or terminus) sitting on the success track will be attracting the predecessor step to connect to it.
 
 <%= code "output-track", collapse: "meths" %>
 
-Here, the wiring algorith will connect the `:failure` output of the `#save` step to the next available step on the `:success` track, which is `#notify`.
+Track() expects the track name, or the "polarization", as we call it sometimes.
 
 <%= image_tag "wiring-output.png" %>
 
+Here, the wiring algorith will connect the `:failure` output of the `#save` step to the next available step on the `:success` track, which is `#notify`.
 
+<%= h4 "Custom Track" %>
+
+You can build entire new tracks using a combination of `Track()` and `:magnetic_to`.
+
+<%= code "custom-track", collapse: "meths" %>
+
+When adding a terminus via `#terminus`, its "polarization" will be the same name as its semantic, `:paypal` in this example (this is achieved using the `:magnetic_to` option behind the scenes).
+
+Next, we add `#find_provider` and reference `Track(:paypal)` for one of its outputs. This will be connected to the next possible step "magnetic to" `:paypal`.
+
+To manually place a step onto that new track, you need to use `:magnetic_to` and `Output()` as it's done with `#charge_paypal`.
+
+This will compile the following operation circuit.
+
+<%= image_tag "wiring-custom-track" %>
