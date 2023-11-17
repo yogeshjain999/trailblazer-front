@@ -51,4 +51,47 @@ To add an output, you call `Output()` with two arguments: the signal to indicate
 
 <%= image_tag "wiring-explicit-output.png" %>
 
-In this example, the new output `:database_error` is routed straight to the failure track. When the operation teminates, you might not be able to see why it failed.
+In this example, the new output `:database_error` is routed straight to the failure track. When the operation teminates, you might not be able to see why it failed: it might be better to introduce a separate terminus.
+
+<%#= h3 "Terminus" %>
+<%= h3 "End()" %>
+
+A terminus represents an outcome of an operation run. It's not only helpful when running an operation manually, but also when nesting operations.
+
+You can use the `End()` helper to connect an output directly to either an existing terminus (most of the times, that'd be `:success` or `:failure`), or you can wire it to a new terminus.
+
+<%= code "output-end", collapse: "meths" %>
+
+Two things happen here: first, the new terminus `:db_error` is added to the operation as it represents an unknown, new terminus. Then, the `failure` output of `#save` gets connected to it.
+
+<%= image_tag "wiring-end.png" %>
+
+You may use `End()` multiple times in one operation. This will connect the steps to the same terminus.
+
+<%= h3 "Terminus" %>
+
+Instead of `End()` you may add additional termini to an operation using `#terminus`.
+
+<%= code "terminus", collapse: "meths" %>
+
+The `CRUD` class here acts as an abstract template for concrete operations.
+
+<%= image_tag "wiring-terminus.png" %>
+
+In a subclass, you could then connect steps to this new terminus using `End()`.
+
+<%= code "terminus-sub", collapse: "meths" %>
+
+Note that there are more inheritance mechanics for building template operations, such as the [`:inherit` option](#activity-mechanics-inheritance).
+
+<%= h3 "Track()" %>
+
+Use `Track()` when you want a step's output to connect to the next step that is "magnetic to" the desired track. For instance, a step (or terminus) sitting on the success track will be attracting the predecessor step to connect to it.
+
+<%= code "output-track", collapse: "meths" %>
+
+Here, the wiring algorith will connect the `:failure` output of the `#save` step to the next available step on the `:success` track, which is `#notify`.
+
+<%= image_tag "wiring-output.png" %>
+
+
