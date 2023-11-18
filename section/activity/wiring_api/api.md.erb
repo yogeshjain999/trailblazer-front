@@ -125,3 +125,15 @@ To manually place a step onto that new track, you need to use `:magnetic_to` and
 This will compile the following operation circuit.
 
 <%= image_tag "wiring-custom-track" %>
+
+<%= h3 "Id()" %>
+
+To explicitly connect an output to a particular step, use `Id()`.
+
+<%= code "output-id" %>
+
+This will, for whatever reasons, connect the failure output of `#validate` straight to `#notify`.
+
+<%= image_tag "wiring-id.png" %>
+
+Keep in mind that using `Id()` won't allow inserting another step between the two just connected. If you want to insert more steps on that connection at a later point, or in a subclass, use `Track()`.

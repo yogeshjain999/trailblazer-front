@@ -21,8 +21,6 @@ file_to_page_map  = returned.fetch(:file_to_page_map)
 book_headers        = returned[:book_headers]
 
 guard :torture do
-  pages = {"section/rails/cells.md.erb" => 99}
-
   # This runs the modified test
   watch /section\/(.*)/ do |m|
     # pp file_to_page_map
