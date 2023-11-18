@@ -61,7 +61,18 @@ To add an output, you call `Output()` with two arguments: the signal to indicate
 
 In this example, the new output `:database_error` is routed straight to the failure track. When the operation teminates, you might not be able to see why it failed: it might be better to introduce a separate terminus.
 
-<%#= h3 "Terminus" %>
+<%= h4 "Failure" %>
+
+It might be worth noting that all steps in a railway have two standard outputs, even those put on the `failure` track using `#left`! That's why you don't have to stay on the failure track, you could divert anywhere you want.
+
+<%= code "left" %>
+
+If the `#handle_errors` step returns a truthy value, the operation goes back to the success track.
+
+<%= image_tag "wiring-left.png" %>
+
+This pattern can be used for error handling, deciders, or alternate routes.
+
 <%= h3 "End()" %>
 
 A terminus represents an outcome of an operation run. It's not only helpful when running an operation manually, but also when nesting operations.
