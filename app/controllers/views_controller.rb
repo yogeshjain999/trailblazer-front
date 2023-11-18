@@ -601,6 +601,7 @@ class ViewsController < ApplicationController
 
         "deprecated.md.erb" => { snippet_file: "variable_mapping_test.rb" },
         "dsl/variable_mapping.md.erb" => { snippet_file: "variable_mapping_test.rb" },
+        "wiring_api/deprecated_path_helper.md.erb" => { snippet_file: "variable_mapping_test.rb" },
       },
     },
 
