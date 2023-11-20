@@ -2,47 +2,15 @@
 
 Based on the `Railway` strategy, the `FastTrack` pattern allows to "short-circuit" steps and exit the circuit at particular events.
 
-<%= info do %>
-The infamous `Trailblazer::Operation` is a thin public API around `Activity::FastTrack`.
-<% end %>
-
-<%= h4 "pass_fast" %>
-
-The `:pass_fast` option wires the `:success` output straight to the new `pass_fast` terminus.
-
-<%= code "ft-passfast", collapse: "mod" %>
-
-If `validate` returns a true value, it will skip the remaining tasks on the success track and terminate in `End.pass_fast`.
-
-<%= image_tag "pass_fast.png" %>
-
-Note that in the example, the `save` step not accessable anymore.
-
-<%= h4 "fail_fast" %>
-
-The counter-part for `:pass_fast` is `:fail_fast`.
-
-<%= code "ft-failfast", collapse: "mod" %>
-
-A falsey return value from `#validate` will deviate the flow and go straight to `End.fail_fast`.
-
-<%= image_tag "fail_fast.png" %>
-
-Even though `#handle_errors` is on the failure track, it won't be reached from `#validate`.
-
-<%= h4 "fast_track" %>
-
-It's possible to wire a task to the two FastTrack ends `End.fail_fast` and `End.pass_fast` in addition to the normal Railway wiring.
-
-<%= code "ft-fasttrack", collapse: "mod" %>
-
-The `validate` task now has four outputs. You can instruct the two new FastTrack outputs by returning either `Trailblazer::Activity::FastTrack::FailFast` or `Trailblazer::Activity::FastTrack::PassFast` (see also [returning signals]).
-
-Note that you don't have to use both outputs.
-
 <%= image_tag "fast_track.png" %>
 
-The standard FastTrack setup allows you to communicate and model up to four states from one task.
+This layout provides up to four outputs for any step.
+
+<%= h4 "Operation" %>
+
+It's important to understand that an `Operation` is really just a thin public API around `Activity::FastTrack`. All it adds is a more convenient `#call` method for public use, and the `Result` object. The DSL and features are identical.
+
+Please refer to the [operation docs](#activity-wiring-api-fast-track) to learn how to leverage the fast-track tracks.
 
 <%= h4 "Notes" %>
 
