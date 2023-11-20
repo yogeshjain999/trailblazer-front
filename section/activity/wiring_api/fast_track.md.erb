@@ -1,26 +1,26 @@
 <%= h3 "Fast-track" %>
 
-The operation is based on the [`FastTrack` layout](#activity-internals-fasttrack-layout) and provides three more options to configure a step's connections.
+The operation is based on the [`FastTrack` layout](#activity-internals-fasttrack-layout) and provides three more options for configuring a step's connections.
 
 <%= h4 "pass_fast" %>
 
 The `:pass_fast` option wires the `:success` output straight to the new `pass_fast` terminus.
 
-<%= code "ft-passfast", collapse: "mod" %>
+<%= code_tabs "ft-passfast", collapse: "mod", operation_repository: true %>
 
-If `validate` returns a true value, it will skip the remaining tasks on the success track and terminate in `End.pass_fast`.
+If `validate` returns a true value, it will skip the remaining tasks on the success track and terminate in the `pass_fast` terminus.
 
 <%= image_tag "pass_fast.png" %>
 
-Note that in the example, the `save` step not accessable anymore.
+Note that in the example, the `#save` step not accessable anymore, so maybe it's a good idea to refrain from such a layout.
 
 <%= h4 "fail_fast" %>
 
-The counter-part for `:pass_fast` is `:fail_fast`.
+The counter-part for `:pass_fast` is `:fail_fast` and allows to instantly stop the operation.
 
-<%= code "ft-failfast", collapse: "mod" %>
+<%= code_tabs "ft-failfast", collapse: "mod", operation_repository: true %>
 
-A falsey return value from `#validate` will deviate the flow and go straight to `End.fail_fast`.
+A falsey return value from `#validate` will deviate the flow and go straight to the `fail_fast` terminus.
 
 <%= image_tag "fail_fast.png" %>
 
@@ -28,14 +28,18 @@ Even though `#handle_errors` is on the failure track, it won't be reached from `
 
 <%= h4 "fast_track" %>
 
-It's possible to wire a task to the two FastTrack ends `End.fail_fast` and `End.pass_fast` in addition to the normal Railway wiring.
+When setting the `:fast_track` option, a step will have four outputs and, obviously, can have four outcomes. The additional fast-track outputs you can indicate by [returning a well-defined signal](#activity-mechanics-flow-control-signal).
 
 <%= code_tabs "ft-fasttrack", collapse: "mod", operation_repository: true %>
 
-The `validate` task now has four outputs. You can instruct the two new fast-track outputs by returning either `Railway.fail_fast!` or `Railway.pass_fast!` (see also [returning signals](#activity-mechanics-flow-control-signal)).
+The `validate` step now has four outputs. You can instruct the two new fast-track outputs by returning either `Railway.fail_fast!` or `Railway.pass_fast!`.
+
+<%= info do %>
+When using the slimmer `Activity::FastTrack` layout, you won't have access to `Railway.pass_fast!`. Either use the fully-qualified constant `Trailblazer::Operation::Railway.pass_fast!` to reference the signal, or return `Trailblazer::Activity::FastTrack::PassFast` (see "Activity" code tab above).
+<% end %>
 
 Note that you don't have to use both outputs.
 
 <%= image_tag "fast_track.png" %>
 
-The standard FastTrack setup allows you to communicate and model up to four states from one task.
+The fast-track layout is an attempt to implement best practices. Most of the times, however, you can achieve a similar result using a [separate track](#activity-wiring-api-track-) or terminus.
