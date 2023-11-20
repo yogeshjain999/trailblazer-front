@@ -595,6 +595,7 @@ class ViewsController < ApplicationController
         "interfaces.md.erb" => { snippet_file: "activity_test.rb" },
         "internals/path_layout.md.erb" => { snippet_file: "path_layout_test.rb" },
         "internals/fast_track_layout.md.erb" => { snippet_file: "fast_track_layout_test.rb" },
+        "class_dependencies.md.erb" => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "class_dependencies_test.rb"},
         "troubleshooting.md.erb" => {section_dir: "section/developer", snippet_dir: "../trailblazer-developer/test/docs", snippet_file: "developer_test.rb" },
         # "kitchen_sink.md.erb" => { snippet_file: "____test.rb" },
       },
@@ -631,22 +632,7 @@ class ViewsController < ApplicationController
         "model.md.erb"   => {snippet_file: "model_test.rb"},
         "rescue.md.erb"   => {snippet_file: "rescue_test.rb"},
         "policy.md.erb"   => {snippet_file: "policy_test.rb"},
-      }
-    },
-
-    "operation" => {
-      toc_title: "Operation",
-      "2.1" => {
-        title: "Operation",
-        snippet_dir: "../trailblazer-operation/test/docs",
-        section_dir: "section/operation",
-        target_file: "public/2.1/docs/operation/index.html",
-        target_url: "/2.1/docs/operation/index.html",
-
-          "overview.md.erb" =>  {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "operation_test.rb"},
-          "contract.md.erb" =>  {snippet_dir: "../trailblazer-macro-contract/test/docs", snippet_file: "contract_test.rb"},
-          "class_dependencies.md.erb" => {snippet_dir: "../trailblazer-operation/test/docs", snippet_file: "class_dependencies_test.rb"},
-
+        "contract.md.erb" =>  {snippet_dir: "../trailblazer-macro-contract/test/docs", snippet_file: "contract_test.rb"},
       }
     },
 
