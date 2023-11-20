@@ -13,7 +13,7 @@ Imagine a complex application where policies are protecting your operation code 
 
 <%= code_tabs "no-in" %>
 
-The `Policy::Create` implementation is a simple callable class following the [step interface](#activity-internals-step-interface).
+The `Policy::Create` implementation is a simple callable class following the [step interface](#operation-internals-step-interface).
 
 <%= code "policy", collapse: :decision %>
 
@@ -39,7 +39,7 @@ Helpers can be used multiple times, depending on how complex the incoming or out
 
 <%= code_tabs "out-array", collapse: "meths" %>
 
-Not only are those input and output pipelines easy to [debug](#activity-variable-mapping-introspect), they also allow to be altered in derived operations, when [using inheritance](#activity-variable-mapping-inheritance), and  work in [combination with macros](#activity-variable-mapping-macro).
+Not only are those input and output pipelines easy to [debug](#operation-variable-mapping-introspect), they also allow to be altered in derived operations, when [using inheritance](#operation-variable-mapping-inheritance), and  work in [combination with macros](#operation-variable-mapping-macro).
 
 <%= h3 "In()" %>
 
@@ -69,7 +69,7 @@ You should use the mapping hash when variables need to be renamed. If variables 
 
 <%= code_tabs "in-limit" %>
 
-This configuration will lead to the exact same new ctx for `Policy::Create` as in the [example above](#activity-variable-mapping-in-mapping-hash), producing a new ctx that will look as below.
+This configuration will lead to the exact same new ctx for `Policy::Create` as in the [example above](#operation-variable-mapping-in-mapping-hash), producing a new ctx that will look as below.
 
 <%= code :ruby do %>
 #=> {
@@ -80,7 +80,7 @@ This configuration will lead to the exact same new ctx for `Policy::Create` as i
 
 <%= h4 "Callable" %>
 
-As always, you may implement your own input filter with any callable object [adhering to the step interface](#activity-internals-step-interface).
+As always, you may implement your own input filter with any callable object [adhering to the step interface](#operation-internals-step-interface).
 
 <%= code_tabs "in-callable" %>
 
@@ -155,7 +155,7 @@ Here, steps following `Policy::Create` will see a variable `:message_from_policy
 
 <%= h4 "Callable" %>
 
-An `Out()` filter can be any callable object following the [step interface](#activity-internals-step-interface).
+An `Out()` filter can be any callable object following the [step interface](#operation-internals-step-interface).
 
 <%= code_tabs "out-callable" %>
 
@@ -166,7 +166,7 @@ Note that a callable always must return a hash, which is then merged with the or
 Be adviced that it is usually a better idea to maintain multiple smaller `Out()` callables for different variables. You might later decide to override them, debugging will be easier and the code is more maintainable. This was different when `:output` was the only way to filter outgoing variables and you had to create one big hash in a one single filter.
 
 <%= info do %>
-You may also use an `:instance_method` to filter outgoing variables, similar to [how it's done with In()](#activity-variable-mapping-in-filter-method).
+You may also use an `:instance_method` to filter outgoing variables, similar to [how it's done with In()](#operation-variable-mapping-in-filter-method).
 <% end %>
 
 <%= h4 "Keyword arguments" %>

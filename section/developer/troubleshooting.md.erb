@@ -34,7 +34,7 @@ You need to create a copy of the method or the class of your callable task in or
 
 As the name suggests, the `IllegalSignalError` exception is raised when a step returns a signal that is not registered at [compile time](/2.1/docs/activity.html#activity-internals-build-structures-compilation). The routing algorithm is not able to find a connection for the returned signal and raises an error at run-time.
 
-Usually, you encounter this beautiful exception when using the [circuit interface](#activity-internals-circuit-interface) signature for a step, and returning a "wrong" signal that is not wired to an on-going next task.
+Usually, you encounter this beautiful exception when using the [circuit interface](#operation-internals-circuit-interface) signature for a step, and returning a "wrong" signal that is not wired to an on-going next task.
 
 Other common cases may be
 

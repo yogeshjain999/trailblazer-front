@@ -12,7 +12,7 @@ The `#call` class method is how you run your operation along with its steps.
 
 <%= code "instance-method-call" %>
 
-And that's literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or [change the wiring](#activity-wiring-api) to achieve the same effect.
+And that's literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or [change the wiring](#operation-wiring-api) to achieve the same effect.
 
 <%= h4 "Implicit call" %>
 
@@ -60,9 +60,9 @@ The following steps will be able to read the `:model` variable exactly the same 
 
 <%= code "ctx-write-read", collapse: :body %>
 
-Once an operation run finished, variables added to the `ctx` are readable by the caller on the outside via the [result object](#activity-mechanics-result).
+Once an operation run finished, variables added to the `ctx` are readable by the caller on the outside via the [result object](#operation-mechanics-result).
 
-Keep in mind that the above is the default behavior. You may configure what comes in and goes out of a step using [variable mapping](#activity-variable-mapping).
+Keep in mind that the above is the default behavior. You may configure what comes in and goes out of a step using [variable mapping](#operation-variable-mapping).
 
 <%= h3 "Flow control" %>
 
@@ -103,7 +103,7 @@ In this step, we're returning a "third" possible value. The trick is: the `Netwo
 
 <%= code "signal-operation", collapse: :meths %>
 
-That way, the operation's routing will recognize this third outcome. Speaking of, the third scenario needs to be properly connected using the [Wiring API](#activity-wiring-api).
+That way, the operation's routing will recognize this third outcome. Speaking of, the third scenario needs to be properly connected using the [Wiring API](#operation-wiring-api).
 
 <%= code "signal-steps" %>
 
@@ -131,7 +131,7 @@ Those termini start making even more sense when nesting operations.
 
 It is possible (and required!) to wire termini of a nested operation into the container circuit - this is much cleaner than handling different outcomes by hand, and allows for tracing and debugging.
 
-Check out the [Wiring API](#activity-wiring-api) to learn how to leverage multiple outcomes in operations.
+Check out the [Wiring API](#operation-wiring-api) to learn how to leverage multiple outcomes in operations.
 
 <%= h3 "Result" %>
 
@@ -172,4 +172,4 @@ You can now insert, replace or even delete new steps in the `Update` class.
 
 This will replace the `create_model` step with new `find_model` logic. Obviously, you have to provide the `#find_model` method in the `Update` class.
 
-When inserting steps into subclasses you can use any [step DSL options](#activity-step-dsl-sequence-options). You might even drill into deeply nested, inherited class compounds [using `#patch`](#FIXME).
+When inserting steps into subclasses you can use any [step DSL options](#operation-step-dsl-sequence-options). You might even drill into deeply nested, inherited class compounds [using `#patch`](#FIXME).

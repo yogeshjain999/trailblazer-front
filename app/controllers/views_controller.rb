@@ -563,10 +563,10 @@ class ViewsController < ApplicationController
       }
     },
 
-    "activity" => {
-      toc_title: "Activity",
+    "operation" => {
+      toc_title: "Operation",
       "2.1" => {
-        title: "Activity",
+        title: "Operation",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
         target_file: "public/2.1/docs/activity/index.html",
@@ -601,7 +601,7 @@ class ViewsController < ApplicationController
       },
       "< 2.1.1" => {
         options_for_toc: {outdated: true, tooltip: "Deprecated activity docs: :input/:output, ..."},
-        title: "Activity",
+        title: "Operation",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/activity",
         target_file: "public/2.1/docs/activity/deprecated/index.html",

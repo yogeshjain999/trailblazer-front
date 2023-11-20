@@ -10,7 +10,7 @@ Since the wiring API is part of the Step DSL, it's implemented in the [`trailbla
 
 Without additional configuration, when using `#step` the following happens.
 
-1. The new step is put either on the success or failure track, depending on whether you used `#step` or [`#left`](#activity-step-dsl-railway-left) for insertion (internally, this happens via the `:magnetic_to` option).
+1. The new step is put either on the success or failure track, depending on whether you used `#step` or [`#left`](#operation-step-dsl-railway-left) for insertion (internally, this happens via the `:magnetic_to` option).
 2. The respective predecessor step is connected to the new step.
 3. As, in a railway, a step typically has two logical outcomes, the step's `success` output is connected to the following step on the success track. Usually, this would be the `success` terminus.
 4. The exact same thing happens for the step's `failure` output.
@@ -102,7 +102,7 @@ In a subclass, you could then connect steps to this new terminus using `End()`.
 
 <%= code "terminus-sub", collapse: "meths" %>
 
-Note that there are more inheritance mechanics for building template operations, such as the [`:inherit` option](#activity-mechanics-inheritance).
+Note that there are more inheritance mechanics for building template operations, such as the [`:inherit` option](#operation-mechanics-inheritance).
 
 <%= h3 "Track()" %>
 

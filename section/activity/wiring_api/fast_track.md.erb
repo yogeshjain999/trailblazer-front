@@ -1,6 +1,6 @@
 <%= h3 "Fast-track" %>
 
-The operation is based on the [`FastTrack` layout](#activity-internals-fasttrack-layout) and provides three more options for configuring a step's connections.
+The operation is based on the [`FastTrack` layout](#operation-internals-fasttrack-layout) and provides three more options for configuring a step's connections.
 
 <%= h4 "pass_fast" %>
 
@@ -28,7 +28,7 @@ Even though `#handle_errors` is on the failure track, it won't be reached from `
 
 <%= h4 "fast_track" %>
 
-When setting the `:fast_track` option, a step will have four outputs and, obviously, can have four outcomes. The additional fast-track outputs you can indicate by [returning a well-defined signal](#activity-mechanics-flow-control-signal).
+When setting the `:fast_track` option, a step will have four outputs and, obviously, can have four outcomes. The additional fast-track outputs you can indicate by [returning a well-defined signal](#operation-mechanics-flow-control-signal).
 
 <%= code_tabs "ft-fasttrack", collapse: "mod", operation_repository: true %>
 
@@ -42,4 +42,4 @@ Note that you don't have to use both outputs.
 
 <%= image_tag "fast_track.png" %>
 
-The fast-track layout is an attempt to implement best practices. Most of the times, however, you can achieve a similar result using a [separate track](#activity-wiring-api-track-) or terminus.
+The fast-track layout is an attempt to implement best practices. Most of the times, however, you can achieve a similar result using a [separate track](#operation-wiring-api-track-) or terminus.

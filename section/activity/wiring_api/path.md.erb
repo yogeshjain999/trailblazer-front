@@ -1,6 +1,6 @@
 <%= h3 "Path()", embed: gem_version(:dsl, "1.2.0", introduced: true) %>
 
-For branching out a separate path in an operation, use the `Path()` macro. It's a convenient, simple way to declare alternative routes, even if you could do everything it does [manually](#activity-wiring-api-track-custom-track).
+For branching out a separate path in an operation, use the `Path()` macro. It's a convenient, simple way to declare alternative routes, even if you could do everything it does [manually](#operation-wiring-api-track-custom-track).
 
 <%= h4 "Terminus" %>
 
@@ -12,7 +12,7 @@ If the `#find_provider` steps returns false, the steps on the "paypal" path will
 
 <%= image_tag "wiring-path-helper.png" %>
 
-You don't necessarily have to use the `:failure` output in order to branch out a new path. You might as well use an [additional signal](##activity-mechanics-flow-control-signal), or any other predefined output of the task.
+You don't necessarily have to use the `:failure` output in order to branch out a new path. You might as well use an [additional signal](#operation-mechanics-flow-control-signal), or any other predefined output of the task.
 
 When using `Path()`, the steps on the path will only have one `:success` output. Note that there's no connection going to the failure track from `#charge_paypal`.
 
