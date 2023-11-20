@@ -49,6 +49,10 @@ The new special terminus is now wired to the `failure` track of the containing `
 You may connect the custom terminus using any of the Wiring's API helpers.
 
 <%= warning do %>
-There will be an exception thrown at compile-time if you don't connect unknown terminus.
+There will be an `IllegalSignalException` exception thrown at runtime time when not connecting a custom terminus. Use the [:strict option](#activity-wiring-api-subprocess-strict) to avoid runtime problems.
 <% end %>
+
+<%= h4 "Strict" %>
+
+The `:strict` option is still experimental: https://github.com/trailblazer/trailblazer-activity-dsl-linear/issues/59
 
