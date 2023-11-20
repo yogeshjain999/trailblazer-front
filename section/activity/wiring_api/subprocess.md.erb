@@ -1,22 +1,22 @@
 <%= h3 "Subprocess" %>
 
-While you could nest an activity into another manually, the `Subprocess` macro will come in handy.
+While you could manually nest an operation into another, the `Subprocess()` macro helps to embed an operation as a step of a container operation.
 
-Consider the following nested activity.
+Consider the following activity implementing a more complex validation. By extracting that logic to a separate operation, you're making this code better testable, and reusable across your application.
 
-<%= code "nested", collapse: :methods %>
+<%= code "nested", collapse: :meths %>
 
-Use `Subprocess` to nest it into the `Create` activity.
+Use `Subprocess()` to nest it into the `Create` activity.
 
-<%= code "container", collapse: :methods %>
+<%= code "container", collapse: :meths %>
 
-The macro automatically wires all of `Validate`'s ends to the known counter-part tracks.
+The macro automatically wires all of `Validate`'s termini to the known counter-part tracks.
 
-<%= image_tag "nesting.webp" %>
+<%= image_tag "subprocess.png" %>
 
-The `Subprocess` macro will go through all outputs of the nested activity, query their semantics and search for tracks with the same semantic.
+The `Subprocess` macro will go through all outputs of the nested operation, fetch their semantics and search for tracks with the same semantic - it's that simple.
 
-Note that the failure track starting from `create_model` will skip the nested activity, just as if it was simple task.
+Note how the nested operation really acts as if it's a plain step - in fact, the execution code doesn't even know this is a "real" separate operation.
 
 <%= h4 "Wiring" %>
 
