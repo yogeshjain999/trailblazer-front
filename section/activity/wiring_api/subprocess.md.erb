@@ -2,11 +2,11 @@
 
 While you could manually nest an operation into another, the `Subprocess()` macro helps to embed an operation as a step of a container operation.
 
-Consider the following activity implementing a more complex validation. By extracting that logic to a separate operation, you're making this code better testable, and reusable across your application.
+Consider the following operation implementing a more complex validation. By extracting that logic to a separate operation, you're making this code better testable, and reusable across your application.
 
 <%= code "nested", collapse: :meths %>
 
-Use `Subprocess()` to nest it into the `Create` activity.
+Use `Subprocess()` to nest it into the `Create` operation.
 
 <%= code "container", collapse: :meths %>
 
@@ -18,31 +18,37 @@ The `Subprocess` macro will go through all outputs of the nested operation, fetc
 
 Note how the nested operation really acts as if it's a plain step - in fact, the execution code doesn't even know this is a "real" separate operation.
 
-<%= h4 "Wiring" %>
+<%= h4 "Output" %>
 
-You can use the familiar DSL to reconnect ends.
+You can use the familiar Wiring DSL to reconnect termini of the nested operation.
 
-<%= code "reconnect", collapse: :methods %>
+<%= code "container-output", collapse: :meths %>
 
-The nested's `failure` output now goes to the outer `success` track.
+For demonstration purposes, the nested's `failure` output now goes straight to `#notify`.
 
-<%= image_tag "nesting-reconnect.webp" %>
+<%= image_tag "subprocess-output.png" %>
 
-In this example, regardless of nested's outcome, it will always be interpreted as a successful invocation.
+This is identical to connecting a "normal" step's output and allows to treat particular outcomes of a nested operation in a non-standard way - for example, routing a "failed" terminus to a success path.
 
-<%= h4 "End" %>
+<%= h4 "Terminus" %>
 
-A nested activity doesn't have to have two ends, only.
+A nested operation doesn't have to have two termini, only.
 
-<%= code "end-nested", collapse: :methods %>
+<%= code "nested-terminus", collapse: :meths %>
 
-`Subprocess` will try to match the nested ends' semantics to the tracks it knows. You may wire custom ends using `Output`.
+The `Validate` operation could expose a third terminus `:invalid` to indicate that `params` wasn't formatted properly.
 
-<%= code "end", collapse: :methods %>
+`Subprocess()` will try to match the nested termini semantics to the tracks it knows. You may wire a custom terminus like `:invalid` using `Output()`.
 
-The new special end is now wired to the `failure` track of the containing activity.
+<%= code "container-terminus", collapse: :meths %>
 
-<%= image_tag "nesting-end.webp" %>
+The new special terminus is now wired to the `failure` track of the containing `Create` operation.
 
-There will be an exception thrown if you don't connect unknown ends.
+<%= image_tag "subprocess-terminus.png" %>
+
+You may connect the custom terminus using any of the Wiring's API helpers.
+
+<%= warning do %>
+There will be an exception thrown at compile-time if you don't connect unknown terminus.
+<% end %>
 
