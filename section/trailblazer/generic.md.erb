@@ -1,4 +1,3 @@
-
 <%= h2 "About" %>
 
 Trailblazer is a collection of gems to help you structure growing Ruby applications by providing a higher level of architecture through new abstractions.
@@ -7,21 +6,23 @@ Trailblazer is a collection of gems to help you structure growing Ruby applicati
 
 The layers we provide are designed to be stand-alone and do not require you buy the full TRB stack.
 
-* **Form objects** to move validation and processing logic out of models into dedicated and renderable objects.
-* **Service objects** that embrace your business code, orchestrate different domain layers, and allow for a solid, testable architecture.
-* **View components** for better encapsulation in your HTML views.
-* **Representers** to parse incoming JSON or XML documents, and to serialize outgoing data.
+* **Form objects** to move validation and processing logic out of models into dedicated and renderable objects. [→ REFORM docs](/2.1/docs/reform/)
+* **Service objects** that embrace your business code, orchestrate different domain layers, and allow for a solid, testable architecture. [→ OPERATION docs](/2.1/docs/operation/)
+* **View components** for better encapsulation in your HTML views. [→ CELLS docs](/2.1/docs/cells/)
+* **Representers** to parse incoming JSON or XML documents, and to serialize outgoing data. [→ REPRESENTABLE docs](/2.1/docs/representable/)
 * Trailblazer does *not* come with SQL abstractions or routing as those layers are provided by exisiting frameworks such as Rails or Hanami.
 
 <%= info do %>
-Are you new to TRB? Then it's probably best to start on [our LEARN page](/2.1/learn.html) and find out more about this framework!
+Are you new to TRB? Then it's probably best to start with [our LEARN section](#trailblazer-learn) and find out more about this framework!
 <% end %>
 
 Currently, the framework consists of around 40 gems. The main gem `trailblazer` is an umbrella gem with the sole reason to pull all default dependencies for you. Feel free to pick and choose what you need for your applications.
 
 <%= h3 "Our mission" %>
 
-Trailblazer empowers developers to build better encapsulated applications. Our approach maximes testability and reusability, and simplifies onboarding of new developers as we have strong conventions and thorough docs.
+Trailblazer empowers developers to build better applications. By "better" we mean maintainable, stable and, yes, fun to work with!
+
+Our approach enforces encapsulation by providing new abstraction layers. It maximes testability and reusability, and simplifies onboarding of new developers as we have strong conventions and thorough docs.
 
 <%= h3 "Gems" %>
 

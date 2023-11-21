@@ -56,3 +56,14 @@ There will be an `IllegalSignalException` exception thrown at runtime time when 
 
 The `:strict` option is still experimental: https://github.com/trailblazer/trailblazer-activity-dsl-linear/issues/59
 
+<%= h4 "Fast-track" %>
+
+When nesting another operation (or `Activity::FastTrack`), its fast-track temini won't be connected automatically. Just like with a "normal" step, you need to instruct the Wiring API.
+
+<%= code "subprocess-fast-track", collapse: "meths" %>
+
+By providing `fast_track: true`, the nested termini will be connected to the matching outer tracks.
+
+<%= image_tag "wiring-subprocess-fast-track.png" %>
+
+Omitting this option often is the source for an `IllegalSignalError`.
