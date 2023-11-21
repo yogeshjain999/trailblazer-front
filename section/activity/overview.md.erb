@@ -94,5 +94,14 @@ You may add additional termini to your operations to indicate state, go back and
 
 For even cleaner code and maximized reusability, you can control what variables come in and out of steps. [→ VARIABLE MAPPING docs](/2.1/docs/trailblazer/#operation-variable-mapping)
 
-* Activities also help modeling and implementing complex, long-running workflows with our BPMN editor.
+<%= code "out-array", collapse: "meths", file: "composable_variable_mapping_test.rb" %>
 
+Using our PRO debugger, you can even trace this variable flow.
+
+<%= h4 "BPMN and state machines" %>
+
+We are (finally, and definitely!) releasing PRO in 2024 which will bring us the `workflow` gem and our BPMN editor to model and implement complex, long-running workflows.
+
+<%= image_tag "bpmn-editor-23.png" %>
+
+This will be pretty exciting and introduces "enterprise" concepts that haven't been around in Ruby so far.
