@@ -1,54 +1,54 @@
 <%= h2 "Overview" %>
 
-An activity is the central building block in a Trailblazer architecture. It's an abstraction that helps structuring your business code while taking over the control flow for you.
+An operation is the central building block in a Trailblazer architecture. It's an abstraction that helps structuring your business code while taking over the control flow for you.
 
 Operations are often confused as *god objects* that “do everything”. However, operations are nothing but orchestrators. Where to implement the actual code and when to call it is up to the developer.
 
 <%= info do %>
-You're confused about `Operation` and `Activity`? It's simple: an operation is a very thin high-level API around the activity, providing you a less clumsy `Operation.call()` along with the result object.
+You're confused about `Operation` and `Activity`? It's simple: an operation is a very thin high-level API around the operation, providing you a less clumsy `Operation.call()` along with the result object.
 
 Both come with the exact same DSL.
 <% end %>
 
 <%= h3 "Step DSL" %>
 
-Most of the times, activities are defined via our "step DSL".
+Most of the times, operations are defined via our "step DSL".
 
-<%= code_tabs "memo-create", collapse: "meths" %>
+<%= code "memo-create", collapse: "meths", operation_repository: true %>
 
-It's a convenient way for you to define _what_ happens. The activity takes care of the _when_ - which reduces your application code while providing a great amount of beautiful features, such as tracing.
+It's a convenient way for you to define _what_ happens. The operation takes care of the _when_ - which reduces your application code while providing a great amount of beautiful features, such as tracing.
 
 <%= h3 "Railway" %>
 
-Internally, the above activity compiles to some kind of "circuit" which looks as follows.
+Internally, the above operation compiles to some kind of "circuit" which looks as follows.
 
 <%= image_tag "memo-create.png" %>
 
 As visible, your "steps" are placed onto two tracks, forming a "railway".
 
-This is a great concept [stolen from functional programming](https://fsharpforfunandprofit.com/rop/)! The railway is your mental model of the code flow. If a step fails, the execution will deviate to the "failure track", skipping the remaining "success" steps, and eventually stopping on the "failure terminus". The terminus is how you communicate the outcome of your activity run to the outer world.
+This is a great concept [stolen from functional programming](https://fsharpforfunandprofit.com/rop/)! The railway is your mental model of the code flow. If a step fails, the execution will deviate to the "failure track", skipping the remaining "success" steps, and eventually stopping on the "failure terminus". The terminus is how you communicate the outcome of your operation run to the outer world.
 
 <%= h3 "Invocation" %>
 
-Now, that's why when running your activity, the outcome will always be either "success" or "failure".
+Now, that's why when running your operation, the outcome will always be either "success" or "failure".
 
-<%= code_tabs "memo-call" %>
+<%= code "memo-call" %>
 
-This is how you invoke an activity. Note how the input data goes into the activity's `#call` method. It returns the terminus and the `ctx` object that was passed from step to step within the activity.
+This is how you invoke an operation. Note how the input data goes into the operation's `#call` method. It returns the terminus and the `ctx` object that was passed from step to step within the operation.
 
 <%= h3 "Step" %>
 
-In an activity your application code is structured into steps. These steps can be any callable Ruby object, but very often, developers use instance methods.
+In an operation your application code is structured into steps. These steps can be any callable Ruby object, but very often, developers use instance methods.
 
 <%= h4 "Signature" %>
 
 Check out their signature and the return value!
 
-<%= code_tabs "memo-create", collapse: :body %>
+<%= code "memo-create", collapse: :body %>
 
-The hash given into the activity invocation is passed from step to step as `ctx`. Contained variables, such as `:params` can be accessed using Ruby's lovely [keyword arguments](https://thoughtbot.com/blog/ruby-2-keyword-arguments) feature.
+The hash given into the operation invocation is passed from step to step as `ctx`. Contained variables, such as `:params` can be accessed using Ruby's lovely [keyword arguments](https://thoughtbot.com/blog/ruby-2-keyword-arguments) feature.
 
-Steps can instruct the activity about the step outcome by returning a truthy or falsey value from the step method.
+Steps can instruct the operation about the step outcome by returning a truthy or falsey value from the step method.
 
 <%= h4 "State" %>
 
@@ -56,20 +56,43 @@ Since we're dealing with business logic in steps, you're allowed to write state 
 
 <%= code "save" %>
 
-After running the activity, `ctx` variables can also be retrieved, for example for rendering in a controller view, or in your unit tests.
+After running the operation, `ctx` variables can also be retrieved, for example for rendering in a controller view, or in your unit tests.
 
-<%= code_tabs "memo-call-model" %>
+<%= code "memo-call-model" %>
 
-And that's it, you just learnt the basic mechanics of activities.
+And that's it, you just learnt the basic mechanics of operations.
 
 <%= h3 "Features" %>
 
-Activities not only help structuring, they are an entirely new development experience.
+Activities not only help structuring, they are an entirely new development experience that provide a rich and stable API that allows to model almost any business use case.
 
-* You can define any wiring and any circuit you need in order to accomplish your task.
+<%= h4 "Debugging" %>
+
+Operations can trace themselves when being run. This allows you to see which step had been invoked when, whether or not there was a failure, and so on.
+
+<%= code "wtf", file: "../developer_test.rb", collapse: "meths" %>
+
+Just run the operation using the `wtf?` method instead of `#call`.
+
+<%= image_tag "cli/memo-create.png" %>
+
+This will print the trace in the terminal, which is incredibly helpful and time-saving when working with [complex operations](#operation-wiring-api-subprocess).
+
+Check out our video on debugging or the [→ DEVELOPER docs](/2.1/docs/trailblazer/#trailblazer-developer)
+
+<iframe class="mx-auto" width="560" height="315" src="https://www.youtube.com/embed/4udzPXRh1VY?si=nu5lzI0VVnspGgJG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<%= h4 "Unlimited wiring" %>
+
+In your operation, you can define any circuit you need in order to accomplish your task using the [Wiring API](#operation-wiring-api). You're not limited to a linear railway!
+
+<%= image_tag "wiring-end.png" %>
+
+You may add additional termini to your operations to indicate state, go back and retry a particular step, error-out early, or even [nest operations](#operation-wiring-api-subprocess) to solve more complex business logic.
+
+<%= h4 "Variable mapping" %>
+
+For even cleaner code and maximized reusability, you can control what variables come in and out of steps. [→ VARIABLE MAPPING docs](/2.1/docs/trailblazer/#operation-variable-mapping)
+
 * Activities also help modeling and implementing complex, long-running workflows with our BPMN editor.
-* We have nesting to put activities into activities.
-* Tracing will save you hours of debugging.
-* You can control what variables come in and out of steps.
-
 
