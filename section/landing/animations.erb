@@ -6,28 +6,28 @@
   <p class="text-white text-lg text-center mt-10 mx-auto max-w-[45rem]">
     <span class="font-bold uppercase text-purple-text">Trailblazer</span>
     is a framework-agnostic set of gems helping to improve your app's code structure.
-    It is used in hundreds of Rails apps and often got introduced after many years of development to reduce technical debt.
+    It is used in hundreds of Rails apps and often gets introduced after many years of development to reduce technical debt.
 
   </p>
   <div class="max-w-[63rem] section-content-wrapper md:py-0">
     <div class="md:text-left md:flex-row md:justify-between md:mt-[5.5rem] flex flex-col mt-10 text-center">
       <div class="order-last w-full mt-10 mx-auto md:order-none md:mt-0 md:mx-0">
-        <lottie-player src="<%= asset_path "lottie/1-A.json" %>" background="transparent" speed="5" class="" loop autoplay></lottie-player>
+        <lottie-player src="<%= asset_path "lottie/1-A.json" %>" background="transparent" speed="4" class="" loop autoplay></lottie-player>
       </div>
 
       <%#= image_tag "code_placeholder_3.jpg", class: "order-last w-full h-fit mt-10 mx-auto max-w-[22rem] lg:max-w-[27rem] md:order-none md:mt-0 md:mx-0" %>
       <div class="md:max-w-[28rem] flex flex-col">
         <div class="text-white">
           <h3 class="lg:text-3xl font-bold text-3xl">
-            <span class="text-purple-text">Smart</span>
-            architecture
+            <span class="text-purple-text">Missing</span>
+            abstractions
           </h3>
           <p class="mt-4 text-lg lg:mt-5">
-            The core of
-            <span class="font-bold uppercase text-purple-text">Trailblazer's</span>
-            architecture is the concept of an operation, which is a stateless object that encapsulates the overall behavior and logic
-            of a specific use case or feature within the application. It orchestrates the activities, validations, policies, models,
-            callbacks, and other components necessary to execute the use case.
+            Most web frameworks have excellent abstractions for routing, rendering, and databases.
+            When it comes to organizing <span class="font-bold uppercase text-purple-text">business logic</span>, however, you're left alone.
+          </p>
+          <p class="mt-4 text-lg lg:mt-5">
+            The existing places, such as controller actions, models, callbacks and hand-tailored service objects, lead to codebases hard to maintain.
           </p>
         </div>
       </div>
@@ -37,14 +37,16 @@
       <div class="md:max-w-[28rem] flex flex-col">
         <div class="text-white">
           <h3 class="lg:text-3xl font-bold text-3xl">
-            <span class="text-purple-text">Orchestrate</span>
-            activities
+            <span class="text-purple-text">Our</span>
+            toolbox
           </h3>
           <p class="mt-4 text-lg lg:mt-5">
-            In
-            <span class="font-bold uppercase text-purple-text">Trailblazer</span>,
-            each function or task of an application is encapsulated into an activity. An activity represents a specific step or action
-            within the application's workflow. Activities can range from simple ad-hoc Ruby methods to more complex nested activities.
+            Instead of cluttering your code over the entire MVC framework,
+            <span class="font-bold uppercase text-purple-text">Trailblazer</span> introduces a bunch of new abstractions, with a standard service object leading the way: the operation.
+          </p>
+
+          <p class="mt-4 text-lg lg:mt-5">
+            Code is organized into small chunks we call <i>steps</i>. The operation helps to structure your logic and takes over flow control.
           </p>
         </div>
       </div>
