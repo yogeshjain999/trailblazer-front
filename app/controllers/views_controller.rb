@@ -857,7 +857,8 @@ class ViewsController < ApplicationController
         "features_section.erb" => { snippet_file: "" },
         "testimonials_section.erb" => { snippet_file: "" },
         "learn_more_section.erb" => { snippet_file: "" },
-        "../../app/concepts/cell/application/chat_with_us.erb" => { snippet_file: "" },
+        # "../../app/concepts/cell/application/chat_with_us.erb" => { snippet_file: "" },
+        "../../app/concepts/cell/application/newsletter.erb" => { snippet_file: "" },
         "../../app/concepts/cell/application/footer.erb" => { snippet_file: "" },
       }
     },
