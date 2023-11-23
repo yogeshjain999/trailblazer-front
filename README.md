@@ -10,7 +10,7 @@ rails s
 ```
 
 
-## Extending
+## Development
 
 To work on CSS and new features, you need to run the "development mode" where Tailwind constantly recompiles its CSS file, etc.
 
@@ -19,6 +19,16 @@ Run with
 ```
 $ foreman start -f Procfile.dev
 ```
+
+Note that in this mode, only "real" controller actions work, URLs like `/2.1/docs` won't show up formatted.
+
+
+If styles don't show up, run
+
+```
+$ rails assets:clobber
+```
+
 
 ## Publishing
 
@@ -43,11 +53,6 @@ bin/importmap pin jquery --download
 ```
 
 will copy the library to `vendor/javascript/jquery.js`
-
-
-## Troubleshooting
-
-1. Changes not picked up? Run `rails assets:clobber`
 
 
 ## Publishing (before Netlify)
