@@ -850,8 +850,8 @@ class ViewsController < ApplicationController
         title: "Trailblazer PRO",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/page",
-        target_file: "public/2.1/about_us.html",
-        target_url:  "/2.1/about_us.html",
+        target_file: "public/2.1/about.html",
+        target_url:  "/2.1/about.html",
         render: About::Flow,
 
         section_cell_options: {
