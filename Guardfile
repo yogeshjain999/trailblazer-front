@@ -6,16 +6,9 @@ module ::Guard
   end
 end
 
-pages_config = ::Torture::Cms::DSL.(ViewsController::Pages)
+puts "========= Guardfile:"
+pages_config, pages, returned = Cms::Render.call()
 
-controller = ViewsController.new()
-req = ActionDispatch::Request.new 'HTTP_HOST' => 'example.com'
-controller.instance_variable_set(:@_request, req)
-
-puts "here comes full site compile"
-pages, returned = ::Torture::Cms::Site.produce_versioned_pages(pages_config,
-  controller: controller, # TODO: pass this to all cells.
-)
 
 file_to_page_map  = returned.fetch(:file_to_page_map)
 book_headers        = returned[:book_headers]
@@ -42,10 +35,9 @@ guard :torture do
     page, _ = ::Torture::Cms::Site.render_final_page([book_name, version], book_headers: book_headers,  controller: controller, **page)
     page, _ = ::Torture::Cms::Site.produce_page(**page)
   end
-  # # This calls the plugin with a new file name - which may not even exist
-  # watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
 
-  # # This call the plugin with the 'test' parameter - see Guard::Minitest docs
-  # # for information in how it finds/choose files in the given 'test' directory
-  # watch(%r{^test/test_helper\.rb$})      { 'test' }
+  # Reload when ViewsController changes
+  watch("app/controllers/views_controller.rb") { Guard.queue.instance_variable_get(:@commander).reload }
+  # and reload when images are added (veeery convenient).
+  watch("app/assets/images") { puts "IMAGE"; Guard.queue.instance_variable_get(:@commander).reload } # FIXME: not called!
 end
