@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Trailblazer</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    
+    
+    <link rel="stylesheet" href="/assets/tailwind-989ff2c09e4a5622ef4c57705f791cc590200956bd0e713ccd34773a7731c276.css" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
+    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <script>pageIdentifier = "docs";</script>
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
+    "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
+    "highlight.js/lib/core": "https://ga.jspm.io/npm:highlight.js@11.8.0/es/core.js",
+    "highlight.js/lib/languages/ruby": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/ruby.min.js",
+    "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
+<script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center bg-white sticky" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <img class="w-40 lg:my-0" src="/assets/logo_blue_ruby-e87334a67ff20033fae8c8d2c07e549b5f1faa9b75bb07fbb2ff9d1c0dfef6e7.svg" />
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/blog">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="#">PRO</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://trailblazer.zulipchat.com">Chat with us</a>
+    </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold underline decoration-[5px] decoration-purple underline-offset-[15px] " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://dev.to/trailblazer">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.0/">→ 2.0</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/pro.html">PRO</a>
+    </div>
+
+    <a class="base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" href="#">Chat with us</a>
+  </div>
+</nav>
+
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="bg-bg-blue w-screen h-screen fixed top-0 z-20 right-[100vw] overflow-y-scroll lg:w-3/12 lg:max-w-[23rem] lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem]" id="sideNav">
+      <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </button>
+      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+  
+
+
+  
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/trailblazer/index.html">Trailblazer</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class="bg-dark-purple flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/operation/index.html">Operation</a>
+
+        
+
+          
+
+            
+              <a href="/2.1/docs/activity/deprecated/index.html" class="" title="Deprecated activity docs: :input/:output, ...">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-purple pl-3"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448 480H64c-35.3 0-64-28.7-64-64V192H512V416c0 35.3-28.7 64-64 64zm64-320H0V96C0 60.7 28.7 32 64 32H192c20.1 0 39.1 9.5 51.2 25.6l19.2 25.6c6 8.1 15.5 12.8 25.6 12.8H448c35.3 0 64 28.7 64 64z"/></svg>
+                
+              </a>
+
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-operation-variable-mapping">
+          <a href="#operation-variable-mapping" class="pl-8">Variable mapping</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-operation-dependency-injection">
+          <a href="#operation-dependency-injection" class="pl-8">Dependency Injection</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-operation-wiring-api">
+          <a href="#operation-wiring-api" class="pl-8">Wiring API</a>
+        </div>
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/rails_integration/index.html">Rails integration</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/test/index.html">Test</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/macro/index.html">Macro</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/workflow/index.html">Workflow</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/endpoint/index.html">Endpoint</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/internals/index.html">Internals</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/reform/index.html">Reform</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/reform/3.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  3.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/cells/index.html">Cells</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/cells/5.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  5.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/representable/index.html">Representable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/disposable/index.html">Disposable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/roar/index.html">Roar</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+</div>
+
+
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black uppercase">
+          <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">< 2.1.1</span>
+          Operation
+        </span>
+        Documentation
+      </h1>
+
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
+          <p class="">This page contains documentation for deprecated features of the <code class="text-purple">activity</code> gem suite that have been superseded.</p>
+
+<p class="">While everything described here is still working, we encourage you to slowly replace your old code with the functions we think are more useful, usually faster, plus better to debug and understand.</p>
+
+<h2 id="operation-variable-mapping" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Variable mapping</h2>
+<h3 id="operation-variable-mapping-input-output" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Input / Output</h3>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">With <code class="text-purple">trailblazer-2.1.1</code> and the bundled <code class="text-purple">trailblazer-activity-dsl-linear-1.0.0</code> gems, the recommended way of I/O is using <a href="" class="underline text-purple">composable variable mapping</a> via <code class="text-purple">In()</code> and <code class="text-purple">Out()</code>.</p>
+
+  </div>
+</div>
+
+<p class="">Before the introduction of the composable <code class="text-purple">In()</code>, <code class="text-purple">Out()</code> and <code class="text-purple">Inject()</code> filters, variable mapping was done with the <code class="text-purple">:input</code> and <code class="text-purple">:output</code> option. This is still supported and not planned to be dropped. However, there are a bunch of drawbacks with using the monolithic, non-composable options.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Once used, the <code class="text-purple">:input</code>, <code class="text-purple">:output</code> and <code class="text-purple">:inject</code> option will overwrite any options set earlier (or later) via <code class="text-purple">In()</code>, <code class="text-purple">Out()</code> and <code class="text-purple">Inject()</code>. This will often lead to problems when using macros.</li>
+  <li class="list-image-disc ml-10">The superseded options are basically impossible to debug, whereas the composable <code class="text-purple">In()</code> approach can <a href="#operation-variable-mapping-introspect" class="underline text-purple">nicely display the computed set</a> of variables going in or out of a step.</li>
+  <li class="list-image-disc ml-10">In future versions of Trailblazer we’re planning automatic “contracts” for steps along with type checking. This is not possible with the monolithic <code class="text-purple">:input</code> option.</li>
+</ul>
+
+<h4 id="operation-variable-mapping-input-output-input" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:input</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">:input</code> option accepts any callable following the option interface.</p>
+
+<pre class=""><code class="rounded">
+step :create_model,
+  input: :input_for_create_model
+  # becomes
+  In() =&gt; :input_for_create_model</code></pre>
+
+<p class=""><code class="text-purple">:input</code> works identically to a single <code class="text-purple">In()</code> call.</p>
+
+<h4 id="operation-variable-mapping-input-output-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:output</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">:output</code> option, just like <code class="text-purple">:input</code>, accepts any callable following the option interface.</p>
+
+<pre class=""><code class="rounded">
+step :create_model,
+  output: :output_for_create_model
+  # becomes
+  Out() =&gt; :output_for_create_model</code></pre>
+
+<p class=""><code class="text-purple">:output</code> works identically to a single <code class="text-purple">Out()</code> call.</p>
+
+<p class="">The <code class="text-purple">:output_with_outer_ctx</code> option is <a href="#operation-variable-mapping-out-outer-context" class="underline text-purple">documented here</a>.</p>
+
+<pre class=""><code class="rounded">
+step :create_model,
+  output: :output_for_create_model,
+  output_with_outer_ctx: true
+  # becomes
+  Out(with_outer_ctx: true) =&gt; :output_for_create_model</code></pre>
+
+<h4 id="operation-variable-mapping-input-output-inject" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:inject</span>
+
+                  </h4>
+
+<p class=""><code class="text-purple">:inject</code> works identically to a single <code class="text-purple">Inject()</code> call.</p>
+
+<pre class=""><code class="rounded">
+step :create_model,
+  inject: :inject_for_create_model
+  # becomes
+  Inject() =&gt; :inject_for_create_model</code></pre>
+
+<h2 id="operation-dependency-injection" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Dependency Injection</h2>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">WIP: This section is not final, yet.</p>
+
+  </div>
+</div>
+
+<h3 id="operation-dependency-injection-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overview</h3>
+
+<p class="">Very often your activity or one of the steps contained require particular objects and values to get their job done. Instead of hard-wiring those <em>“dependencies”</em> in the code it is good style to allow providing those objects by passing them into the activity at run-time. This is called dependency injection and is a <a href="https://en.wikipedia.org/wiki/Dependency_injection" class="underline text-purple">common technique</a> in software engineering.</p>
+
+<p class="">One way for using dependency injection is using keyword arguments for variables you need, and defaulting those in the step signature.</p>
+
+<h3 id="operation-dependency-injection-mapping" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Mapping</h3>
+<p class="">TODO</p>
+
+<h3 id="operation-dependency-injection-dry-container" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Dry container</h3>
+<p class="">TODO</p>
+
+<p class="">defaulting in macros</p>
+
+<h2 id="operation-wiring-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Wiring API</h2>
+
+<!-- OLD link https://trailblazer.to/2.1/docs/activity.html#activity-wiring-api-path-end_task-end_id-deprecation -->
+<h3 id="operation-wiring-api-path-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Path()<span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+            <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z" /></svg>
+            <a href="" class="ml-1" title="This feature was introduced in trailblazer-activity-dsl-linear v&lt; 1.2.0.">dsl &lt; 1.2.0</a>
+          </span></h3>
+
+<h4 id="operation-wiring-api-path-end_task-end_id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path()
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">end_task/end_id</span>
+
+                  </h4>
+
+<p class="">In older versions before <code class="text-purple">trailblazer-activity-dsl-linear-1.2.0</code>, connecting the <code class="text-purple">Path()</code> to a separate terminus required you to pass two  options <code class="text-purple">:end_task</code> and <code class="text-purple">:end_id</code>.</p>
+
+<pre class=""><code class="rounded">
+Output(...) =&gt; Path(
+  end_task: Activity::End.new(semantic: :valid),
+  end_id:   "End.valid") do
+  # ...
+end</code></pre>
+
+<p class="">This is now simplified to be more consistent by introducing the <code class="text-purple">:terminus</code> option.</p>
+
+<pre class=""><code class="rounded">
+Output(...) =&gt; Path(terminus: :valid) do
+  # ...
+end</code></pre>
+
+<p class="">If you haven’t updated your code you will see a deprecation warning.</p>
+
+<pre class=""><code class="rounded">
+[Trailblazer] &lt;file.rb&gt; Using `:end_task` and `:end_id` in Path() is deprecated, use `:terminus` instead.
+  Please refer to https://trailblazer.to/2.1/docs/activity.html#activity-wiring-api-path-end_task-end_id-deprecation</code></pre>
+
+        </div>
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
+          <div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-operation-variable-mapping">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Variable mapping
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#operation-variable-mapping-input-output">Input / Output</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#operation-variable-mapping-input-output-input">:input</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#operation-variable-mapping-input-output-output">:output</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#operation-variable-mapping-input-output-inject">:inject</a>
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-operation-dependency-injection">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Dependency Injection
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#operation-dependency-injection-overview">Overview</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#operation-dependency-injection-mapping">Mapping</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#operation-dependency-injection-dry-container">Dry container</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-operation-wiring-api">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Wiring API
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#operation-wiring-api-path-">Path()</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#operation-wiring-api-path-end_task-end_id">end_task/end_id</a>
+    
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="lg:text-left bg-bg-blue py-16 text-white text-center text-base">
+  <div class="lg:flex justify-between w-11/12 max-w-[80rem] mx-auto">
+    <div class="lg:flex lg:flex-col lg:justify-between">
+      <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
+        <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
+      </a>
+      <div class="lg:block hidden">
+        © 2023 Trailblazer GmbH
+      </div>
+    </div>
+    <div class="lg:flex lg:gap-20 xl:gap-40">
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Documentation</a>
+        <a href="#">About</a>
+        <a href="#">Community</a>
+        <a href="#">Blog</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Products</a>
+        <a href="#">Trailblazer</a>
+        <a href="#">Trailblazer Pro</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Learn</a>
+        <a href="#">What is Trailblazer?</a>
+        <a href="#">Trailblazer PRO</a>
+        <a href="#">Tips and Tutorials</a>
+        <a href="https://trailblazer.zulipchat.com">Chat</a>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden mt-15">
+    © 2023 Trailblazer GmbH
+  </div>
+</footer>
+
+
+  </body>
+</html>

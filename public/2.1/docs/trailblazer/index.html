@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Trailblazer</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    
+    
+    <link rel="stylesheet" href="/assets/tailwind-989ff2c09e4a5622ef4c57705f791cc590200956bd0e713ccd34773a7731c276.css" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
+    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <script>pageIdentifier = "docs";</script>
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
+    "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
+    "highlight.js/lib/core": "https://ga.jspm.io/npm:highlight.js@11.8.0/es/core.js",
+    "highlight.js/lib/languages/ruby": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/ruby.min.js",
+    "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
+<script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center bg-white sticky" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <img class="w-40 lg:my-0" src="/assets/logo_blue_ruby-e87334a67ff20033fae8c8d2c07e549b5f1faa9b75bb07fbb2ff9d1c0dfef6e7.svg" />
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/blog">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="#">PRO</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://trailblazer.zulipchat.com">Chat with us</a>
+    </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold underline decoration-[5px] decoration-purple underline-offset-[15px] " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://dev.to/trailblazer">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.0/">→ 2.0</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/pro.html">PRO</a>
+    </div>
+
+    <a class="base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" href="#">Chat with us</a>
+  </div>
+</nav>
+
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="bg-bg-blue w-screen h-screen fixed top-0 z-20 right-[100vw] overflow-y-scroll lg:w-3/12 lg:max-w-[23rem] lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem]" id="sideNav">
+      <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </button>
+      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+  
+
+
+  
+  
+    <div class="flex flex-col ">
+      <div class="bg-dark-purple flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/trailblazer/index.html">Trailblazer</a>
+
+        
+      </div>
+
+
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-trailblazer-about">
+          <a href="#trailblazer-about" class="pl-8">About</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-trailblazer-learn">
+          <a href="#trailblazer-learn" class="pl-8">Learn</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-trailblazer-2-1-migration">
+          <a href="#trailblazer-2-1-migration" class="pl-8">2.1 Migration</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-trailblazer-developer">
+          <a href="#trailblazer-developer" class="pl-8">Developer</a>
+        </div>
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/operation/index.html">Operation</a>
+
+        
+
+          
+
+            
+              <a href="/2.1/docs/activity/deprecated/index.html" class="" title="Deprecated activity docs: :input/:output, ...">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple flex-inline"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+                 
+              </a>
+
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/rails_integration/index.html">Rails integration</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/test/index.html">Test</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/macro/index.html">Macro</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/workflow/index.html">Workflow</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/endpoint/index.html">Endpoint</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/internals/index.html">Internals</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/reform/index.html">Reform</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/reform/3.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  3.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/cells/index.html">Cells</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/cells/5.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  5.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/representable/index.html">Representable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/disposable/index.html">Disposable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/roar/index.html">Roar</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+</div>
+
+
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black uppercase">
+          <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
+          Trailblazer
+        </span>
+        Documentation
+      </h1>
+
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
+          <h2 id="trailblazer-about" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">About</h2>
+
+<p class="">Trailblazer is a collection of gems to help you structure growing Ruby applications by providing a higher level of architecture through new abstractions.</p>
+
+<h3 id="trailblazer-about-abstractions" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Abstractions</h3>
+
+<p class="">The layers we provide are designed to be stand-alone and do not require you buy the full TRB stack.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><strong>Form objects</strong> to move validation and processing logic out of models into dedicated and renderable objects. <a href="/2.1/docs/reform/" class="underline text-purple">→ REFORM docs</a></li>
+  <li class="list-image-disc ml-10"><strong>Service objects</strong> that embrace your business code, orchestrate different domain layers, and allow for a solid, testable architecture. <a href="/2.1/docs/operation/" class="underline text-purple">→ OPERATION docs</a></li>
+  <li class="list-image-disc ml-10"><strong>View components</strong> for better encapsulation in your HTML views. <a href="/2.1/docs/cells/" class="underline text-purple">→ CELLS docs</a></li>
+  <li class="list-image-disc ml-10"><strong>Representers</strong> to parse incoming JSON or XML documents, and to serialize outgoing data. <a href="/2.1/docs/representable/" class="underline text-purple">→ REPRESENTABLE docs</a></li>
+  <li class="list-image-disc ml-10">Trailblazer does <em>not</em> come with SQL abstractions or routing as those layers are provided by exisiting frameworks such as Rails or Hanami.</li>
+</ul>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Are you new to TRB? Then it’s probably best to start with <a href="#trailblazer-learn" class="underline text-purple">our LEARN section</a> and find out more about this framework!</p>
+
+  </div>
+</div>
+
+<p class="">Currently, the framework consists of around 40 gems. The main gem <code class="text-purple">trailblazer</code> is an umbrella gem with the sole reason to pull all default dependencies for you. Feel free to pick and choose what you need for your applications.</p>
+
+<h3 id="trailblazer-about-our-mission" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Our mission</h3>
+
+<p class="">Trailblazer empowers developers to build better applications. By “better” we mean maintainable, stable and, yes, fun to work with!</p>
+
+<p class="">Our approach enforces encapsulation by providing new abstraction layers. It maximes testability and reusability, and simplifies onboarding of new developers as we have strong conventions and thorough docs.</p>
+
+<h3 id="trailblazer-about-gems" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Gems</h3>
+
+<p class="">The following list of gems is an overview of the most important core components in Trailblazer.</p>
+
+<table class="table table-striped-gems">
+  <thead>
+    <tr>
+      <th colspan="2">Gem</th>
+      <th colspan="3">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="trailblazer-group">
+      <td colspan="2"></td>
+      <td colspan="3" class="text-center"><strong>CORE</strong></td>
+      <td colspan="2"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-rails">trailblazer-rails</a></nobr>
+      </td>
+      <td colspan="3">
+        Glue code for conveniently using TRB in a Rails project. Adds <code>Controller#run</code> for invoking operations and <code>Controller#cell</code> to render cells.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/activity.html">trailblazer-activity</a></nobr>
+      </td>
+      <td colspan="3">
+        Callable run-time circuits that control the execution flow of your tasks.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/activity.html#activity-overview-dsl">trailblazer-activity-dsl-linear</a></nobr>
+      </td>
+      <td colspan="3">
+        DSL that provides <code>Path</code>, <code>Railway</code> and <code>FastTrack</code> activities.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-context">trailblazer-context</a></nobr>
+      </td>
+      <td colspan="3">
+        Context implementation.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-option">trailblazer-option</a></nobr>
+      </td>
+      <td colspan="3">
+        Callables implementation.
+      </td>
+
+    </tr>
+
+    <tr class="trailblazer-group">
+      <td colspan="2"></td>
+      <td colspan="3" class="text-center"><strong>HELPER</strong></td>
+      <td colspan="2"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/endpoint.html">trailblazer-endpoint</a></nobr>
+      </td>
+      <td colspan="3">
+        Implement the entire controller flow, from authentication until rendering, via activities.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/operation.html">trailblazer-operation</a></nobr>
+      </td>
+      <td colspan="3">
+        Thin API around <code>FastTrack</code> exposing the "old" <code>call</code>-API named <code>Operation</code>.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/operation.html#operation-macros">trailblazer-macro</a></nobr>
+      </td>
+      <td colspan="3">
+        Provides <code>Nested()</code>, <code>Model()</code> and other macros for everyday usage.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/operation.html#operation-contract-validate">trailblazer-macro-contract</a></nobr>
+      </td>
+      <td colspan="3">
+        Provides the <code>Contract::Validate()</code> macro and friends.
+      </td>
+
+    </tr>
+
+    <tr class="trailblazer-group">
+      <td colspan="2"></td>
+      <td colspan="3" class="text-center"><strong>TOOLS</strong></td>
+      <td colspan="2"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-developer">trailblazer-developer</a></nobr>
+      </td>
+      <td colspan="3">
+        Activity visualization, tracing, debugging, PRO Editor communication.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-test">trailblazer-test</a></nobr>
+      </td>
+      <td colspan="3">
+        Minitest assertions and tools for fast TRB testing.
+      </td>
+
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="#">trailblazer-rspec</a></nobr>
+      </td>
+      <td colspan="3">
+        Rspec testing extensions.
+      </td>
+
+    </tr>
+
+    <tr class="trailblazer-group">
+      <td colspan="2"></td>
+      <td colspan="3" class="text-center"><strong>PRO</strong></td>
+      <td colspan="2"></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="#">trailblazer-workflow</a></nobr>
+      </td>
+      <td colspan="3">
+        Long-running activities with process engine, events and collaboration.
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<p class="">Along with the core gems goes a rich list of eco-system gems.</p>
+
+<table class="table table-striped-gems">
+  <thead>
+    <tr>
+      <th colspan="2">Gem</th>
+      <th colspan="3">Summary</th>
+      <th colspan="2">Dependencies</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/reform.html">reform</a></nobr>
+      </td>
+      <td colspan="3">
+        Form objects.
+      </td>
+      <td colspan="2">
+      </td>
+      <td>
+        <nobr><a href="https://github.com/trailblazer/reform" target="_blank"><i class="fab fa-github"></i></a></nobr>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/cells.html">cells</a></nobr>
+      </td>
+      <td colspan="3">
+        Generic view components.
+      </td>
+      <td colspan="2">
+      </td>
+      <td>
+        <nobr><a href="https://github.com/trailblazer/cells" target="_blank"><i class="fab fa-github"></i></a></nobr>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/representable.html">representable</a></nobr>
+      </td>
+      <td colspan="3">
+        Maps representation documents from and to Ruby objects.
+      </td>
+      <td colspan="2">
+      </td>
+      <td>
+        <nobr><a href="https://github.com/trailblazer/representable" target="_blank"><i class="fab fa-github"></i></a></nobr>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/disposable.html">disposable</a></nobr>
+      </td>
+      <td colspan="3">
+        Decorators on top of your ORM layer.
+      </td>
+      <td colspan="2">
+      </td>
+      <td>
+        <nobr><a href="https://github.com/apotonick/disposable" target="_blank"><i class="fab fa-github"></i></a></nobr>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <nobr><a href="/2.1/docs/roar.html">roar</a></nobr>
+      </td>
+      <td colspan="3">
+        Parse and render REST API documents using representers.
+      </td>
+      <td colspan="2">
+      </td>
+      <td>
+        <nobr><a href="https://github.com/trailblazer/roar" target="_blank"><i class="fab fa-github"></i></a></nobr>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="trailblazer-learn" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Learn</h2>
+
+<h2 id="trailblazer-2-1-migration" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">2.1 Migration</h2>
+
+<h3 id="trailblazer-2-1-migration-call-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Call API</h3>
+
+<h4 id="trailblazer-2-1-migration-call-api-operation-call" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Call API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Operation.call</span>
+
+                  </h4>
+
+<p class="">In versions before 2.1, the automatic merging of the params part and the additional options was confusing many new users and an unnecessary step.</p>
+
+<pre class=""><code class="rounded">
+# old style
+result = Memo::Create.( params, "current_user" =&gt; current_user )</code></pre>
+
+<p class="">The first argument (params) was merged into the second argument using the key “params”. You now pass one hash to call and hence do the merging yourself.</p>
+
+<pre class=""><code class="rounded">
+# new style
+result = Memo::Create.( params: params, current_user: current_user )</code></pre>
+
+<p class="">The new call API is much more consistent and takes away another thing we kept explaining to new users - an indicator for a flawed API.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">For a soft deprecation, do this in an initializer:</p>
+
+<pre class=""><code class="rounded">
+require "trailblazer/deprecation/call"</code></pre>
+
+<p class="">You will get a bunch of warnings, so fix all <code class="text-purple">Operation.()</code> calls and remove the require again. This is provied by <a href="https://github.com/trailblazer/trailblazer-future" class="underline text-purple">trailblazer-future</a> gem.</p>
+
+  </div>
+</div>
+
+<h4 id="trailblazer-2-1-migration-call-api-step-signature" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Call API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Step Signature</span>
+
+                  </h4>
+
+<p class="">In case your steps expose a signature as follows, you’re safe.</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  step :create_model
+
+  def create_model(options, params:, **)
+    # ..
+  end
+end</code></pre>
+
+<p class="">By convention, we renamed <code class="text-purple">option</code> to <code class="text-purple">ctx</code>, but it is completely up to you to adopt this.</p>
+
+<p class="">Nevertheless, the “old style” signatures won’t work anymore.</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  def create_model(options)
+    # ..
+  end
+
+  # or
+
+  def create_model(model:, **)
+    # ..
+  end
+end</code></pre>
+
+<p class="">Neither a single <code class="text-purple">options</code> nor keyword-arguments-only are gonna fly as the new step signature is more restrictive and always requires you to maintain the <code class="text-purple">ctx</code> (or <code class="text-purple">options</code>, if you will) as the first positional argument, then keyword arguments.</p>
+
+<p class="">Double splat operator <code class="text-purple">**</code> at the end will be required to in order to discard unused kw args.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">You can introduce this change before actual migration to 2.1.</p>
+
+  </div>
+</div>
+
+<h4 id="trailblazer-2-1-migration-call-api-pass-fail" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Call API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">pass/fail</span>
+
+                  </h4>
+
+<p class="">Steps declared as <code class="text-purple">success</code> or <code class="text-purple">failure</code> are now renamed to <code class="text-purple">pass</code> and <code class="text-purple">fail</code> respectively.</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  success :model
+  failure :handle_some_error
+end</code></pre>
+
+<p class="">Change it as follows.</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  pass :model
+  fail :handle_some_error
+end</code></pre>
+
+<p class="">If you are using Rubocop it will probably start complaining about unreachable code because it just so happens that <code class="text-purple">fail</code> is also a Ruby Kernel’s <a href="https://ruby-doc.org/core-2.0.0/Kernel.html#method-i-fail" class="underline text-purple">method</a>. One solution to this could be to add a custom rule to <code class="text-purple">.rubocop.yml</code> like this:</p>
+
+<pre class=""><code class="rounded">
+Lint/UnreachableCode:
+  Exclude:
+    - '*/**/concepts/**/operation/**/*'
+Style/SignalException:
+  Exclude:
+    - '*/**/concepts/**/operation/**/*'</code></pre>
+
+<p class="">There is also a <code class="text-purple">trick</code> that will allow you to do this rename before actually migrating to 2.1. You can put this in an initializer:</p>
+
+<pre class=""><code class="rounded">
+Trailblazer::Operation::Pipetree::DSL.send(:alias_method, :pass, :success)
+Trailblazer::Operation::Pipetree::DSL.send(:alias_method, :fail, :failure)</code></pre>
+
+<p class="">This way you could introduce this change before actual migration to 2.1. Just don’t forget to remove it after updating gems to 2.1.</p>
+
+<h4 id="trailblazer-2-1-migration-call-api-pass_fast-fail_fail" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Call API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">pass_fast/fail_fail</span>
+
+                  </h4>
+
+<p class="">Now every step that may end up in <code class="text-purple">pass_fast</code> or <code class="text-purple">fail_fast</code> signals need an extra option that indicates fast track usage. Change this operation:</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  step :create
+
+  def create(ctx, **)
+    Railway.pass_fast! if ctx[:model].save
+  end
+end</code></pre>
+
+<p class="">Use the <code class="text-purple">:fast_track</code> option to let Trailblazer know about the potential new signal being emitted.</p>
+
+<pre class=""><code class="rounded">
+class Memo::Create &lt; Trailblazer::Operation
+  step :create, fast_track: true # notice the extra option :fast_track
+
+  def create(ctx, **)
+    Railway.pass_fast! if ctx[:model].save
+  end
+end</code></pre>
+
+<h3 id="trailblazer-2-1-migration-context" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Context</h3>
+
+<p class="">The keys for <code class="text-purple">ctx</code> used to be mixed up, some where <code class="text-purple">"longer.strings"</code>, some were <code class="text-purple">:symbols</code>. The new context implementation <code class="text-purple">Context::IndifferentAccess</code> now allows to use both.</p>
+
+<pre class=""><code class="rounded">
+ctx["model"]
+ctx[:model]  # =&gt; same!</code></pre>
+
+<p class="">This also works for namespaced keys, which you still might find helpful.</p>
+
+<pre class=""><code class="rounded">
+ctx["contract.default"]
+ctx[:"contract.default"]  # =&gt; same!</code></pre>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">On the core level, we use symbol keys, only (e.g. <code class="text-purple">:"contract.default"</code>).</p>
+
+  </div>
+</div>
+
+<p class="">The default implementation of the context object can be set by overriding <code class="text-purple">Context.implementation</code>. For example, if you want the old behavior back.</p>
+
+<pre class=""><code class="rounded">
+class Trailblazer::Context
+  def self.implementation
+    Context # old behavior.
+  end
+end</code></pre>
+
+<p class="">Note that the override might be deprecated in favor of a dependency injection.</p>
+
+<h3 id="trailblazer-2-1-migration-nested" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Nested</h3>
+
+<p class="">The <code class="text-purple">Nested</code> macro allows to, well, nest activities or operations, providing a neat way to encapsulate and reuse logic.</p>
+
+<h4 id="trailblazer-2-1-migration-nested-deprecation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Nested
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Deprecation</span>
+
+                  </h4>
+
+<p class="">In 2.1, the [<code class="text-purple">Subprocess</code> macro] is the standard way for nesting. The <code class="text-purple">Nested</code> macro should only be used when you use the dynamic version where the nested operation is computed at runtime using <code class="text-purple">:builder</code>.</p>
+
+<p class="">An exception will warn you about the inappropriate usage.</p>
+
+<pre class=""><code class="rounded">
+[Trailblazer] Using the `Nested()` macro with operations and activities is deprecated. Replace `Nested(Create)` with `Subprocess(Create)`.</code></pre>
+
+<h4 id="trailblazer-2-1-migration-nested-input-and-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Nested
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">input and output</span>
+
+                  </h4>
+
+<p class="">Both the <code class="text-purple">:input</code> and <code class="text-purple">:output</code> options that used to go with <code class="text-purple">Nested(Present, :input: ...)</code> are now a generic option in Trailblazer. Move them behind the
+macro parenthesis.</p>
+
+<pre class=""><code class="rounded">
+# 2.0
+Nested(Present, input: :my_input, output: :my_output)
+
+# 2.1
+Nested(Present), input: :my_input, output: :my_output</code></pre>
+
+<p class="">An exception will stop compilation if you fail to obey.</p>
+
+<pre class=""><code class="rounded">
+ArgumentError: unknown keyword: input</code></pre>
+
+<p class="">Behold of another tiny API change! The <code class="text-purple">:output</code> filter signature has changed for a better.</p>
+
+<p class="">In Trailblazer 2.0, the following signature was allowed.</p>
+
+<pre class=""><code class="rounded">
+# 2.0
+Nested(Present,
+  output: -&gt;(ctx, mutable_data:, **) {
+    {model: mutable_data[:article]} # you used the {mutable_data} keyword argument.
+  }
+)</code></pre>
+
+<p class="">Mind the arguments being passed to <code class="text-purple">:output</code>. The first positional is the original outer context, the context from the nested operation comes as a <code class="text-purple">mutable_data:</code> keyword argument.</p>
+
+<p class="">In 2.1, those two have swapped.</p>
+
+<pre class=""><code class="rounded">
+# 2.1
+Nested(Present),
+  output: -&gt;(inner_ctx, article:, **) {
+    # {inner_ctx} is {mutable_data}
+    {model: article} # you used the {mutable_data} keyword argument.
+  }</code></pre>
+
+<p class="">The inner context from the nested operation comes first, as a positional argument. Note how you can conveniently use keyword arguments to access variables from this inner ctx (e.g. <code class="text-purple">article:</code>). Keep in mind, the naming is completely up to you. We use <code class="text-purple">inner_ctx</code>/<code class="text-purple">ctx</code> and <code class="text-purple">original_ctx</code> in our code.</p>
+
+<p class="">If you also need the original context in the <code class="text-purple">:output</code> filter, use the <code class="text-purple">:output_with_outer_ctx</code> option.</p>
+
+<pre class=""><code class="rounded">
+# 2.1
+Nested(Present),
+  output_with_outer_ctx: true
+  output: -&gt;(inner_ctx, original_ctx, article:, **) {
+    {
+      model:  article,
+      errors: original_ctx[:errors].merge(inner_ctx[:errors]) # you can access the outer ctx!
+    }
+  }</code></pre>
+
+<p class="">The original, outer ctx comes in as a second positional argument.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">You do not need to <code class="text-purple">extend Uber::Callable</code> in classes with <code class="text-purple">#call</code> methods anymore.</p>
+
+  </div>
+</div>
+
+<p class="">Check the <a href="/2.1/docs/activity.html#activity-variable-mapping" class="underline text-purple">Variable Mapping docs</a> for a complete explanation.</p>
+
+<h4 id="trailblazer-2-1-migration-nested-fast-track" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Nested
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Fast Track</span>
+
+                  </h4>
+
+<p class="">Don’t forget to declare fast track usage if you expect it from within nested operation, like this:</p>
+
+<pre class=""><code class="rounded">
+Nested(Present), input: :my_input, output: :my_output, fast_track: true</code></pre>
+
+<p class="">Another difference is that in 2.0, when you were using <code class="text-purple">pass_fast</code> in nested operations, it would stop only the nested operation from executing. After this the outer one would continue executing.</p>
+
+<p class="">Now returning <code class="text-purple">pass_fast</code> in nested operation will stop both, inner and outer operation with <code class="text-purple">success</code> as a final result. If you rely on old behaviour you can still have it with proper signals mapping:</p>
+
+<pre class=""><code class="rounded">
+Nested(Present), input: :my_input,
+                 output: :my_output,
+                 fast_track: true,
+                 Output(:pass_fast) =&gt; Track(:success), # pass_fast now mapped to `just` a success
+                 Output(:fail_fast) =&gt; End(:failure)</code></pre>
+
+<h3 id="trailblazer-2-1-migration-macro-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Macro API</h3>
+
+<p class="">Macros are functions that add a task along with specific options to the activity. In TRB 2.0, those (historically camel-cased) functions returned an array with two elements.</p>
+
+<pre class=""><code class="rounded">
+module MyMacro
+  def self.NormalizeParams(name: :myparams, merge_hash: {})
+    task = -&gt;((ctx, flow_options), _) do
+      ctx[name] = ctx[:params].merge(merge_hash)
+
+      return Trailblazer::Activity::Right, [ctx, flow_options]
+    end
+
+    [task, name: name] # old API
+  end
+end</code></pre>
+
+<p class="">In 2.1, a hash is returned. Note that <code class="text-purple">:name</code> is <code class="text-purple">:id</code> now.</p>
+
+<pre class=""><code class="rounded">module MyMacro
+  def self.NormalizeParams(name: :myparams, merge_hash: {})
+    task = -&gt;((ctx, flow_options), _) do
+      ctx[name] = ctx[:params].merge(merge_hash)
+
+      return Trailblazer::Activity::Right, [ctx, flow_options]
+    end
+
+    # new API
+    {
+      task: task,
+      id:   name
+    }
+  end
+end
+</code></pre>
+
+<p class="">This allows for a much richer macro experience where you might add additional steps via a macro, use DSL options such as <code class="text-purple">:before</code> and <code class="text-purple">:after</code> and add taskWrap extensions. [macro API]</p>
+
+<p class="">A common error if you don’t return a hash from your macro is a <code class="text-purple">call</code> on <code class="text-purple">Array</code>.</p>
+
+<pre class=""><code class="rounded">
+NoMethodError:
+   undefined method `call' for #&lt;Array:0x000055663116be98&gt;
+ # gems/trailblazer-context-0.4.0/lib/trailblazer/option.rb:9:in `call!'</code></pre>
+
+<h4 id="trailblazer-2-1-migration-macro-api-signature-and-return" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Macro API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Signature and Return</span>
+
+                  </h4>
+
+<p class="">In Trailblazer 2.0, macros were automatically using the task interface. Mind the arguments and the return value.</p>
+
+<pre class=""><code class="rounded">
+
+task = -&gt;(ctx, current_user:, model:, **) {
+  # do something
+  # return true/false
+}</code></pre>
+
+<p class="">In Trailblazer 2.1, macros use the <a href="/2.1/docs/activity.html#activity-internals-circuit-interface" class="underline text-purple">circuit interface</a> per default. If you want the simpler task interface, you need to wrap your task using <code class="text-purple">Binary()</code>.</p>
+
+<pre class=""><code class="rounded">
+def MyMacro()
+  task = -&gt;(ctx, current_user:, model:, **) {
+    # do something
+    # return true/false
+  }
+
+  {
+    task: Trailblazer::Activity::TaskBuilder.Binary(task), # wrap the callable.
+    id: "my_macro"
+  }</code></pre>
+
+<p class="">A common error if you don’t wrap your macro is an <code class="text-purple">ArgumentError</code>.</p>
+
+<pre class=""><code class="rounded">
+ArgumentError:
+       missing keywords: current_user, model</code></pre>
+
+<h4 id="trailblazer-2-1-migration-macro-api-step-id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Macro API
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Step id</span>
+
+                  </h4>
+
+<p class="">In case you used the same macro twice in one operation, like this for example:</p>
+
+<pre class=""><code class="rounded">
+class Create &lt; Trailblazer::Operation
+  step Contract::Persist(method: :sync)
+  step Contract::Persist(method: :save!)
+end</code></pre>
+
+<p class="">You will have to specify id explictly for one of them:</p>
+
+<pre class=""><code class="rounded">
+class Create &lt; Trailblazer::Operation
+  step Contract::Persist(method: :sync)
+  step Contract::Persist(method: :save!), id: "some_custom_unique_id"
+end</code></pre>
+
+<h3 id="trailblazer-2-1-migration-contract-dsl" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Contract DSL</h3>
+
+<p class="">It was possible to define contracts on the operation level using a DSL.</p>
+
+<pre class=""><code class="rounded">
+class Create &lt; Trailblazer::Operation
+  contract do
+    property :id
+  end
+
+  step Contract::Build()
+  step Contract::Validate()
+end</code></pre>
+
+<p class="">Since the usability doesn’t outweigh the complexity needed to implement such DSL, we decided to remove that functionality <em>for now</em>.</p>
+
+<p class="">Instead, use an explicit inline class and the <code class="text-purple">:constant</code> option.</p>
+
+<pre class=""><code class="rounded">
+class Create &lt; Trailblazer::Operation
+  class Form &lt; Reform::Form
+    property :id
+  end
+
+  step Contract::Build(constant: Form)
+  step Contract::Validate()
+end</code></pre>
+
+<h3 id="trailblazer-2-1-migration-trailblazer-loader" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Trailblazer loader</h3>
+
+<p class="">Usage of a <a href="https://github.com/trailblazer/trailblazer-loader" class="underline text-purple">trailblazer-loader</a> is now discouraged as it’s slower than the ones provided by Rails and it’s error prone.</p>
+
+<p class="">In short, we decided to adopt the Rails naming scheme and change operation names from <code class="text-purple">User::Create</code> to <code class="text-purple">User::Operation::Create</code>, so the file name and class path are in sync.</p>
+
+<p class="">Read the <a href="trailblazer.html#trailblazer-rails-loader-loader-with-rails" class="underline text-purple">details here</a>.</p>
+
+<p class="">We highly recommend changing this with your upgrade as it highly improves the dev experience.</p>
+
+<h2 id="trailblazer-developer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Developer</h2>
+
+<p class=""><a href="https://github.com/trailblazer/trailblazer-developer" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-developer 0.1.0</a></p>
+
+<p class="">Trailblazer provides a rich set of developer tools to ease debugging and make modelling processes a pleasant experience.</p>
+
+<p class="">The <a href="https://github.com/trailblazer/trailblazer-developer" class="underline text-purple"><code class="text-purple">developer</code> gem</a> contains tools to help you visualize and debug Trailblazer code. Its development features such as tracing or exception handling are advanced tools and will become your best friends very quickly.</p>
+
+<h3 id="trailblazer-developer-constant" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Constant</h3>
+
+<p class="">We advise you to alias the <code class="text-purple">Developer</code> constant to something handy, such as <code class="text-purple">::Dev</code> in your project. For instance, in Rails you’d have the following line in a <code class="text-purple">config/initializers/trailblazer.rb</code> initializer.</p>
+
+<pre class=""><code class="rounded"># config/initializers/trailblazer.rb
+require "trailblazer/developer"
+Dev = Trailblazer::Developer
+</code></pre>
+
+<h3 id="trailblazer-developer-wtf-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Wtf?</h3>
+
+<p class="">The iconic <code class="text-purple">wtf?</code> method is one way to invoke an operation with tracing turned on. During the execution, invoked steps are traced and printed in the console as a tree-view, helping you to understand the code path the operation took. It is one of Trailblazer’s most-loved features and was introduced in Trailblazer 2.1.</p>
+
+<p class="">When working with a <code class="text-purple">Trailblazer::Operation</code> simply invoke its <code class="text-purple">#wtf?</code> method.</p>
+
+<pre class=""><code class="rounded">result = Memo::Operation::Create.wtf?(params: {title: "Remember me..."})
+</code></pre>
+
+<p class="">On the console, you can see the printed trace in all its beauty.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/wtf-trace-nice-e4b9124224969d9cb6f4391c5d9ceee2f3924e86c30513f1128599a4c5a85e86.png" /></p>
+
+<p class="">This method is especially helpful if you want to</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Debug an exception happening somewhere deep in your code.</li>
+  <li class="list-image-disc ml-10">Find out which step changed the track to failure.</li>
+  <li class="list-image-disc ml-10">Focus on specific step(s) to find out what <code class="text-purple">ctx</code> mutations are happening inside them.</li>
+</ul>
+
+<h4 id="trailblazer-developer-wtf-exception" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Wtf?
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Exception</span>
+
+                  </h4>
+
+<p class="">In case of an exception somewhere in the operation or its nested activities, <code class="text-purple">wtf?</code> will print the trace path to the closest point where the exception was thrown.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/wtf-exception-6f4bd317836d8ab9ce36e954407669b257604b43c6213b4a19dea2eda05c0951.png" /></p>
+
+<p class="">The original exception will be visible on the console, too.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Please note that this is a higher-level debugging tool that does not confront you with a 200-lines stack trace the way Ruby does it, but pinpoints the exceptional code and locates the problem on a task level.</p>
+
+<p class="">This is possible due to you structuring code into higher abstractions, tasks and activities.</p>
+
+  </div>
+</div>
+
+<h4 id="trailblazer-developer-wtf-activity" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Wtf?
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Activity</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">#wtf?</code> class method is only available for <code class="text-purple">Trailblazer::Operation</code> subclasses. You will get an exception if you try to use it with <code class="text-purple">Trailblazer::Activity::Railway</code> and other activities.</p>
+
+<pre class=""><code class="rounded">
+NoMethodError: undefined method `wtf?' for Memo::Operation::Create:Class</code></pre>
+
+<p class="">However, tracing can be used with low-level <code class="text-purple">Activity</code> classes, too.</p>
+
+<pre class=""><code class="rounded">module Memo::Operation
+  class Create &lt; Trailblazer::Activity::Railway # Note that this is not an {Operation}!
+    step :extract_markdown
+    step :model
+    # ...
+  end
+end
+</code></pre>
+
+<p class="">You have to use the clumsier <code class="text-purple">Developer.wtf?</code> method for tracing.</p>
+
+<pre class=""><code class="rounded">signal, (ctx, _) = Trailblazer::Developer.wtf?(
+  Memo::Operation::Create, [{params: {title: "Remember me.."}}, {}]
+)
+</code></pre>
+
+<p class="">As always with <code class="text-purple">Activity</code> subclasses, it operates with the <a href="activity.html#activity-internals-circuit-interface" class="underline text-purple">circuit interface</a>.</p>
+
+<h4 id="trailblazer-developer-wtf-color_map" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Wtf?
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">color_map</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">color_map</code> option allows you to customize default coloring scheme being used to render passed or failed steps.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/wtf-color-map-682d970c8944fcd6f3875c6652780fe161fdb1ee3ca0965506582ab3fc6f3d8a.webp" /></p>
+
+<h3 id="trailblazer-developer-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render</h3>
+
+<p class="">It often is helpful to visualize an activity. One way is the <code class="text-purple">render</code> helper.</p>
+
+<pre class=""><code class="rounded">
+puts Trailblazer::Developer.render(Memo::Create)</code></pre>
+
+<p class="">The rendered output prints each task, its outputs and where they’re connected to.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">We’re working on improved visualization for the console, and for the web editor. If you want to help, please ping us on <a href="https://trailblazer.zulipchat.com/" class="underline text-purple">our chat</a>.</p>
+
+  </div>
+</div>
+
+<h3 id="trailblazer-developer-render-linear" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render Linear</h3>
+
+<h3 id="trailblazer-developer-client" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Client</h3>
+
+<p class="">The <code class="text-purple">Developer::Client</code> module provides functions to work with activities and workflows created in the PRO editor.</p>
+
+<h4 id="trailblazer-developer-client-import" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Client
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Import</span>
+
+                  </h4>
+
+<p class="">Notes</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">IDs are extracted from the label of the element. They get <code class="text-purple">chomp</code>ed to remove a potential newline at the end and reduce confusion.</li>
+  <li class="list-image-disc ml-10">It is currently not possible to assign semantics to arrows via the label. In the meantime, use the <code class="text-purple">:query</code> option. # TODO</li>
+</ul>
+
+<h3 id="trailblazer-developer-graph" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Graph</h3>
+<!-- OLD link: https://trailblazer.to/2.1/docs/activity#activity-internals-introspection-api -->
+<!-- NEW link: /2.1/docs/trailblazer.html#trailblazer-developer-graph -->
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">With <code class="text-purple">trailblazer-activity</code> 0.16.0, the <code class="text-purple">Introspect::Graph</code> API has been moved to <code class="text-purple">trailblazer-developer</code> and might get replaced. Please refer to the <code class="text-purple">Introspect::Nodes</code> API.</p>
+
+  </div>
+</div>
+
+<p class="">To find out the structure and composition details about any activity, use the <code class="text-purple">Introspect</code> API.</p>
+
+<h4 id="trailblazer-developer-graph-find" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Graph
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Find</span>
+
+                  </h4>
+
+<p class="">You may use <code class="text-purple">Graph#find</code> with a block for a more complex search.</p>
+
+<pre class=""><code class="rounded">node = graph.find { |node| node.task.class == Trailblazer::Activity::TaskBuilder }
+</code></pre>
+
+<p class="">Alternatively, using the <code class="text-purple">Graph#find</code> method with an ID provided, you can retrieve a particular node in the activity’s circuit.</p>
+
+<p class="">Consider the following activity.</p>
+
+<pre class=""><code class="rounded">class Memo::Update &lt; Trailblazer::Activity::Railway
+  step :find_model
+  step :validate, Output(:failure) =&gt; End(:validation_error)
+  step :save
+  fail :log_error
+end
+</code></pre>
+
+<p class="">You can introspect a certain element by using <code class="text-purple">find(id)</code>.</p>
+
+<pre class=""><code class="rounded">graph = Trailblazer::Developer::Introspect.Graph(Memo::Update)
+
+node = graph.find(:validate)
+</code></pre>
+
+<p class="">Note that all queries go via a <code class="text-purple">Graph</code> instance.</p>
+
+<h4 id="trailblazer-developer-graph-node-api" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Graph
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Node API</span>
+
+                  </h4>
+
+<p class="">The returned node instance exposes several inspect helpers.</p>
+
+<p class="">The ID of the element is retrieved by using <code class="text-purple">#id</code>.</p>
+
+<pre class=""><code class="rounded"># puts node.id.inspect #=&gt; :validate
+</code></pre>
+
+<p class="">To see what actual task sits behind this circuit’s node, use <code class="text-purple">#task</code>. This is always the low-level task that responds to a circuit interface. It might be a wrapper around your actual logic, provided by the DSL.</p>
+
+<pre class=""><code class="rounded"># puts node.task       #=&gt; #Trailblazer::Activity::TaskBuilder::Task user_proc=validate&gt;
+</code></pre>
+
+<p class="">Outgoing connections from a task can be queried using <code class="text-purple">#outgoings</code>. This returns an array of all outgoing arrows.</p>
+
+<pre class=""><code class="rounded"># left, right = node.outgoings # returns array
+</code></pre>
+
+<h4 id="trailblazer-developer-graph-outgoing" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Graph
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Outgoing</span>
+
+                  </h4>
+
+<p class="">An <code class="text-purple">Outgoing</code> provides several interesting fields.</p>
+
+<p class="">You can retrieve the connected element by using <code class="text-purple">#task</code>. It returns the actual low-level task.</p>
+
+<pre class=""><code class="rounded"># puts left.task #=&gt; #Trailblazer::Activity::End semantic=:validation_error&gt;
+</code></pre>
+
+<p class="">The <code class="text-purple">#output</code> method returns the <code class="text-purple">Output</code> instance that connects the task to the next element.</p>
+
+<pre class=""><code class="rounded"># puts left.output.signal   #=&gt; Trailblazer::Activity::Left
+# puts left.output.semantic #=&gt; :failure
+</code></pre>
+
+<p class="">The <code class="text-purple">Output#signal</code> field returns the signal object the task returns to trigger that connection. To see the semantic of this output, use <code class="text-purple">Output#semantic</code>.</p>
+
+<h4 id="trailblazer-developer-graph-outputs" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Graph
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Outputs</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">Node#outputs</code> method returns an array of <code class="text-purple">Output</code> objects defining each output of outgoing connections of a specific node.</p>
+
+<pre class=""><code class="rounded">outputs = node.outputs
+left = outputs[0] #=&gt; output object
+</code></pre>
+
+        </div>
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
+          <div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-trailblazer-about">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     About
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#trailblazer-about-abstractions">Abstractions</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-about-our-mission">Our mission</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-about-gems">Gems</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-trailblazer-learn">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Learn
+  </h4>
+
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-trailblazer-2-1-migration">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     2.1 Migration
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-call-api">Call API</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-call-api-operation-call">Operation.call</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-call-api-step-signature">Step Signature</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-call-api-pass-fail">pass/fail</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-call-api-pass_fast-fail_fail">pass_fast/fail_fail</a>
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-context">Context</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-nested">Nested</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-nested-deprecation">Deprecation</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-nested-input-and-output">input and output</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-nested-fast-track">Fast Track</a>
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-macro-api">Macro API</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-macro-api-signature-and-return">Signature and Return</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-2-1-migration-macro-api-step-id">Step id</a>
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-contract-dsl">Contract DSL</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-2-1-migration-trailblazer-loader">Trailblazer loader</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-trailblazer-developer">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Developer
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-constant">Constant</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-wtf-">Wtf?</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-wtf-exception">Exception</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-wtf-activity">Activity</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-wtf-color_map">color_map</a>
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-render">Render</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-render-linear">Render Linear</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-client">Client</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-client-import">Import</a>
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-developer-graph">Graph</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-graph-find">Find</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-graph-node-api">Node API</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-graph-outgoing">Outgoing</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#trailblazer-developer-graph-outputs">Outputs</a>
+    
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="lg:text-left bg-bg-blue py-16 text-white text-center text-base">
+  <div class="lg:flex justify-between w-11/12 max-w-[80rem] mx-auto">
+    <div class="lg:flex lg:flex-col lg:justify-between">
+      <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
+        <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
+      </a>
+      <div class="lg:block hidden">
+        © 2023 Trailblazer GmbH
+      </div>
+    </div>
+    <div class="lg:flex lg:gap-20 xl:gap-40">
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Documentation</a>
+        <a href="#">About</a>
+        <a href="#">Community</a>
+        <a href="#">Blog</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Products</a>
+        <a href="#">Trailblazer</a>
+        <a href="#">Trailblazer Pro</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Learn</a>
+        <a href="#">What is Trailblazer?</a>
+        <a href="#">Trailblazer PRO</a>
+        <a href="#">Tips and Tutorials</a>
+        <a href="https://trailblazer.zulipchat.com">Chat</a>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden mt-15">
+    © 2023 Trailblazer GmbH
+  </div>
+</footer>
+
+
+  </body>
+</html>

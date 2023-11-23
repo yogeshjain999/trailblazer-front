@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Trailblazer</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    
+    
+    <link rel="stylesheet" href="/assets/tailwind-989ff2c09e4a5622ef4c57705f791cc590200956bd0e713ccd34773a7731c276.css" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
+    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <script>pageIdentifier = "docs";</script>
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
+    "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
+    "highlight.js/lib/core": "https://ga.jspm.io/npm:highlight.js@11.8.0/es/core.js",
+    "highlight.js/lib/languages/ruby": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/ruby.min.js",
+    "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
+<script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center bg-white sticky" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <img class="w-40 lg:my-0" src="/assets/logo_blue_ruby-e87334a67ff20033fae8c8d2c07e549b5f1faa9b75bb07fbb2ff9d1c0dfef6e7.svg" />
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/blog">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="#">PRO</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://trailblazer.zulipchat.com">Chat with us</a>
+    </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold underline decoration-[5px] decoration-purple underline-offset-[15px] " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://dev.to/trailblazer">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.0/">→ 2.0</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/pro.html">PRO</a>
+    </div>
+
+    <a class="base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" href="#">Chat with us</a>
+  </div>
+</nav>
+
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="bg-bg-blue w-screen h-screen fixed top-0 z-20 right-[100vw] overflow-y-scroll lg:w-3/12 lg:max-w-[23rem] lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem]" id="sideNav">
+      <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </button>
+      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+  
+
+
+  
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/trailblazer/index.html">Trailblazer</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/operation/index.html">Operation</a>
+
+        
+
+          
+
+            
+              <a href="/2.1/docs/activity/deprecated/index.html" class="" title="Deprecated activity docs: :input/:output, ...">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple flex-inline"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+                 
+              </a>
+
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/rails_integration/index.html">Rails integration</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/test/index.html">Test</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/macro/index.html">Macro</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/workflow/index.html">Workflow</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/endpoint/index.html">Endpoint</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/internals/index.html">Internals</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/reform/index.html">Reform</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/reform/3.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  3.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class="bg-dark-purple flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/cells/index.html">Cells</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/cells/5.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 border border-white text-white bg-purple">
+                  5.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-cells-5-overview">
+          <a href="#cells-5-overview" class="pl-8">Overview</a>
+        </div>
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/representable/index.html">Representable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/disposable/index.html">Disposable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/roar/index.html">Roar</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+</div>
+
+
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black uppercase">
+          <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">5.0</span>
+          Cells 5
+        </span>
+        Documentation
+      </h1>
+
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
+          <h2 id="cells-5-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Overview</h2>
+
+<p class="">Cells 5 is less clumsy, more flexible, and has many features that were missing in Cells 4.</p>
+
+        </div>
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
+          <div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-cells-5-overview">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Overview
+  </h4>
+
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="lg:text-left bg-bg-blue py-16 text-white text-center text-base">
+  <div class="lg:flex justify-between w-11/12 max-w-[80rem] mx-auto">
+    <div class="lg:flex lg:flex-col lg:justify-between">
+      <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
+        <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
+      </a>
+      <div class="lg:block hidden">
+        © 2023 Trailblazer GmbH
+      </div>
+    </div>
+    <div class="lg:flex lg:gap-20 xl:gap-40">
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Documentation</a>
+        <a href="#">About</a>
+        <a href="#">Community</a>
+        <a href="#">Blog</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Products</a>
+        <a href="#">Trailblazer</a>
+        <a href="#">Trailblazer Pro</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Learn</a>
+        <a href="#">What is Trailblazer?</a>
+        <a href="#">Trailblazer PRO</a>
+        <a href="#">Tips and Tutorials</a>
+        <a href="https://trailblazer.zulipchat.com">Chat</a>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden mt-15">
+    © 2023 Trailblazer GmbH
+  </div>
+</footer>
+
+
+  </body>
+</html>
