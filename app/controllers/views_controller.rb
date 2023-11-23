@@ -825,11 +825,11 @@ class ViewsController < ApplicationController
     },
 
     "pro_page" => {
-      page_identifier: "landing",
       toc_title: "Trailblazer PRO",
       include_in_toc: false,
       "2.1" => {
         title: "Trailblazer PRO",
+        belongs_to: :pro,
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/page",
         target_file: "public/2.1/pro.html",
@@ -843,10 +843,11 @@ class ViewsController < ApplicationController
     },
 
     "about_us_page" => {
-      page_identifier: "about_us",
+      page_identifier: "about",
       toc_title: "About us",
       include_in_toc: false,
       "2.1" => {
+        belongs_to: :about,
         title: "Trailblazer PRO",
         snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
         section_dir: "section/page",
