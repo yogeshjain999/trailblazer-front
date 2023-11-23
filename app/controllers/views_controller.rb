@@ -239,14 +239,24 @@ class ViewsController < ApplicationController
 
         include Render
 
+        def navbar_hover_classes(color: "purple", hover: false)
+          "decoration-white"
+          "decoration-purple"
+          "hover:decoration-white"
+          "hover:decoration-purple" # needed by TW compile
+
+          return "hover:underline hover:decoration-[5px] hover:underline-offset-[15px]" + " hover:decoration-#{color} " if hover # also for TW compile
+          "underline decoration-[5px] underline-offset-[15px]" + " decoration-#{color}" # decoration-purple decoration-white (for Tailwind compile)
+        end
+
         def navbar_link_to(text, path, is: nil)
-          classes = @options[:belongs_to] == is ? "underline decoration-[5px] decoration-purple underline-offset-[15px]" : ""
+          classes = @options[:belongs_to] == is ? navbar_hover_classes : ""
 
           link_to text, path, class: "font-medium text-base uppercase lg:normal-case lg:font-semibold #{classes} #{navbar_link_classes}"
         end
 
         private def navbar_link_classes
-          ""
+          "" + navbar_hover_classes(hover: true, color: "purple")
         end
 
         def navbar_logo
@@ -467,7 +477,7 @@ class ViewsController < ApplicationController
         end
 
         private def navbar_link_classes
-          "text-white"
+          "text-white " + navbar_hover_classes(hover: true, color: "white")
         end
 
         def navbar_logo
