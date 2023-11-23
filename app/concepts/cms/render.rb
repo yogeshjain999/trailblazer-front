@@ -13,7 +13,7 @@ module Cms
         controller: controller, # TODO: pass this to all cells.
       )
 
-      return pages_config, pages, returned
+      return pages_config, pages, returned, controller
     end
   end
 end

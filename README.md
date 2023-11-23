@@ -20,7 +20,16 @@ Run with
 $ foreman start -f Procfile.dev
 ```
 
-# Tailwind CSS principles to follow
+## Publishing
+
+```
+$ rails site:deploy
+```
+
+Will update `dist/` and push everything to `main`.
+
+
+## Tailwind CSS principles to follow
 
 - Use Tailwind CSS utility classes as much as possible.
 - Avoid using custom CSS classes as much as possible in `.css` files.
@@ -40,7 +49,8 @@ will copy the library to `vendor/javascript/jquery.js`
 
 1. Changes not picked up? Run `rails assets:clobber`
 
-## Publishing
+
+## Publishing (before Netlify)
 
 GH pages: ONLY docs/ is published under mia.trb.to
 
@@ -50,3 +60,4 @@ RAILS_ENV=production be guard
 rm -r docs/*
 cp -R public/2.1/ docs/ && cp -R public/assets docs/
 touch docs/index.html
+
