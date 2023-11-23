@@ -7,7 +7,7 @@ module ::Guard
 end
 
 puts "========= Guardfile:"
-pages_config, pages, returned = Cms::Render.call()
+pages_config, pages, returned, controller = Cms::Render.call()
 
 
 file_to_page_map  = returned.fetch(:file_to_page_map)

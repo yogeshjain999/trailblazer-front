@@ -692,7 +692,7 @@ class ViewsController < ApplicationController
     "reform" => { # FIXME
       toc_title: "Reform",
       "2.1" => {
-        title: "Reform 2",
+        title: "Reform",
         snippet_dir: "../reform/test/docs",
         section_dir: "section/reform",
         target_file: "public/2.1/docs/reform/index.html",
