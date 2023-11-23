@@ -1,0 +1,65 @@
+@import url('https://fonts.cdnfonts.com/css/open-sauce-one');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hamburger-toggle {
+    @apply
+    [&>div]:h-0
+    [&>div::before]:translate-y-0
+    [&>div::before]:rotate-45
+    [&>div::after]:translate-y-0
+    [&>div::after]:-rotate-45
+  }
+
+  .active-mobile-navbar {
+    @apply sticky top-0 h-screen bg-purple;
+  }
+
+  .base-button {
+    @apply w-60 h-14 rounded flex items-center justify-center text-base font-bold
+    lg:w-[18.75rem] lg:h-16 lg:text-2xl
+  }
+
+  .section-content-wrapper {
+    @apply mobile-section-width mx-auto py-12 max-w-[28rem]
+      lg:max-w-[58.5rem] lg:py-22;
+  }
+
+  .mobile-section-width {
+    @apply w-10/12;
+  }
+
+  .section-header {
+    @apply text-center text-3xl lg:text-5xl;
+  }
+
+  .section-description {
+    @apply text-center text-lg mt-5 lg:text-2xl;
+  }
+
+  .list-checkmark {
+    @apply list-image-[url(/assets/list_checkmark-dfb97a3aeed92681fef5f3f1fd048f21330bdb7fba85513c94fb1071a4d09dd5.svg)];
+  }
+
+  .list-white-checkmark {
+    @apply list-image-[url(/assets/list_white_checkmark-794fc310fe0da03e835e8dcf5a78a3f399d5c5199ea2fc9728a1605cf62d4af2.svg)];
+  }
+
+  .documentation-right-toc-h3-active {
+    @apply text-white bg-dark-purple;
+  }
+
+  .documentation-right-toc-h4-active {
+    @apply bg-lighter-purple;
+  }
+
+  .display_none {
+    display: none;
+  }
+
+  .display_block {
+    display: block;
+  }
+}

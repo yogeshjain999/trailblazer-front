@@ -1,0 +1,8 @@
+/**
+* Create an invisible pseudo-element and make it the height of the
+* sticky navbar so the jump takes you to a location above the link
+* Copied from https://www.bryanbraun.com/anchorjs/#pages-with-a-sticky-navbar
+*/
+:target {
+  scroll-margin-top: 92px;
+}

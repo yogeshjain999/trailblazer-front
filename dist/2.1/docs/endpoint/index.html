@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Trailblazer</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    
+    
+    <link rel="stylesheet" href="/assets/tailwind-989ff2c09e4a5622ef4c57705f791cc590200956bd0e713ccd34773a7731c276.css" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
+    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <script>pageIdentifier = "docs";</script>
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
+    "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
+    "highlight.js/lib/core": "https://ga.jspm.io/npm:highlight.js@11.8.0/es/core.js",
+    "highlight.js/lib/languages/ruby": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/ruby.min.js",
+    "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
+<script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center bg-white sticky" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <img class="w-40 lg:my-0" src="/assets/logo_blue_ruby-e87334a67ff20033fae8c8d2c07e549b5f1faa9b75bb07fbb2ff9d1c0dfef6e7.svg" />
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/blog">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="#">PRO</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://trailblazer.zulipchat.com">Chat with us</a>
+    </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold underline decoration-[5px] decoration-purple underline-offset-[15px] " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://dev.to/trailblazer">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.0/">→ 2.0</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/pro.html">PRO</a>
+    </div>
+
+    <a class="base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" href="#">Chat with us</a>
+  </div>
+</nav>
+
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="bg-bg-blue w-screen h-screen fixed top-0 z-20 right-[100vw] overflow-y-scroll lg:w-3/12 lg:max-w-[23rem] lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem]" id="sideNav">
+      <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </button>
+      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+  
+
+
+  
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/trailblazer/index.html">Trailblazer</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/operation/index.html">Operation</a>
+
+        
+
+          
+
+            
+              <a href="/2.1/docs/activity/deprecated/index.html" class="" title="Deprecated activity docs: :input/:output, ...">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple flex-inline"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+                 
+              </a>
+
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/rails_integration/index.html">Rails integration</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/test/index.html">Test</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/macro/index.html">Macro</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/workflow/index.html">Workflow</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class="bg-dark-purple flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/endpoint/index.html">Endpoint</a>
+
+        
+      </div>
+
+
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-endpoint-overview">
+          <a href="#endpoint-overview" class="pl-8">Overview</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-endpoint-configuration">
+          <a href="#endpoint-configuration" class="pl-8">Configuration</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-endpoint-api-interface">
+          <a href="#endpoint-api-interface" class="pl-8">API Interface</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-endpoint-web-interface">
+          <a href="#endpoint-web-interface" class="pl-8">Web Interface</a>
+        </div>
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/internals/index.html">Internals</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/reform/index.html">Reform</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/reform/3.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  3.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/cells/index.html">Cells</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/cells/5.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  5.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/representable/index.html">Representable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/disposable/index.html">Disposable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/roar/index.html">Roar</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+</div>
+
+
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black uppercase">
+          <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
+          Endpoint
+        </span>
+        Documentation
+      </h1>
+
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
+          <p class="">The <code class="text-purple">endpoint</code> gem is the missing link between your routing framework and your business code. It acts like a mix of <code class="text-purple">before_filter</code>s and “responder” that handles authentication and authorization, invoking your actual logic, and rendering a response.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">These docs, as of early November 2023, are still work-in-progress, and so is the <code class="text-purple">endpoint</code> gem. <a href="https://github.com/trailblazer/trailblazer-endpoint/issues" class="underline text-purple">Your input</a> for best practices is highly appreciated!</p>
+
+<p class="">We’re pretty confident that by the end of the year <code class="text-purple">endpoint</code> is released and the API docs are streamlined.</p>
+
+  </div>
+</div>
+
+<h2 id="endpoint-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Overview</h2>
+
+<p class="">An endpoint links your routing with your business code. The idea is that your controllers are pure HTTP routers, calling the respective endpoint for each action. From there, the endpoint takes over, handles authentication, policies, executing the domain code, interpreting the result, and providing hooks to render a response.</p>
+
+<p class="">Instead of dealing with a mix of <code class="text-purple">before_filter</code>s, Rack-middlewares, controller code and callbacks, an endpoint is just another activity and allows to be customized with the well-established Trailblazer mechanics.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-draft-2fef7dce875872d0746bb089aa0ec954058d8e78b148d24a5bc894d71527aee1.webp" /></p>
+
+<p class="">The abstract cave painting beautifully illustrates the concept of an endpoint.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Instead of invoking your domain operation yourself (which would be running <code class="text-purple">Song::Operation::Create</code> here), the endpoints takes care of that. You only configure and run the endpoint.</li>
+  <li class="list-image-disc ml-10">The endpoint runs auth*-related logic before and response-specific code after the operation, depending on the outcome of the former code. Flow-control in the endpoint is implemented identically to what happens in activities and operations: an endpoint is just another activity using the <a href="/2.1/docs/activity.html#activity-wiring-api" class="underline text-purple">Wiring API</a> to insert steps and connect outputs.</li>
+  <li class="list-image-disc ml-10">For pluggability, an endpoint is split into a <em>Protocol</em> and an <em>Adapter</em> part. This separates generic logic from  environment-dependent code.</li>
+  <li class="list-image-disc ml-10">You may use the wiring mechanics to customize endpoint, adapter, protocol, remove or change steps, rewire outputs, inherit from base endpoints, and so on.</li>
+  <li class="list-image-disc ml-10">All Trailblazer developer niceties are available: tracing and debugging endpoints via <code class="text-purple">#wtf?</code> and friends helps understanding flow and behavior.</li>
+</ul>
+
+<h3 id="endpoint-overview-example" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Example</h3>
+
+<p class="">In a Rails controller, a controller action could look as follows.</p>
+
+<pre><code>class DiagramsController &lt; ApplicationController
+  endpoint Diagram::Operation::Create, [:is_logged_in?, :can_add_diagram?]
+
+  def create
+    endpoint Diagram::Operation::Create do |ctx, **|
+      redirect_to diagram_path(ctx[:diagram].id)
+    end.Or do |ctx, **|
+      render :form
+    end
+  end
+end
+</code></pre>
+
+<p class="">While routing and redirecting/rendering still happens in Rails, all remaining steps are handled in the endpoint.</p>
+
+<p class="">An API controller action, where the rendering is done generically, could look much simpler.</p>
+
+<pre><code>class API::V1::DiagramsController &lt; ApplicationController
+  endpoint Diagram::Operation::Create, [:is_logged_in?, :can_add_diagram?]
+
+  def create
+    endpoint Diagram::Operation::Create
+  end
+end
+</code></pre>
+
+<p class="">Endpoints are easily customized but their main intent is to reduce fuzzy controller code and providing best practices for both HTML-rendering controllers and APIs.</p>
+
+<h3 id="endpoint-overview-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Endpoint</h3>
+
+<p class="">Each controller action maintains its very own endpoint. The endpoint contains the actual business operation to be executed.</p>
+
+<p class="">An endpoint is separated into two parts: protocol and adapter.</p>
+
+<h4 id="endpoint-overview-endpoint-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
+
+                  </h4>
+
+<p class="">The protocol is where authentication, policy checks, and eventually your domain logic happen. All termini of the protocol’s activity are standardized end events - that’s how protocol and adapter communicate.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-protocol-db0c3aa560b0745d75e6c006ac5afbfb84756372a62b9e79692bc88eba92ba55.webp" /></p>
+
+<p class="">Note how a handful of default steps lead into six standardized termini, allowing to plug protocols into different adapters. Imagine replacing your self-written API adapter with a canonical JSON-API adapter, for example.</p>
+
+<p class="">The default steps of the protocol handle the following aspects.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><strong>AUTHENTICATION</strong> The <code class="text-purple">authenticate</code> step is specific to the environment. For instance, it might deserialize a user from a web cookie, or parse an XML header for authentication detail. The outcome is communicated through its well-defined terminus <code class="text-purple">not_authenticated</code>. It is up to you to implement this step.</li>
+  <li class="list-image-disc ml-10"><strong>AUTHORIZATION</strong> Per default, there’s a <code class="text-purple">policy</code> step to decide whether or not the domain operation should be invoked. Should the check fail the protocol will end on <code class="text-purple">not_authorized</code>. It is up to you to replace, implement or remove this step.</li>
+  <li class="list-image-disc ml-10"><strong>DOMAIN ACTIVITY</strong> Once the above steps have been executed successfully, your actual business code is invoked. This could be an operation, a workflow, or hand-baked Ruby code completely unrelated to Trailblazer.</li>
+</ul>
+
+<p class="">Four more termini implement the following concepts.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><code class="text-purple">success</code> indicates a successful run of the domain activity.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">failure</code> is interpreted as “invalid data”. Most operations end on <code class="text-purple">failure</code> if something went “wrong”, such as a failed validation.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">not_found</code> is reached when the domain operation (or additional steps in the protocol) couldn’t find a particular object. Most “legacy” operations don’t have this output, yet. However, the <code class="text-purple">Model()</code> macro <a href="/2.1/docs/operation.html#operation-macros-model-not-found" class="underline text-purple">now supports this terminus</a>. Alternatively, you could add a decider step after your domain activity that connects to the <code class="text-purple">not_found</code> terminus if <code class="text-purple">ctx[:model]</code> is empty.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">invalid_data</code> is an experimental terminus that is designed to represent a validation failure more explicitly. Ignore it for now.</li>
+</ul>
+
+<p class="">It is important to understand that the protocol doesn’t interact with the environment: while it handles all the “boring” tasks like auth* and running the actual domain activity, it does not react to that but merely communicates the outcome via one of the well-defined termini.</p>
+
+<h4 id="endpoint-overview-endpoint-adapter" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Adapter</span>
+
+                  </h4>
+
+<p class="">In turn, the adapter knows nothing about what happened in the protocol. Its job is to prepare everything for the response, which usually implies setting HTTP headers, a status and rendering some kind of document.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-adapter-web-5fd656e52293ce56281289c01a2e7910ea123d0ac363372add1dbc32b3c3498a.webp" /></p>
+
+<p class="">Structurally, the adapter activity contains the protocol as just another step. The protocol’s termini are wired to the handler paths in the adapter (depicted above as dotted lines). As visible, the wiring is completely customizable using the TRB wiring API. For example, <code class="text-purple">failure</code> and <code class="text-purple">invalid_data</code> are both wired to the same handler path.</p>
+
+<p class="">The three end events <code class="text-purple">not_found</code>, <code class="text-purple">not_authenticated</code> and <code class="text-purple">not_authorized</code> are all running through the same path, ending in the <code class="text-purple">fail_fast</code> terminus. This path is called <code class="text-purple">protocol_failure</code> and implies a non-business problem, like a failed authentication.</p>
+
+<p class="">Business failures such as a invalid contract validation will usually end up on the <code class="text-purple">failure</code> terminus.</p>
+
+<p class="">Both the <code class="text-purple">Web</code> and the <code class="text-purple">API</code> adapter will now run, and the frontend code then interprets the outcome and runs your configured <em>block</em> (e.g. <code class="text-purple">render</code> or <code class="text-purple">redirect_to</code>).</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Currently, we have very simple adapters that don’t do much, as we’re still figuring out the best practices here.</p>
+
+  </div>
+</div>
+
+<h2 id="endpoint-configuration" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Configuration</h2>
+
+<p class="">In Rails, the endpoint layer is introduced by including a customized module in a controller. You may do so by using <code class="text-purple">Controller::module</code>.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Api &lt; ApplicationController
+  include Trailblazer::Endpoint::Controller.module(api: true, application_controller: true)
+</code></pre>
+
+<p class="">The options are discussed in the respective API and Web sections. When including, a bunch of configuration directives are set up, and a handful of class and instance methods are added to the controller.</p>
+
+<h3 id="endpoint-configuration-controller-level-setup" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Controller-level Setup</h3>
+
+<p class="">Configuring endpoints for your application involves three steps.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Defining application-wide and/or controller-wide runtime options by setting <code class="text-purple">directive</code>s.</li>
+  <li class="list-image-disc ml-10">Setting application or controller-wide default values for building endpoints at compile-time using the “hash-form” of <code class="text-purple">::endpoint</code>.</li>
+  <li class="list-image-disc ml-10">Fine-tuning each controller action endpoint using the “targeted” <code class="text-purple">endpoint Song::Operation::Create</code> and passing specific options.</li>
+</ul>
+
+<p class="">Those options will be combined at compile-time to build a specific endpoint activity for each controller action, where the “targeted” options (3.) override default settings from the “hash-form” (2.).</p>
+
+<p class="">It is a good strategy to configure as much as possible on the controller-level and customize per specific endpoint. Use the “hash-form” of <code class="text-purple">endpoint</code> to configure default options.</p>
+
+<p class="">For example, in a set of web controllers, most endpoints will reuse the same protocol and adapter. You can specify default values on the (application) controller level, here, on <code class="text-purple">ApplicationController::Web</code>.</p>
+
+<pre class=""><code class="rounded"># app/controllers/application_controller/api.rb
+endpoint protocol: Protocol, adapter: Adapter::Representable do
+  # {Output(:not_found) =&gt; Track(:not_found)}
+  {}
+end
+</code></pre>
+
+<p class="">The “hash-form” <code class="text-purple">::endpoint</code> method accepts the following options.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><code class="text-purple">:protocol</code></li>
+  <li class="list-image-disc ml-10"><code class="text-purple">:adapter</code></li>
+  <li class="list-image-disc ml-10">The “protocol block” passed as a block to <code class="text-purple">::endpoint</code>. This block is executed in the protocol context and allows adding, changing and removing steps using the TRB wiring API. Currently, you need to return a hash from it. (FIXME)</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">:find_process_model</code> to activate process model finding.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">:serialize</code> and <code class="text-purple">:deserialize</code> to active encrypted suspend/resume session handling.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">:deserialize_process_model_id_from_resume_data</code> to automatically extract the process model’s ID from the resume data. (experimental)</li>
+</ul>
+
+<p class="">Keep in mind that those options can be overridden using the “targeted” <code class="text-purple">::endpoint</code> method.</p>
+
+<h4 id="endpoint-configuration-controller-level-setup-action-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Action Endpoint</span>
+
+                  </h4>
+
+<p class="">Every action needs to have its very own endpoint set up. This is usually done one the class level with the <code class="text-purple">::endpoint</code> method.</p>
+
+<pre class=""><code class="rounded">class SongsController &lt; ApplicationController::Api
+  endpoint Song::Operation::Create
+  endpoint Song::Operation::Show do
+    {Output(:not_found) =&gt; Track(:not_found)}  # add additional wiring to {domain_activity}
+  end
+</code></pre>
+
+<p class="">It’s sufficient to simply pass the operation constant to <code class="text-purple">::endpoint</code> to make Trailblazer set up an endpoint that contains the specified operation as its domain activity.
+ All other values are copied over from the <a href="#endpoint-configuration-endpoint-setup" class="underline text-purple">generic setup</a>.</p>
+
+<p class="">Note that you can override the <em>protocol block</em> per action/endpoint.</p>
+
+<p class="">It’s possible to use an arbitrary alias for the endpoint if you provide the <code class="text-purple">:domain_activity</code> option.</p>
+
+<pre class=""><code class="rounded">
+endpoint :create, domain_activity: Song::Operation::Create</code></pre>
+
+<p class="">You can then invoke the endpoint by providing the alias.</p>
+
+<pre class=""><code class="rounded">
+def create
+  endpoint :create
+end</code></pre>
+
+<p class="">This is helpful for triggering events when using workflows within the endpoint. (We will document that soon!)</p>
+
+<h1 id="todo-domainctxfilter-currentuser">todo domain_ctx_filter, :current_user</h1>
+
+<h4 id="endpoint-configuration-controller-level-setup-directives" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Directives</span>
+
+                  </h4>
+
+<p class="">As everything in TRB, an endpoint is invoked top-to-bottom. Any dependency required inside, for instance the <code class="text-purple">current_user</code> in the domain activity, needs to be “thrown into” the invocation. Just like you’re used to when calling operations manually.</p>
+
+<p class="">Injecting dependencies is done using directives. Those are Ruby snippets that provide variables.</p>
+
+<pre class=""><code class="rounded">  def self.options_for_domain_ctx(ctx, controller:, **) # TODO: move to ApplicationController
+    {
+      params: controller.params,
+    }
+  end
+
+  directive :options_for_domain_ctx,    method(:options_for_domain_ctx)
+</code></pre>
+
+<p class="">By registering directives using the same-named method, Trailblazer knows that you want to add variables to a well-defined configuration hash. The directives are executed at certain hooks in <code class="text-purple">endpoint</code> and hopefully provide the desired data.</p>
+
+<p class="">The <code class="text-purple">endpoint</code> gem uses four directives.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><code class="text-purple">options_for_endpoint</code> is data passed directly to the endpoint activity. For instance, if you need to parse an XML body for authentication, or inspect a JWT, you have to make sure that at least the <code class="text-purple">request</code> object is available in this hash.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">options_for_domain_ctx</code> represents the “hash” passed to the domain activity. This is where <code class="text-purple">params</code> and such is passed.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">options_for_block_options</code> are three blocks defining the behavior for the three different outcomes. Hence, the keys are <code class="text-purple">:success_block</code>, <code class="text-purple">:failure_block</code> and <code class="text-purple">:protocol_failure_block</code>.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">options_for_flow_options</code> are library-specific options. Here, you could set <code class="text-purple">context_options</code> to alias keys in the <code class="text-purple">ctx</code> object, activate your own tracing, etc.</li>
+</ul>
+
+<p class="">Please refer to the API and Web sections to see directives in action.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">TODO note: we will shortly document how <code class="text-purple">directive</code>s work generically as it’s a mechanism independent from <code class="text-purple">endpoint</code>.</p>
+
+  </div>
+</div>
+
+<h3 id="endpoint-configuration-runtime" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Runtime</h3>
+
+<p class="">To run an endpoint in a controller action, use the <code class="text-purple">#endpoint</code> method. Its interface varies depending on if you use the API or the DSL version.</p>
+
+<pre class=""><code class="rounded">
+def create
+  endpoint Song::Operation::Create do |ctx, model:, **|
+    redirect_to song_path(model.id)
+  end
+end</code></pre>
+
+<p class="">The particular endpoint is referenced by passing the alias to the <code class="text-purple">#endpoint</code> method, which is usually the constant of the operation.</p>
+
+<h4 id="endpoint-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
+
+                  </h4>
+
+<p class="">Any options passed to the method will be available in the <code class="text-purple">endpoint_ctx</code>.</p>
+
+<pre class=""><code class="rounded">def create
+  endpoint Song::Operation::Create, session: {user_id: 2} do |ctx, current_user:, model:, **|
+    render html: cell(Song::Cell::Create, model, current_user: current_user)
+  end
+end
+</code></pre>
+
+<p class="">If you want to override the <code class="text-purple">domain_ctx</code>, the <code class="text-purple">:options_for_domain_ctx</code> option is your friend.</p>
+
+<pre class=""><code class="rounded">def create
+  endpoint Song::Operation::Create, options_for_domain_ctx: {params: {id: 999}} do |ctx, model:, **|
+    render html: cell(Song::Cell::Create, model)
+  end
+end
+</code></pre>
+
+<p class="">The <code class="text-purple">options_for_domain_ctx</code> directive will not be used if you provide the option manually.</p>
+
+<!--
+
+
+* top to bottom, as everything in TRB.
+
+* controllers are configuration containers for input and rendering behavior (failure case, success!)
+
+* Endpoints are just a suggestion following a best-practice. You can and should rewire them using the Wiring API if you find the existing pattern not suiting your needs.
+* The separation of protocol and adapter makes it super simple to reuse adapters for many protocols.
+* Certain steps, like `authentication` can easily be replaced with  a subprocess from authentication gems, like Tyrant or Devise. Again, you can use the Wiring API.
+
+      endpoint =
+        Trailblazer::Endpoint.build(
+          domain_activity: activity,
+          protocol: Trailblazer::Endpoint::Protocol,
+          adapter:  Trailblazer::Endpoint::Adapter::Web,
+      ) do
+        # this block is executed in the context of the {Protocol}
+
+        step Subprocess(Tyrant::Auth::Cookie), replace: :authenticate, inherit: true # replace the template's authentication with yours
+        {}
+      end
+-->
+
+<h2 id="endpoint-api-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">API Interface</h2>
+
+<p class="">If a controller exposes a generic behavior, the <code class="text-purple">API</code> interface is your pick. While you can still override specific behavior, it abstracts best practices for document APIs.</p>
+
+<p class="">The <code class="text-purple">API</code> interface is designed to generically render a document response (such as XML or JSON) along with a response status. It does so by placing handler and render steps onto the three outcome tracks for <code class="text-purple">success</code>, <code class="text-purple">failure</code> and <code class="text-purple">protocol_failure</code> in an API-specific <code class="text-purple">Adapter</code>.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-adapter-api-5ae99f649b42827f8792cdf1d59a9a0fb21730cd143b7b55f5857bfe07f1e4da.webp" /></p>
+
+<p class="">In <code class="text-purple">Adapter::API</code> there’s one track for a <code class="text-purple">success</code>ful domain execution, one for <code class="text-purple">failure</code> or <code class="text-purple">invalid_data</code> and one <em>protocol failure</em> track that handles <code class="text-purple">not_found</code>, <code class="text-purple">not_authorized</code> and <code class="text-purple">not_authenticated</code>. The idea is to render a generic error with HTTP status code for the latter three cases, hence all three outcomes lead into the same track.</p>
+
+<h3 id="endpoint-api-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Application Controller</h3>
+
+<p class="">It is a good practice to install an <code class="text-purple">ApplicationController::Api</code> controller in your app to inherit from.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Api &lt; ApplicationController
+  include Trailblazer::Endpoint::Controller.module(api: true, application_controller: true)
+</code></pre>
+
+<p class="">Introducing all necessary class and runtime methods, every controller inheriting from <code class="text-purple">Api</code> is ready to be used as an endpoint controller for a document API.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Please include the <code class="text-purple">Endpoint::Controller</code> module only once per inheritance tree.</p>
+
+  </div>
+</div>
+
+<h3 id="endpoint-api-interface-action" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Action</h3>
+
+<p class="">Since the response behavior in APIs is very universal, controllers usually look quite simple.</p>
+
+<pre class=""><code class="rounded">module Api
+  module V1
+    class SongsController &lt; ApplicationController::Api
+      endpoint Song::Operation::Create
+      endpoint Song::Operation::Show do
+        {Output(:not_found) =&gt; Track(:not_found)}  # add additional wiring to {domain_activity}
+      end
+
+      def create
+        endpoint Song::Operation::Create, representer_class: Song::Representer
+      end
+
+      # ...
+    end
+  end
+end
+</code></pre>
+
+<p class="">Note that the concrete controllers are derived from <code class="text-purple">ApplicationController::Api</code>.</p>
+
+<p class="">On the class level, each endpoint is configured using the <code class="text-purple">::endpoint</code> method. The only required option is the operation you intend to run (also known as <em>domain_activity</em>). Optionally, you might add additional wiring using the <em>protocol block</em>, such as adding a <code class="text-purple">not_found</code> output. (FIXME: explain later)</p>
+
+<p class="">In the actual action you can now run the endpoint and your domain operation using the <code class="text-purple">#endpoint</code> instance method. Additional options may be passed and will be available in the <code class="text-purple">endpoint_ctx</code>.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Endpoints should be configured on the class level. This allows compiling each activity when your code is loaded, which results in a much faster app performance than computing the endpoint at runtime.</p>
+
+  </div>
+</div>
+
+<h3 id="endpoint-api-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Configuration</h3>
+
+<p class="">A handful of options need to be configured using Trailblazer’s <code class="text-purple">directive</code> mechanism.</p>
+
+<h4 id="endpoint-api-interface-configuration-response" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Response</span>
+
+                  </h4>
+
+<p class="">Universal behavior is usually configured on the app-level. In Rails, this would be the <code class="text-purple">ApplicationController</code> or a generic subclass such as <code class="text-purple">ApplicationController::Api</code>.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Api &lt; ApplicationController
+  include Trailblazer::Endpoint::Controller.module(api: true, application_controller: true)
+
+  def self.options_for_block_options(ctx, controller:, **)
+    response_block = -&gt;(ctx, endpoint_ctx:, **) do
+      controller.render json: endpoint_ctx[:representer], status: endpoint_ctx[:status]
+    end
+
+    {
+      success_block:          response_block,
+      failure_block:          response_block,
+      protocol_failure_block: response_block
+    }
+  end
+
+  directive :options_for_block_options, method(:options_for_block_options)
+</code></pre>
+
+<p class="">The hash returned by <code class="text-purple">#options_for_block_options</code> configures the generic behavior for the three outcomes <code class="text-purple">success</code>, <code class="text-purple">failure</code> and <code class="text-purple">protocol_failure</code>.</p>
+
+<p class="">You have access to the currently executed <code class="text-purple">controller</code> instance and hence can use all of Rails’ controller API, in our case, render a JSON document and set a HTTP response status. Since all three outcomes do the same, this is very generic configuration. Nevertheless, here is the place to add additional headers such as <code class="text-purple">Authorization</code>.</p>
+
+<p class="">Both the <code class="text-purple">:representer</code> and the <code class="text-purple">:status</code> variables are set during the endpoint’s invocation. We will discuss this shortly.</p>
+
+<p class="">Last, you need to use the <code class="text-purple">::directive</code> method to register your configuration. The <code class="text-purple">:options_for_block_options</code> directive is used internally after running the endpoint and before rendering the response.</p>
+
+<h4 id="endpoint-api-interface-configuration-overriding-block-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Overriding Block options</span>
+
+                  </h4>
+
+<p class="">Per default, the three blocks to render the response are configured via the <code class="text-purple">:options_for_block_options</code> directive. You may override them via <code class="text-purple">#endpoint</code>.</p>
+
+<pre class=""><code class="rounded">def show
+  endpoint Song::Operation::Show, representer_class: Song::Representer,
+    protocol_failure_block: -&gt;(ctx, endpoint_ctx:, **) { head endpoint_ctx[:status] + 1 }
+end
+</code></pre>
+
+<p class="">This is handy to customize behavior in a particular action, or for debugging.</p>
+
+<h4 id="endpoint-api-interface-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
+
+                  </h4>
+
+<p class="">As the endpoint needs data to perform authentication, authorization and eventually the rendering, a few more options are set using the canonical <code class="text-purple">options_for_endpoint</code> directive.</p>
+
+<pre class=""><code class="rounded">  def self.options_for_endpoint(ctx, controller:, **)
+    {
+      request: controller.request,
+      errors_representer_class: App::Api::V1::Representer::Errors,
+      errors: Trailblazer::Endpoint::Adapter::API::Errors.new,
+    }
+  end
+
+  directive :options_for_endpoint, method(:options_for_endpoint)
+</code></pre>
+
+<p class="">The three variables <code class="text-purple">:request</code>, <code class="text-purple">:errors</code> and <code class="text-purple">:errors_representer</code> will now be injected into the endpoint’s <code class="text-purple">ctx</code>. Note that these are specific to our authentication and our very own <code class="text-purple">Adapter</code> implementation. In your project, you might not need representers or an application <code class="text-purple">Errors</code> object.</p>
+
+<p class="">In order to inject data into your domain operation (e.g. <code class="text-purple">Song::Operation::Create</code>), use the <code class="text-purple">:options_for_domain_ctx</code> directive. It can be easily overridden at run-time in the controller action if you need to tweak it specifically (FIXME: add link).</p>
+
+<pre class=""><code class="rounded">  def self.options_for_domain_ctx(ctx, controller:, **) # TODO: move to ApplicationController
+    {
+      params: controller.params,
+    }
+  end
+
+  directive :options_for_domain_ctx,    method(:options_for_domain_ctx)
+</code></pre>
+
+<p class="">The domain operation can now access <code class="text-purple">ctx[:params]</code>.</p>
+
+<h3 id="endpoint-api-interface-protocol" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Protocol</h3>
+
+<p class="">For an API-specific protocol, in most cases a password or JWT-based authentication will be installed. Authorization, or a policy deciding whether or not this action is legit, can be handled with your own logic or entirely removed and done in the operation itself.</p>
+
+<p class="">Both authorization and policy are discussed in the tutorial, simple versions are <a href="https://github.com/trailblazer/trailblazer-endpoint/blob/prototype-nick/test/rails-app/app/concepts/auth/operation/authenticate.rb" class="underline text-purple">implemented in the gem test suite</a>.</p>
+
+<p class="">Whatever your auth* logic does, it should set a <code class="text-purple">ctx[:current_user]</code> that will then get passed into your business operation.</p>
+
+<pre class=""><code class="rounded">class Protocol &lt; Trailblazer::Endpoint::Protocol
+  step Auth::Operation::Policy, inherit: true, id: :policy, replace: :policy
+  step Subprocess(Auth::Operation::Authenticate), inherit: true, id: :authenticate, replace: :authenticate
+end
+</code></pre>
+
+<p class="">Derive your API protocol from <code class="text-purple">Trailblazer::Endpoint::Protocol</code> and override the steps you want to customize using the <code class="text-purple">:inherit</code> option, so that the original step’s wiring stays in place.</p>
+
+<h3 id="endpoint-api-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Adapter</h3>
+
+<p class="">It is important to understand that the <code class="text-purple">Adapter::API</code> shipped with <code class="text-purple">endpoint</code> only sets the HTTP status according to the outcome. In order to render a document, additional steps have to be added to the adapter subclass.</p>
+
+<pre class=""><code class="rounded">module Adapter
+  class Representable &lt; Trailblazer::Endpoint::Adapter::API
+    step :render # added before End.success
+    step :render_errors, after: :_422_status, magnetic_to: :failure, Output(:success) =&gt; Track(:failure)
+    step :render_errors, after: :protocol_failure, magnetic_to: :fail_fast, Output(:success) =&gt; Track(:fail_fast), id: :render_protocol_failure_errors
+
+    def render(ctx, domain_ctx:, representer_class:, **) # this is what usually happens in your {Responder}.
+      ctx[:representer] = representer_class.new(domain_ctx[:model] || raise("no model found!"))
+    end
+
+    def render_errors(ctx, errors:, errors_representer_class:, **) # TODO: extract with {render}
+      ctx[:representer] = errors_representer_class.new(errors)
+    end
+
+    Trailblazer::Endpoint::Adapter::API.insert_error_handler_steps!(self)
+    include Trailblazer::Endpoint::Adapter::API::Errors::Handlers # handler methods to set an error message.
+  end # Representable
+end
+</code></pre>
+
+<p class="">Those render steps in our example app use two injected variables for rendering.</p>
+
+<p class="">The <code class="text-purple">:representer_class</code> variable is injected per controller action by passing it to the <code class="text-purple">endpoint</code> helper.</p>
+
+<pre class=""><code class="rounded">def create
+  endpoint Song::Operation::Create, representer_class: Song::Representer
+end
+</code></pre>
+
+<p class="">Since the error rendering is generic, the <code class="text-purple">:errors_representer_class</code> variable is set controller-wide <a href="#endpoint-api-interface-configuration-runtime-options" class="underline text-purple">via <code class="text-purple">options_for_endpoint</code></a>.</p>
+
+<h3 id="endpoint-api-interface-api-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">API endpoint</h3>
+
+<p class="">Putting together the <code class="text-purple">Protocol</code> with the specific <code class="text-purple">Adapter</code> along with the <code class="text-purple">Create</code> domain operation will result in a flow as depicted here.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-adapter-api-5ae99f649b42827f8792cdf1d59a9a0fb21730cd143b7b55f5857bfe07f1e4da.webp" /></p>
+
+<p class="">The separation of the <code class="text-purple">Protocol</code> and <code class="text-purple">Adapter</code> allows to use the same business logic in different environments, the <code class="text-purple">Adapter</code> only reacts to well-defined outcomes such as “not found” or “invalid data” and, in an API context, responds with a rendered document and a HTTP status. This behavior could and should be different [in a web UI].</p>
+
+<h4 id="endpoint-api-interface-api-endpoint-handlers" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Handlers</span>
+
+                  </h4>
+
+<p class="">In our example adapter, each <code class="text-purple">_xxx_status</code> method sets a status code in the endpoint’s context. Those steps are shipped with the gem in <code class="text-purple">Adapter::API</code>.</p>
+
+<pre class=""><code class="rounded">
+# endpoint/lib/trailblazer/endpoint/adapter.rb
+class Trailblazer::Endpoint::Adapter::API &lt; Web
+  # ...
+  def _422_status(ctx, **)
+    ctx[:status] = 422
+  end</code></pre>
+
+<p class="">All <code class="text-purple">handle_*</code> steps are inserted via <code class="text-purple">include Trailblazer::Endpoint::Adapter::API::Errors::Handlers</code>, in their standard version they simply set an error message on the <code class="text-purple">errors</code> object instance.</p>
+
+<pre class=""><code class="rounded">
+# endpoint/lib/trailblazer/endpoint/adapter.rb
+class Trailblazer::Endpoint::Adapter::API &lt; Web
+  # ...
+  def handle_invalid_data(ctx, errors:, **)
+    errors.message = "The submitted data is invalid."
+  end</code></pre>
+
+<p class="">Feel free to replace, extend or remove these error handlers should you not want to maintain an <code class="text-purple">errors</code> object, for instance.</p>
+
+<h4 id="endpoint-api-interface-api-endpoint-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
+
+                  </h4>
+
+<p class="">Check again the above diagram. It is important to understand that only <code class="text-purple">failure</code> and <code class="text-purple">invalid_data</code> are wired to the explicit <code class="text-purple">failure</code> terminus in the adapter. This communicates a domain error, such as a failed validation or an expired account.</p>
+
+<p class="">All other problems are connected to the <code class="text-purple">protocol_failure</code> step and will end on the <code class="text-purple">fail_fast</code> terminus of the adapter, indicating a <em>protocol error</em> like wrong user credentials, a not-existent record, or missing permissions to perform that very operation.</p>
+
+<p class="">In the API context, protocol failures often need to be treated differently to domain errors. The first may be communicated to the user with a generic error message and an HTTP status code, whereas the latter often involves rendering the specific validation errors. The design of the <code class="text-purple">Adapter::API</code> in the endpoint gem makes this quite trivial.</p>
+
+<h3 id="endpoint-api-interface-build" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Build</h3>
+
+<p class="">Once all parts are written and configured, you need to configure the basic endpoint.</p>
+
+<pre class=""><code class="rounded"># app/controllers/application_controller/api.rb
+endpoint protocol: Protocol, adapter: Adapter::Representable do
+  # {Output(:not_found) =&gt; Track(:not_found)}
+  {}
+end
+</code></pre>
+
+<p class="">All controllers derived from <code class="text-purple">ApplicationController::Api</code> will inherit those settings.</p>
+
+<h3 id="endpoint-api-interface-test" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Test</h3>
+
+<p class="">To see your API endpoints in action, write a test. In the example, we use simple Rails controller tests.</p>
+
+<p class="">When <code class="text-purple">POST</code>ing a valid document to your <code class="text-purple">Create</code> action, a <code class="text-purple">200</code> HTTP is returned along with a JSON response which is the rendered object we just created.</p>
+
+<pre class=""><code class="rounded">post_json "/v1/songs", {id: 1}, yogi_jwt
+
+assert_response 200
+assert_equal "{\"id\":1}", response.body
+</code></pre>
+
+<p class="">Note the valid JWT token we pass along in the request. The valid token and the appropriate input data results in the following trace.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-success-trace-0d4f199be8148e023367258df086d75f74910e33eab2fb366746fc08a8508c04.webp" /></p>
+
+<p class="">The next test covers the <code class="text-purple">not_authenticated</code> case where the JWT was not submitted.</p>
+
+<pre class=""><code class="rounded">post_json "/v1/songs", {} # no token
+assert_response 401
+assert_equal "{\"errors\":{\"message\":\"Authentication credentials were not provided or are invalid.\"}}", response.body
+</code></pre>
+
+<p class="">In case you’re wondering - the error message is set by the <code class="text-purple">handle_not_authenticated</code> step in the adapter.</p>
+
+<p class="">Here’s the trace.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-not_authenticated-trace-7b0cea11d4fb1f84745c3af579e5504352c055bbf8ba1faa417439ddb0ddde91.webp" /></p>
+
+<p class="">As this is a protocol_failure, the endpoint terminates on its <code class="text-purple">fail_fast</code> end.</p>
+
+<h2 id="endpoint-web-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Web Interface</h2>
+
+<p class="">The Web interface is designed to be used in HTML-rendering controllers that operate web UIs.</p>
+
+<p class="">While its concepts are very similar to the mechanics found in API endpoints, it focuses on a better action API since web controllers very often need to customize behavior, such as redirecting, rendering pages in a specific fashion or even setting cookie values.</p>
+
+<pre class=""><code class="rounded">
+class SongsController &lt; ApplicationController::Web
+  # ...
+  def create
+    endpoint Song::Operation::Create do |ctx, model:, **|
+      render html: cell(Song::Cell::Create, model)          # render success cell
+    end.Or do |ctx, contract:, **|                          # validation failure
+      flash "Errors: #{contract.errors.messages}"
+      redirect_to "/my"                                     # manual override
+    end
+  end
+end</code></pre>
+
+<p class="">Endpoint’s <code class="text-purple">Or</code>-DSL is optimized for web-based controllers.</p>
+
+<h3 id="endpoint-web-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Adapter</h3>
+
+<p class="">The <code class="text-purple">Trailblazer::Endpoint::Adapter::Web</code> adapter is slightly simpler than the API version.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/endpoint-adapter-web-5fd656e52293ce56281289c01a2e7910ea123d0ac363372add1dbc32b3c3498a.webp" /></p>
+
+<p class="">As oppossed to the <code class="text-purple">Api</code> adapter, there are no handler steps and such installed. Use this adapter if you want to customize the flow or if you don’t need any automatic behavior.</p>
+
+<h3 id="endpoint-web-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Application Controller</h3>
+
+<p class="">A good practice is to install an <code class="text-purple">ApplicationController::Web</code> controller in your app to inherit from.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Web &lt; ApplicationController
+  include Trailblazer::Endpoint::Controller.module(dsl: true, application_controller: true)
+</code></pre>
+
+<p class="">By providing <code class="text-purple">dsl: true</code> you activate the <code class="text-purple">Or</code>-DSL.</p>
+
+<div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
+  <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
+  <div class="space-y-3">
+    
+<p class="">Please include the <code class="text-purple">Endpoint::Controller</code> module only once per inheritance tree.</p>
+
+  </div>
+</div>
+
+<h3 id="endpoint-web-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Configuration</h3>
+
+<p class="">The web interface uses the well-established mechanisms and directives on the controller class level.</p>
+
+<h4 id="endpoint-web-interface-configuration-endpoint-definition" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Endpoint Definition</span>
+
+                  </h4>
+
+<p class="">Endpoints are defined per action on the controller class.</p>
+
+<pre class=""><code class="rounded">class SongsController &lt; ApplicationController::Web
+  endpoint Song::Operation::Create
+
+</code></pre>
+
+<h4 id="endpoint-web-interface-configuration-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
+
+                  </h4>
+
+<p class="">You can use the four endpoint directives to configure what data gets passed to the endpoint and your domain activity (or operation).</p>
+
+<p class="">In order to perform authentication and authorization in the endpoint’s protocol, injecting the <code class="text-purple">session</code> is a good idea.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Web &lt; ApplicationController
+  include Trailblazer::Endpoint::Controller.module(dsl: true, application_controller: true)
+
+  def self.options_for_endpoint(ctx, controller:, **)
+    {
+      session: controller.session,
+    }
+  end
+
+  directive :options_for_endpoint, method(:options_for_endpoint)
+</code></pre>
+
+<p class="">This is done by setting a <code class="text-purple">options_for_endpoint</code> directive.</p>
+
+<h4 id="endpoint-web-interface-configuration-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
+
+                  </h4>
+
+<p class="">In a web context, the <code class="text-purple">Protocol</code> will usually extract the user from the cookie and perform a policy check based on that user.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Web &lt; ApplicationController
+# ...
+  class Protocol &lt; Trailblazer::Endpoint::Protocol
+    # provide method for {step :authenticate}
+    def authenticate(ctx, session:, **)
+      ctx[:current_user] = User.find_by(id: session[:user_id])
+    end
+
+    # provide method for {step :policy}
+    def policy(ctx, domain_ctx:, **)
+      Policy.(domain_ctx)
+    end
+
+    Trailblazer::Endpoint::Protocol::Controller.insert_copy_to_domain_ctx!(self, {:current_user =&gt; :current_user})
+    Trailblazer::Endpoint::Protocol::Controller.insert_copy_from_domain_ctx!(self, {:model =&gt; :process_model})
+  end
+</code></pre>
+
+<p class="">As always, you don’t have to perform the policy check in the protocol.</p>
+
+<h4 id="endpoint-web-interface-configuration-generic-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Generic endpoint</span>
+
+                  </h4>
+
+<p class="">With the <code class="text-purple">Protocol</code> class defined, the generic endpoint settings can be configured.</p>
+
+<pre class=""><code class="rounded">class ApplicationController::Web &lt; ApplicationController
+# ...
+  endpoint protocol: Protocol, adapter: Trailblazer::Endpoint::Adapter::Web
+end
+</code></pre>
+
+<p class="">Note that we simply use the <code class="text-purple">Adapter::Web</code> adapter.</p>
+
+<p class="">The <code class="text-purple">:domain_ctx_filter</code> option will inject the <code class="text-purple">current_user</code> into the <code class="text-purple">domain_ctx</code> so it is accessable from within your domain activity.</p>
+
+<h3 id="endpoint-web-interface-or-dsl" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Or-DSL</h3>
+
+<p class="">In the controller subclasses you’re now ready to use endpoints and the <code class="text-purple">Or</code>-DSL.</p>
+
+<pre class=""><code class="rounded">class SongsController &lt; ApplicationController::Web
+  endpoint Song::Operation::Create
+
+  def create
+    endpoint Song::Operation::Create do |ctx, current_user:, model:, **|
+      render html: cell(Song::Cell::Create, model, current_user: current_user)
+    end.Or do |ctx, contract:, **| # validation failure
+      render html: cell(Song::Cell::New, contract)
+    end
+  end
+</code></pre>
+
+<p class="">The <code class="text-purple">Or</code> block is executed when your endpoint terminates on <code class="text-purple">:failure</code>, which is the case for <code class="text-purple">invalid_data</code> or <code class="text-purple">failure</code>. The <code class="text-purple">endpoint</code> block, as usual, is invoked for a <code class="text-purple">success</code>ful outcome.</p>
+
+<p class="">In both blocks, the <code class="text-purple">domain_ctx</code> is available along with the <code class="text-purple">:endpoint_ctx</code> keyword argument, should you need low-level data.</p>
+
+<h4 id="endpoint-web-interface-or-dsl-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
+
+                  </h4>
+
+<p class="">You can pass <code class="text-purple">#endpoint</code> options at run-time.</p>
+
+<pre class=""><code class="rounded">def create
+  endpoint Song::Operation::Create, session: {user_id: 2} do |ctx, current_user:, model:, **|
+    render html: cell(Song::Cell::Create, model, current_user: current_user)
+  end
+end
+</code></pre>
+
+<p class="">Run-time options will be accessable in the endpoint contenxt (<strong>not</strong> the <code class="text-purple">domain_ctx</code>).</p>
+
+<h4 id="endpoint-web-interface-or-dsl-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
+
+                  </h4>
+
+<p class="">The <code class="text-purple">Or</code> block is only executed for a <code class="text-purple">failure</code> outcome. To catch a protocol failure you can use <code class="text-purple">#protocol_failure</code>.</p>
+
+<pre class=""><code class="rounded">def create_with_protocol_failure
+  endpoint Song::Operation::Create do |ctx, **|
+    redirect_to dashboard_path
+  end.protocol_failure do |ctx, **|
+    render html: "wrong login, app crashed", status: 500
+  end
+end
+</code></pre>
+
+<p class="">The block is only executed for authentication/authorization failures.</p>
+
+<h4 id="endpoint-web-interface-or-dsl-pitfalls" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Pitfalls</span>
+
+                  </h4>
+
+<p class=""><strong>Do not return</strong> anything from your controller action! This will break the DSL.</p>
+
+<pre class=""><code class="rounded">
+def create
+  endpoint Song::Operation::Create do |ctx, **|
+    # ...
+  end.Or do |ctx|
+    # ...
+  end
+
+  @counter += 1 # this will break!
+end</code></pre>
+
+<p class="">Put any additional code before or into the DSL blocks.</p>
+
+        </div>
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
+          <div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-endpoint-overview">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Overview
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#endpoint-overview-example">Example</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-overview-endpoint">Endpoint</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-overview-endpoint-protocol">Protocol</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-overview-endpoint-adapter">Adapter</a>
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-endpoint-configuration">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Configuration
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#endpoint-configuration-controller-level-setup">Controller-level Setup</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-configuration-controller-level-setup-action-endpoint">Action Endpoint</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-configuration-controller-level-setup-directives">Directives</a>
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-configuration-runtime">Runtime</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-configuration-runtime-options">Options</a>
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-endpoint-api-interface">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     API Interface
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-application-controller">Application Controller</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-action">Action</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-configuration">Configuration</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-api-interface-configuration-response">Response</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-api-interface-configuration-overriding-block-options">Overriding Block options</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-api-interface-configuration-runtime-options">Runtime Options</a>
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-protocol">Protocol</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-adapter">Adapter</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-api-endpoint">API endpoint</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-api-interface-api-endpoint-handlers">Handlers</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-api-interface-api-endpoint-protocol-failure">Protocol Failure</a>
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-build">Build</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-api-interface-test">Test</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-endpoint-web-interface">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Web Interface
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#endpoint-web-interface-adapter">Adapter</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-web-interface-application-controller">Application Controller</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-web-interface-configuration">Configuration</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-configuration-endpoint-definition">Endpoint Definition</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-configuration-options">Options</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-configuration-protocol">Protocol</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-configuration-generic-endpoint">Generic endpoint</a>
+    
+  
+    <a class="block px-2 leading-8" href="#endpoint-web-interface-or-dsl">Or-DSL</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-or-dsl-runtime-options">Runtime Options</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-or-dsl-protocol-failure">Protocol Failure</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#endpoint-web-interface-or-dsl-pitfalls">Pitfalls</a>
+    
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="lg:text-left bg-bg-blue py-16 text-white text-center text-base">
+  <div class="lg:flex justify-between w-11/12 max-w-[80rem] mx-auto">
+    <div class="lg:flex lg:flex-col lg:justify-between">
+      <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
+        <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
+      </a>
+      <div class="lg:block hidden">
+        © 2023 Trailblazer GmbH
+      </div>
+    </div>
+    <div class="lg:flex lg:gap-20 xl:gap-40">
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Documentation</a>
+        <a href="#">About</a>
+        <a href="#">Community</a>
+        <a href="#">Blog</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Products</a>
+        <a href="#">Trailblazer</a>
+        <a href="#">Trailblazer Pro</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Learn</a>
+        <a href="#">What is Trailblazer?</a>
+        <a href="#">Trailblazer PRO</a>
+        <a href="#">Tips and Tutorials</a>
+        <a href="https://trailblazer.zulipchat.com">Chat</a>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden mt-15">
+    © 2023 Trailblazer GmbH
+  </div>
+</footer>
+
+
+  </body>
+</html>

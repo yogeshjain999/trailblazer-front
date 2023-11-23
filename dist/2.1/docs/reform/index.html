@@ -1,0 +1,2749 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Trailblazer</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    
+    
+    <link rel="stylesheet" href="/assets/tailwind-989ff2c09e4a5622ef4c57705f791cc590200956bd0e713ccd34773a7731c276.css" />
+<link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
+    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <script>pageIdentifier = "docs";</script>
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
+    "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
+    "highlight.js/lib/core": "https://ga.jspm.io/npm:highlight.js@11.8.0/es/core.js",
+    "highlight.js/lib/languages/ruby": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/languages/ruby.min.js",
+    "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
+<script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <nav class=" text-base z-[50] top-0 absolute w-full lg:h-[5.5rem] lg:px-[5.6rem] py-3 lg:flex lg:justify-between lg:items-center bg-white sticky" id="navbar">
+  <a href="/2.1" class="block shrink-0 w-fit mx-auto lg:mx-0">
+    <img class="w-40 lg:my-0" src="/assets/logo_blue_ruby-e87334a67ff20033fae8c8d2c07e549b5f1faa9b75bb07fbb2ff9d1c0dfef6e7.svg" />
+  </a>
+  <div class="lg:hidden absolute right-4 top-2 flex w-9 h-9 items-center" id="hamburgerIcon">
+    <div class="pointer-events-none w-full h-0.5 bg-blue transition-all duration-150
+                  before:content-[''] before:absolute before:w-full before:h-0.5 before:bg-blue before:-translate-y-2.5 before:transition-all before:duration-150
+                  after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-blue after:translate-y-2.5 after:transition-all after:duration-150"></div>
+  </div>
+  <div class="lg:hidden flex flex-col text-center hidden" id="navList">
+    <div class="lg:absolute flex flex-col mt-15 gap-10 uppercase">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/blog">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="#">PRO</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://trailblazer.zulipchat.com">Chat with us</a>
+    </div>
+  </div>
+  <div class="lg:flex hidden gap-10 items-center">
+    <div class="flex gap-7">
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold underline decoration-[5px] decoration-purple underline-offset-[15px] " href="/2.1/docs/trailblazer">Documentation</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="https://dev.to/trailblazer">Blog</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/about">About</a>
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.0/">→ 2.0</a>
+      
+      <a class="font-medium text-base uppercase lg:normal-case lg:font-semibold  " href="/2.1/pro.html">PRO</a>
+    </div>
+
+    <a class="base-button text-base w-[12.5rem] h-[3.25rem] bg-light-purple text-blue hover:text-white hover:bg-purple" href="#">Chat with us</a>
+  </div>
+</nav>
+
+<section>
+  <div class="lg:hidden bg-bg-blue text-white fixed left-0 top-20 pr-1 py-3 rounded-r" id="sideNavShowButton" style="writing-mode: vertical-rl; text-orientation: upright;">
+    Chapters
+  </div>
+  <div class="lg:flex">
+    <nav class="bg-bg-blue w-screen h-screen fixed top-0 z-20 right-[100vw] overflow-y-scroll lg:w-3/12 lg:max-w-[23rem] lg:overflow-y-visible lg:shrink-0 lg:sticky lg:top-[5.5rem]" id="sideNav">
+      <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
+        X
+      </button>
+      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+  
+
+
+  
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/trailblazer/index.html">Trailblazer</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/operation/index.html">Operation</a>
+
+        
+
+          
+
+            
+              <a href="/2.1/docs/activity/deprecated/index.html" class="" title="Deprecated activity docs: :input/:output, ...">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="fill-grey pl-3 hover:fill-purple flex-inline"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M251.7 127.6l0 0c10.5 10.5 24.7 16.4 39.6 16.4H448c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H197.5c4.2 0 8.3 1.7 11.3 4.7l33.9-33.9L208.8 84.7l42.9 42.9zM48 240H464V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V240zM285.7 93.7L242.7 50.7c-12-12-28.3-18.7-45.3-18.7H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H291.3c-2.1 0-4.2-.8-5.7-2.3z"/></svg>
+                 
+              </a>
+
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/rails_integration/index.html">Rails integration</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/test/index.html">Test</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/macro/index.html">Macro</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/workflow/index.html">Workflow</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/endpoint/index.html">Endpoint</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/internals/index.html">Internals</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col border-t-[1px] border-t-light-purple">
+      <div class="bg-dark-purple flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/reform/index.html">Reform</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/reform/3.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  3.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-overview">
+          <a href="#reform-2-overview" class="pl-8">Overview</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-api">
+          <a href="#reform-2-api" class="pl-8">API</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-options">
+          <a href="#reform-2-options" class="pl-8">Options</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-data-types">
+          <a href="#reform-2-data-types" class="pl-8">Data Types</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-populators">
+          <a href="#reform-2-populators" class="pl-8">Populators</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-prepopulating">
+          <a href="#reform-2-prepopulating" class="pl-8">Prepopulating</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-validation">
+          <a href="#reform-2-validation" class="pl-8">Validation</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-rails">
+          <a href="#reform-2-rails" class="pl-8">Rails</a>
+        </div>
+      
+        
+        <!-- FIXME: link should know its IDs. -->
+        <div class="flex items-center" id="left-toc-reform-2-upgrading-guide">
+          <a href="#reform-2-upgrading-guide" class="pl-8">Upgrading Guide</a>
+        </div>
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/cells/index.html">Cells</a>
+
+        
+
+          
+
+            
+
+              <a href="/2.1/docs/cells/5.0/index.html" class="">
+                <span class="h-5 text-[8pt] py-[3px] px-2 rounded-[8px] ml-3 hover:bg-purple hover:border-purple hover:text-white border border-grey text-grey">
+                  5.0
+                </span>
+              </a>
+            
+
+
+          
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/representable/index.html">Representable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/disposable/index.html">Disposable</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+    <div class="flex flex-col ">
+      <div class=" flex items-center">
+        <a class="pl-4 font-bold" href="/2.1/docs/roar/index.html">Roar</a>
+
+        
+      </div>
+
+
+      
+    </div>
+
+    
+  
+</div>
+
+
+    </nav>
+    <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
+      <h1 class="lg:text-3xl text-2xl text-blue font-bold">
+        <span class="font-black uppercase">
+          <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
+          Reform 2
+        </span>
+        Documentation
+      </h1>
+
+      <div class="xl:flex xl:gap-0.5 mt-5">
+        <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
+          <h2 id="reform-2-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Overview</h2>
+
+<p class="">Validations no longer sit in model classes, but in forms. Once the data is coerced and validated, it can be written to the model.</p>
+
+<p class="">A <em>model</em> can be any kind of Ruby object. Reform is completely framework-agnostic and doesn’t care about your database.</p>
+
+<p class="">A <em>form</em> doesn’t have to be a UI component, necessarily! It can be an intermediate validation before writing data to the persistence layer. While form objects may be used to render graphical web forms, Reform is used in many pure-API applications for deserialization and validation.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><strong>API</strong> In Reform, form classes define fields and validations for the input. This input can be validated using <code class="text-purple">validate</code> and written to the model using <code class="text-purple">sync</code> or <code class="text-purple">save</code>. <a href="#reform-api" class="underline text-purple">→ API</a></li>
+  <li class="list-image-disc ml-10"><strong>DATA TYPES</strong> Reform can map model attributes, compositions of objects, nested models, hash fields and more. <a href="#reform-data-types" class="underline text-purple">→ DATA TYPES</a></li>
+  <li class="list-image-disc ml-10"><strong>COERCION</strong> When validating, the form can coerce input to arbitrary values using the dry-types gem. <a href="#reform-options-coercion" class="underline text-purple">→ COERCION</a></li>
+  <li class="list-image-disc ml-10"><strong>POPULATOR</strong> Deserialization of the incoming data can be customized using populators. <a href="#reform-populators" class="underline text-purple">→ POPULATOR</a></li>
+  <li class="list-image-disc ml-10"><strong>VALIDATION GROUPS</strong> Validations can be chained or run when certain criteria match, only. <a href="#reform-validation" class="underline text-purple">→ VALIDATION GROUPS</a></li>
+</ul>
+
+<p class="">For a technical architecture overview, read the <a href="#reform-overview-architecture" class="underline text-purple">Architecture</a> section.</p>
+
+<h3 id="reform-2-overview-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">API</h3>
+
+<p class="">Forms are defined in classes. Often, these classes partially map to a model.</p>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">class AlbumForm &lt; Reform::Form
+  feature Reform::Form::Dry
+
+  property :name
+
+  validation do
+    params do
+      required(:name).filled
+    end
+  end
+end
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+class AlbumForm &lt; Reform::Form
+  property :title
+
+  validates :title, presence: true
+end</code></pre></div></div>
+
+<p class="">Form fields are specified using <code class="text-purple">property</code> and <code class="text-purple">collection</code>, validations for the fields using the respective validation engine’s API.</p>
+
+<p class="">Forms can also be nested and map to more complex object graphs.</p>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">class AlbumForm &lt; Reform::Form
+  feature Reform::Form::Dry
+
+  property :name
+
+  validation do
+    params { required(:name).filled }
+  end
+
+  property :artist do
+    property :name
+
+    validation do
+      params { required(:name).filled }
+    end
+  end
+end
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+class AlbumForm &lt; Reform::Form
+  property :title
+
+  validates :title, presence: true
+
+  property :artist do
+    property :name
+
+    validates :name, presence: true
+  end
+end</code></pre></div></div>
+
+<p class="">While Reform is perfectly suited to map nested models with associations, it also allows mapping via composition, to hash fields, and more. Check out the <a href="#reform-data-types" class="underline text-purple">supported data types</a>.</p>
+
+<h3 id="reform-2-overview-setup" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Setup</h3>
+
+<p class="">In your controller or operation you create a form instance and pass in the models you want to validate data against.</p>
+
+<pre><code>class AlbumsController &lt; ApplicationController
+  def new
+    @form = AlbumForm.new(Album.new)
+  end
+</code></pre>
+
+<p class="">This will also work as an editing form with an existing album.</p>
+
+<pre><code>def edit
+  @form = AlbumForm.new(Album.find(1))
+end
+</code></pre>
+
+<p class="">In setup, Reform will read values from the model.</p>
+
+<pre><code class="language-ruby">model = Album.find(1)
+model.title #=&gt; "The Aristocrats"
+
+@form = AlbumForm.new(model)
+@form.title #=&gt; "The Aristocrats"
+</code></pre>
+
+<p class="">Once read, the original model’s values will never be accessed.</p>
+
+<h3 id="reform-2-overview-rendering" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Rendering</h3>
+
+<p class="">Your <code class="text-purple">@form</code> is now ready to be rendered, either do it yourself or use something like Rails’ <code class="text-purple">#form_for</code>, <code class="text-purple">simple_form</code> or <code class="text-purple">formtastic</code>.</p>
+
+<pre><code>= form_for @form do |f|
+  = f.input :title
+</code></pre>
+
+<p class="">Nested forms and collections can be easily rendered with <code class="text-purple">fields_for</code>, etc. Note that you no longer pass the model to the form builder, but the Reform instance.</p>
+
+<p class="">Optionally, you might want to use the <code class="text-purple">#prepopulate!</code> method to pre-populate fields and prepare the form for rendering.</p>
+
+<h3 id="reform-2-overview-validation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validation</h3>
+
+<p class="">A submitted form is processed via <code class="text-purple">validate</code>.</p>
+
+<pre><code class="language-ruby">result = @form.validate(title: "Greatest Hits")
+</code></pre>
+
+<p class="">By passing the incoming hash to <code class="text-purple">validate</code>, the input is written to the form and validated.</p>
+
+<p class="">This usually happens in a processing controller action.</p>
+
+<pre><code>def create
+  @form = AlbumForm.new(Album.new)
+
+  if @form.validate(params[:album])
+    # persist data
+    @form.save
+  end
+end
+</code></pre>
+
+<p class="">After validation, the form’s values reflect the validated data.</p>
+
+<pre><code class="language-ruby">@form.validate(title: "Greatest Hits")
+@form.title #=&gt; "Greatest Hits"
+</code></pre>
+
+<p class="">Note that the model remains untouched - validation solely happens on the form object.</p>
+
+<pre><code class="language-ruby">model.title #=&gt; "The Aristocrats"
+</code></pre>
+
+<p class="">Reform never writes anything to the models, until you tell it to do so.</p>
+
+<h3 id="reform-2-overview-persisting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Persisting</h3>
+
+<p class="">The easiest way to persist validated data is to call <code class="text-purple">#save</code> on the form.</p>
+
+<pre><code class="language-ruby">if form.validate(params[:song])
+  form.save
+end
+</code></pre>
+
+<p class="">This will write the data to the model(s) using <code class="text-purple">sync</code> and then call <code class="text-purple">album.save</code>.</p>
+
+<p class="">You may save data manually using <a href="#reform-api-save" class="underline text-purple"><code class="text-purple">save</code> with a block</a>.</p>
+
+<pre><code>form.save do |nested_hash|
+  Album.create(title: nested_hash["title"])
+end
+</code></pre>
+
+<p class="">Or you can let Reform write the validated data to the model(s) without saving anything.</p>
+
+<pre><code class="language-ruby">form.sync # the album is unsaved!
+</code></pre>
+
+<p class="">This will updated the model’s attributes using its setter methods, but not <code class="text-purple">save</code> anything.</p>
+
+<h3 id="reform-2-overview-installation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Installation</h3>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">
+Add this your Gemfile.
+
+    gem "reform"
+    gem "dry-validation"
+
+  Please use [dry-validation](http://dry-rb.org/gems/dry-validation), which is our recommended validation engine. Put the following snippet into an initializer.
+
+    require "reform/form/dry"
+
+    Reform::Form.class_eval do
+      include Reform::Form::Dry
+    end</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+Add this to your Gemfile.
+
+    gem "reform"
+    gem "reform-rails"
+
+  To use `ActiveModel` for validations put this into an initializer.
+
+    require "reform/form/active_model/validations"
+
+    Reform::Form.class_eval do
+      include Reform::Form::ActiveModel::Validations
+    end
+
+  Things you should know when using ActiveModel with Reform.
+
+  * `ActiveModel` support is provided by the `reform-rails` gem. You have to add it to your `Gemfile`.
+  * The above last step of including `ActiveModel::Validations` is done automatically in a Rails environment.
+  * Reform works fine with Rails 3.1-4.2. However, inheritance of validations with `ActiveModel::Validations` is broken in Rails 3.2 and 4.0.</code></pre></div></div>
+
+<h3 id="reform-2-overview-design-concepts" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Design Concepts</h3>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">
+    <p class=""><strong>FRAMEWORK-AGNOSTIC</strong> Reform is completely framework-agnostic and is used in many projects with Rails, Sinatra, Hanami and more.</p>
+
+    <p class="">For Rails, the <a href="#reform-rails" class="underline text-purple">reform-rails gem</a> provides convenient glue code to make Reform work with Rails’ form builders and <code class="text-purple">ActiveModel::Validations</code>.</p>
+  </li>
+  <li class="list-image-disc ml-10">
+    <p class=""><strong>ORMs</strong> Reform works with any ORM or PORO - it has zero knowledge about underlying databases per design. The only requirements are reader and writer methods on the model(s) for defined properties.</p>
+  </li>
+  <li class="list-image-disc ml-10">
+    <p class=""><strong>DATA MAPPING</strong> Reform helps mapping one or many models to a form object. Nevertheless, Reform is <em>not</em> a full-blown data mapper. It still is a form object. Simple data mapping like composition, delegation or hash fields come from the <a href="/2.1/docs/disposable.html" class="underline text-purple">Disposable</a> gem.</p>
+
+    <p class="">Should you require more complex mapping, use something such as ROM and pass it to the form object.</p>
+  </li>
+  <li class="list-image-disc ml-10">
+    <p class=""><strong>SECURITY</strong> Reform simply ignores unsolicited input in <code class="text-purple">validate</code>. It does so by only accepting values for defined <code class="text-purple">property</code>s. This makes half-baked solutions like <code class="text-purple">strong_parameter</code> or <code class="text-purple">attr_accessible</code> obsolete.</p>
+  </li>
+</ul>
+
+<h3 id="reform-2-overview-architecture" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Architecture</h3>
+
+<p class="">When experiencing Reform for the first time, it might seem to do a lot, too much: It decorates a model, parses the incoming data into some object graph, validates the data somehow and supports writing this data back to the model.</p>
+
+<p class="">Actually, Reform is very simple and consists of several smaller objects. Each object has a very specific scope one does exactly one thing, where the actual form object orchestrates between those.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/reform-architecture-88206798d6d46216bedc44065b6410eb57bd6fdde53445de4e609184a506bbf5.webp" /></p>
+
+<p class=""><strong>SETUP</strong> : When instantiating the form object with a model, it will read its properties’ values from the model. Internally, this happens because a <a href="https://github.com/apotonick/reform/blob/777ea4730bec913582bae78fece78bbb76fb22c4/lib/reform/contract.rb#L6" class="underline text-purple">form is simply a <code class="text-purple">Twin</code></a>. <a href="/2.1/docs/disposable.html#disposable-twin-api" class="underline text-purple">Twins are light-weight decorator objects</a> from the Disposable gem.</p>
+
+<p class="">For nested properties or collections, nested form objects will be created and wrap the respective contained models.</p>
+
+<p class=""><strong>DESERIALIZATION</strong> : In the <code class="text-purple">validate</code> method, the incoming hash or document is parsed. Each known field is assigned to the form object, each nested fragment will be mapped to a nested form. This process is known as <em>deserialization</em>.</p>
+
+<p class="">The internal deserializer used for this is actually a <em>representer</em> from the Representable gem. It is <a href="https://github.com/apotonick/reform/blob/777ea4730bec913582bae78fece78bbb76fb22c4/lib/reform/form/validate.rb#L43" class="underline text-purple">inferred automatically by Reform</a>, but theoretically, you could provide your own deserializer that goes through the document and then calls setters on the form.</p>
+
+<p class=""><strong>POPULATOR</strong> Nested fragments in the document often need to be mapped to existing or new models. This is where <em>populators</em> in Reform help to find the respective model(s), wrap them in a nested form object, and create a virtual object graph of the parsed data.</p>
+
+<p class="">Populators are code snippets you define in the form class, but they are called from the deserializing representer and help parsing the document into a graph of objects.</p>
+
+<p class=""><strong>VIRTUAL OBJECT GRAPH</strong> : After deserialization, the form object graph represents the input. All data in <code class="text-purple">validate</code> has been written to the virtual graph, <strong>not to the model</strong>. Once this graph is setup, it can be validated.</p>
+
+<p class="">The deserialization process is the pivotal part in Reform. Where simple validation engines only allow formal validations, Reform allows rich business validations such as <em>“When user signed in, and it’s the first order, allow maximum 10 items in the shopping cart!”</em>.</p>
+
+<p class=""><strong>VALIDATION</strong> : For the actual validation, Reform uses existing solutions such as dry-validation or <code class="text-purple">ActiveModel::Validations</code>. It passes the data to the validation engine in the appropriate format - usually, this is a hash representing the virtual object graph and its data.</p>
+
+<p class="">The validation is then completely up to the engine. Reform doesn’t know what is happening, it is only interested in the result and error messages. Both are exposed via the form object after validation has been finished.</p>
+
+<p class="">The decoupled validation is why Reform provides multiple validation engines.</p>
+
+<p class=""><strong>SYNC/SAVE</strong></p>
+
+<p class="">After the <code class="text-purple">validate</code> call, nothing has been written to the model(s), yet. This has to be explicitly invoked via <code class="text-purple">sync</code> or <code class="text-purple">save</code>. Now, Reform will use its basic twin functionality again and write the virtual data to the models using public setter methods. Again, Reform knows nothing about ORMs or model specifics.</p>
+
+<h2 id="reform-2-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">API</h2>
+
+<p class="">This document discusses Reform’s declarative API to define form classes and the instance API that is used at run-time on the form object, e.g. to validate an incoming hash.</p>
+
+<p class="">More specific documentation about options to be passed to the <code class="text-purple">property</code> and <code class="text-purple">collection</code> method are to be found in the <a href="#reform-options" class="underline text-purple">options documentation</a>.</p>
+
+<h3 id="reform-2-api-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overview</h3>
+
+<p class="">Forms have a ridiculously simple API with only a handful of public methods.</p>
+
+<ol>
+  <li class="list-image-disc ml-10"><code class="text-purple">#initialize</code> always requires a model that the form represents.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">#validate(params)</code> updates the form’s fields with the input data (only the form, <em>not</em> the model) and then runs all validations. The return value is the boolean result of the validations.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">#errors</code> returns validation messages in a classic ActiveModel style.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">#sync</code> writes form data back to the model. This will only use setter methods on the model(s). It returns the underlying model.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">#save</code> (optional) will call <code class="text-purple">#save</code> on the model and nested models. Note that this implies a <code class="text-purple">#sync</code> call. It returns the result of <code class="text-purple">model.save</code>.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">#prepopulate!</code> (optional) will run pre-population hooks to “fill out” your form before rendering.</li>
+</ol>
+
+<p class="">In addition to the main API, forms expose accessors to the defined properties. This is used for rendering or manual operations.</p>
+
+<h4 id="disposable-api">Disposable API</h4>
+
+<p class="">Every Reform form object inherits from <code class="text-purple">Disposable::Twin</code>, making every form a twin and giving each form the entire twin API such as.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Defaults using <code class="text-purple">:default</code>.</li>
+  <li class="list-image-disc ml-10">Coercion using <code class="text-purple">:type</code> and <code class="text-purple">:nilify</code>.</li>
+  <li class="list-image-disc ml-10">Nesting</li>
+  <li class="list-image-disc ml-10">Composition</li>
+  <li class="list-image-disc ml-10">Hash fields</li>
+</ul>
+
+<p class="">If you’re looking for a specific feature, make sure to check the <a href="/2.1/docs/disposable.html" class="underline text-purple">Disposable documentation</a></p>
+
+<h3 id="reform-2-api-form-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Form Class</h3>
+
+<p class="">Forms are defined in classes. Often, these classes partially map to one or many model(s).</p>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">class AlbumForm &lt; Reform::Form
+  feature Reform::Form::Dry
+
+  property :name
+
+  validation do
+    params do
+      required(:name).filled
+    end
+  end
+end
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+class AlbumForm &lt; Reform::Form
+  property :title
+
+  validates :title, presence: true
+end</code></pre></div></div>
+
+<p class="">Form fields are declared using <code class="text-purple">::property</code>.</p>
+
+<p class="">Validations leverage the respective validation engine’s API, which be either <code class="text-purple">ActiveModel</code> or dry-validations.</p>
+
+<h3 id="reform-2-api-property" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Property</h3>
+
+<p class="">Use <code class="text-purple">property</code> to map scalar fields of your model to the form.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title
+end
+</code></pre>
+
+<p class="">This will create accessors on the form and read the initial value from the model in <a href="#reform-api-setup" class="underline text-purple">setup</a>.</p>
+
+<pre><code>model = Album.new(title: "Greatest Hits")
+form  = AlbumForm.new(model)
+
+form.title #=&gt; "Greatest Hits"
+</code></pre>
+
+<h4 id="overriding-accessors">Overriding Accessors</h4>
+
+<p class="">You’re free to override the form’s accessors for presentation or coercion.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title
+
+  def title
+    super.capitalize
+  end
+end
+</code></pre>
+
+<p class="">As always, use <code class="text-purple">super</code> for the original method.</p>
+
+<p class="">This can also be used to provide a default value.</p>
+
+<pre><code>def title
+  super || "not available"
+end
+</code></pre>
+
+<h3 id="reform-2-api-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Collection</h3>
+
+<p class="">When mapping an array field of the model, use <code class="text-purple">collection</code>.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :song_titles
+end
+</code></pre>
+
+<p class="">This will create accessors on the form and read the initial</p>
+
+<pre><code>model = Album.new(song_titles: ["The Reflex", "Wild Boys"])
+
+form = AlbumForm.new(model)
+form.song_titles[0] #=&gt; "The Reflex"
+</code></pre>
+
+<h3 id="reform-2-api-nesting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Nesting</h3>
+
+<p class="">To create forms for nested objects, both <code class="text-purple">property</code> and <code class="text-purple">collection</code> accept a block for the nested form definition.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :artist do
+    property :name
+  end
+
+  collection :songs do
+    property :title
+  end
+end
+</code></pre>
+
+<p class="">Nesting will simply create an anonymous, nested <code class="text-purple">Reform::Form</code> class for the nested property.</p>
+
+<p class="">It’s often helpful with <code class="text-purple">has_many</code> or <code class="text-purple">belongs_to</code> associations.</p>
+
+<pre><code>artist = Artist.new(name: "Duran Duran")
+songs  = [Song.new(title: "The Reflex"), Song.new(title: "Wild Boys")]
+model  = Album.new(artist: artist, songs: songs)
+</code></pre>
+
+<p class="">The accessors will now be nested.</p>
+
+<pre><code>form   = AlbumForm.new(model)
+form.artist.name #=&gt; "Duran Duran"
+form.songs[0].title #=&gt; "The Reflex"
+</code></pre>
+
+<p class="">All API semantics explained here may be applied to both the top form and nested forms.</p>
+
+<h4 id="nesting-explicit-form">Nesting: Explicit Form</h4>
+
+<p class="">Sometimes you want to specify an explicit form constant rather than an inline form. Use the <code class="text-purple">form:</code> option here.</p>
+
+<pre><code>property :song, form: SongForm
+</code></pre>
+
+<p class="">The nested <code class="text-purple">SongForm</code> refers to a stand-alone form class you have to provide.</p>
+
+<h3 id="reform-2-api-setup" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Setup</h3>
+
+<p class="">Injecting Objects: safe args can be passed in constructor</p>
+
+<h3 id="reform-2-api-validate" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validate</h3>
+
+<p class="">You can define validation for every form property and for nested forms.</p>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">class AlbumForm &lt; Reform::Form
+  feature Reform::Form::Dry
+
+  property :name
+
+  validation do
+    params { required(:name).filled }
+  end
+
+  property :artist do
+    property :name
+
+    validation do
+      params { required(:name).filled }
+    end
+  end
+end
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+class AlbumForm &lt; Reform::Form
+  property :title
+
+  validates :title, presence: true
+
+  property :artist do
+    property :name
+
+    validates :name, presence: true
+  end
+end</code></pre></div></div>
+
+<p class="">Validations will be run in <code class="text-purple">validate</code>.</p>
+
+<pre><code>form.validate(
+  {
+    title: "Best Of",
+    artist: {
+      name: "Billy Joel"
+    }
+  }
+) #=&gt; true
+</code></pre>
+
+<p class="">The returned value is the boolean result of the validations.</p>
+
+<p class="">Reform will read all values it knows from the incoming hash, and it <strong>will ignore any unknown key/value pairs</strong>. This makes <code class="text-purple">strong_parameters</code> redundant. Accepted values will be written to the form using the public setter, e.g. <code class="text-purple">form.title = "Best Of"</code>.</p>
+
+<p class="">After <code class="text-purple">validate</code>, the form’s values will be overwritten.</p>
+
+<pre><code>form.artist.name #=&gt; "Billy Joel"
+</code></pre>
+
+<p class="">The model won’t be touched, its values are still the original ones.</p>
+
+<pre><code>model.artist.name #=&gt; "Duran Duran"
+</code></pre>
+
+<h4 id="deserialization-and-populator">Deserialization and Populator</h4>
+
+<p class="">Very often, you need to give Reform some information how to create or find nested objects when <code class="text-purple">validate</code>ing. This directive is called <em>populator</em> and <a href="#reform-populators" class="underline text-purple">documented here</a>.</p>
+
+<h3 id="reform-2-api-errors" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Errors</h3>
+
+<p class="">After <code class="text-purple">validate</code>, you can access validation errors via <code class="text-purple">errors</code>.</p>
+
+<pre><code>form.errors #=&gt; {title: ["must be filled"]}
+</code></pre>
+
+<p class="">The returned <code class="text-purple">Errors</code> object exposes the following methods.</p>
+
+<h3 id="reform-2-api-save" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Save</h3>
+
+<p class="">Calling <code class="text-purple">#save</code> with a block will provide a nested hash of the form’s properties and values. This does <strong>not call <code class="text-purple">#save</code> on the models</strong> and allows you to implement the saving yourself.</p>
+
+<p class="">The block parameter is a nested hash of the form input.</p>
+
+<pre><code>@form.save do |hash|
+  hash      #=&gt; {title: "Greatest Hits"}
+  Album.create(hash)
+end
+</code></pre>
+
+<p class="">You can always access the form’s model. This is helpful when you were using populators to set up objects when validating.</p>
+
+<pre><code>@form.save do |hash|
+  album = @form.model
+
+  album.update_attributes(hash[:album])
+end
+</code></pre>
+
+<p class="">Reform will wrap defined nested objects in their own forms. This happens automatically when instantiating the form.</p>
+
+<pre><code>album.songs #=&gt; [&lt;Song name:"Run To The Hills"&gt;]
+
+form = AlbumForm.new(album)
+form.songs[0] #=&gt; &lt;SongForm model: &lt;Song name:"Run To The Hills"&gt;&gt;
+form.songs[0].name #=&gt; "Run To The Hills"
+</code></pre>
+
+<h4 id="nested-saving">Nested Saving</h4>
+
+<p class=""><code class="text-purple">validate</code> will assign values to the nested forms. <code class="text-purple">sync</code> and <code class="text-purple">save</code> work analogue to the non-nested form, just in a recursive way.</p>
+
+<p class="">The block form of <code class="text-purple">#save</code> would give you the following data.</p>
+
+<pre><code>@form.save do |nested|
+  nested #=&gt; {title:  "Greatest Hits",
+         #    artist: {name: "Duran Duran"},
+         #    songs: [{title: "Hungry Like The Wolf"},
+         #            {title: "Last Chance On The Stairways"}]
+         #   }
+  end
+</code></pre>
+
+<p class="">The manual saving with block is not encouraged. You should rather check the Disposable docs to find out how to implement your manual tweak with the official API.</p>
+
+<h4 id="turning-off-autosave">Turning Off Autosave</h4>
+
+<p class="">You can assign Reform to <em>not</em> call <code class="text-purple">save</code> on a particular nested model (per default, it is called automatically on all nested models).</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  # ...
+
+  collection :songs, save: false do
+    # ..
+  end
+</code></pre>
+
+<p class="">The <code class="text-purple">:save</code> options set to false won’t save models.</p>
+
+<h3 id="reform-2-api-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Inheritance</h3>
+
+<p class="">Forms can be derived from other forms and will inherit all properties and validations.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title
+
+  collection :songs do
+    property :title
+
+    validates :title, presence: true
+  end
+end
+</code></pre>
+
+<p class="">Now, a simple inheritance can add fields.</p>
+
+<pre><code>class CompilationForm &lt; AlbumForm
+  property :composers do
+    property :name
+  end
+end
+</code></pre>
+
+<p class="">This will <em>add</em> <code class="text-purple">composers</code> to the existing fields.</p>
+
+<p class="">You can also partially override fields using <code class="text-purple">:inherit</code>.</p>
+
+<pre><code>class CompilationForm &lt; AlbumForm
+  property :songs, inherit: true do
+    property :band_id
+    validates :band_id, presence: true
+  end
+end
+</code></pre>
+
+<p class="">Using <code class="text-purple">inherit:</code> here will extend the existing <code class="text-purple">songs</code> form with the <code class="text-purple">band_id</code> field. Note that this simply uses <a href="https://github.com/apotonick/representable/#partly-overriding-properties" class="underline text-purple">representable’s inheritance mechanism</a>.</p>
+
+<h3 id="reform-2-api-forms-in-modules" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Forms In Modules</h3>
+
+<p class="">To maximize reusability, you can also define forms in modules and include them in other modules or classes.</p>
+
+<pre><code>module SongsForm
+  include Reform::Form::Module
+
+  collection :songs do
+    property :title
+    validates :title, presence: true
+  end
+end
+</code></pre>
+
+<p class="">This can now be included into a real form.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title
+
+  include SongsForm
+end
+</code></pre>
+
+<p class="">Note that you can also override properties <a href="#reform-api-inheritance" class="underline text-purple">using inheritance</a> in Reform.</p>
+
+<p class="">When using coercion, make sure the including form already contains the <code class="text-purple">Coercion</code> module.</p>
+
+<p class="">If you want to provide accessors in the module, you have to define them in the <code class="text-purple">InstanceMethods</code> module.</p>
+
+<pre><code>module SongForm
+  include Reform::Form::Module
+
+  property :title
+
+  module InstanceMethods
+    def title=(v)
+      super(v.trim)
+    end
+  end
+end
+</code></pre>
+
+<p class="">This is important so Reform can add your accessors after defining the default ones.</p>
+
+<h3 id="reform-2-api-dirty-tracker" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Dirty Tracker</h3>
+
+<p class="">Every form tracks changes in <code class="text-purple">#validate</code> and allows to check if a particular property value has changed using <code class="text-purple">#changed?</code>.</p>
+
+<pre><code>form.title =&gt; "Button Up"
+
+form.validate("title" =&gt; "Just Kiddin'")
+form.changed?(:title) #=&gt; true
+</code></pre>
+
+<p class="">When including <code class="text-purple">Sync::SkipUnchanged</code>, the form won’t assign unchanged values anymore in <code class="text-purple">#sync</code>.</p>
+
+<h3 id="reform-2-api-deserialization" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Deserialization</h3>
+
+<p class="">When invoking <code class="text-purple">validate</code>, Reform will parse the incoming hash and transform it into a graph of nested form objects that represent the input. This is called <em>deserialization</em>.</p>
+
+<p class="">The deserialization is an important (and outstanding) feature of Reform and happens by using an internal <em>representer</em> that is automatically created for you. You can either configure that representer using the <a href="#reform-options-deserializer" class="underline text-purple"><code class="text-purple">:deserializer</code> option</a> or provide code for deserialization yourself, bypassing any representer logic.</p>
+
+<p class="">The <code class="text-purple">deserialize!</code> method is called before the actual validation of the graph is run and can be used for deserialization logic.</p>
+
+<pre><code>  class AlbumForm &lt; Reform::Form
+    property :title
+
+    def deserialize!(document)
+      hash = YAML.parse(document)
+
+      self.title  = hash[:title]
+      self.artist = Artist.new if hash[:artist]
+    end
+  end
+</code></pre>
+
+<p class="">We encourage you to use Reform’s deserialization using a representer, though. The representer is highly configurable and optimized for its job of parsing different data structures into Ruby objects.</p>
+
+<h3 id="reform-2-api-population" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Population</h3>
+
+<p class="">To hook into the <a href="#reform-api-deserialization" class="underline text-purple">deserialization</a> process, the easiest way is using <a href="#reform-populators" class="underline text-purple">the <code class="text-purple">:populator</code> option</a>. It allows manually creating, changing or adding nested objects to the form to represent the input.</p>
+
+<h3 id="reform-2-api-inflection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Inflection</h3>
+
+<p class="">Properties can have arbitrary options that might become helpful, e.g. when rendering the form.</p>
+
+<pre><code>property :title, type: String
+</code></pre>
+
+<p class="">Use <code class="text-purple">options_for</code> to access a property’s configuration.</p>
+
+<pre><code>form.options_for(:title) # =&gt; {:readable=&gt;true, :coercion_type=&gt;String}
+</code></pre>
+
+<p class="">Note that Reform renames some options (e.g. <code class="text-purple">:type</code> internally becomes <code class="text-purple">:coercion_type</code>). Those names are private API and might be changed without deprecation.</p>
+
+<h2 id="reform-2-options" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Options</h2>
+
+<p class="">This document describes available options for Reform’s declarative API.</p>
+
+<h3 id="reform-2-options-disposable-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Disposable API</h3>
+
+<p class="">Every Reform form object inherits from <code class="text-purple">Disposable::Twin</code>, making every form a twin and giving each form the entire twin API such as.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Defaults using <code class="text-purple">:default</code>.</li>
+  <li class="list-image-disc ml-10">Coercion using <code class="text-purple">:type</code> and <code class="text-purple">:nilify</code>.</li>
+  <li class="list-image-disc ml-10">Nesting</li>
+  <li class="list-image-disc ml-10">Composition</li>
+  <li class="list-image-disc ml-10">Hash fields</li>
+</ul>
+
+<p class="">If you’re looking for a specific feature, make sure to check the <a href="/2.1/docs/disposable.html" class="underline text-purple">Disposable documentation</a></p>
+
+<h3 id="reform-2-options-virtual-attributes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Virtual Attributes</h3>
+
+<p class="">Virtual fields come in handy when there’s no direct mapping to a model attribute or when you plan on displaying but not processing a value.</p>
+
+<h4 id="virtual">Virtual</h4>
+
+<p class="">Often, fields like <code class="text-purple">password_confirmation</code> should neither be read from nor written back to the model. Reform comes with the <code class="text-purple">:virtual</code> option to handle that case.</p>
+
+<pre><code>class PasswordForm &lt; Reform::Form
+  property :password
+  property :password_confirmation, virtual: true
+</code></pre>
+
+<p class="">Here, the model won’t be queried for a <code class="text-purple">password_confirmation</code> field when creating and rendering the form. When saving the form, the input value is not written to the decorated model. It is only readable in validations and when saving the form manually.</p>
+
+<pre><code>form.validate("password" =&gt; "123", "password_confirmation" =&gt; "321")
+
+form.password_confirmation #=&gt; "321"
+</code></pre>
+
+<p class="">The nested hash in the block-<code class="text-purple">#save</code> provides the same value.</p>
+
+<pre><code>form.save do |nested|
+  nested[:password_confirmation] #=&gt; "321"
+</code></pre>
+
+<h4 id="read-only">Read-Only</h4>
+
+<p class="">Use <code class="text-purple">writeable: false</code> to display a value but skip processing it in <code class="text-purple">validate</code>.</p>
+
+<pre><code>property :country, writeable: false
+</code></pre>
+
+<ol>
+  <li class="list-image-disc ml-10">The form will invoke <code class="text-purple">model.country</code> to read the initial value.</li>
+  <li class="list-image-disc ml-10">It will invoke <code class="text-purple">form.country=</code> in <code class="text-purple">validate</code>.</li>
+  <li class="list-image-disc ml-10">The model’s setter <code class="text-purple">model.country</code> <strong>won’t</strong> be called in <code class="text-purple">sync</code>.</li>
+</ol>
+
+<p class="">Non-writeable values are still readable in the nested hash and through the form itself.</p>
+
+<pre><code>form.save do |nested|
+  nested[:country] #=&gt; "Australia"
+</code></pre>
+
+<h4 id="write-only">Write-Only</h4>
+
+<p class="">Use <code class="text-purple">readable: false</code> to hide a value but still write it to the model.</p>
+
+<pre><code>property :credit_card_number, readable: false
+</code></pre>
+
+<ol>
+  <li class="list-image-disc ml-10">The form <strong>won’t</strong> invoke <code class="text-purple">model.credit_card_number</code> and will display an empty field.</li>
+  <li class="list-image-disc ml-10">In <code class="text-purple">validate</code>, the form calls <code class="text-purple">form.credit_card_number=</code>.</li>
+  <li class="list-image-disc ml-10">In <code class="text-purple">sync</code>, the setter <code class="text-purple">model.credit_card_number=</code> is called and the value written to the database.</li>
+</ol>
+
+<h3 id="reform-2-options-access-protection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Access Protection</h3>
+
+<p class="">Use <code class="text-purple">parse: false</code> to protect the form setters from being called in <code class="text-purple">validate</code>.</p>
+
+<pre><code>property :uuid, parse: false
+</code></pre>
+
+<ol>
+  <li class="list-image-disc ml-10">This will call <code class="text-purple">model.uuid</code> to display the field via the form.</li>
+  <li class="list-image-disc ml-10">In <code class="text-purple">validate</code>, the form’s setter <strong>won’t</strong> be called, leaving the value as it is.</li>
+  <li class="list-image-disc ml-10">In <code class="text-purple">sync</code>, the setter <code class="text-purple">model.uuid</code> is called and restored to the original value.</li>
+</ol>
+
+<p class="">Note that the <code class="text-purple">:parse</code> option works by leveraging <a href="#reform-options-deserializer" class="underline text-purple">:deserializer</a>.</p>
+
+<h3 id="reform-2-options-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Coercion</h3>
+
+<p class="">Incoming form data often needs conversion to a specific type, like timestamps. Reform uses <a href="http://dry-rb.org/gems/dry-types/" class="underline text-purple">dry-types</a> for coercion. The DSL is seamlessly integrated with the <code class="text-purple">:type</code> option.</p>
+
+<p class="">Be sure to add <code class="text-purple">dry-types</code> to your <code class="text-purple">Gemfile</code> when requiring coercion.</p>
+
+<pre><code>gem "dry-types"
+</code></pre>
+
+<p class="">To use coercion, you need to include the <code class="text-purple">Coercion</code> module into your form class.</p>
+
+<pre><code>require "reform/form/coercion"
+
+class SongForm &lt; Reform::Form
+  feature Coercion
+
+  property :written_at, type: Types::Form::DateTime
+end
+
+form.validate("written_at" =&gt; "26 September")
+</code></pre>
+
+<p class="">Coercion only happens in <code class="text-purple">#validate</code>, <em>not</em> during construction.</p>
+
+<pre><code>form.written_at #=&gt; &lt;DateTime "2014 September 26 00:00"&gt;
+</code></pre>
+
+<p class="">Available coercion types are <a href="http://dry-rb.org/gems/dry-types/built-in-types/" class="underline text-purple">documented here</a>.</p>
+
+<h3 id="reform-2-options-manual-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Manual Coercion</h3>
+
+<p class="">To filter values manually, you can override the setter in the form.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  property :title
+
+  def title=(value)
+    super sanitize(value) # value is raw form input.
+  end
+end
+</code></pre>
+
+<p class="">Again, setters are only called in <code class="text-purple">validate</code>, <em>not</em> during construction.</p>
+
+<h3 id="reform-2-options-deserializer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Deserializer</h3>
+
+<p class="">A form object is just a twin. In <code class="text-purple">validate</code>, a representer is used to deserialize the incoming hash and populate the form twin graph. This means, you can use any representer you like and process data like JSON or XML, too.</p>
+
+<h2 id="populator">Populator</h2>
+
+<p class="">When deserializing the incoming input in <code class="text-purple">validate</code>, advanced logic might be necessary to find nested objects from the database, or populate the form with arbitrary nested objects.</p>
+
+<p class="">The <code class="text-purple">:populator</code> and its short-hand <code class="text-purple">:populate_if_empty</code> options provide custom deserialization logic and are <a href="#reform-populators" class="underline text-purple">documented here</a>.</p>
+
+<h3 id="reform-2-options-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Inheritance</h3>
+
+<p class="">Forms can be derived from other forms and will inherit all properties and validations.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title
+
+  collection :songs do
+    property :title
+
+    validates :title, presence: true
+  end
+end
+</code></pre>
+
+<p class="">Now, a simple inheritance can add fields.</p>
+
+<pre><code>class CompilationForm &lt; AlbumForm
+  property :composers do
+    property :name
+  end
+end
+</code></pre>
+
+<p class="">This will <em>add</em> <code class="text-purple">composers</code> to the existing fields.</p>
+
+<p class="">You can also partially override fields using <code class="text-purple">:inherit</code>.</p>
+
+<pre><code>class CompilationForm &lt; AlbumForm
+  property :songs, inherit: true do
+    property :band_id
+    validates :band_id, presence: true
+  end
+end
+</code></pre>
+
+<p class="">Using <code class="text-purple">inherit:</code> here will extend the existing <code class="text-purple">songs</code> form with the <code class="text-purple">band_id</code> field. Note that this simply uses <a href="https://github.com/apotonick/representable/#partly-overriding-properties" class="underline text-purple">representable’s inheritance mechanism</a>.</p>
+
+<h3 id="reform-2-options-skip_if" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Skip_if</h3>
+
+<p class="">Use <code class="text-purple">:skip_if</code> to ignore properties in <code class="text-purple">#validate</code>.</p>
+
+<pre><code>property :hit, skip_if: lambda { |fragment, *| fragment["title"].blank? }
+</code></pre>
+
+<p class="">This works for both properties and entire nested forms. The property will simply be ignored when deserializing, as if it had never been in the incoming hash/document.</p>
+
+<p class="">For nested properties you can use <code class="text-purple">:skip_if: :all_blank</code> as a macro to ignore a nested form if all values are blank.</p>
+
+<p class="">Note that this still runs validations for the property.</p>
+
+<h3 id="reform-2-options-multiparameter-dates" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Multiparameter Dates</h3>
+
+<p class="">Composed multi-parameter dates as created by the Rails date helper are processed automatically when <code class="text-purple">multi_params: true</code> is set for the date property and the <code class="text-purple">MultiParameterAttributes</code> feature is included. As soon as Reform detects an incoming <code class="text-purple">release_date(i1)</code> or the like it is gonna be converted into a date.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  feature Reform::Form::ActiveModel::FormBuilderMethods
+  feature Reform::Form::MultiParameterAttributes
+
+  collection :songs do
+    feature Reform::Form::ActiveModel::FormBuilderMethods
+    property :title
+    property :release_date, :multi_params =&gt; true
+    validates :title, :presence =&gt; true
+  end
+end
+</code></pre>
+
+<p class="">Note that the date will be <code class="text-purple">nil</code> when one of the components (year/month/day) is missing.</p>
+
+<h2 id="reform-2-data-types" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Data Types</h2>
+
+<h3 id="reform-2-data-types-composition" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Composition</h3>
+
+<p class="">Reform allows to map multiple models to one form. The <a href="https://github.com/apotonick/disposable#composition" class="underline text-purple">complete documentation</a> is here, however, this is how it works.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  include Composition
+
+  property :id,    on: :album
+  property :title, on: :album
+  property :songs, on: :cd
+  property :cd_id, on: :cd, from: :id
+
+  validates :title, presence: true
+end
+</code></pre>
+
+<p class="">Note that Reform now needs to know about the source of properties. You can configure that by using the <code class="text-purple">on:</code> option.</p>
+
+<h4 id="composition-setup">Composition: Setup</h4>
+
+<p class="">When initializing a composition, you have to pass a hash that contains the composees.</p>
+
+<pre><code>form = AlbumForm.new(album: album, cd: CD.find(1))
+</code></pre>
+
+<p class="">The form now hides the fact that it represents more than one model. Accessors for properties are defined directly on the form.</p>
+
+<pre><code>form.title #=&gt; "Greatest Hits"
+</code></pre>
+
+<h4 id="composition-savesync">Composition: Save/Sync</h4>
+
+<p class="">On a composition form, <code class="text-purple">sync</code> will write data back to the composee models. <code class="text-purple">save</code> will additionally call <code class="text-purple">save</code> on all composee models.</p>
+
+<p class="">When using `#save’ with a block, here’s what the block parameters look like.</p>
+
+<pre><code>form.save do |nested|
+  nested #=&gt;
+    {
+      album:  {
+        id:    9,
+        title: "Rio"
+      },
+      cd:     {
+        songs: [],
+        id: 1
+      }
+    }
+end
+</code></pre>
+
+<p class="">The hash is now keyed by composee name with the private property names.</p>
+
+<h4 id="composition-activemodel">Composition: ActiveModel</h4>
+
+<p class="">With ActiveModel, the form needs to have a main object configured. This is where ActiveModel-methods like <code class="text-purple">#persisted?</code> or ‘#id’ are delegated to. Use <code class="text-purple">::model</code> to define the main object.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  include Composition
+
+  property :id,    on: :album
+  property :title, on: :album
+  property :songs, on: :cd
+  property :cd_id, on: :cd, from: :id
+
+  model :album # only needed in ActiveModel context.
+
+  validates :title, presence: true
+end
+</code></pre>
+
+<h3 id="reform-2-data-types-hash-fields" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Hash Fields</h3>
+
+<p class="">Reform can also handle deeply nested hash fields from serialized hash columns. This is <a href="https://github.com/apotonick/disposable#struct" class="underline text-purple">documented here</a>.</p>
+
+<h2 id="reform-2-populators" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Populators</h2>
+
+<p class="">Reform has two completely separated modes for form setup. One when rendering the form and one when populating the form in <code class="text-purple">validate</code>.</p>
+
+<p class=""><code class="text-purple">Prepopulating</code> is helpful when you want to fill out fields (aka. <em>defaults</em>) or add nested forms before rendering. <a href="#reform-populators" class="underline text-purple">Populating</a> is invoked in <code class="text-purple">validate</code> and will add nested forms depending on the incoming hash.</p>
+
+<p class="">This page discusses the latter.</p>
+
+<p class="">Populators, matching by IDs, deleting items, and much more, is discussed in detail in the chapters <em>Nested Forms</em> and <em>Mastering Forms</em> of the <a href="/books/trailblazer.html" class="underline text-purple">Trailblazer book</a>.</p>
+
+<h3 id="reform-2-populators-the-problem" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">The Problem</h3>
+
+<p class="">Populators in Reform are only involved when validating the form.</p>
+
+<p class="">In <code class="text-purple">#validate</code>, you pass a nested hash to the form. Reform per default will try to match nested hashes to nested forms. But often the incoming hash and the existing object graph are not matching 1-to-1. That’s where populators enter the stage.</p>
+
+<p class="">Let’s say you have the following model.</p>
+
+<pre><code>album = Album.new(songs: [])
+</code></pre>
+
+<p class="">The album contains an empty songs collection.</p>
+
+<p class="">Your form looks like this.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs do
+    property :name
+  end
+end
+</code></pre>
+
+<p class="">Here’s how you’d typically validate an incoming hash.</p>
+
+<pre><code>form = AlbumForm.new(album)
+form.validate({songs: [{name: "Midnight Rendezvous"}]})
+</code></pre>
+
+<p class="">Reform will now try to deserialize every nested <code class="text-purple">songs</code> item to a nested form. So, in pseudo-code, this happens in <code class="text-purple">validate</code>.</p>
+
+<pre><code>form.songs[0].validate({name: "Midnight Rendezvous"})
+</code></pre>
+
+<p class="">Intuitively, you will expect Reform to create an additional song with the name “Midnight Rendezvous”.  However, this is not how it works and will crash, since <code class="text-purple">songs[0]</code> doesn’t exist. There is no nested form to represent that fragment, yet, since the original <code class="text-purple">songs</code> collection in the model was empty!</p>
+
+<p class="">Reform per design makes no assumptions about how to create nested models. You have to tell it what to do in this <em>out-of-sync</em> case.</p>
+
+<p class="">You need to configure a populator to engage Reform in the proper deserialization.</p>
+
+<h3 id="reform-2-populators-declarative-dsl" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Declarative DSL</h3>
+
+<p class="">You have to declare a populator when the form has to deserialize nested input. This can happen via <code class="text-purple">:populate_if_empty</code> or the generic <code class="text-purple">:populator</code> option.</p>
+
+<p class="">Both options accept either a proc, a method symbol, or a <code class="text-purple">Callable</code> instance.</p>
+
+<p class="">The proc is the most popular version.</p>
+
+<pre><code>property :artist, populator: -&gt;(options) { .. } # proc
+</code></pre>
+
+<p class="">However, note that you can also provide a proc constant (here <code class="text-purple">ArtistPopulator</code>).</p>
+
+<pre><code>ArtistPopulator = -&gt;(options) { .. }
+
+property :artist, populator: ArtistPopulator
+</code></pre>
+
+<p class="">You can also use a method defined on the same level as the populator property (here <code class="text-purple">#artist!</code>).</p>
+
+<pre><code>property :artist, populator: :artist!
+
+def artist!(options)
+end
+</code></pre>
+
+<p class="">Or, a <code class="text-purple">Uber::Callable</code>-marked object.</p>
+
+<pre><code>class ArtistPopulator
+  def call(options)
+  end
+end
+
+property :artist, populator: ArtistPopulator.new
+</code></pre>
+
+<p class="">This is especially helpful when the populator gets complex and could benefit from inheritance/mixins.</p>
+
+<h4 id="populator-invocation">Populator Invocation</h4>
+
+<p class="">Regardless of the populator type, keep in mind that a populator is only called if an incoming fragment for that property is present.</p>
+
+<pre><code>form.validate({songs: [{name: "Midnight Rendezvous"}]}) # songs present.
+</code></pre>
+
+<p class="">Running with our example, the following validation will <em>not</em> trigger any populator.</p>
+
+<pre><code>form.validate({})          # empty.
+form.validate({songs: []}) # not empty, but no items!
+</code></pre>
+
+<h3 id="reform-2-populators-populate_if_empty" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Populate_if_empty</h3>
+
+<p class="">To let Reform create a new model wrapped by a nested form for you use <code class="text-purple">:populate_if_empty</code>. That’s the easiest form of population.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs, populate_if_empty: Song do
+    property :name
+  end
+end
+</code></pre>
+
+<p class="">When traversing the incoming <code class="text-purple">songs:</code> collection, fragments without a counterpart nested form will be created for you with a new <code class="text-purple">Song</code> object.</p>
+
+<pre><code>form.validate({songs: [{name: "Midnight Rendezvous"}]})
+</code></pre>
+
+<p class="">Reform now creates a <code class="text-purple">Song</code> instance and nests it in the form since it couldn’t find <code class="text-purple">form.songs[0]</code>.</p>
+
+<p class="">Note that the matching from fragment to form works by index, any additional matching heuristic has to be implemented manually.</p>
+
+<h4 id="reform-2-populators-populate_if_empty-custom" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populate_if_empty
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Custom</span>
+
+                  </h4>
+
+<p class="">You can also create the object yourself and leverage data from the traversed fragment, for instance, to try to find a <code class="text-purple">Song</code> object by name, first, before creating a new one.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs,
+    populate_if_empty: -&gt;(fragment:, **) do
+      Song.find_by(name: fragment["name"]) or Song.new
+    end
+</code></pre>
+
+<p class="">The result from this block will be automatically added to the form graph.</p>
+
+<p class="">You can also provide an instance method on the respective form.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs, populate_if_empty: :populate_songs! do
+    property :name
+  end
+
+  def populate_songs!(fragment:, **)
+    Song.find_by(name: fragment["name"]) or Song.new
+  end
+</code></pre>
+
+<h4 id="reform-2-populators-populate_if_empty-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populate_if_empty
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Arguments</span>
+
+                  </h4>
+
+<p class="">The only argument passed to <code class="text-purple">:populate_if_empty</code> block or method is an options hash. It contains currently traversed <code class="text-purple">:fragment</code>, the <code class="text-purple">:index</code> (collections, only) and several more options.</p>
+
+<p class="">The result of the block will be automatically assigned to the form for you. Note that you can’t use the twin API in here, for example to reorder a collection. If you want more flexibility, use <code class="text-purple">:populator</code>.</p>
+
+<h3 id="reform-2-populators-populator" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Populator</h3>
+
+<p class="">While the <code class="text-purple">:populate_if_empty</code> option is only called when no matching form was found for the input, the <code class="text-purple">:populator</code> option is always invoked and gives you maximum flexibility for population. They’re exclusive, you can only use one of the two.</p>
+
+<p class="">Again, note that populators won’t be invoked if there’s no incoming fragment(s) for the populator’s property.</p>
+
+<h4 id="reform-2-populators-populator-collections" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populator
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Collections</span>
+
+                  </h4>
+
+<p class="">A <code class="text-purple">:populator</code> for collections is executed for every collection fragment in the incoming hash.</p>
+
+<pre><code>form.validate({
+  songs: [
+    {name: "Midnight Rendezvous"},
+    {name: "Information Error"}
+  ]
+})
+</code></pre>
+
+<p class="">The following <code class="text-purple">:populator</code> will be executed twice.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs,
+    populator: -&gt; (collection:, index:, **) do
+      if item = collection[index]
+        item
+      else
+        collection.insert(index, Song.new)
+      end
+    end
+</code></pre>
+
+<p class="">This populator checks if a nested form is already existing by using <code class="text-purple">collection[index]</code>. While the <code class="text-purple">index</code> keyword argument represents where we are in the incoming array traversal, <code class="text-purple">collection</code> is a convenience from Reform, and is identical to <code class="text-purple">self.songs</code>.</p>
+
+<p class="">Note that you manually have to check whether or not a nested form is already available (by index or ID) and then need to add it using the form API writers.</p>
+
+<p class="">BTW, the <code class="text-purple">:populator</code> option accepts blocks and instance method names.</p>
+
+<h4 id="reform-2-populators-populator-return-value" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populator
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Return Value</span>
+
+                  </h4>
+
+<p class="">It is very important that each <code class="text-purple">:populator</code> invocation returns the <em>form</em> that represents the fragment, and not the model. Otherwise, deserialization will fail.</p>
+
+<p class="">Here are some return values.</p>
+
+<pre><code>populator: -&gt; (collection:, index:, **) do
+  songs[index]              # works, unless nil
+  collection[index]         # identical to above
+  songs.insert(1, Song.new) # works, returns form
+  songs.append(Song.new)    # works, returns form
+  Song.new                  # crashes, that's no form
+  Song.find(1)              # crashes, that's no form
+</code></pre>
+
+<p class="">Always make sure you return a form object, and not a model.</p>
+
+<h4 id="reform-2-populators-populator-avoiding-index" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populator
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Avoiding Index</span>
+
+                  </h4>
+
+<p class="">In many ORMs, the order of has_many associations doesn’t matter, and you don’t need to use the <code class="text-purple">index</code> for appending.</p>
+
+<pre><code>collection :songs,
+  populator: -&gt; (collection:, index:, **) do
+    if item = collection[index]
+      item
+    else
+      collection.append(Song.new)
+    end
+  end
+</code></pre>
+
+<p class="">Often, it is better to <a href="#reform-populators-populator-match-by-id" class="underline text-purple">match by ID</a> instead of indexes.</p>
+
+<h4 id="reform-2-populators-populator-single-property" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populator
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Single Property</span>
+
+                  </h4>
+
+<p class="">Naturally, a <code class="text-purple">:populator</code> for a single property is only called once.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :composer,
+    populator: -&gt; (model:, **) do
+      model || self.composer= Artist.new
+    end
+</code></pre>
+
+<p class="">A single populator works identical to a collection one, except for the <code class="text-purple">model</code> argument, which is equally to <code class="text-purple">self.composer</code>.</p>
+
+<h4 id="reform-2-populators-populator-match-by-id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Populator
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Match by ID</span>
+
+                  </h4>
+
+<p class="">[This is described in chapter <em>Authentication</em> in the Trailblazer book.]</p>
+
+<p class="">Per default, Reform matches incoming hash fragments and nested forms by their order. It doesn’t know anything about IDs, UUIDs or other persistence mechanics.</p>
+
+<p class="">You can use <code class="text-purple">:populator</code> to write your own matching for IDs.</p>
+
+<pre><code>collection :songs,
+  populator: -&gt;(fragment:, **) {
+    # find out if incoming song is already added.
+    item = songs.find { |song| song.id == fragment["id"].to_i }
+
+    item ? item : songs.append(Song.new)
+  }
+</code></pre>
+
+<p class="">Note that a <code class="text-purple">:populator</code> requires you to add/replace/update/delete the model yourself. You have access to the form API here since the block is executed in form instance context.</p>
+
+<p class="">Again, it is important to <a href="#reform-populators-populator-return-value" class="underline text-purple">return the new form</a> and not the model.</p>
+
+<p class="">This naturally works for single properties, too.</p>
+
+<pre><code>property :artist,
+  populator: -&gt;(fragment:, **) {
+    artist ? artist : self.artist = Artist.find_by(id: fragment["id"])
+  }
+</code></pre>
+
+<h3 id="reform-2-populators-delete" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Delete</h3>
+
+<p class="">Populators can not only create, but also destroy. Let’s say the following input is passed in.</p>
+
+<pre><code>form.validate({
+  songs: [
+    {"name"=&gt;"Midnight Rendezvous", "id"=&gt;2, "delete"=&gt;"1"},
+    {"name"=&gt;"Information Error"}
+  ]
+})
+</code></pre>
+
+<p class="">You can implement your own deletion.</p>
+
+<pre><code>collection :songs,
+  populator: -&gt;(fragment:, **) {
+    # find out if incoming song is already added.
+    item = songs.find { |song| song.id.to_s == fragment["id"].to_s }
+
+    if fragment["delete"] == "1"
+      songs.delete(item)
+      return skip!
+    end
+
+    item ? item : songs.append(Song.new)
+  }
+</code></pre>
+
+<p class="">You can delete items from the graph using <code class="text-purple">delete</code>. To avoid this fragment being further deserialized, use <code class="text-purple">return skip!</code> to stop processing for this fragment.</p>
+
+<p class="">Note that you can also use the twin’s <code class="text-purple">Collection</code> API for finding nested twins by any field.</p>
+
+<pre><code>populator: -&gt;(fragment:, **) {
+  item = songs.find_by(id: fragment["id"])
+</code></pre>
+
+<h3 id="reform-2-populators-skip" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Skip</h3>
+
+<p class="">Since Reform 2.1, populators can skip processing of a fragment by returning <code class="text-purple">skip!</code>. This will ignore this fragment as if it wasn’t present in the incoming hash.</p>
+
+<pre><code>collection :songs,
+  populator: -&gt;(fragment:, **) do
+    return skip! if fragment["id"]
+    # ..
+  end
+</code></pre>
+
+<p class="">To skip from a <code class="text-purple">Uber::Callable</code>-marked object, return <code class="text-purple">Representable::Pipeline::Stop</code></p>
+
+<pre><code>class SongsPopulator
+  def call(options)
+    return Representable::Pipeline::Stop if fragment["id"]
+    # ...
+  end
+end
+
+collection :songs, populator: SongsPopulator.new
+</code></pre>
+
+<p class="">This won’t process items that have an <code class="text-purple">"id"</code> field in their corresponding fragment.</p>
+
+<h3 id="reform-2-populators-uninitialized-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Uninitialized Collections</h3>
+
+<p class="">A problem with populators can be an uninitialized <code class="text-purple">collection</code> property.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  collection :songs, populate_if_empty: Song do
+    property :title
+  end
+end
+
+album = Album.new
+form  = AlbumForm.new(album)
+
+album.songs #=&gt; nil
+form.songs  #=&gt; nil
+
+form.validate(songs: [{title: "Friday"}])
+#=&gt; NoMethodError: undefined method `original' for nil:NilClass
+</code></pre>
+
+<p class="">What happens is as follows.</p>
+
+<ol>
+  <li class="list-image-disc ml-10">In <code class="text-purple">validate</code>, the form can’t find a corresponding nested songs form and calls the <code class="text-purple">populate_if_empty</code> code.</li>
+  <li class="list-image-disc ml-10">The populator will create a <code class="text-purple">Song</code> model and assign it to the parent form via <code class="text-purple">form.songs &lt;&lt; Song.new</code>.</li>
+  <li class="list-image-disc ml-10">This crashes, as <code class="text-purple">form.songs</code> is <code class="text-purple">nil</code>.</li>
+</ol>
+
+<p class="">The solution is to initialize your object correctly. This is per design. It is your job to do that as Reform/Disposable is likely to do it wrong.</p>
+
+<pre><code>album = Album.new(songs: [])
+form  = AlbumForm.new(album)
+</code></pre>
+
+<p class="">With ORMs, the setup happens automatically, this only appears when using <code class="text-purple">Struct</code> or other POROs as models.</p>
+
+<h2 id="reform-2-prepopulating" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Prepopulating</h2>
+
+<p class="">Reform has two completely separated modes for form setup. One when rendering the form and one when populating the form in <code class="text-purple">validate</code>.</p>
+
+<p class=""><a href="#reform-prepopulating" class="underline text-purple">Prepopulating</a> is helpful when you want to fill out fields (aka. <em>defaults</em>) or add nested forms before rendering.</p>
+
+<p class=""><a href="#reform-populators" class="underline text-purple">Populating</a> is invoked in <code class="text-purple">validate</code> and will add nested forms depending on the incoming hash.</p>
+
+<p class="">This page explains prepopulation used to prepare the form for rendering.</p>
+
+<h3 id="reform-2-prepopulating-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Configuration</h3>
+
+<p class="">You can use the <code class="text-purple">:prepopulator</code> option on every property or collection.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :artist, prepopulator: -&gt;(options) { self.artist = Artist.new } do
+    property :name
+  end
+</code></pre>
+
+<p class="">The option value can be a lambda or an instance method name.</p>
+
+<p class="">In the block/method, you have access to the form API and can invoke any kind of logic to prepopulate your form. Note you need to assign models for nested form using their writers.</p>
+
+<h3 id="reform-2-prepopulating-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Invocation</h3>
+
+<p class="">Prepopulation must be invoked manually.</p>
+
+<pre><code>form = AlbumForm.new(Album.new)
+form.artist #=&gt; nil
+
+form.prepopulate!
+
+form.artist #=&gt; &lt;nested ArtistForm @model=&lt;Artist ..&gt;&gt;
+</code></pre>
+
+<p class="">This explicit call must happen before the form gets rendered. For instance, in Trailblazer, this happens in the controller action.</p>
+
+<h3 id="reform-2-prepopulating-prepopulate-is-not-populate" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Prepopulate is not Populate</h3>
+
+<p class=""><code class="text-purple">:populator</code> and <code class="text-purple">:populate_if_empty</code> will be run automatically in <code class="text-purple">validate</code>. Do not call <code class="text-purple">prepopulate!</code> before <code class="text-purple">validate</code> if you use the populator options. This will usually result in “more” nested forms being added as you wanted (unless you know what you’re doing).</p>
+
+<p class="">Prepopulators are a concept designed to <strong>prepare a form for rendering</strong>, whereas populators are meant to <strong>set up the form in <code class="text-purple">validate</code></strong> when the input hash is deserialized.</p>
+
+<p class="">This is explained in the <em>Nested Forms</em> chapter of the Trailblazer book. Please read it first if you have trouble understanding this, and then open an issue.</p>
+
+<h3 id="reform-2-prepopulating-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Options</h3>
+
+<p class="">Options may be passed. They will be available in the <code class="text-purple">:prepopulator</code> block.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  property :title, prepopulator: -&gt;(options) { self.title = options[:def_title] }
+end
+</code></pre>
+
+<p class="">You can then pass arbitrary arguments to <code class="text-purple">prepopulate!</code>.</p>
+
+<pre><code>form.title #=&gt; nil
+
+form.prepopulate!(def_title: "Roxanne")
+
+form.title #=&gt; "Roxanne"
+</code></pre>
+
+<p class="">The arguments passed to the <code class="text-purple">prepopulate!</code> call will be passed straight to the block/method.</p>
+
+<p class="">This call will be applied to the entire nested form graph recursively <em>after</em> the currently traversed form’s prepopulators were run.</p>
+
+<h3 id="reform-2-prepopulating-execution" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Execution</h3>
+
+<p class="">The blocks are run in form instance context, meaning you have access to all possible data you might need. With a symbol, the same-named method will be called on the form instance, too.</p>
+
+<p class="">Note that you have to assign the pre-populated values to the form by using setters. In turn, the form will automatically create nested forms for you.</p>
+
+<p class="">This is especially cool when populating collections.</p>
+
+<pre><code>property :songs,
+  prepopulator: -&gt;(*) { self.songs &lt;&lt; Song.new if songs.size &lt; 3 } do
+</code></pre>
+
+<p class="">This will always add an empty song form to the nested <code class="text-purple">songs</code> collection until three songs are attached. You can use the <code class="text-purple">Twin::Collection</code> API when adding, changing or deleting items from a collection.</p>
+
+<p class="">Note that when calling <code class="text-purple">#prepopulate!</code>, your <code class="text-purple">:prepopulate</code> code for all existing forms in the graph will <em>be executed</em> . It is up to you to add checks if you need that.</p>
+
+<h3 id="reform-2-prepopulating-overriding" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overriding</h3>
+
+<p class="">You don’t have to use the <code class="text-purple">:prepopulator</code> option. Instead, you can simply override <code class="text-purple">#prepopulate!</code> itself.</p>
+
+<pre><code>class AlbumForm &lt; Reform::Form
+  def prepopulate!(options)
+    self.title = "Roxanne"
+    self.artist = Artist.new(name: "The Police")
+  end
+</code></pre>
+
+<h3 id="reform-2-prepopulating-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Defaults</h3>
+
+<p class="">There’s different alternatives for setting a default value for a formerly empty field.</p>
+
+<ol>
+  <li class="list-image-disc ml-10">Use <code class="text-purple">:prepopulator</code> as <a href="#reform-prepopulating-configuration" class="underline text-purple">described here</a>. Don’t forget to call <code class="text-purple">prepopulate!</code> before rendering the form.</li>
+  <li class="list-image-disc ml-10">
+    <p class="">Override the reader of the property. This is not recommended as you might screw things up. Remember that the property reader is called for presentation (in the form builder) and for validation in <code class="text-purple">#validate</code>.</p>
+
+    <pre><code>property :title
+
+def title
+  super or "Unnamed"
+end
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="reform-2-validation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Validation</h2>
+
+<p class="">Validation in Reform happens in the <code class="text-purple">validate</code> method, and only there.</p>
+
+<p class="">Reform will deserialize the fragments and their values to the form and its nested subforms, and once this is done, run validations.</p>
+
+<p class="">It returns the result boolean, and provide potential errors via <code class="text-purple">errors</code>.</p>
+
+<h3 id="reform-2-validation-validation-engine" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validation Engine</h3>
+
+<p class="">Since Reform 2.0, you can pick your validation engine. This can either be <code class="text-purple">ActiveModel::Validations</code> or <code class="text-purple">dry-validation</code>. The validation examples included on this page are using <code class="text-purple">dry-validation</code>.</p>
+
+<div class="callout secondary">
+  <p>
+    Reform 2.2 drops <code>ActiveModel</code>-support. You can still use it (and it will work!), but we won't maintain it actively, anymore. In other words, <code>ActiveModel::Validations</code> and Reform should be working until at least Reform 4.0.
+  </p>
+</div>
+
+<p class="">Note that you are not limited to one validation engine. When switching from <code class="text-purple">ActiveModel::Validation</code> to <code class="text-purple">dry-validation</code>, you should set the first as the default validation engine.</p>
+
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">dry-validation</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">ActiveModel</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">
+    config.reform.validations = :active_model
+
+The configuration assumes you have `reform-rails` installed.</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">
+    Reform::Form.send(:include, Reform::Form::ActiveModel::Validations)
+
+In a Ruby environment, you'd usually monkey-patch the `Form` class.</code></pre></div></div>
+
+<p class="">In forms you’re upgrading to dry-validation, you can include the validation module explicitly.</p>
+
+<pre><code>require 'reform/form/dry'
+
+&lt;pre class=""&gt;&lt;code class="rounded"&gt;class AlbumForm &amp;lt; Reform::Form   feature Reform::Form::Dry
+</code></pre>
+
+<p class="">property :name</p>
+
+<p class="">validation do
+    params do
+      required(:name).filled
+    end
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p class="">This replaces the ActiveModel backend with dry for this specific form class, only.</p>
+
+<h3 id="reform-2-validation-validation-groups" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validation Groups</h3>
+
+<p class="">Grouping validations enables you to run them conditionally, or in a specific order. You can use <code class="text-purple">:if</code> to specify what group had to be successful for it to be validated.</p>
+
+<pre class=""><code class="rounded">validation name: :default do
+  params { required(:name).filled }
+end
+
+validation name: :artist, if: :default do
+  params { required(:artist).filled }
+end
+
+validation name: :famous, after: :default do
+  params { optional(:artist) }
+
+  rule(:artist) do
+    if value
+      key.failure('only famous artist') unless value =~ /famous/
+    end
+  end
+end
+</code></pre>
+
+<p class="">This will only check for the <code class="text-purple">artist</code> presence as well only if the <code class="text-purple">:default</code> group was valid.
+Chaining groups works via the <code class="text-purple">:after</code> option. This will run the group regardless of the former result. Note that it still can be combined with <code class="text-purple">:if</code>.</p>
+
+<p class="">At any time you can extend an existing group using <code class="text-purple">:inherit</code> (this feature is not compatible with dry-validation 1.x, to avoid any hacky solution we are waiting dry-v authors to implement it from their end first).</p>
+
+<pre><code>validation :email, inherit: true do
+  params { required(:email).filled }
+end
+</code></pre>
+
+<p class="">This appends validations to the existing <code class="text-purple">:email</code> group.</p>
+
+<h3 id="reform-2-validation-dry-validation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Dry-validation</h3>
+
+<p class="">Dry-validation is the preferred backend for defining and executing validations.</p>
+
+<p class="">The purest form of defining validations with this backend is by using a <a href="#reform-validation-validation-groups" class="underline text-purple">validation group</a>. A group provides the exact same API as a <code class="text-purple">Dry::Validation::Schema</code>. You can learn all the details on the <a href="https://github.com/dryrb/dry-validation" class="underline text-purple">gem’s website</a>.</p>
+
+<pre class=""><code class="rounded">class AlbumForm &lt; Reform::Form
+  feature Reform::Form::Dry
+
+  property :name
+
+  validation name: :default do
+    option :form
+
+    params do
+      required(:name).filled
+    end
+
+    rule(:name) do
+      key.failure('must be unique') if Album.where.not(id: form.model.id).where(name: value).exists?
+    end
+  end
+end
+</code></pre>
+
+<p class="">The validation block is what dry-v calls contract which can contains <code class="text-purple">params</code>, <code class="text-purple">rule</code> and <code class="text-purple">config</code>.</p>
+
+<p class=""><code class="text-purple">params</code> is a dry-v <code class="text-purple">Schema</code> and will contain all the basic built in predicates, instead in the <code class="text-purple">rule</code> block is where is possible to implement custom predicates.
+Remember that the <code class="text-purple">rule</code> block will not be executed in case the relative schema does not pass the validations. The <code class="text-purple">form</code> object is always passed into the <code class="text-purple">validation</code> block and it can be exposed using <code class="text-purple">option :form</code>.</p>
+
+<p class="">Make sure to read the <a href="http://dry-rb.org/gems/dry-validation" class="underline text-purple">documentation</a> for dry-validation, as it contains some very powerful concepts like high-level rules that give you much richer validation semantics as compared to AM:V.</p>
+
+<h4 id="dry-error-messages">Dry: Error Messages</h4>
+
+<p class="">You need to provide custom error messages via dry-validation mechanics.</p>
+
+<pre><code>validation :default do
+  config.messages.load_paths &lt;&lt; 'config/error_messages.yml'
+end
+</code></pre>
+
+<p class="">This is automatically configured to use the I18n gem if it’s available, which is true in a Rails environment.</p>
+
+<p class="">A simple error messages file might look as follows.</p>
+
+<pre><code>en:
+  errors:
+    same_password?: "passwords not equal"
+</code></pre>
+
+<h3 id="reform-2-validation-activemodel" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">ActiveModel</h3>
+
+<p class="">In Rails environments, the AM support will be automatically loaded.</p>
+
+<p class="">In other frameworks, you need to include <code class="text-purple">Reform::Form::ActiveModel::Validations</code> either into a particular form class, or simply into <code class="text-purple">Reform::Form</code> and make it available for all subclasses.</p>
+
+<pre><code>require "reform/form/active_model/validations"
+
+Reform::Form.class_eval do
+  feature Reform::Form::ActiveModel::Validations
+end
+</code></pre>
+
+<h4 id="uniqueness-validation">Uniqueness Validation</h4>
+
+<p class="">Both ActiveRecord and Mongoid modules will support “native” uniqueness support where the validation is basically delegated to the “real” model class. This happens when you use <code class="text-purple">validates_uniqueness_of</code> and will respect options like <code class="text-purple">:scope</code>, etc.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::ActiveRecord
+  model :song
+
+  property :title
+  validates_uniqueness_of :title, scope: [:album_id, :artist_id]
+end
+</code></pre>
+
+<p class="">Be warned, though, that those validators write to the model instance. Even though this <em>usually</em> is not persisted, this will mess up your application state, as in case of an invalid validation your model will have unexpected values.</p>
+
+<p class="">This is not Reform’s fault but a design flaw in ActiveRecord’s validators.</p>
+
+<h4 id="unique-validation">Unique Validation</h4>
+
+<p class="">You’re encouraged to use Reform’s non-writing <code class="text-purple">unique: true</code> validation, though.</p>
+
+<pre><code>require "reform/form/validation/unique_validator"
+
+class SongForm &lt; Reform::Form
+  property :title
+  validates :title, unique: true
+end
+</code></pre>
+
+<p class="">This will only validate the uniqueness of <code class="text-purple">title</code>.</p>
+
+<p class="">For uniqueness validation of multiple fields, use the <code class="text-purple">:scope</code> option.</p>
+
+<pre><code class="language-ruby">validates :user_id, unique: { scope: [:user_id, :song_id] }
+</code></pre>
+
+<p class="">Feel free to <a href="https://github.com/trailblazer/reform-rails/blob/master/lib/reform/form/validation/unique_validator.rb" class="underline text-purple">help us here</a>!</p>
+
+<h4 id="confirm-validation">Confirm Validation</h4>
+
+<p class="">Likewise, the <code class="text-purple">confirm: true</code> validation from ActiveResource is considered dangerous and should not be used. It also writes to the model and probably changes application state.</p>
+
+<p class="">Instead, use your own virtual fields.</p>
+
+<pre><code>class SignInForm &lt; Reform::Form
+  property :password, virtual: true
+  property :password_confirmation, virtual: true
+
+  validate :password_ok? do
+    errors.add(:password, "Password mismatch") if password != password_confirmation
+  end
+end
+</code></pre>
+
+<p class="">This is discussed in the <em>Authentication</em> chapter of the <a href="https://leanpub.com/trailblazer" class="underline text-purple">Trailblazer book</a>.</p>
+
+<h3 id="reform-2-validation-validations-for-file-uploads" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validations For File Uploads</h3>
+
+<p class="">In case you’re processing uploaded files with your form using CarrierWave, Paperclip, Dragonfly or Paperdragon we recommend using the awesome <a href="https://github.com/musaffa/file_validators" class="underline text-purple">file_validators</a> gem for file type and size validations.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  property :image
+
+  validates :image, file_size: {less_than: 2.megabytes},
+    file_content_type: {allow: ['image/jpeg', 'image/png', 'image/gif']}
+</code></pre>
+
+<h2 id="reform-2-rails" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Rails</h2>
+
+<p class="">Reform works with any framework, but comes with additional Rails glue code.</p>
+
+<h3 id="reform-2-rails-reform-rails" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Reform-Rails</h3>
+
+<p class="">The <code class="text-purple">reform</code> gem itself doesn’t contain any Rails-specific code but will still work, e.g. for JSON APIs. For extensive Rails support, add the <a href="https://github.com/trailblazer/reform-rails" class="underline text-purple"><code class="text-purple">reform-rails</code> gem</a>.</p>
+
+<pre><code class="language-ruby">gem "reform", "&gt;= 2.2.0"
+gem "reform-rails"
+</code></pre>
+
+<p class="">Per default, <code class="text-purple">reform-rails</code> will assume you want <code class="text-purple">ActiveModel::Validations</code> as the validation engine. This will include the following into <code class="text-purple">Reform::Form</code>.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10"><code class="text-purple">Form::ActiveModel</code> for form builder compliance so your form works with <code class="text-purple">form_for</code> and friends.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">Reform::Form::ActiveModel::FormBuilderMethods</code> to make Reform consume Rails form builder’s weird parameters, e.g. <code class="text-purple">{song_attributes: { number: 1 }}</code>.</li>
+  <li class="list-image-disc ml-10">Uniqueness validation for <code class="text-purple">ActiveRecord</code>.</li>
+</ul>
+
+<p class="">However, you can also use the new, <a href="#reform-validation-dry-validation" class="underline text-purple">recommended <code class="text-purple">dry-validation</code></a> backend, and you should check that out!</p>
+
+<p class="">To do so, add the gem to your Gemfile.</p>
+
+<pre><code class="language-ruby">gem "reform", "&gt;= 2.2.0"
+gem "reform-rails"
+gem "dry-validation"
+</code></pre>
+
+<p class="">And configure Reform in an initializer, e.g. <code class="text-purple">config/initializer/reform.rb</code> to load the new validation backend.</p>
+
+<pre><code class="language-ruby"> Rails.application.config.reform.validations = :dry
+</code></pre>
+
+<p class="">Make sure you use the API when writing dry validations.</p>
+
+<h3 id="reform-2-rails-uniqueness-validation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Uniqueness Validation</h3>
+
+<p class="">Both ActiveRecord and Mongoid modules will support “native” uniqueness support from the model class when you use <code class="text-purple">validates_uniqueness_of</code>. They will provide options like <code class="text-purple">:scope</code>, etc.</p>
+
+<p class="">You’re encouraged to use Reform’s non-writing <code class="text-purple">unique: true</code> validation, though. <a href="#reform-validation" class="underline text-purple">Learn more</a></p>
+
+<h3 id="reform-2-rails-activemodel-compliance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">ActiveModel Compliance</h3>
+
+<p class="">Forms in Reform can easily be made ActiveModel-compliant.</p>
+
+<p class="">Note that this step is <em>not</em> necessary in a Rails environment.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::ActiveModel
+end
+</code></pre>
+
+<p class="">If you’re not happy with the <code class="text-purple">model_name</code> result, configure it manually via <code class="text-purple">::model</code>.</p>
+
+<pre><code>class CoverSongForm &lt; Reform::Form
+  include Reform::Form::ActiveModel
+
+  model :song
+end
+</code></pre>
+
+<p class=""><code class="text-purple">::model</code> will configure ActiveModel’s naming logic. With <code class="text-purple">Composition</code>, this configures the main model of the form and should be called once.</p>
+
+<p class="">This is especially helpful when your framework tries to render <code class="text-purple">cover_song_path</code> although you want to go with <code class="text-purple">song_path</code>.</p>
+
+<h3 id="reform-2-rails-formbuilder-support" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">FormBuilder Support</h3>
+
+<p class="">To make your forms work with all Rails form gems like <code class="text-purple">simple_form</code> or Rails <code class="text-purple">form_for</code> don’t forget to include the <code class="text-purple">rails-reform</code> gem in your Gemfile.</p>
+
+<pre><code class="language-ruby">gem "reform-rails"
+</code></pre>
+
+<p class="">When using <code class="text-purple">ActiveModel</code> validations, this is all you have to do.</p>
+
+<h4 id="reform-2-rails-formbuilder-support-dry-validations" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">FormBuilder Support
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dry-validations</span>
+
+                  </h4>
+
+<p class="">However, if you’ve configured dry-validation as your validation framework you have to include at least the <code class="text-purple">FormBuilderMethods</code> module. This is necessary to translate Rails’ suboptimal songs_attributes weirdness back to normal <code class="text-purple">songs: </code> naming in <code class="text-purple">#validate</code>.</p>
+
+<p class="">You can configure <code class="text-purple">reform-rails</code> do enable form builder support with Dry-backed forms.</p>
+
+<pre><code># config/development.rb
+Rails.application.configure do
+  config.reform.enable_active_model_builder_methods = true
+end
+</code></pre>
+
+<p class="">The manual way would be as follows.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::ActiveModel
+  include Reform::Form::ActiveModel::FormBuilderMethods
+end
+</code></pre>
+
+<h4 id="simple-form">Simple Form</h4>
+
+<p class="">If you want full support for <code class="text-purple">simple_form</code> do as follows.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::ActiveModel::ModelReflections
+</code></pre>
+
+<p class="">Including this module will add <code class="text-purple">#column_for_attribute</code> and other methods need by form builders to automatically guess the type of a property.</p>
+
+<h3 id="reform-2-rails-validation-shortform" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validation Shortform</h3>
+
+<p class="">Luckily, this can be shortened as follows.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  property :title, validates: {presence: true}
+  property :length, validates: {numericality: true}
+end
+</code></pre>
+
+<p class="">Use <code class="text-purple">properties</code> to bulk-specify fields.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  properties :title, :length, validates: {presence: true} # both required!
+  validates :length, numericality: true
+end
+</code></pre>
+
+<h3 id="reform-2-rails-validations-from-models" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Validations From Models</h3>
+
+<p class="">Sometimes when you still keep validations in your models (which you shouldn’t) copying them to a form might not feel right. In that case, you can let Reform automatically copy them.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  property :title
+
+  extend ActiveModel::ModelValidations
+  copy_validations_from Song
+end
+</code></pre>
+
+<p class="">Note how <code class="text-purple">copy_validations_from</code> copies over the validations allowing you to stay DRY.</p>
+
+<p class="">This also works with Composition.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Composition
+  # ...
+
+  extend ActiveModel::ModelValidations
+  copy_validations_from song: Song, band: Band
+end
+</code></pre>
+
+<h3 id="reform-2-rails-activerecord-compatibility" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">ActiveRecord Compatibility</h3>
+
+<p class="">Reform provides the following <code class="text-purple">ActiveRecord</code> specific features. They’re mixed in automatically in a Rails/AR setup.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Uniqueness validations. Use <code class="text-purple">validates_uniqueness_of</code> in your form.</li>
+</ul>
+
+<p class="">As mentioned in the <a href="https://github.com/apotonick/reform#rails-integration" class="underline text-purple">Rails Integration</a> section some Rails 4 setups do not properly load.</p>
+
+<p class="">You may want to include the module manually then.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::ActiveRecord
+</code></pre>
+
+<h3 id="reform-2-rails-mongoid-compatibility" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Mongoid Compatibility</h3>
+
+<p class="">Reform provides the following <code class="text-purple">Mongoid</code> specific features. They’re mixed in automatically in a Rails/Mongoid setup.</p>
+
+<ul class="space-y-2">
+  <li class="list-image-disc ml-10">Uniqueness validations. Use <code class="text-purple">validates_uniqueness_of</code> in your form.</li>
+</ul>
+
+<p class="">You may want to include the module manually then.</p>
+
+<pre><code>class SongForm &lt; Reform::Form
+  include Reform::Form::Mongoid
+</code></pre>
+
+<h3 id="reform-2-rails-troubleshooting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Troubleshooting</h3>
+
+<ol>
+  <li class="list-image-disc ml-10">In case you explicitly <em>don’t</em> want to have automatic support for <code class="text-purple">ActiveRecord</code> or <code class="text-purple">Mongoid</code> and form builder: <code class="text-purple">require reform/form</code>, only.</li>
+  <li class="list-image-disc ml-10">In some setups around Rails 4 the <code class="text-purple">Form::ActiveRecord</code> module is not loaded properly, usually triggering a <code class="text-purple">NoMethodError</code> saying <code class="text-purple">undefined method 'model'</code>. If that happened to you, <code class="text-purple">require 'reform/rails'</code> manually at the bottom of your <code class="text-purple">config/application.rb</code>.</li>
+  <li class="list-image-disc ml-10">Mongoid form gets loaded with the gem if <code class="text-purple">Mongoid</code> constant is defined.</li>
+</ol>
+
+<h2 id="reform-2-upgrading-guide" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Upgrading Guide</h2>
+
+<p class="">We try to make upgrading as smooth as possible. Here’s the generic documentation, but don’t hesitate to ask for <a href="https://trailblazer.zulipchat.com/" class="underline text-purple">help on Zulip</a>.</p>
+
+<h3 id="reform-2-upgrading-guide-2-2-to-2-3" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">2.2 to 2.3</h3>
+
+<p class="">If you have been using dry-validation and you want to upgrade to version 1.x, get ready to change a lot of your code, unfortunately dry-validation API has been completely rewritten so we had to adapt. If instead you have ActiveModel/ActiveRecord the upgrade from 2.2 to 2.3 should be nice and easy.
+Please refer to the <a href="https://github.com/trailblazer/reform/blob/master/CHANGES.md" class="underline text-purple">CHANGES</a> in the repo.</p>
+
+<h3 id="reform-2-upgrading-guide-2-1-to-2-2" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">2.1 to 2.2</h3>
+
+<p class="">In a Rails environment with ActiveModel/ActiveRecord, you have to include the <a href="https://github.com/trailblazer/reform-rails" class="underline text-purple">reform-rails</a> gem.</p>
+
+<pre><code>gem "reform"
+gem "reform-rails"
+</code></pre>
+
+<h3 id="reform-2-upgrading-guide-1-2-to-2-0" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">1.2 to 2.0</h3>
+
+<h4 id="validations">Validations</h4>
+
+<p class="">Validations like <code class="text-purple">validates_acceptance_of</code> are not available anymore, you have to use the new syntax.</p>
+
+<pre><code>validates acceptance: true
+</code></pre>
+
+<h4 id="formvalid">Form#valid?</h4>
+
+<p class="">Using <code class="text-purple">form.valid?</code> is a private concept and was never publicly documented. It is still available (private) but you are strongly recommended to use <code class="text-purple">#validate</code> instead.</p>
+
+<h4 id="formupdate">Form#update!</h4>
+
+<p class="">Apparently, some people used <code class="text-purple">form.update!({..})</code> to pre-fillout forms. <code class="text-purple">#update!</code> has never been publicly documented and got removed in Reform 2. However, you can achieve the same behavior using the following hack.</p>
+
+<pre><code>Reform::Form.class_eval do
+  alias_method :update!, :deserialize
+  public :update!
+</code></pre>
+
+<h4 id="validation-backend">Validation Backend</h4>
+
+<p class="">This only is necessary when <em>not</em> using <code class="text-purple">reform/rails</code>, which is automatically loaded in a Rails environment.</p>
+
+<p class="">In an initializer, e.g. <code class="text-purple">config/initializers/reform.rb</code>.</p>
+
+<pre><code>require "reform/form/active_model/validations"
+Reform::Form.class_eval do
+  include Reform::Form::ActiveModel::Validations
+end
+</code></pre>
+
+        </div>
+
+            <!-- 5.5rem is lg navbar height -->
+        <div class="bg-white h-screen w-56 sticky top-[5.5rem]" id="right-toc">
+          <div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-overview">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Overview
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-api">API</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-setup">Setup</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-rendering">Rendering</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-validation">Validation</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-persisting">Persisting</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-installation">Installation</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-design-concepts">Design Concepts</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-overview-architecture">Architecture</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-api">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     API
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-overview">Overview</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-form-class">Form Class</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-property">Property</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-collection">Collection</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-nesting">Nesting</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-setup">Setup</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-validate">Validate</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-errors">Errors</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-save">Save</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-inheritance">Inheritance</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-forms-in-modules">Forms In Modules</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-dirty-tracker">Dirty Tracker</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-deserialization">Deserialization</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-population">Population</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-api-inflection">Inflection</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-options">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Options
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-disposable-api">Disposable API</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-virtual-attributes">Virtual Attributes</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-access-protection">Access Protection</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-coercion">Coercion</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-manual-coercion">Manual Coercion</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-deserializer">Deserializer</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-inheritance">Inheritance</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-skip_if">Skip_if</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-options-multiparameter-dates">Multiparameter Dates</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-data-types">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Data Types
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-data-types-composition">Composition</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-data-types-hash-fields">Hash Fields</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-populators">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Populators
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-the-problem">The Problem</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-declarative-dsl">Declarative DSL</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-populate_if_empty">Populate_if_empty</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populate_if_empty-custom">Custom</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populate_if_empty-arguments">Arguments</a>
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-populator">Populator</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populator-collections">Collections</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populator-return-value">Return Value</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populator-avoiding-index">Avoiding Index</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populator-single-property">Single Property</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-populators-populator-match-by-id">Match by ID</a>
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-delete">Delete</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-skip">Skip</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-populators-uninitialized-collections">Uninitialized Collections</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-prepopulating">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Prepopulating
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-configuration">Configuration</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-invocation">Invocation</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-prepopulate-is-not-populate">Prepopulate is not Populate</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-options">Options</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-execution">Execution</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-overriding">Overriding</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-prepopulating-defaults">Defaults</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-validation">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Validation
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-validation-validation-engine">Validation Engine</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-validation-validation-groups">Validation Groups</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-validation-dry-validation">Dry-validation</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-validation-activemodel">ActiveModel</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-validation-validations-for-file-uploads">Validations For File Uploads</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-rails">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Rails
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-reform-rails">Reform-Rails</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-uniqueness-validation">Uniqueness Validation</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-activemodel-compliance">ActiveModel Compliance</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-formbuilder-support">FormBuilder Support</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#reform-2-rails-formbuilder-support-dry-validations">Dry-validations</a>
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-validation-shortform">Validation Shortform</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-validations-from-models">Validations From Models</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-activerecord-compatibility">ActiveRecord Compatibility</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-mongoid-compatibility">Mongoid Compatibility</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-rails-troubleshooting">Troubleshooting</a>
+
+    
+  
+</div>
+
+
+<div class="display_none bg-white p-5 w-56 shrink-0 text-bg-blue overflow-y-scroll top-22" id="right-toc-reform-2-upgrading-guide">
+  <h4 class="font-base font-bold leading-10 pl-2">
+     Upgrading Guide
+  </h4>
+
+  
+    <a class="block px-2 leading-8" href="#reform-2-upgrading-guide-2-2-to-2-3">2.2 to 2.3</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-upgrading-guide-2-1-to-2-2">2.1 to 2.2</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#reform-2-upgrading-guide-1-2-to-2-0">1.2 to 2.0</a>
+
+    
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="lg:text-left bg-bg-blue py-16 text-white text-center text-base">
+  <div class="lg:flex justify-between w-11/12 max-w-[80rem] mx-auto">
+    <div class="lg:flex lg:flex-col lg:justify-between">
+      <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
+        <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
+      </a>
+      <div class="lg:block hidden">
+        © 2023 Trailblazer GmbH
+      </div>
+    </div>
+    <div class="lg:flex lg:gap-20 xl:gap-40">
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Documentation</a>
+        <a href="#">About</a>
+        <a href="#">Community</a>
+        <a href="#">Blog</a>
+        <a href="#">Legal</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Products</a>
+        <a href="#">Trailblazer</a>
+        <a href="#">Trailblazer Pro</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="lg:mt-0 flex flex-col gap-5 mt-15">
+        <a class="font-bold text-xl" href="#">Learn</a>
+        <a href="#">What is Trailblazer?</a>
+        <a href="#">Trailblazer PRO</a>
+        <a href="#">Tips and Tutorials</a>
+        <a href="https://trailblazer.zulipchat.com">Chat</a>
+      </div>
+    </div>
+  </div>
+  <div class="lg:hidden mt-15">
+    © 2023 Trailblazer GmbH
+  </div>
+</footer>
+
+
+  </body>
+</html>
