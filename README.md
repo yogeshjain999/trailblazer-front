@@ -61,3 +61,7 @@ rm -r docs/*
 cp -R public/2.1/ docs/ && cp -R public/assets docs/
 touch docs/index.html
 
+
+## Notes
+
+We could remove public/2.1 and public/assets from git control since it's copied to dist/.

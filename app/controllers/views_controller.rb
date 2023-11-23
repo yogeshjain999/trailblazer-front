@@ -496,6 +496,18 @@ class ViewsController < ApplicationController
     )
   end
 
+  module About
+    class Cell
+      include Application::Cell::Layout::Render
+    end
+
+    Flow = Cms::Flow.build(
+      page:         {template_file: "app/concepts/cell/about/about.erb", context_class: Pro::Cell, options_for_cell: Cms::Flow.options_for_cell_without_content},
+      application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
+    )
+  end
+
   Pages = {
     # top-level options, going to all books.
     render: Documentation::Render,
@@ -823,6 +835,24 @@ class ViewsController < ApplicationController
         target_file: "public/2.1/pro.html",
         target_url:  "/2.1/pro.html",
         render: Pro::Flow,
+
+        section_cell_options: {
+          controller: self,
+        },
+      }
+    },
+
+    "about_us_page" => {
+      page_identifier: "about_us",
+      toc_title: "About us",
+      include_in_toc: false,
+      "2.1" => {
+        title: "Trailblazer PRO",
+        snippet_dir: "../trailblazer-activity-dsl-linear/test/docs",
+        section_dir: "section/page",
+        target_file: "public/2.1/about_us.html",
+        target_url:  "/2.1/about_us.html",
+        render: About::Flow,
 
         section_cell_options: {
           controller: self,
