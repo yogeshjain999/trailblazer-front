@@ -159,7 +159,12 @@ class ViewsController < ApplicationController
 
         module H
           class Render < Torture::Cms::Helper::Header::Render
+            step :wrap_text, before: :render_header
             step :embed, before: :render_header # append {:embed} to {:display_title}.
+
+            def wrap_text(ctx, display_title:, **)
+              ctx[:display_title] = %(<span>#{display_title}</span>)
+            end
 
             def embed(ctx, embed: nil, display_title:, **)
               return true unless embed
