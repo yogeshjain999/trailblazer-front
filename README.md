@@ -39,6 +39,16 @@ $ rails site:deploy
 Will update `dist/` and push everything to `main`.
 
 
+## Algolia
+
+Check crawls
+
+https://crawler.algolia.com/admin/crawlers/870e3bcd-5879-4bfd-9d57-8241620b249b/overview
+
+Edit
+
+https://crawler.algolia.com/admin/crawlers/870e3bcd-5879-4bfd-9d57-8241620b249b/configuration/edit
+
 ## Tailwind CSS principles to follow
 
 - Use Tailwind CSS utility classes as much as possible.
