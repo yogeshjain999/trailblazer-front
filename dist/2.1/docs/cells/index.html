@@ -349,7 +349,7 @@
     <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
-        <span class="font-black uppercase">
+        <span class="font-black uppercase header-text">
           Cells 4
         </span>
         Documentation
@@ -365,15 +365,15 @@
 
 <p class="">In other words: <strong>A cell is an object that can render a template.</strong></p>
 
-<h2 id="cells-4-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Overview</span></h2>
+<h2 id="cells-4-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Overview</span></h2>
 
 <p class="">Cells are faster than ActionView. While exposing a better performance, you step-wise encapsulate fragments into cell widgets and enforce interfaces.</p>
 
-<h3 id="cells-4-overview-view-model" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>View Model</span></h3>
+<h3 id="cells-4-overview-view-model" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">View Model</span></h3>
 
 <p class="">Think of cells, or <em>view models</em>, as small Rails controllers, but without any HTTP coupling. Cells embrace all presentation and rendering logic to present a fragment of the UI.</p>
 
-<h3 id="cells-4-overview-rendering-a-cell" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Rendering a Cell</span></h3>
+<h3 id="cells-4-overview-rendering-a-cell" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Rendering a Cell</span></h3>
 
 <p class="">Cells can be rendered anywhere in your application. Mostly, you want to use them in controller views or actions to replace a complex helper/partial mess.</p>
 
@@ -385,7 +385,7 @@
 
 <p class="">This will instantiate and invoke the <code class="text-purple">Comment::Cell</code> for each comment. It is completely up to the cell how to return the necessary markup.</p>
 
-<h3 id="cells-4-overview-cell-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Cell Class</span></h3>
+<h3 id="cells-4-overview-cell-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Cell Class</span></h3>
 
 <p class="">Following the Trailblazer convention, the <code class="text-purple">Comment::Cell</code> sits in <code class="text-purple">app/concepts/comment/cell.rb</code>.</p>
 
@@ -406,7 +406,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
 
 <p class="">Note that you can pass anything into a cell. This can be an ActiveRecord model, a PORO or an array of attachments. The cell provides access to it via <code class="text-purple">model</code> and it’s your job do use it correctly.</p>
 
-<h3 id="cells-4-overview-cell-views" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Cell Views</span></h3>
+<h3 id="cells-4-overview-cell-views" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Cell Views</span></h3>
 
 <p class="">While we already have a cleaner interface as compared to helpers accessing to global state, the real power of Cells comes when rendering views. This, again, is similar to controllers.</p>
 
@@ -428,7 +428,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
 
 <p class="">That’s right, you can use Rails helpers in cell views.</p>
 
-<h3 id="cells-4-overview-no-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>No Helpers</span></h3>
+<h3 id="cells-4-overview-no-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">No Helpers</span></h3>
 
 <p class="">While you could reference <code class="text-purple">model</code> throughout your view and strongly couple view and model, Cells makes it extremely simple to have logicless views and move presentation code to the cell instance itself.</p>
 
@@ -458,7 +458,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
 
 <p class="">What were global helper functions are now instance methods. All Rails helpers like <code class="text-purple">link_to</code> are available on the cell instance.</p>
 
-<h3 id="cells-4-overview-properties" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Properties</span></h3>
+<h3 id="cells-4-overview-properties" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Properties</span></h3>
 
 <p class="">Delegating attributes to the model is so common it is built into Cells.</p>
 
@@ -479,7 +479,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
 
 <p class="">The <code class="text-purple">::property</code> declaration will create a delegating method for you.</p>
 
-<h3 id="cells-4-overview-testing" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Testing</span></h3>
+<h3 id="cells-4-overview-testing" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Testing</span></h3>
 
 <p class="">The best part about Cells is: you can test them in isolation. If they work in a test, they will work just anywhere.</p>
 
@@ -493,7 +493,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
 
 <p class="">The <code class="text-purple">concept</code> helper will behave exactly like in a controller or view and allows you to write rock-solid test for view components with a very simple API.</p>
 
-<h3 id="cells-4-overview-more" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>More</span></h3>
+<h3 id="cells-4-overview-more" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">More</span></h3>
 
 <p class="">Cells comes with a bunch of helpful features like nesting, caching, view inheritance, and more.</p>
 
@@ -506,7 +506,7 @@ Whatever you return from the <code class="text-purple">show</code> method will b
   <li class="list-image-disc ml-10">In the <code class="text-purple">layout.haml</code> view, the navigation cell is also rendered. This cell needs a <code class="text-purple">current_user</code> option which is provided by the <em>context object</em>.</li>
 </ol>
 
-<h3 id="cells-4-overview-context-object" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Context Object</span></h3>
+<h3 id="cells-4-overview-context-object" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Context Object</span></h3>
 
 <p class="">When rendering a hierarchy of cells, it’s often necessary to share generic data across all involved cells. This always happens via dependency injection, no global state is allowed in Trailblazer.</p>
 
@@ -538,11 +538,11 @@ end
 
 <p class="">Note that <code class="text-purple">:current_user</code> is not an option anymore, but comes from the <code class="text-purple">context</code> object.</p>
 
-<h3 id="cells-4-overview-success" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Success</span></h3>
+<h3 id="cells-4-overview-success" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Success</span></h3>
 
 <p class="">As demonstrated in this guide, it’s not really hard to replace the existing rendering stack, whether that’s <code class="text-purple">ActionView</code> or <code class="text-purple">Hanami::View</code> or Sinatra templates, with Cells.</p>
 
-<h2 id="cells-4-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>API</span></h2>
+<h2 id="cells-4-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">API</span></h2>
 
 <p class="">A cell is an object that can render views. It represents a fragment of the page, or the entire page.</p>
 
@@ -552,7 +552,7 @@ end
 
 <p class="">The return value of this public method (also called <em>state</em>) is what will be the rendered in the view using the cell.</p>
 
-<h3 id="cells-4-api-anatomy" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Anatomy</span></h3>
+<h3 id="cells-4-api-anatomy" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Anatomy</span></h3>
 
 <p class="">Cells usually inherit from <code class="text-purple">Cell::ViewModel</code>.</p>
 
@@ -567,7 +567,7 @@ end
 
 <p class="">This snippet illustrates a <em>suffix cell</em>, because it follows the outdated Rails-style naming and file structure. We encourage you to use <a href="#cells-trailblazer" class="underline text-purple">Trailblazer cells</a>. However, this document mostly describes the generic API.</p>
 
-<h3 id="cells-4-api-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Show</span></h3>
+<h3 id="cells-4-api-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Show</span></h3>
 
 <p class="">As per convention, <code class="text-purple">#show</code> is the only public method of a cell class.</p>
 
@@ -589,7 +589,7 @@ end
 
 <p class="">This can be split up into two steps: initialization and invocation.</p>
 
-<h3 id="cells-4-api-initialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Initialize</span></h3>
+<h3 id="cells-4-api-initialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Initialize</span></h3>
 
 <p class="">You may instantiate cells manually, wherever you want.</p>
 
@@ -600,7 +600,7 @@ end
 
 <p class="">Note that usually you pass in an arbitrary object into the cell, the <em>“model”</em>. Here, this is the <code class="text-purple">comment</code> instance.</p>
 
-<h3 id="cells-4-api-model" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Model</span></h3>
+<h3 id="cells-4-api-model" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Model</span></h3>
 
 <p class="">The model you pass into the cell’s constructor is completely up to you! It could be an ActiveRecord instance, a <code class="text-purple">Struct</code>, or an array of items.</p>
 
@@ -613,7 +613,7 @@ end
 
 <p class="">The term <em>model</em> is really not to be confused with the way Rails uses it - it can be just anything.</p>
 
-<h3 id="cells-4-api-property" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Property</span></h3>
+<h3 id="cells-4-api-property" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Property</span></h3>
 
 <p class="">Cells allow a short form to access model’s attributes using the <code class="text-purple">property</code> class method.</p>
 
@@ -629,7 +629,7 @@ end
 
 <p class="">Using <code class="text-purple">::property</code> will create a convenient reader method for you to the model.</p>
 
-<h3 id="cells-4-api-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Options</span></h3>
+<h3 id="cells-4-api-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Options</span></h3>
 
 <p class="">Along with the model, you may also pass arbitrary options into the cell, for example the current user.</p>
 
@@ -643,7 +643,7 @@ end
 end
 </code></pre>
 
-<h3 id="cells-4-api-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Invocation</span></h3>
+<h3 id="cells-4-api-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Invocation</span></h3>
 
 <p class="">Once you’ve got the cell instance, you may call the rendering state. This happens via <code class="text-purple">ViewModel#call</code>.</p>
 
@@ -662,7 +662,7 @@ end
 
 <p class="">Note that in Rails controller views, this will be called automatically via cell’s <code class="text-purple">ViewModel#to_s</code> method.</p>
 
-<h3 id="cells-4-api-call" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Call</span></h3>
+<h3 id="cells-4-api-call" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Call</span></h3>
 
 <p class="">Always invoke cell methods via <code class="text-purple">call</code>. This will ensure that caching - if configured - is performed properly.</p>
 
@@ -706,7 +706,7 @@ end
 
 <p class="">This is particularly interesting when passing the block to <code class="text-purple">render</code> and using <code class="text-purple">yield</code> in the view. See <a href="#cells-api-render" class="underline text-purple">render</a>’s docs for that.</p>
 
-<h3 id="cells-4-api-default-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Default Show</span></h3>
+<h3 id="cells-4-api-default-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Default Show</span></h3>
 
 <p class="">Per default, every cell derived from <code class="text-purple">Cell::ViewModel</code> has a built-in <code class="text-purple">show</code> method.</p>
 
@@ -726,7 +726,7 @@ end
 
 <p class="">Of course, you’re free to override <code class="text-purple">show</code> to do whatever it needs to do.</p>
 
-<h3 id="cells-4-api-instantiation-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Instantiation Helper</span></h3>
+<h3 id="cells-4-api-instantiation-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Instantiation Helper</span></h3>
 
 <p class="">In most environments you will instantiate cells with the <code class="text-purple">concept</code> or <code class="text-purple">cell</code> helper which internally does exactly the same as the manual invocation.</p>
 
@@ -745,7 +745,7 @@ end
 <pre><code>cell = cell(CommentCell, comment)
 </code></pre>
 
-<h3 id="cells-4-api-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>File Structure</span></h3>
+<h3 id="cells-4-api-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">File Structure</span></h3>
 
 <p class="">Having a cell to represent a fragment of your page is one thing. The real power, whatsoever, comes when rendering templates in cells. The <code class="text-purple">render</code> method does just that.</p>
 
@@ -762,7 +762,7 @@ end
 
 <p class="">Note that the <em>suffix</em> style shown above is deprecated, and will be superseded in Cells 5 by the <a href="#cells-trailblazer" class="underline text-purple">Trailblazer</a>-style naming and file structure.</p>
 
-<h3 id="cells-4-api-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Render</span></h3>
+<h3 id="cells-4-api-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Render</span></h3>
 
 <pre><code>class CommentCell &lt; Cell::ViewModel
   def show
@@ -804,7 +804,7 @@ end
 <pre><code>render locals: { logged_in: options[:current_user] }
 </code></pre>
 
-<h3 id="cells-4-api-instance-methods" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Instance Methods</span></h3>
+<h3 id="cells-4-api-instance-methods" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Instance Methods</span></h3>
 
 <p class="">While it is fine to use locals or instance variables in the view to access data, the preferred way is invoking instance methods in the view.</p>
 
@@ -829,7 +829,7 @@ end
 
 <p class="">Note that you can use Rails in the instance level, too, if you’re in a Rails environment.</p>
 
-<h3 id="cells-4-api-yield" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Yield</span></h3>
+<h3 id="cells-4-api-yield" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Yield</span></h3>
 
 <p class="">A block passed to the cell constructor is passed on to the state method.</p>
 
@@ -851,7 +851,7 @@ end
 = yield
 </code></pre>
 
-<h3 id="cells-4-api-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Collection</span></h3>
+<h3 id="cells-4-api-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Collection</span></h3>
 
 <p class="">Instead of manually iterating an array of models and concatenating the output of the item cell, you can use the <code class="text-purple">:collection</code> feature.</p>
 
@@ -913,7 +913,7 @@ cell(:post, collection: Post.all).join("&lt;hr/&gt;")
 # =&gt; "My post&lt;hr/&gt;My post&lt;hr/&gt;My post"
 </code></pre>
 
-<h3 id="cells-4-api-external-layout" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>External Layout</span></h3>
+<h3 id="cells-4-api-external-layout" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">External Layout</span></h3>
 
 <p class="">Since Cells 4.1, you can instruct your cell to use a second cell as a wrapper. This will first render your actual content cell, then pass the content via a block to the layout cell.</p>
 
@@ -951,7 +951,7 @@ end
 
 <p class="">Note that <code class="text-purple">:layout</code> also works in combination with <code class="text-purple">:collection</code>.</p>
 
-<h3 id="cells-4-api-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>View Paths</span></h3>
+<h3 id="cells-4-api-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">View Paths</span></h3>
 
 <p class="">Per default, the cell’s view path is set to <code class="text-purple">app/cells</code>. You can set any number of view paths for the template file lookup.</p>
 
@@ -961,7 +961,7 @@ end
 
 <p class="">Note that the default view paths are different if you’re using the <a href="#cells-trailblazer" class="underline text-purple">Trailblazer-style file structure</a>.</p>
 
-<h3 id="cells-4-api-template-formats" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Template Formats</span></h3>
+<h3 id="cells-4-api-template-formats" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Template Formats</span></h3>
 
 <p class="">Cells provides support for a handful of popular template formats like ERB, Haml, etc.</p>
 
@@ -985,7 +985,7 @@ end
 end
 </code></pre>
 
-<h3 id="cells-4-api-html-escaping" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>HTML Escaping</span></h3>
+<h3 id="cells-4-api-html-escaping" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">HTML Escaping</span></h3>
 
 <p class="">Cells per default does no HTML escaping, anywhere. This is one of the reasons why Cells is much faster than Rails’ ActionView.</p>
 
@@ -1014,7 +1014,7 @@ end
 <pre><code>&lt;%= title(escape: false) %&gt;
 </code></pre>
 
-<h3 id="cells-4-api-context-object" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Context Object</span></h3>
+<h3 id="cells-4-api-context-object" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Context Object</span></h3>
 
 <p class="">By default, every cell contains a context object. When <a href="#cells-api-nesting" class="underline text-purple">nesting cells</a>, this object gets passed in automatically. To add objects to the context, use the <code class="text-purple">:context</code> option.</p>
 
@@ -1033,7 +1033,7 @@ end
 
 <p class="">Note that the context object gets <code class="text-purple">dup</code>ed when adding to it into nested cells. This is to prevent leaking nested state back into parent objects.</p>
 
-<h3 id="cells-4-api-nesting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Nesting</span></h3>
+<h3 id="cells-4-api-nesting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Nesting</span></h3>
 
 <p class="">You can invoke cells in cells. This happens with the <code class="text-purple">cell</code> helper.</p>
 
@@ -1045,7 +1045,7 @@ end
 
 <p class="">The <code class="text-purple">cell</code> helper will automatically pass the context object to the nested cell.</p>
 
-<h3 id="cells-4-api-view-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>View Inheritance</span></h3>
+<h3 id="cells-4-api-view-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">View Inheritance</span></h3>
 
 <p class="">Cells can inherit code from each other through Ruby’s regular inheritance mechanisms.</p>
 
@@ -1072,7 +1072,7 @@ end
 PostCell.prefixes #=&gt; ["app/cells/post", "app/cells/comment"]
 </code></pre>
 
-<h3 id="cells-4-api-builder" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Builder</span></h3>
+<h3 id="cells-4-api-builder" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Builder</span></h3>
 
 <p class="">Often, it’s good practice to replace decider code from views or classes by extracting it out into separate sub-cells. Or in case you want to render a polymorphic collection, builders come in handy.</p>
 
@@ -1100,7 +1100,7 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
 
 <p class="">Multiple calls to <code class="text-purple">::builds</code> will be ORed. If no block returns a class, the original class will be used (<code class="text-purple">CommentCell</code>). Builders are inherited.</p>
 
-<h3 id="cells-4-api-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Caching</span></h3>
+<h3 id="cells-4-api-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Caching</span></h3>
 
 <p class="">Cells allow you to cache per state. It’s simple: the rendered result of a state method is cached and expired as you configure it.</p>
 
@@ -1116,7 +1116,7 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
 
 <p class="">This will run <code class="text-purple">#show</code> only once, after that the rendered view comes from the cache.</p>
 
-<h3 id="cells-4-api-cache-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Cache Options</span></h3>
+<h3 id="cells-4-api-cache-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Cache Options</span></h3>
 
 <p class="">Note that you can pass arbitrary options through to your cache store. Symbols are evaluated as instance methods, callable objects (e.g. lambdas) are evaluated in the cell instance context allowing you to call instance methods and access instance variables. All arguments passed to your state (e.g. via <code class="text-purple">render_cell</code>) are propagated to the block.</p>
 
@@ -1138,14 +1138,14 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
   end
 </code></pre>
 
-<h3 id="cells-4-api-conditional-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Conditional Caching</span></h3>
+<h3 id="cells-4-api-conditional-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Conditional Caching</span></h3>
 
 <p class="">The <code class="text-purple">:if</code> option lets you define a condition. If it doesn’t return a true value, caching for that state is skipped.</p>
 
 <pre><code>cache :show, :if =&gt; lambda { |*| has_changed? }
 </code></pre>
 
-<h3 id="cells-4-api-cache-keys" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Cache Keys</span></h3>
+<h3 id="cells-4-api-cache-keys" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Cache Keys</span></h3>
 
 <p class="">You can expand the state’s cache key by appending a versioner block to the <code class="text-purple">::cache</code> call. This way you can expire state caches yourself.</p>
 
@@ -1167,7 +1167,7 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
 
 <p class="">Resulting in: <code class="text-purple">"cells/cart/show/1/0ecb1360644ce665a4ef"</code>.</p>
 
-<h3 id="cells-4-api-debugging-cache" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Debugging Cache</span></h3>
+<h3 id="cells-4-api-debugging-cache" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Debugging Cache</span></h3>
 
 <p class="">When caching is turned on, you might wanna see notifications. Just like a controller, Cells gives you the following notifications.</p>
 
@@ -1182,18 +1182,18 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
   include Cell::Caching::Notifications
 </code></pre>
 
-<h3 id="cells-4-api-cache-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Cache Inheritance</span></h3>
+<h3 id="cells-4-api-cache-inheritance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Cache Inheritance</span></h3>
 
 <p class="">Cache configuration is inherited to derived cells.</p>
 
-<h3 id="cells-4-api-testing-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Testing Caching</span></h3>
+<h3 id="cells-4-api-testing-caching" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Testing Caching</span></h3>
 
 <p class="">If you want to test it in <code class="text-purple">development</code>, you need to update <code class="text-purple">development.rb</code> to see the effect.</p>
 
 <pre><code class="language-ruby">config.action_controller.perform_caching = true
 </code></pre>
 
-<h2 id="cells-4-trailblazer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Trailblazer</span></h2>
+<h2 id="cells-4-trailblazer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Trailblazer</span></h2>
 
 <p class="">This documents the Trailblazer-style cells semantics, brought to you by the <a href="https://github.com/trailblazer/trailblazer-cells" class="underline text-purple">trailblazer-cells</a> gem.</p>
 
@@ -1208,7 +1208,7 @@ cell(:comment, collection: [@post, @comment]) #=&gt; renders PostCell, then Comm
 
 <p class="">A <code class="text-purple">Trailblazer::Cell</code> is a normal cell with Trailblazer semantics added. Naming, file structure, and the way views are resolved follow the TRB style. Note that this will be the standard for Cells 5, which will drop all old “dialects”.</p>
 
-<h3 id="cells-4-trailblazer-installation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Installation</span></h3>
+<h3 id="cells-4-trailblazer-installation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Installation</span></h3>
 
 <pre><code>gem "trailblazer-cells"
 gem "cells-slim"
@@ -1216,7 +1216,7 @@ gem "cells-slim"
 
 <p class="">Make sure you also add the view engine. We recommend <a href="https://github.com/trailblazer/cells-slim" class="underline text-purple"><code class="text-purple">cells-slim</code></a>.</p>
 
-<h3 id="cells-4-trailblazer-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>File Structure</span></h3>
+<h3 id="cells-4-trailblazer-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">File Structure</span></h3>
 
 <p class="">In Trailblazer, cell classes sit in their concept’s <code class="text-purple">cell</code> directory, the corresponding views sit in the <code class="text-purple">view</code> directory.</p>
 
@@ -1239,7 +1239,7 @@ gem "cells-slim"
 
 <p class="">Also, the view names with <code class="text-purple">Trailblazer::Cell</code> are <em>not</em> called <code class="text-purple">show.slim</code>, but named after its corresponding cell class. For instance, <code class="text-purple">Comment::Cell::Index</code> will render <code class="text-purple">comment/view/index.slim</code>.</p>
 
-<h3 id="cells-4-trailblazer-naming" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Naming</span></h3>
+<h3 id="cells-4-trailblazer-naming" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Naming</span></h3>
 
 <p class="">As always, the Trailblazer naming applies.</p>
 
@@ -1259,7 +1259,7 @@ end
 
 <p class="">This is different to old suffix-cells. While the <code class="text-purple">show</code> method still is the public method, calling <code class="text-purple">render</code> will use the <code class="text-purple">new.slim</code> view, as inferred from the cell’s last class constant segment (<code class="text-purple">New</code>).</p>
 
-<h3 id="cells-4-trailblazer-default-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Default Show</span></h3>
+<h3 id="cells-4-trailblazer-default-show" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Default Show</span></h3>
 
 <p class="">Note that you don’t have to provide a <code class="text-purple">show</code> method, it is created automatically.</p>
 
@@ -1273,7 +1273,7 @@ end
 
 <p class="">You’re free to override <code class="text-purple">show</code>, though.</p>
 
-<h3 id="cells-4-trailblazer-view-names" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>View Names</span></h3>
+<h3 id="cells-4-trailblazer-view-names" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">View Names</span></h3>
 
 <p class="">Per default, the view name is computed from the cell’s class name.</p>
 
@@ -1300,14 +1300,14 @@ Comment::Cell::Themed::New #=&gt; "comment/view/new.slim"
 
 <p class="">This will always result in a flat name where the view name is inferred from the last segment of the cell constant.</p>
 
-<h3 id="cells-4-trailblazer-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Invocation</span></h3>
+<h3 id="cells-4-trailblazer-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Invocation</span></h3>
 
 <p class="">To render a cell in controllers, views, or other cells, use <code class="text-purple">cell</code>. You need to provide the constant directly. Ruby’s constant lookup rules apply.</p>
 
 <pre><code>html = cell(Comment::Cell::New, result["model"]).()
 </code></pre>
 
-<h3 id="cells-4-trailblazer-layouts" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Layouts</span></h3>
+<h3 id="cells-4-trailblazer-layouts" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Layouts</span></h3>
 
 <p class="">It’s a common pattern to maintain a cell representing the application’s layout(s). Usually, it resides in a concept named after the application.</p>
 
@@ -1347,11 +1347,11 @@ end
 
 <p class="">This will render the <code class="text-purple">Comment::Cell::New</code>, instantiate <code class="text-purple">Gemgem::Cell::Layout</code> and pass through the context object, then render the layout around it.</p>
 
-<h2 id="cells-4-testing" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Testing</span></h2>
+<h2 id="cells-4-testing" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Testing</span></h2>
 
 <p class="">Only a few methods are needed to integrate cells testing into your test suite. This is implemented in <code class="text-purple">Cell::Testing</code>.</p>
 
-<h3 id="cells-4-testing-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>API</span></h3>
+<h3 id="cells-4-testing-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">API</span></h3>
 
 <p class="">Regardless of your test environment (Rspec, MiniTest, etc.) the following methods are available.</p>
 
@@ -1377,7 +1377,7 @@ end
 end
 </code></pre>
 
-<h3 id="cells-4-testing-minitest-test-unit" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>MiniTest, Test::Unit</span></h3>
+<h3 id="cells-4-testing-minitest-test-unit" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">MiniTest, Test::Unit</span></h3>
 
 <p class="">In case you’re <em>not</em> using Rspec, derive your tests from <code class="text-purple">Cell::TestCase</code>.</p>
 
@@ -1400,7 +1400,7 @@ end
 
 <p class="">This will provide a testable controller via <code class="text-purple">#controller</code>, which is automatically used in <code class="text-purple">Testing#concept</code> and <code class="text-purple">Testing#cell</code>.</p>
 
-<h3 id="cells-4-testing-rspec" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Rspec</span></h3>
+<h3 id="cells-4-testing-rspec" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Rspec</span></h3>
 
 <p class="">Rspec works with the <a href="https://github.com/apotonick/rspec-cells" class="underline text-purple"><code class="text-purple">rspec-cells</code> gem</a>.</p>
 
@@ -1428,7 +1428,7 @@ end
 
 <p class="">This will provide a testable controller via <code class="text-purple">#controller</code>.</p>
 
-<h3 id="cells-4-testing-capybara-support" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Capybara Support</span></h3>
+<h3 id="cells-4-testing-capybara-support" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Capybara Support</span></h3>
 
 <p class="">Per default, Capybara support is enabled in <code class="text-purple">Cell::TestCase</code> when the Capybara gem is loaded. This works for both Minitest and Rspec.</p>
 
@@ -1447,7 +1447,7 @@ end
 <pre><code>Cell::Testing.capybara = false
 </code></pre>
 
-<h3 id="cells-4-testing-capybara-with-minitest-rails-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Capybara with Minitest (Rails)</span></h3>
+<h3 id="cells-4-testing-capybara-with-minitest-rails-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Capybara with Minitest (Rails)</span></h3>
 
 <p class="">With Minitest, the recommended approach is to use the <code class="text-purple">minitest-rails-capybara</code> gem.</p>
 
@@ -1471,7 +1471,7 @@ end
 
 <p class="">Here’s an example <a href="https://github.com/apotonick/gemgem-trbrb/blob/7cc8c7a0de78ba00092957a32d8cd234f102c73f/test/test_helper.rb#L19" class="underline text-purple">how we do it</a> in Gemgem.</p>
 
-<h3 id="cells-4-testing-capybara-with-minitest-spec" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Capybara with Minitest::Spec</span></h3>
+<h3 id="cells-4-testing-capybara-with-minitest-spec" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Capybara with Minitest::Spec</span></h3>
 
 <p class="">In a non-Rails environment, the <a href="https://github.com/ordinaryzelig/capybara_minitest_spec" class="underline text-purple">capybara_minitest_spec</a> gem is what we use.</p>
 
@@ -1500,9 +1500,9 @@ Cell::Testing.capybara = true
 end
 </code></pre>
 
-<h2 id="cells-4-rendering" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Rendering</span></h2>
+<h2 id="cells-4-rendering" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Rendering</span></h2>
 
-<h3 id="cells-4-rendering-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>View Paths</span></h3>
+<h3 id="cells-4-rendering-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">View Paths</span></h3>
 
 <p class="">Every cell class can have multiple view paths. However, I advise you not to have more than two, better one, unless you’re implementing a cell in an engine. This is simply to prevent unexpected behavior.</p>
 
@@ -1528,7 +1528,7 @@ end
 
 <p class="">This is the authorative list when finding templates. It will include inherited cell’s directories as well when you used inheritance. The list is traversed from left to right.</p>
 
-<h3 id="cells-4-rendering-partials" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Partials</span></h3>
+<h3 id="cells-4-rendering-partials" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Partials</span></h3>
 
 <p class="">Even considered a taboo, you may render global partials from Cells.</p>
 
@@ -1542,11 +1542,11 @@ end
 
 <p class="">Make sure to use the <code class="text-purple">:partial</code> option and specify a path relative to the cell’s view path. Cells will automatically add the format and the terrible underscore, resulting in <code class="text-purple">"../views/shared/_sidebar.html.erb"</code>.</p>
 
-<h2 id="cells-4-rails" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Rails</span></h2>
+<h2 id="cells-4-rails" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Rails</span></h2>
 
 <p class="">When using cells in a Rails app there’s several nice features to benefit from.</p>
 
-<h3 id="cells-4-rails-asset-pipeline" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Asset Pipeline</span></h3>
+<h3 id="cells-4-rails-asset-pipeline" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Asset Pipeline</span></h3>
 
 <p class="">Cells can bundle their own assets in the cell’s view directory. This is a very popular way of writing highly reusable components.</p>
 
@@ -1583,7 +1583,7 @@ end
  */
 </code></pre>
 
-<h3 id="cells-4-rails-asset-pipeline-with-trailblazer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Asset Pipeline With Trailblazer</span></h3>
+<h3 id="cells-4-rails-asset-pipeline-with-trailblazer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Asset Pipeline With Trailblazer</span></h3>
 
 <p class="">With Trailblazer, cells follow a different naming structure.</p>
 
@@ -1614,7 +1614,7 @@ end
  */
 </code></pre>
 
-<h3 id="cells-4-rails-assets-troubleshooting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Assets Troubleshooting</span></h3>
+<h3 id="cells-4-rails-assets-troubleshooting" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Assets Troubleshooting</span></h3>
 
 <p class="">The Asset Pipeline is a complex system. If your assets are not compiled, start debugging in <a href="https://github.com/trailblazer/cells-rails/blob/master/lib/cell/railtie.rb" class="underline text-purple">Cells’ railtie</a> and uncomment the <code class="text-purple">puts</code> in the <code class="text-purple">cells.update_asset_paths</code> initializer to see what directories get added.</p>
 
@@ -1628,7 +1628,7 @@ end
 <pre><code>rake assets:precompile:all RAILS_ENV=development RAILS_GROUPS=assets
 </code></pre>
 
-<h3 id="cells-4-rails-global-partials" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Global Partials</span></h3>
+<h3 id="cells-4-rails-global-partials" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Global Partials</span></h3>
 
 <p class="">Although not recommended, you can also render global partials from a cell. Be warned, though, that they will be rendered using our stack, and you might have to include helpers into your view model.</p>
 
@@ -1651,7 +1651,7 @@ end
 
 <p class="">This was mainly added to provide compatibility with 3rd-party gems like <a href="https://github.com/apotonick/kaminari-cells" class="underline text-purple">Kaminari and Cells</a> that rely on rendering partials within a cell.</p>
 
-<h3 id="cells-4-rails-generators" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Generators</span></h3>
+<h3 id="cells-4-rails-generators" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Generators</span></h3>
 
 <p class="">In Rails, you can generate cells and concept cells.</p>
 
@@ -1663,13 +1663,13 @@ end
 <pre><code class="language-ruby">rails generate concept comment
 </code></pre>
 
-<h3 id="cells-4-rails-engine-cells" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Engine Cells</span></h3>
+<h3 id="cells-4-rails-engine-cells" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Engine Cells</span></h3>
 
 <p class="">You can bundle cells into Rails engines and maximize a clean, component architecture by making your view models easily distributable and overridable.</p>
 
 <p class="">This pretty much works out-of-the-box, you write cells and push them into an engine. The only thing differing is that engine cells have to set their <code class="text-purple">view_paths</code> manually to point to the gem directory.</p>
 
-<h3 id="cells-4-rails-engine-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Engine View Paths</span></h3>
+<h3 id="cells-4-rails-engine-view-paths" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Engine View Paths</span></h3>
 
 <p class="">Each engine cell has to set its <code class="text-purple">view_paths</code>.</p>
 
@@ -1697,11 +1697,11 @@ end
 end
 </code></pre>
 
-<h3 id="cells-4-rails-engine-render-problems" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Engine Render problems</span></h3>
+<h3 id="cells-4-rails-engine-render-problems" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Engine Render problems</span></h3>
 
 <p class="">You might have to include cells’ template gem into your <strong>application’s</strong> <code class="text-purple">Gemfile</code>. This will properly require the extension.</p>
 
-<h3 id="cells-4-rails-engine-namespace-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Engine Namespace Helpers</span></h3>
+<h3 id="cells-4-rails-engine-namespace-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Engine Namespace Helpers</span></h3>
 
 <p class="">If you need namespaced helpers, include the respective helper in your engine cell.</p>
 
@@ -1720,7 +1720,7 @@ end
 gem "cells-erb"
 </code></pre>
 
-<h3 id="cells-4-rails-translation-and-i18n-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Translation and I18N Helper</span></h3>
+<h3 id="cells-4-rails-translation-and-i18n-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Translation and I18N Helper</span></h3>
 
 <p class="">You can use the <code class="text-purple">#t</code> helper.</p>
 
@@ -1747,7 +1747,7 @@ end
 
 <p class="">The lookup will now be <code class="text-purple">cell.admin.greeting</code>.</p>
 
-<h3 id="cells-4-rails-asset-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Asset Helper</span></h3>
+<h3 id="cells-4-rails-asset-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Asset Helper</span></h3>
 
 <p class="">When using asset path helpers like <code class="text-purple">image_tag</code> that render different paths in production, please simply delegate to the controller.</p>
 
@@ -1757,7 +1757,7 @@ end
 
 <p class="">The delegation fixes the <a href="https://github.com/apotonick/cells/issues/214" class="underline text-purple">well-known problem</a> of the cell rendering the “wrong” path when using Sprockets. Please note that this fix is necessary due to the way Rails includes helpers and accesses global data.</p>
 
-<h2 id="cells-4-template-engines" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Template Engines</span></h2>
+<h2 id="cells-4-template-engines" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Template Engines</span></h2>
 
 <p class="">Cells supports various template engines.</p>
 
@@ -1779,13 +1779,13 @@ end
 
 <p class="">Currently, there’s no clean way but to disable automatic inclusion from each gem (not yet implemented) and then include template modules into your application cells manually.</p>
 
-<h3 id="cells-4-template-engines-erb" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>ERB</span></h3>
+<h3 id="cells-4-template-engines-erb" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">ERB</span></h3>
 
-<h3 id="cells-4-template-engines-haml" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Haml</span></h3>
+<h3 id="cells-4-template-engines-haml" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Haml</span></h3>
 
-<h3 id="cells-4-template-engines-slim" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Slim</span></h3>
+<h3 id="cells-4-template-engines-slim" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Slim</span></h3>
 
-<h3 id="cells-4-template-engines-your-own" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Your Own</span></h3>
+<h3 id="cells-4-template-engines-your-own" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Your Own</span></h3>
 
 <p class="">Theoretically, you can use any template engine supported by Tilt.</p>
 
@@ -1802,9 +1802,9 @@ end
 
 <p class="">This will use <code class="text-purple">Tilt</code> to instantiate a template to be evaluated. The <code class="text-purple">:suffix</code> is needed for Cells when finding the view.</p>
 
-<h2 id="cells-4-troubleshooting" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Troubleshooting</span></h2>
+<h2 id="cells-4-troubleshooting" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Troubleshooting</span></h2>
 
-<h3 id="cells-4-troubleshooting-helper-inclusion-order" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Helper Inclusion Order</span></h3>
+<h3 id="cells-4-troubleshooting-helper-inclusion-order" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Helper Inclusion Order</span></h3>
 
 <p class="">One of the many problems with Rails helper implementation is that the inclusion order matters. This can lead to problems with the following exception.</p>
 
@@ -1823,7 +1823,7 @@ Cell::Concept.class_eval do
 end
 </code></pre>
 
-<h3 id="cells-4-troubleshooting-form-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Form helpers</span></h3>
+<h3 id="cells-4-troubleshooting-form-helpers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Form helpers</span></h3>
 
 <p class="">Sometimes you have to manually include Rails helpers into your cell classes. For instance, the following exception originating from <code class="text-purple">lib/action_view/helpers/form_options_helper.rb</code> might disturb your sunny day.</p>
 

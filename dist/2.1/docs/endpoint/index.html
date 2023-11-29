@@ -325,7 +325,7 @@
     <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
-        <span class="font-black uppercase">
+        <span class="font-black uppercase header-text">
           Endpoint
         </span>
         Documentation
@@ -346,7 +346,7 @@
   </div>
 </div>
 
-<h2 id="endpoint-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Overview</span></h2>
+<h2 id="endpoint-overview" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Overview</span></h2>
 
 <p class="">An endpoint links your routing with your business code. The idea is that your controllers are pure HTTP routers, calling the respective endpoint for each action. From there, the endpoint takes over, handles authentication, policies, executing the domain code, interpreting the result, and providing hooks to render a response.</p>
 
@@ -364,7 +364,7 @@
   <li class="list-image-disc ml-10">All Trailblazer developer niceties are available: tracing and debugging endpoints via <code class="text-purple">#wtf?</code> and friends helps understanding flow and behavior.</li>
 </ul>
 
-<h3 id="endpoint-overview-example" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Example</span></h3>
+<h3 id="endpoint-overview-example" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Example</span></h3>
 
 <p class="">In a Rails controller, a controller action could look as follows.</p>
 
@@ -396,14 +396,14 @@ end
 
 <p class="">Endpoints are easily customized but their main intent is to reduce fuzzy controller code and providing best practices for both HTML-rendering controllers and APIs.</p>
 
-<h3 id="endpoint-overview-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Endpoint</span></h3>
+<h3 id="endpoint-overview-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Endpoint</span></h3>
 
 <p class="">Each controller action maintains its very own endpoint. The endpoint contains the actual business operation to be executed.</p>
 
 <p class="">An endpoint is separated into two parts: protocol and adapter.</p>
 
 <h4 id="endpoint-overview-endpoint-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Protocol</span>
 
                   </h4>
 
@@ -433,7 +433,7 @@ end
 <p class="">It is important to understand that the protocol doesn’t interact with the environment: while it handles all the “boring” tasks like auth* and running the actual domain activity, it does not react to that but merely communicates the outcome via one of the well-defined termini.</p>
 
 <h4 id="endpoint-overview-endpoint-adapter" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Adapter</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Adapter</span>
 
                   </h4>
 
@@ -458,7 +458,7 @@ end
   </div>
 </div>
 
-<h2 id="endpoint-configuration" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Configuration</span></h2>
+<h2 id="endpoint-configuration" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Configuration</span></h2>
 
 <p class="">In Rails, the endpoint layer is introduced by including a customized module in a controller. You may do so by using <code class="text-purple">Controller::module</code>.</p>
 
@@ -468,7 +468,7 @@ end
 
 <p class="">The options are discussed in the respective API and Web sections. When including, a bunch of configuration directives are set up, and a handful of class and instance methods are added to the controller.</p>
 
-<h3 id="endpoint-configuration-controller-level-setup" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Controller-level Setup</span></h3>
+<h3 id="endpoint-configuration-controller-level-setup" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Controller-level Setup</span></h3>
 
 <p class="">Configuring endpoints for your application involves three steps.</p>
 
@@ -505,7 +505,7 @@ end
 <p class="">Keep in mind that those options can be overridden using the “targeted” <code class="text-purple">::endpoint</code> method.</p>
 
 <h4 id="endpoint-configuration-controller-level-setup-action-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Action Endpoint</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Action Endpoint</span>
 
                   </h4>
 
@@ -540,7 +540,7 @@ end</code></pre>
 <h1 id="todo-domainctxfilter-currentuser">todo domain_ctx_filter, :current_user</h1>
 
 <h4 id="endpoint-configuration-controller-level-setup-directives" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Directives</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Directives</span>
 
                   </h4>
 
@@ -579,7 +579,7 @@ end</code></pre>
   </div>
 </div>
 
-<h3 id="endpoint-configuration-runtime" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Runtime</span></h3>
+<h3 id="endpoint-configuration-runtime" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Runtime</span></h3>
 
 <p class="">To run an endpoint in a controller action, use the <code class="text-purple">#endpoint</code> method. Its interface varies depending on if you use the API or the DSL version.</p>
 
@@ -593,7 +593,7 @@ end</code></pre>
 <p class="">The particular endpoint is referenced by passing the alias to the <code class="text-purple">#endpoint</code> method, which is usually the constant of the operation.</p>
 
 <h4 id="endpoint-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Options</span>
 
                   </h4>
 
@@ -641,7 +641,7 @@ end
       end
 -->
 
-<h2 id="endpoint-api-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>API Interface</span></h2>
+<h2 id="endpoint-api-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">API Interface</span></h2>
 
 <p class="">If a controller exposes a generic behavior, the <code class="text-purple">API</code> interface is your pick. While you can still override specific behavior, it abstracts best practices for document APIs.</p>
 
@@ -651,7 +651,7 @@ end
 
 <p class="">In <code class="text-purple">Adapter::API</code> there’s one track for a <code class="text-purple">success</code>ful domain execution, one for <code class="text-purple">failure</code> or <code class="text-purple">invalid_data</code> and one <em>protocol failure</em> track that handles <code class="text-purple">not_found</code>, <code class="text-purple">not_authorized</code> and <code class="text-purple">not_authenticated</code>. The idea is to render a generic error with HTTP status code for the latter three cases, hence all three outcomes lead into the same track.</p>
 
-<h3 id="endpoint-api-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Application Controller</span></h3>
+<h3 id="endpoint-api-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Application Controller</span></h3>
 
 <p class="">It is a good practice to install an <code class="text-purple">ApplicationController::Api</code> controller in your app to inherit from.</p>
 
@@ -670,7 +670,7 @@ end
   </div>
 </div>
 
-<h3 id="endpoint-api-interface-action" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Action</span></h3>
+<h3 id="endpoint-api-interface-action" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Action</span></h3>
 
 <p class="">Since the response behavior in APIs is very universal, controllers usually look quite simple.</p>
 
@@ -707,12 +707,12 @@ end
   </div>
 </div>
 
-<h3 id="endpoint-api-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Configuration</span></h3>
+<h3 id="endpoint-api-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Configuration</span></h3>
 
 <p class="">A handful of options need to be configured using Trailblazer’s <code class="text-purple">directive</code> mechanism.</p>
 
 <h4 id="endpoint-api-interface-configuration-response" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Response</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Response</span>
 
                   </h4>
 
@@ -745,7 +745,7 @@ end
 <p class="">Last, you need to use the <code class="text-purple">::directive</code> method to register your configuration. The <code class="text-purple">:options_for_block_options</code> directive is used internally after running the endpoint and before rendering the response.</p>
 
 <h4 id="endpoint-api-interface-configuration-overriding-block-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Overriding Block options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Overriding Block options</span>
 
                   </h4>
 
@@ -760,7 +760,7 @@ end
 <p class="">This is handy to customize behavior in a particular action, or for debugging.</p>
 
 <h4 id="endpoint-api-interface-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Runtime Options</span>
 
                   </h4>
 
@@ -792,7 +792,7 @@ end
 
 <p class="">The domain operation can now access <code class="text-purple">ctx[:params]</code>.</p>
 
-<h3 id="endpoint-api-interface-protocol" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Protocol</span></h3>
+<h3 id="endpoint-api-interface-protocol" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Protocol</span></h3>
 
 <p class="">For an API-specific protocol, in most cases a password or JWT-based authentication will be installed. Authorization, or a policy deciding whether or not this action is legit, can be handled with your own logic or entirely removed and done in the operation itself.</p>
 
@@ -808,7 +808,7 @@ end
 
 <p class="">Derive your API protocol from <code class="text-purple">Trailblazer::Endpoint::Protocol</code> and override the steps you want to customize using the <code class="text-purple">:inherit</code> option, so that the original step’s wiring stays in place.</p>
 
-<h3 id="endpoint-api-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Adapter</span></h3>
+<h3 id="endpoint-api-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Adapter</span></h3>
 
 <p class="">It is important to understand that the <code class="text-purple">Adapter::API</code> shipped with <code class="text-purple">endpoint</code> only sets the HTTP status according to the outcome. In order to render a document, additional steps have to be added to the adapter subclass.</p>
 
@@ -843,7 +843,7 @@ end
 
 <p class="">Since the error rendering is generic, the <code class="text-purple">:errors_representer_class</code> variable is set controller-wide <a href="#endpoint-api-interface-configuration-runtime-options" class="underline text-purple">via <code class="text-purple">options_for_endpoint</code></a>.</p>
 
-<h3 id="endpoint-api-interface-api-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>API endpoint</span></h3>
+<h3 id="endpoint-api-interface-api-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">API endpoint</span></h3>
 
 <p class="">Putting together the <code class="text-purple">Protocol</code> with the specific <code class="text-purple">Adapter</code> along with the <code class="text-purple">Create</code> domain operation will result in a flow as depicted here.</p>
 
@@ -852,7 +852,7 @@ end
 <p class="">The separation of the <code class="text-purple">Protocol</code> and <code class="text-purple">Adapter</code> allows to use the same business logic in different environments, the <code class="text-purple">Adapter</code> only reacts to well-defined outcomes such as “not found” or “invalid data” and, in an API context, responds with a rendered document and a HTTP status. This behavior could and should be different [in a web UI].</p>
 
 <h4 id="endpoint-api-interface-api-endpoint-handlers" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Handlers</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Handlers</span>
 
                   </h4>
 
@@ -879,7 +879,7 @@ class Trailblazer::Endpoint::Adapter::API &lt; Web
 <p class="">Feel free to replace, extend or remove these error handlers should you not want to maintain an <code class="text-purple">errors</code> object, for instance.</p>
 
 <h4 id="endpoint-api-interface-api-endpoint-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Protocol Failure</span>
 
                   </h4>
 
@@ -889,7 +889,7 @@ class Trailblazer::Endpoint::Adapter::API &lt; Web
 
 <p class="">In the API context, protocol failures often need to be treated differently to domain errors. The first may be communicated to the user with a generic error message and an HTTP status code, whereas the latter often involves rendering the specific validation errors. The design of the <code class="text-purple">Adapter::API</code> in the endpoint gem makes this quite trivial.</p>
 
-<h3 id="endpoint-api-interface-build" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Build</span></h3>
+<h3 id="endpoint-api-interface-build" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Build</span></h3>
 
 <p class="">Once all parts are written and configured, you need to configure the basic endpoint.</p>
 
@@ -902,7 +902,7 @@ end
 
 <p class="">All controllers derived from <code class="text-purple">ApplicationController::Api</code> will inherit those settings.</p>
 
-<h3 id="endpoint-api-interface-test" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Test</span></h3>
+<h3 id="endpoint-api-interface-test" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Test</span></h3>
 
 <p class="">To see your API endpoints in action, write a test. In the example, we use simple Rails controller tests.</p>
 
@@ -933,7 +933,7 @@ assert_equal "{\"errors\":{\"message\":\"Authentication credentials were not pro
 
 <p class="">As this is a protocol_failure, the endpoint terminates on its <code class="text-purple">fail_fast</code> end.</p>
 
-<h2 id="endpoint-web-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Web Interface</span></h2>
+<h2 id="endpoint-web-interface" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Web Interface</span></h2>
 
 <p class="">The Web interface is designed to be used in HTML-rendering controllers that operate web UIs.</p>
 
@@ -954,7 +954,7 @@ end</code></pre>
 
 <p class="">Endpoint’s <code class="text-purple">Or</code>-DSL is optimized for web-based controllers.</p>
 
-<h3 id="endpoint-web-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Adapter</span></h3>
+<h3 id="endpoint-web-interface-adapter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Adapter</span></h3>
 
 <p class="">The <code class="text-purple">Trailblazer::Endpoint::Adapter::Web</code> adapter is slightly simpler than the API version.</p>
 
@@ -962,7 +962,7 @@ end</code></pre>
 
 <p class="">As oppossed to the <code class="text-purple">Api</code> adapter, there are no handler steps and such installed. Use this adapter if you want to customize the flow or if you don’t need any automatic behavior.</p>
 
-<h3 id="endpoint-web-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Application Controller</span></h3>
+<h3 id="endpoint-web-interface-application-controller" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Application Controller</span></h3>
 
 <p class="">A good practice is to install an <code class="text-purple">ApplicationController::Web</code> controller in your app to inherit from.</p>
 
@@ -981,12 +981,12 @@ end</code></pre>
   </div>
 </div>
 
-<h3 id="endpoint-web-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Configuration</span></h3>
+<h3 id="endpoint-web-interface-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Configuration</span></h3>
 
 <p class="">The web interface uses the well-established mechanisms and directives on the controller class level.</p>
 
 <h4 id="endpoint-web-interface-configuration-endpoint-definition" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Endpoint Definition</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Endpoint Definition</span>
 
                   </h4>
 
@@ -998,7 +998,7 @@ end</code></pre>
 </code></pre>
 
 <h4 id="endpoint-web-interface-configuration-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Options</span>
 
                   </h4>
 
@@ -1021,7 +1021,7 @@ end</code></pre>
 <p class="">This is done by setting a <code class="text-purple">options_for_endpoint</code> directive.</p>
 
 <h4 id="endpoint-web-interface-configuration-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Protocol</span>
 
                   </h4>
 
@@ -1048,7 +1048,7 @@ end</code></pre>
 <p class="">As always, you don’t have to perform the policy check in the protocol.</p>
 
 <h4 id="endpoint-web-interface-configuration-generic-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Generic endpoint</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Generic endpoint</span>
 
                   </h4>
 
@@ -1064,7 +1064,7 @@ end
 
 <p class="">The <code class="text-purple">:domain_ctx_filter</code> option will inject the <code class="text-purple">current_user</code> into the <code class="text-purple">domain_ctx</code> so it is accessable from within your domain activity.</p>
 
-<h3 id="endpoint-web-interface-or-dsl" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Or-DSL</span></h3>
+<h3 id="endpoint-web-interface-or-dsl" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Or-DSL</span></h3>
 
 <p class="">In the controller subclasses you’re now ready to use endpoints and the <code class="text-purple">Or</code>-DSL.</p>
 
@@ -1085,7 +1085,7 @@ end
 <p class="">In both blocks, the <code class="text-purple">domain_ctx</code> is available along with the <code class="text-purple">:endpoint_ctx</code> keyword argument, should you need low-level data.</p>
 
 <h4 id="endpoint-web-interface-or-dsl-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Runtime Options</span>
 
                   </h4>
 
@@ -1101,7 +1101,7 @@ end
 <p class="">Run-time options will be accessable in the endpoint contenxt (<strong>not</strong> the <code class="text-purple">domain_ctx</code>).</p>
 
 <h4 id="endpoint-web-interface-or-dsl-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Protocol Failure</span>
 
                   </h4>
 
@@ -1119,7 +1119,7 @@ end
 <p class="">The block is only executed for authentication/authorization failures.</p>
 
 <h4 id="endpoint-web-interface-or-dsl-pitfalls" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Pitfalls</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Pitfalls</span>
 
                   </h4>
 

@@ -349,7 +349,7 @@
     <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
-        <span class="font-black uppercase">
+        <span class="font-black uppercase header-text">
           Internals
         </span>
         Documentation
@@ -361,12 +361,12 @@
 
 <p class="">Please note that this chapter is constantly updated and extended. Are you lost? Chat to us <a href="https://trailblazer.zulipchat.com" class="underline text-purple">on Zulip</a>!</p>
 
-<h2 id="internals-dsl" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>DSL</span><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+<h2 id="internals-dsl" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">DSL</span><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
             <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z" /></svg>
             <a href="" class="ml-1" title="This feature was introduced in trailblazer-activity-dsl-linear v1.2.0.">dsl 1.2.0</a>
           </span></h2>
 
-<h3 id="internals-dsl-normalizer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Normalizer</span></h3>
+<h3 id="internals-dsl-normalizer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Normalizer</span></h3>
 
 <p class="">TODO: FILE LAYOUT</p>
 
@@ -377,7 +377,7 @@
 <p class="">The basic normalizer resides in <a href="https://github.com/trailblazer/trailblazer-activity-dsl-linear/blob/v1.2.0/lib/trailblazer/activity/dsl/linear/normalizer.rb" class="underline text-purple"><code class="text-purple">trailblazer/activity/dsl/linear/normalizer.rb</code></a>. All additional normalizers for <code class="text-purple">#fail</code>, <code class="text-purple">#pass</code> and <code class="text-purple">#terminus</code> in both <code class="text-purple">Railway</code> and <code class="text-purple">FastTrack</code> (operation) are built on top of that normalizer.</p>
 
 <h4 id="internals-dsl-normalizer-extend" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Normalizer
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Extend</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Extend</span>
 
                   </h4>
 
@@ -424,7 +424,7 @@ end
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/upcase-b679cdd25c42f73755f01b2cec07c53b9566fe9ab718b5fdc7c55d56e36c8c1f.png" /></p>
 
 <h4 id="internals-dsl-normalizer-inherit" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Normalizer
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Inherit</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Inherit</span>
 
                   </h4>
 
@@ -465,10 +465,10 @@ end
 </code></pre>
 
 
-<h3 id="internals-dsl-introspect" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Introspect</span></h3>
+<h3 id="internals-dsl-introspect" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Introspect</span></h3>
 
 <h4 id="internals-dsl-introspect-data" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Introspect
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Data</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Data</span>
 
                   </h4>
 
@@ -492,7 +492,7 @@ end
 
 <p class="">This is used internally to store and expose data like <code class="text-purple">:extensions</code> (which is part of the Introspect API). It’s implemented in the basic normalizer in <code class="text-purple">"activity.compile_data"</code>.</p>
 
-<h2 id="internals-wiring-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Wiring API</span></h2>
+<h2 id="internals-wiring-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Wiring API</span></h2>
 
 <p class="">As almost every task in the final activity is connected to other tasks, this wiring needs to be computed by the DSL. Two parts are required for that: the <em>outputs</em> the task exposes and the <em>connectors</em> where a particular output is connected to.</p>
 
@@ -502,7 +502,7 @@ end
 
 <p class="">One major design guideline is that <code class="text-purple">:outputs</code> is simply a list of available outputs of the step. This option does not imply any outgoing connections. Those are effectivly defined by the <code class="text-purple">:output_tuples</code>.</p>
 
-<h3 id="internals-wiring-api-outputs" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Outputs</span></h3>
+<h3 id="internals-wiring-api-outputs" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Outputs</span></h3>
 
 <p class="">Internally, <code class="text-purple">:outputs</code> can be set in two different ways. When using <code class="text-purple">Subprocess()</code> this option is provided by the macro, it retrieves the outputs via the activity interface from the nested task.</p>
 
@@ -511,7 +511,7 @@ end
 <p class="">After the outputs part is run, there will <strong>always exist</strong> an <code class="text-purple">:outputs</code> option for the following steps in the normalizers ctx.</p>
 
 <h4 id="internals-wiring-api-outputs-defaulting" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Outputs
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Defaulting</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Defaulting</span>
 
                   </h4>
 
@@ -530,7 +530,7 @@ end
 
 <p class="">The <code class="text-purple">FastTrack</code> normalizer conditionally adds outputs, only if the respective option (e.g. <code class="text-purple">pass_fast: true</code> is set.</p>
 
-<h3 id="internals-wiring-api-output-tuples" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Output Tuples</span></h3>
+<h3 id="internals-wiring-api-output-tuples" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Output Tuples</span></h3>
 
 <p class="">Once <code class="text-purple">ctx[:outputs]</code> is finalized, the output tuples come into play. Using the Wiring API you can configure which output goes where.</p>
 
@@ -549,7 +549,7 @@ step :model,
 </ol>
 
 <h4 id="internals-wiring-api-output-tuples-defaulting" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output Tuples
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Defaulting</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Defaulting</span>
 
                   </h4>
 
@@ -564,7 +564,7 @@ Defaulting steps such as <code class="text-purple">"path.step.add_success_connec
 [&lt;default tuples&gt;, &lt;inherited tuples&gt;, &lt;user tuples&gt;]</code></pre>
 
 <h4 id="internals-wiring-api-output-tuples-custom-signals" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output Tuples
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Custom signals</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Custom signals</span>
 
                   </h4>
 
@@ -579,7 +579,7 @@ step :model,
 <p class="">The conversion allows all following output tuples code to work with <code class="text-purple">Output::Semantic</code>, only.</p>
 
 <h4 id="internals-wiring-api-output-tuples-inherit" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output Tuples
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Inherit</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Inherit</span>
 
                   </h4>
 
@@ -594,27 +594,27 @@ step :model,
   </li>
 </ol>
 
-<h3 id="internals-wiring-api-connections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Connections</span></h3>
+<h3 id="internals-wiring-api-connections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Connections</span></h3>
 
 <p class="">Once the <code class="text-purple">:outputs</code> variable is computed, and <code class="text-purple">:output_tuples</code> are set, the actual connections can be compiled in <code class="text-purple">"activity.wirings"</code>, which is a step implemented in <code class="text-purple">OutputTuples::Connections.compile_wirings</code>. The returned <code class="text-purple">:wirings</code> array contains <code class="text-purple">Sequence::Search</code> instances that, during compilation, find the next step for a particular output.</p>
 
 <p class="">Actually, the term <code class="text-purple">:wirings</code> is misleading and should be renamed to <code class="text-purple">:output_searches</code>.</p>
 
 <h4 id="internals-wiring-api-connections-connectors" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Connections
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Connectors</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Connectors</span>
 
                   </h4>
 
 <p class="">It is also possible to build custom connectors that are able to add any number of steps (actually, sequence rows) via the ADDS interface.</p>
 
-<h3 id="internals-wiring-api-finalization" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Finalization</span></h3>
+<h3 id="internals-wiring-api-finalization" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Finalization</span></h3>
 
 <p class="">The actual <code class="text-purple">Sequence::Row</code> is then computed in <code class="text-purple">"activity.create_row"</code>. This is where <code class="text-purple">:wirings</code> is required. The <code class="text-purple">:row</code> is pushed onto <code class="text-purple">ctx[:adds]</code> which contains all ADDS additions for this step.</p>
 
 <p class="">The <code class="text-purple">Row</code> instance is just one of potentially many ADDS additions that are applied to the <code class="text-purple">Sequence</code> instance.</p>
 
 <h4 id="internals-wiring-api-finalization-sequence-row" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Finalization
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Sequence Row</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Sequence Row</span>
 
                   </h4>
 
@@ -624,7 +624,7 @@ step :model,
 #   inherit tests are in step_test
  -->
 
-<h3 id="internals-wiring-api-adds-interface" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>ADDS Interface</span></h3>
+<h3 id="internals-wiring-api-adds-interface" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">ADDS Interface</span></h3>
 
 <p class="">The ADDS interface is implemented in the <a href="https://github.com/trailblazer/trailblazer-activity/blob/v0.15.1/lib/trailblazer/activity/adds.rb" class="underline text-purple"><code class="text-purple">activity</code> gem</a>. It defines behavior and structures for adding rows to or altering an array or sequence.</p>
 
@@ -643,7 +643,7 @@ step :model,
 <p class="">The additions are invoked using <code class="text-purple">Adds.apply_adds</code>.</p>
 
 <h4 id="internals-wiring-api-adds-interface-friendly-interface" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">ADDS Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Friendly Interface</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Friendly Interface</span>
 
                   </h4>
 
@@ -672,7 +672,7 @@ extended_pipeline = Trailblazer::Activity::Adds.apply_adds(pipeline, adds)
 
 <p class="">Whatsoever, usually you don’t need to use the ADDS directly but through <code class="text-purple">TaskWrap::Extension.WrapStatic</code> or when working on <code class="text-purple">dsl</code>’s sequence code.</p>
 
-<h2 id="internals-activity" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Activity</span></h2>
+<h2 id="internals-activity" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Activity</span></h2>
 
 <p class="">An <code class="text-purple">Activity</code> instance exposes two public methods.</p>
 
@@ -687,7 +687,7 @@ during compile time.</li>
 <p class="">An <code class="text-purple">Activity</code> is created by a DSL or other layers, but it’s completely unrelated to any DSL.
 It is the runtime object that actually invokes your steps.</p>
 
-<h3 id="internals-activity-schema" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Schema</span></h3>
+<h3 id="internals-activity-schema" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Schema</span></h3>
 
 <p class="">The schema hash can be accessed using <code class="text-purple">Activity#to_h</code>. It consists of four mandatory keys.</p>
 
@@ -699,16 +699,16 @@ It is the runtime object that actually invokes your steps.</p>
 </ol>
 
 <h4 id="internals-activity-schema-nodes" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Schema
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Nodes</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Nodes</span>
 
                   </h4>
 
 <h4 id="internals-activity-schema-attributes" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Schema
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Attributes</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Attributes</span>
 
                   </h4>
 
-<h2 id="internals-operation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Operation</span></h2>
+<h2 id="internals-operation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Operation</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-operation" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-operation 0.10.0</a></p>
 
@@ -723,24 +723,24 @@ It is the runtime object that actually invokes your steps.</p>
 
 <p class="">The <code class="text-purple">operation</code> gem is really just a syntactical sugaring on top of <code class="text-purple">Activity::FastTrack</code>. Everything else, from the <code class="text-purple">#step</code> DSL to tracing, is implemented in underlying gems.</p>
 
-<h3 id="internals-operation-public-call" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Public call</span></h3>
+<h3 id="internals-operation-public-call" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Public call</span></h3>
 
 <h4 id="internals-operation-public-call-call_task-hack" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Public call
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">call_task hack</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">call_task hack</span>
 
                   </h4>
 
-<h3 id="internals-operation-future" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Future</span></h3>
+<h3 id="internals-operation-future" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Future</span></h3>
 
 <p class="">Long-term, I’d like to remove this gem. The only useful addition is <code class="text-purple">Operation.call(ctx)</code>, and this comes with a <a href="https://github.com/trailblazer/trailblazer-operation/blob/v0.10.0/lib/trailblazer/operation/public_call.rb#L29" class="underline text-purple">high price</a>. The <code class="text-purple">public_call.rb</code> code introduces unnecessary complexity and needs to apply all kinds of tricks to make <code class="text-purple">Operation</code> expose two different <code class="text-purple">#call</code> methods.</p>
 
-<h2 id="internals-context" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Context</span></h2>
+<h2 id="internals-context" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Context</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-context" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-context 0.5.1</a></p>
 
 <p class="">Context aka <code class="text-purple">ctx</code> (or plain old <code class="text-purple">options</code>) is a core argument-specific data structure for Trailblazer. It provides a generic, ordered read/write interface that collects mutable runtime-computed data while providing access to any compile-time information. It is extracted into its own <a href="https://github.com/trailblazer/trailblazer-context" class="underline text-purple">gem</a> and can also be used independently.</p>
 
-<h3 id="internals-context-ctx" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>ctx</span></h3>
+<h3 id="internals-context-ctx" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">ctx</span></h3>
 
 <p class=""><code class="text-purple">ctx</code> can be initialized when an operation is invoked at the run time or by defining <a href="/2.1/docs/operation.html#operation-options-class-dependencies" class="underline text-purple">dependencies</a> at the compile time. Inside the operation, it gets passed down to every <code class="text-purple">step</code> with it’s argument position depending on step’s <a href="/2.1/docs/activity.html#activity-internals-circuit-interface" class="underline text-purple">interface</a>. It will contain whatever the most recently executed step has changed and hopefully contains what you’re expecting.</p>
 
@@ -758,7 +758,7 @@ It is the runtime object that actually invokes your steps.</p>
 <p class="">In order to provide the generic interface, scoping and debugging capabilities, the “Hash” argument you provide to an operation is initialized as an instance of <code class="text-purple">Trailblazer::Context::Container</code> to build up the final <code class="text-purple">ctx</code>. This allows us to support more features on top of it like indifferent access, aliasing etc</p>
 
 <h4 id="internals-context-ctx-indifferent-access" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">ctx
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Indifferent Access</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Indifferent Access</span>
 
                   </h4>
 
@@ -774,7 +774,7 @@ result['params']    # =&gt; { text: "Enjoy an IPA" }
 Note that <code class="text-purple">ctx</code> doesn’t provide interchangeable keys for any nested hashes because of the performance reasons.</p>
 
 <h4 id="internals-context-ctx-aliases" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">ctx
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Aliases</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Aliases</span>
 
                   </h4>
 
@@ -816,7 +816,7 @@ result[:contract]           # =&gt; Memo::Contract::Create
 end
 </code></pre>
 
-<h2 id="internals-option" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Option</span></h2>
+<h2 id="internals-option" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Option</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-option" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-option 0.1.2</a></p>
 
@@ -831,7 +831,7 @@ end
 
 <p class="">It is also a replacement over <a href="https://github.com/apotonick/declarative-option" class="underline text-purple">declarative-option</a> and has been extracted out from <a href="https://github.com/trailblazer/trailblazer-context" class="underline text-purple">trailblazer-context</a> by identifying common callable patterns.</p>
 
-<h3 id="internals-option-callables" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Callables</span></h3>
+<h3 id="internals-option-callables" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Callables</span></h3>
 
 <p class=""><code class="text-purple">Trailblazer::Option()</code> accepts <code class="text-purple">Symbol</code>, <code class="text-purple">lambda</code> and any other type of callable as an argument. It will be wrapped accordingly to make an executable, so you can evaluate it at runtime.</p>
 
@@ -868,11 +868,11 @@ option.(keyword_arguments: { message: "hello!" }, exec_context: nil) # =&gt; "he
 option.(exec_context: Object.new) # =&gt; 1234567
 </code></pre>
 
-<h2 id="internals-developer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Developer</span></h2>
+<h2 id="internals-developer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Developer</span></h2>
 
 <p class="">The <code class="text-purple">trailblazer-developer</code> gem provides tracing logic and the infamous <code class="text-purple">#wtf?</code> method.</p>
 
-<h3 id="internals-developer-trace" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Trace</span></h3>
+<h3 id="internals-developer-trace" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Trace</span></h3>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-developer" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-developer &gt;= 0.1.0</a></p>
 
@@ -881,19 +881,19 @@ option.(exec_context: Object.new) # =&gt; 1234567
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/internals-trace-tw-6db6e0817054967763b5f143dc64baff0724cdba16bbb642a14c9385ab2f3fe0.png" /></p>
 
 <h4 id="internals-developer-trace-snapshooter" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Snapshooter</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Snapshooter</span>
 
                   </h4>
 
 <p class="">The snapshot logic is implemented in <code class="text-purple">Trace::Snapshot.before_snapshooter</code> and <code class="text-purple">.after_snapshooter</code>, leveraging the <code class="text-purple">Snapshot::Version.changeset_for</code> method to produce a diffable snapshot of <code class="text-purple">ctx</code>.</p>
 
 <h4 id="internals-developer-trace-version" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Version</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Version</span>
 
                   </h4>
 
 <h4 id="internals-developer-trace-stack" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Stack</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Stack</span>
 
                   </h4>
 
@@ -902,7 +902,7 @@ option.(exec_context: Object.new) # =&gt; 1234567
 <p class="">The <code class="text-purple">stack</code> is returned to the caller of the operation and can then be used for presentation.</p>
 
 <h4 id="internals-developer-trace-trace-node" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Trace::Node</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Trace::Node</span>
 
                   </h4>
 
@@ -911,7 +911,7 @@ option.(exec_context: Object.new) # =&gt; 1234567
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/internals-trace-node-81c25f699e7969193ebfc15f3b9f73dc373bd22fb9f692536758b9f5928772d8.png" /></p>
 
 <h4 id="internals-developer-trace-present" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Present</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Present</span>
 
                   </h4>
 
@@ -922,7 +922,7 @@ option.(exec_context: Object.new) # =&gt; 1234567
 <p class="">TODO: add example from node_options.</p>
 
 <h4 id="internals-developer-trace-debugger-trace" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Trace
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugger::Trace</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Debugger::Trace</span>
 
                   </h4>
 
@@ -932,18 +932,18 @@ option.(exec_context: Object.new) # =&gt; 1234567
 
 <p class="">Debugger::Normalizer</p>
 
-<h2 id="internals-core-developer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Core Developer</span></h2>
+<h2 id="internals-core-developer" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Core Developer</span></h2>
 
 <p class="">Some notes and guidelines for core developers.</p>
 
-<h3 id="internals-core-developer-docs" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Docs</span></h3>
+<h3 id="internals-core-developer-docs" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Docs</span></h3>
 
 <ul class="space-y-2">
   <li class="list-image-disc ml-10">Our doc repository is <a href="https://github.com/trailblazer/website" class="underline text-purple">here</a>.</li>
 </ul>
 
 <h4 id="internals-core-developer-docs-code_tabs" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Docs
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Code_tabs</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Code_tabs</span>
 
                   </h4>
 
@@ -956,7 +956,7 @@ option.(exec_context: Object.new) # =&gt; 1234567
 
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/code_tabs-dbeedec0c9f4b29758381b3a0bf0067b138012b69b3f6ef69cce9c2014e18aa9.png" /></p>
 
-<h3 id="internals-core-developer-convert-operation-test" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Convert operation test</span></h3>
+<h3 id="internals-core-developer-convert-operation-test" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Convert operation test</span></h3>
 
 <p class="">Always write doc tests against <code class="text-purple">Activity::Railway</code> and friends. Use the conversion tool in <code class="text-purple">trailblazer-core-utils</code> to autogenerate an operation test.</p>
 
@@ -964,19 +964,19 @@ option.(exec_context: Object.new) # =&gt; 1234567
 Trailblazer::Core.convert_operation_test("test/docs/composable_variable_mapping_test.rb")</code></pre>
 
 <h4 id="internals-core-developer-convert-operation-test-ctx-to-result" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Convert operation test
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">ctx to result</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">ctx to result</span>
 
                   </h4>
 <h4 id="internals-core-developer-convert-operation-test-ignore" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Convert operation test
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">ignore</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">ignore</span>
 
                   </h4>
 <h4 id="internals-core-developer-convert-operation-test-skip" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Convert operation test
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">skip</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">skip</span>
 
                   </h4>
 
-<h3 id="internals-core-developer-deprecate" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Deprecate</span></h3>
+<h3 id="internals-core-developer-deprecate" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Deprecate</span></h3>
 
 <p class="">Always use <code class="text-purple">Activity::Deprecate.warn</code> when marking a method as deprecated.</p>
 

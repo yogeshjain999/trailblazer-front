@@ -325,7 +325,7 @@
     <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
-        <span class="font-black uppercase">
+        <span class="font-black uppercase header-text">
           Trailblazer Test
         </span>
         Documentation
@@ -354,7 +354,7 @@ Smoke tests make sure of the integrity of your application, and assert that cont
 <p class="">There’s no need to test controllers, models, service objects, etc. in isolation - unless you want to do so for a better documentation of your internal APIs. As operations are the single entry-point for your functions, your entire stack is covered with the two test types.</p>
 
 <p class="">The <code class="text-purple">trailblazer-test</code> gem allows simple, streamlined operation unit tests.</p>
-<h2 id="trailblazer-test-installation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Installation</span></h2>
+<h2 id="trailblazer-test-installation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Installation</span></h2>
 
 <p class="">Add this line to your application’s Gemfile:</p>
 
@@ -379,7 +379,7 @@ However, the idea of operation tests is: Run the complete unit with a certain in
 In production, you will never trigger one specific callback or a particular validation, only. Your application will run all code required to create a `Song` object, for instance. In Trailblazer, this means running the `Song::Create` operation, and testing that very operation with all its side-effects.
  -->
 
-<h2 id="trailblazer-test-operation-unit-tests" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Operation unit tests</span></h2>
+<h2 id="trailblazer-test-operation-unit-tests" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Operation unit tests</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-test" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-test</a></p>
 
@@ -392,7 +392,7 @@ In production, you will never trigger one specific callback or a particular vali
   <li class="list-image-disc ml-10">Use <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code> to quickly test all possible inputs and outcomes in a unit test.</li>
 </ol>
 
-<h3 id="trailblazer-test-operation-unit-tests-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Overview</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Overview</span></h3>
 
 <p class="">The goal of <code class="text-purple">trailblazer-test</code> is to provide simple, strong, non-verbose testing of operations and edge cases.</p>
 
@@ -480,7 +480,7 @@ end
 
 <p class="">Note that only <code class="text-purple">#assert_pass</code> and <code class="text-purple">#assert_fail</code> are specific to Trailblazer. Structural helpers such as <code class="text-purple">it</code> and <code class="text-purple">describe</code> are provided by Minitest, and the test style is completely up to you. See below for conventions of how we test operations.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-base-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Base class</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-base-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Base class</span></h3>
 
 <p class="">It is a good idea to maintain a slim <code class="text-purple">OperationTest</code> or <code class="text-purple">OperationSpec</code> base class in your <code class="text-purple">test_helper.rb</code>.</p>
 
@@ -495,12 +495,12 @@ end
 
 <p class="">By including the assertion modules your tests can use our assertions such as <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_exposes</code>.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Configuration</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Configuration</span></h3>
 
 <p class="">The <code class="text-purple">trailblazer-test</code> gem allows to configure common options on the test level.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-default-ctx" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">default ctx</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">default ctx</span>
 
                   </h4>
 
@@ -522,7 +522,7 @@ end
 <p class="">Note that <code class="text-purple">default_ctx</code> is always the full context that you’d normally pass into <code class="text-purple">Operation.call()</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-expected-attributes" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Expected attributes</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Expected attributes</span>
 
                   </h4>
 
@@ -540,7 +540,7 @@ end
 <p class="">As in 99% of operation usage a model is created or altered, this hash represents the attributes of the <em>model</em> that were modified by the operation.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-operation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">operation</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">operation</span>
 
                   </h4>
 
@@ -551,7 +551,7 @@ end
 
 <p class="">Again, you may use any level of <code class="text-purple">describe</code> to fine-tune your tests.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-assert_pass" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>assert_pass</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-assert_pass" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">assert_pass</span></h3>
 
 <p class="">The assertion helpers are bringing together <code class="text-purple">operation</code>, <code class="text-purple">default_ctx</code> and <code class="text-purple">expected_attributes</code>.</p>
 
@@ -577,7 +577,7 @@ end
 <p class="">That’s quite a lot of code, right?</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-manual-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Manual options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Manual options</span>
 
                   </h4>
 
@@ -616,7 +616,7 @@ result = Song::Operation::Create.(input)
 <p class="">Changing the form input part in order to test validations and processing is a pretty common task. The <code class="text-purple">assert_pass</code> assertion is built to minimize test code and helps you with just that.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-omit-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Omit key</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Omit key</span>
 
                   </h4>
 
@@ -644,7 +644,7 @@ end
 </code></pre>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-model-name" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Model name</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Model name</span>
 
                   </h4>
 
@@ -653,7 +653,7 @@ end
 <p class="">In this example, the asserting code will now grab the model from <code class="text-purple">result[:song]</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Block</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Block</span>
 
                   </h4>
 
@@ -671,7 +671,7 @@ end
 <p class="">Note that the block is not run when an earlier assertion in <code class="text-purple">assert_pass</code> has failed.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-result" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Result</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Result</span>
 
                   </h4>
 
@@ -686,7 +686,7 @@ end
 
 <p class="">Use this for adding assertions outside the block.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-assert_fail" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>assert_fail</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-assert_fail" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">assert_fail</span></h3>
 
 <p class="">To test an unsuccessful outcome of an operation, use <code class="text-purple">assert_fail</code>. This is helpful for testing all kinds of validations. By invoking the operation with insufficient or wrong data it will fail and add errors onto the errors object. Those can be matched against a list of expected errors.</p>
 
@@ -728,7 +728,7 @@ end
 </div>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-error-messages" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Error messages</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Error messages</span>
 
                   </h4>
 
@@ -751,7 +751,7 @@ end
 <p class=""><code class="text-purple">assert_fail</code> automatically wraps error messages in an array.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Block</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Block</span>
 
                   </h4>
 
@@ -768,7 +768,7 @@ end
 <p class="">The block is run in addition to <code class="text-purple">assert_fail</code>’s built-in assertions. Just as in <code class="text-purple">assert_pass</code> it receives the operation’s <code class="text-purple">result</code> object and allows you to add assertions as you desire.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-result" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Result</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Result</span>
 
                   </h4>
 
@@ -783,7 +783,7 @@ end
 
 <p class="">Use this for adding assertions outside the block.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-debugging" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Debugging</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-debugging" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Debugging</span></h3>
 
 <p class="">Both <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code> allow to run the operation <a href="trailblazer.html#trailblazer-developer-wtf-" class="underline text-purple">using <code class="text-purple">wtf?</code></a>. When you’re unsure about what is going on inside the tested operation, the <code class="text-purple">:wtf?</code> option comes to rescue.</p>
 
@@ -805,7 +805,7 @@ end
 
 <p class="">In the trace on the console, it’s obvious that the contract validation failed. Again, note that this works for both <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code>.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Options</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Options</span></h3>
 
 <p class=""><a href="#test-operation-unit-tests-configuration" class="underline text-purple">All <code class="text-purple">let()</code> options</a> can also be passed directly to the assertion, allowing you to override the <code class="text-purple">let()</code> option or not having to define it on the test level at all.</p>
 
@@ -816,7 +816,7 @@ end
 
 <p class="">Accepted options are <code class="text-purple">:operation</code>, <code class="text-purple">:default_ctx</code>, <code class="text-purple">:expected_attributes</code> and <code class="text-purple">:key_in_params</code>.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-ctx-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Ctx Helper</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-ctx-helper" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Ctx Helper</span></h3>
 
 <p class="">If you need a customized <code class="text-purple">ctx</code> to pass into the tested operation, use <code class="text-purple">Ctx()</code>. It’s mostly used as the first argument to <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code>.</p>
 
@@ -837,7 +837,7 @@ end
 <p class="">Whenever you use <code class="text-purple">Ctx()</code> the computed hash is passed through directly into the operation, so you have full control over what’s going in. Both <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code> are not altering your ctx anymore.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-ctx-helper-merge" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Ctx Helper
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Merge</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Merge</span>
 
                   </h4>
 
@@ -871,7 +871,7 @@ end
 <p class="">Note how <code class="text-purple">:duration</code> is added to the existing <code class="text-purple">:song</code> hash.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-ctx-helper-exclude" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Ctx Helper
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Exclude</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Exclude</span>
 
                   </h4>
 
@@ -896,7 +896,7 @@ end
 end
 </code></pre>
 
-<h3 id="trailblazer-test-operation-unit-tests-assert_exposes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>assert_exposes</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-assert_exposes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">assert_exposes</span></h3>
 
 <p class="">Test attributes of an arbitrary object.</p>
 
@@ -918,7 +918,7 @@ assert_equal "Rancid",   model.band
 <p class="">Note that <code class="text-purple">assert_exposes</code> accepts any object with a reader interface.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_exposes-reader" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_exposes
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Reader</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Reader</span>
 
                   </h4>
 
@@ -941,7 +941,7 @@ end
 <p class="">Now the value is read via <code class="text-purple">model.get(:title)</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_exposes-lambda" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_exposes
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Lambda</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Lambda</span>
 
                   </h4>
 
@@ -954,7 +954,7 @@ end
 
 <p class="">The lambda will receive a hash with the <code class="text-purple">:actual</code> value read from the asserted object. It must return a boolean.</p>
 
-<h3 id="trailblazer-test-operation-unit-tests-factory" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>factory</span></h3>
+<h3 id="trailblazer-test-operation-unit-tests-factory" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">factory</span></h3>
 
 <p class="">You should always use operations as factories in tests. The <code class="text-purple">factory</code> method calls the operation and raises an error should the operation have failed. If successful, it will do the exact same thing <a href="#call" class="underline text-purple"><code class="text-purple">call</code></a> does.</p>
 
@@ -983,7 +983,7 @@ end
 <p class="">Also, you can safely use FactoryGirl’s <code class="text-purple">attributes_for</code> to generate input.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-factory-mock_step" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">factory
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">mock_step</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">mock_step</span>
 
                   </h4>
 
@@ -1050,7 +1050,7 @@ end
 
 <p class=""><code class="text-purple">subprocess_path</code> should list n-level of nested activities in the order they are nested. Internally, it uses <a href="https://2019.trailblazer.to/2.1/docs/activity.html#activity-dsl-options-patching" class="underline text-purple">patching</a> API supported by <code class="text-purple">Subprocess</code> helper.</p>
 
-<h2 id="trailblazer-test-rspec" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Rspec</span></h2>
+<h2 id="trailblazer-test-rspec" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Rspec</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/rspec-trailblazer" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> rspec-trailblazer</a></p>
 
@@ -1063,7 +1063,7 @@ end
   </div>
 </div>
 
-<h2 id="trailblazer-test-system-test" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>System Test</span></h2>
+<h2 id="trailblazer-test-system-test" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">System Test</span></h2>
 
 <p class="">This document will describe how we test the full stack using Capybara and system tests.</p>
 

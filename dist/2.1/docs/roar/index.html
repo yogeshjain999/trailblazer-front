@@ -349,7 +349,7 @@
     <div class="lg:p-10 pl-8 pr-4 py-10 bg-light-grey grow">
       <h1 class="lg:text-3xl text-2xl text-blue font-bold">
         <span class="py-1 px-3 border border rounded border border-white text-white bg-purple">2.1</span>
-        <span class="font-black uppercase">
+        <span class="font-black uppercase header-text">
           Roar
         </span>
         Documentation
@@ -368,7 +368,7 @@
   </div>
 </div>
 
-<h2 id="roar-basic-usage" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Basic Usage</span></h2>
+<h2 id="roar-basic-usage" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Basic Usage</span></h2>
 
 <p class="">By including <code class="text-purple">Roar::JSON::JSONAPI.resource</code> into your representer a handful of additional DSL methods get imported.</p>
 
@@ -414,7 +414,7 @@ SongsRepresenter.new(Song.new).from_json("..")
 SongsRepresenter.for_collection.new([Song.new, Song.new]).from_json("..")
 </code></pre>
 
-<h2 id="roar-resource-objects" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Resource Objects</span></h2>
+<h2 id="roar-resource-objects" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Resource Objects</span></h2>
 
 <p class=""><a href="http://jsonapi.org/format/#document-resource-objects" class="underline text-purple">→ specification</a></p>
 
@@ -444,7 +444,7 @@ class SongsRepresenter &lt; Roar::Decorator
 end
 </code></pre>
 
-<h2 id="roar-attributes" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Attributes</span></h2>
+<h2 id="roar-attributes" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Attributes</span></h2>
 
 <p class=""><a href="http://jsonapi.org/format/#document-resource-object-attributes" class="underline text-purple">→ specification</a></p>
 
@@ -459,7 +459,7 @@ end
 end
 </code></pre>
 
-<h2 id="roar-relationships" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Relationships</span></h2>
+<h2 id="roar-relationships" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Relationships</span></h2>
 
 <p class=""><a href="http://jsonapi.org/format/#document-resource-object-relationships" class="underline text-purple">→ specification</a></p>
 
@@ -491,7 +491,7 @@ end
 end
 </code></pre>
 
-<h2 id="roar-member-names" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Member Names</span></h2>
+<h2 id="roar-member-names" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Member Names</span></h2>
 
 <p class=""><a href="http://jsonapi.org/format/#document-member-names" class="underline text-purple">→ specification</a></p>
 
@@ -530,7 +530,7 @@ characters), you can override this default:</p>
 end
 </code></pre>
 
-<h2 id="roar-meta-information" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Meta information</span></h2>
+<h2 id="roar-meta-information" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Meta information</span></h2>
 
 <p class=""><a href="http://jsonapi.org/format/#document-meta" class="underline text-purple">→ specification</a></p>
 
@@ -576,14 +576,14 @@ end
 <pre><code class="language-ruby">song.to_json(meta: { label: 'EMI' })
 </code></pre>
 
-<h2 id="roar-compound-document" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Compound Document</span></h2>
+<h2 id="roar-compound-document" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Compound Document</span></h2>
 
 <p class="">You can suppress rendering of the compound document using the <code class="text-purple">:included</code> option.</p>
 
 <pre><code>decorator.to_json(included: false)
 </code></pre>
 
-<h2 id="roar-sparse-fieldsets" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Sparse Fieldsets</span></h2>
+<h2 id="roar-sparse-fieldsets" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Sparse Fieldsets</span></h2>
 
 <p class="">As per specification, JSON API allows the rendering of arbitrary fields to be suppressed. This feature is called <a href="http://jsonapi.org/format/#fetching-sparse-fieldsets" class="underline text-purple">sparse fieldsets</a>.</p>
 
