@@ -163,7 +163,7 @@ class ViewsController < ApplicationController
             step :embed, before: :render_header # append {:embed} to {:display_title}.
 
             def wrap_text(ctx, display_title:, **)
-              ctx[:display_title] = %(<span>#{display_title}</span>)
+              ctx[:display_title] = %(<span class="header-text">#{display_title}</span>)
             end
 
             def embed(ctx, embed: nil, display_title:, **)
@@ -173,11 +173,12 @@ class ViewsController < ApplicationController
             end
 
             class H4 < Render
+              step nil, delete: :wrap_text
               step :render_breadcrumb, replace: :render_header
 
               def render_breadcrumb(ctx, header:, classes:, display_title:, parent_header:, **)
                 ctx[:html] = %(<h4 id="#{header.id}" class="#{classes}">#{parent_header.title}
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">#{display_title}</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">#{display_title}</span>
 
                   </h4>)
               end
