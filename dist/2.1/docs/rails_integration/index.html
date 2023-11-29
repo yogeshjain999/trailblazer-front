@@ -351,7 +351,7 @@ gem "trailblazer-rails"</code></pre>
   </div>
 </div>
 
-<h2 id="rails-integration-controller" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Controller<span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+<h2 id="rails-integration-controller" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Controller</span><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
             <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z" /></svg>
             <a href="" class="ml-1" title="This feature is implement in the trailblazer-rails gem.">trailblazer-rails </a>
           </span></h2>
@@ -365,7 +365,7 @@ gem "trailblazer-rails"</code></pre>
 
 <p class="">Please note, though, that we’re slowly moving towards using <a href="/2.1/docs/endpoint.html" class="underline text-purple">endpoint</a>s in controllers. Once this new layer becomes stable we will support both approaches.</p>
 
-<h3 id="rails-integration-controller-manual-invoke" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Manual invoke</h3>
+<h3 id="rails-integration-controller-manual-invoke" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Manual invoke</span></h3>
 
 <p class="">In order to run an operation in a controller you may simply invoke it manually.</p>
 
@@ -401,7 +401,7 @@ end
 <p class=""><a name="trailblazer-rails-run"></a><!-- @old-link -->
 <a name="trailblazer-rails-run-return-value"></a><!-- @old-link -->
 <!-- http://localhost:4000/2.1/docs/rails.html#rails-support-controller-run-return-value --></p>
-<h3 id="rails-integration-controller-run" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Run</h3>
+<h3 id="rails-integration-controller-run" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Run</span></h3>
 
 <p class="">The <code class="text-purple">trailblazer-rails</code> gem provides <code class="text-purple">#run</code> to simplify the task of invoking operations.</p>
 
@@ -425,7 +425,7 @@ end
 </ul>
 
 <h4 id="rails-integration-controller-run-block-syntax" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Run
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Block syntax</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Block syntax</span></span>
 
                   </h4>
 
@@ -458,7 +458,7 @@ end
 <p class="">After the block, you usually add code for handling a failing outcome of the operation run. Here, you can use the <code class="text-purple">ctx</code> object returned from <code class="text-purple">#run</code>.</p>
 
 <h4 id="rails-integration-controller-run-keyword-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Run
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Keyword arguments</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Keyword arguments</span></span>
 
                   </h4>
 
@@ -488,7 +488,7 @@ end
 </div>
 
 <h4 id="rails-integration-controller-run-runtime-variables" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Run
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime variables</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Runtime variables</span></span>
 
                   </h4>
 
@@ -524,7 +524,7 @@ end</code></pre>
 <p class="">You can also configure generic <a href="#rails-support-controller-run-run-options" class="underline text-purple">variables on the controller level</a>, they will be passed to all operations of that controller.</p>
 
 <h4 id="rails-integration-controller-run-run-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Run
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Run Options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Run Options</span></span>
 
                   </h4>
 
@@ -557,7 +557,7 @@ end
 
 <p class="">When mixing both styles, options passed directly to <code class="text-purple">#run</code> will win over possible same-named options in <code class="text-purple">#_run_options</code>.</p>
 
-<h3 id="rails-integration-controller-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Endpoint</h3>
+<h3 id="rails-integration-controller-endpoint" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Endpoint</span></h3>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-endpoint" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-endpoint</a></p>
 
@@ -566,7 +566,7 @@ end
 <p class="">We will document this new (completely optional!) layer once it is fully presentable. Until then, check out the <a href="/2.1/docs/endpoint.html" class="underline text-purple">API docs</a>.</p>
 
 
-<h2 id="rails-integration-cells" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Cells<span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+<h2 id="rails-integration-cells" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Cells</span><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
             <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z" /></svg>
             <a href="" class="ml-1" title="This feature is implement in the trailblazer-rails gem.">trailblazer-rails </a>
           </span></h2>
@@ -575,7 +575,7 @@ end
 
 <p class="">The <code class="text-purple">trailblazer-rails</code> gem makes it very simple to use the Cells gem along with TRB. It overrides <code class="text-purple">ActionController#render</code> and allows to render a cell.</p>
 
-<h3 id="rails-integration-cells-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">File structure</h3>
+<h3 id="rails-integration-cells-file-structure" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>File structure</span></h3>
 
 <p class="">In the early, adventurous days of Cells - the project was kicked off in 2007 - both naming of cell classes and their file structure was following the Rails Way™ style. In a Rails app, you could find a structure as below.</p>
 
@@ -606,7 +606,7 @@ app
 
 <p class="">This results in your cells being named <code class="text-purple">Song::Cell::Show</code>, adhering to the Trailblazer convention. Refer to the  to learn more about Trailblazer cells.</p>
 
-<h3 id="rails-integration-cells-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render</h3>
+<h3 id="rails-integration-cells-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Render</span></h3>
 
 <p class="">The <code class="text-purple">trailblazer-rails</code> gem extends the <code class="text-purple">#render</code> method and allows you to render cells in controllers and views.</p>
 
@@ -622,7 +622,7 @@ end</code></pre>
 <p class="">You simply invoke <code class="text-purple">#cell</code> the way you did it before, and pass it to <code class="text-purple">render</code>. If the first argument to <code class="text-purple">#render</code> is not a cell, the original Rails <code class="text-purple">render</code> version will be used, allowing you to use serializers, partials or whatever else you need.</p>
 
 <h4 id="rails-integration-cells-render-skip-controller-layout" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Render
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Skip controller layout</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Skip controller layout</span></span>
 
                   </h4>
 
@@ -636,7 +636,7 @@ render cell(Song::Cell::New, @model), layout: false</code></pre>
 <p class="">In fact, any option passed to <code class="text-purple">render</code> will be passed through to the controller’s <code class="text-purple">#render</code>.</p>
 
 <h4 id="rails-integration-cells-render-cell-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Render
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Cell options</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Cell options</span></span>
 
                   </h4>
 
@@ -647,7 +647,7 @@ render cell(Song::Cell::New, model, layout: Song::Cell::DarkLayout)</code></pre>
 
 <p class="">For instance, you can instruct the cell to use a separate layout cell. Note that this option is passed to <code class="text-purple">#cell</code>, not to <code class="text-purple">#render</code>.</p>
 
-<h3 id="rails-integration-cells-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Configuration</h3>
+<h3 id="rails-integration-cells-configuration" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Configuration</span></h3>
 
 <p class="">You can set controller-wide options passed to every <code class="text-purple">#cell</code> call by overriding the <code class="text-purple">#options_for_cell</code> method.</p>
 
@@ -678,13 +678,13 @@ class SongsController &lt; ApplicationController
   </div>
 </div>
 
-<h2 id="rails-integration-reform" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Reform</h2>
+<h2 id="rails-integration-reform" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Reform</span></h2>
 
 <p class="">Reform is a form object library that helps to move validations out of your models.</p>
 
 <p class="">It has excellent Rails support which will soon be summarized here. Until then, you can find <a href="/2.1/docs/reform/#reform-rails" class="underline text-purple">API docs here</a>.</p>
 
-<h2 id="rails-integration-loader" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Loader</h2>
+<h2 id="rails-integration-loader" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Loader</span></h2>
 
 <p class="">The <code class="text-purple">trailblazer-loader</code> gem implements a very simple way to load all files in your <code class="text-purple">concepts</code> directory in a heuristically meaningful order. It can be used in any environment.</p>
 
@@ -699,7 +699,7 @@ class SongsController &lt; ApplicationController
 
 <!-- @trailblazer-loader, <trailblazer-loader[] disable loader, file structure -->
 
-<h3 id="rails-integration-loader-loader-with-rails" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Loader with Rails</h3>
+<h3 id="rails-integration-loader-loader-with-rails" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Loader with Rails</span></h3>
 
 <p class="">The <code class="text-purple">trailblazer-loader</code> gem comes pre-bundled with <code class="text-purple">trailblazer-rails</code> for historical reasons: in the early days of Trailblazer, the conventional file name <code class="text-purple">concepts/product/operation/create.rb</code> didn’t match the short operation name, such as <code class="text-purple">Product::Create</code>.</p>
 

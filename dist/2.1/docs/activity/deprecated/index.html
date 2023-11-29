@@ -331,8 +331,8 @@
 
 <p class="">While everything described here is still working, we encourage you to slowly replace your old code with the functions we think are more useful, usually faster, plus better to debug and understand.</p>
 
-<h2 id="operation-variable-mapping" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Variable mapping</h2>
-<h3 id="operation-variable-mapping-input-output" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Input / Output</h3>
+<h2 id="operation-variable-mapping" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Variable mapping</span></h2>
+<h3 id="operation-variable-mapping-input-output" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Input / Output</span></h3>
 
 <div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
   <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
@@ -352,7 +352,7 @@
 </ul>
 
 <h4 id="operation-variable-mapping-input-output-input" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:input</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>:input</span></span>
 
                   </h4>
 
@@ -367,7 +367,7 @@ step :create_model,
 <p class=""><code class="text-purple">:input</code> works identically to a single <code class="text-purple">In()</code> call.</p>
 
 <h4 id="operation-variable-mapping-input-output-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:output</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>:output</span></span>
 
                   </h4>
 
@@ -391,7 +391,7 @@ step :create_model,
   Out(with_outer_ctx: true) =&gt; :output_for_create_model</code></pre>
 
 <h4 id="operation-variable-mapping-input-output-inject" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Input / Output
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">:inject</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>:inject</span></span>
 
                   </h4>
 
@@ -403,7 +403,7 @@ step :create_model,
   # becomes
   Inject() =&gt; :inject_for_create_model</code></pre>
 
-<h2 id="operation-dependency-injection" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Dependency Injection</h2>
+<h2 id="operation-dependency-injection" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Dependency Injection</span></h2>
 
 <div class="rounded flex p-4 gap-4 bg-bg-purple-1/50">
   <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
@@ -414,30 +414,30 @@ step :create_model,
   </div>
 </div>
 
-<h3 id="operation-dependency-injection-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overview</h3>
+<h3 id="operation-dependency-injection-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Overview</span></h3>
 
 <p class="">Very often your activity or one of the steps contained require particular objects and values to get their job done. Instead of hard-wiring those <em>“dependencies”</em> in the code it is good style to allow providing those objects by passing them into the activity at run-time. This is called dependency injection and is a <a href="https://en.wikipedia.org/wiki/Dependency_injection" class="underline text-purple">common technique</a> in software engineering.</p>
 
 <p class="">One way for using dependency injection is using keyword arguments for variables you need, and defaulting those in the step signature.</p>
 
-<h3 id="operation-dependency-injection-mapping" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Mapping</h3>
+<h3 id="operation-dependency-injection-mapping" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Mapping</span></h3>
 <p class="">TODO</p>
 
-<h3 id="operation-dependency-injection-dry-container" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Dry container</h3>
+<h3 id="operation-dependency-injection-dry-container" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Dry container</span></h3>
 <p class="">TODO</p>
 
 <p class="">defaulting in macros</p>
 
-<h2 id="operation-wiring-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Wiring API</h2>
+<h2 id="operation-wiring-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Wiring API</span></h2>
 
 <!-- OLD link https://trailblazer.to/2.1/docs/activity.html#activity-wiring-api-path-end_task-end_id-deprecation -->
-<h3 id="operation-wiring-api-path-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Path()<span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+<h3 id="operation-wiring-api-path-" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Path()</span><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
             <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z" /></svg>
             <a href="" class="ml-1" title="This feature was introduced in trailblazer-activity-dsl-linear v&lt; 1.2.0.">dsl &lt; 1.2.0</a>
           </span></h3>
 
 <h4 id="operation-wiring-api-path-end_task-end_id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">end_task/end_id</span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>end_task/end_id</span></span>
 
                   </h4>
 

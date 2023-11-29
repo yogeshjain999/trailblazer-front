@@ -327,13 +327,13 @@
 
       <div class="xl:flex xl:gap-0.5 mt-5">
         <div class="max-w-3xl lg:p-8 lg:pb-14 p-4 bg-white text-bg-blue space-y-9" id="documentation">
-          <h2 id="disposable-twin-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Twin API</h2>
+          <h2 id="disposable-twin-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Twin API</span></h2>
 
 <p class=""><strong>A twin is an intermediate object</strong> that usually sits between persistence layer and your application code. It’s a <em>domain object</em> that helps you model your application domain. Sometimes this is called <em>decorator</em>.</p>
 
 <p class="">Often, a twin maps directly to one persistent <em>“model”</em>. However, twins are absolutely not limited to your database layout - the opposite is the case. One twin can be a composition of many underlying models, with renaming, delegating, and more mapping features, that allow you modeling objects for your application, and not objects dictated by your database layout.</p>
 
-<h3 id="disposable-twin-api-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Declarative API</h3>
+<h3 id="disposable-twin-api-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Declarative API</span></h3>
 
 <p class="">Every twin is based on a schema which comes in form of a <code class="text-purple">Disposable::Twin</code> class.</p>
 
@@ -353,7 +353,7 @@ end
 
 <p class="">The self-explaining DSL known from many Trailblazer gems allows to define flat or nested twins.</p>
 
-<h3 id="disposable-twin-api-unnest" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Unnest</h3>
+<h3 id="disposable-twin-api-unnest" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Unnest</span></h3>
 
 <p class="">To expose a nested property on an outer level, use <code class="text-purple">::unnest</code>.</p>
 
@@ -381,7 +381,7 @@ twin.email = "duran@duran.com"
 album.artist.email #=&gt; "duran@duran.com"
 </code></pre>
 
-<h3 id="disposable-twin-api-public-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Public API</h3>
+<h3 id="disposable-twin-api-public-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Public API</span></h3>
 
 <p class="">The public twin API is unbelievably simple.</p>
 
@@ -393,7 +393,7 @@ album.artist.email #=&gt; "duran@duran.com"
   <li class="list-image-disc ml-10"><code class="text-purple">Twin#save</code> writes all values to the model, then calls <code class="text-purple">save</code> on configured models. Needs to be enabled explicity with <code class="text-purple">feature Save</code>.</li>
 </ol>
 
-<h3 id="disposable-twin-api-constructor" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Constructor</h3>
+<h3 id="disposable-twin-api-constructor" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Constructor</span></h3>
 
 <p class="">Twins get populated from the decorated models.</p>
 
@@ -408,7 +408,7 @@ Album  = Struct.new(:title, :songs, :artist)
 twin  = AlbumTwin.new(album, playable?: current_user.can?(:play))
 </code></pre>
 
-<h3 id="disposable-twin-api-readers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Readers</h3>
+<h3 id="disposable-twin-api-readers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Readers</span></h3>
 
 <p class="">This will create a composition object of the actual model and the hash.</p>
 
@@ -422,7 +422,7 @@ twin.playable? #=&gt; true
 twin.title #=&gt; "Plasticash"
 </code></pre>
 
-<h3 id="disposable-twin-api-writers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Writers</h3>
+<h3 id="disposable-twin-api-writers" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Writers</span></h3>
 
 <p class="">Writers change values on the twin and are <em>not</em> propagated to the model.</p>
 
@@ -441,7 +441,7 @@ album.songs #=&gt; []
 
 <p class="">The added twin is <em>not</em> passed to the model. Note that the nested song is a twin, not the model itself.</p>
 
-<h3 id="disposable-twin-api-sync" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Sync</h3>
+<h3 id="disposable-twin-api-sync" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Sync</span></h3>
 
 <p class="">To write twin data back to the models, use <code class="text-purple">sync</code>. You have to include <code class="text-purple">Sync</code>.</p>
 
@@ -486,7 +486,7 @@ end
 
 <p class="">Invoking <code class="text-purple">sync</code> with a block will <em>not</em> write anything to the models. Note that <code class="text-purple">nil</code> values are included into the hash, too (0.4.0).</p>
 
-<h3 id="disposable-twin-api-save" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Save</h3>
+<h3 id="disposable-twin-api-save" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Save</span></h3>
 
 <p class="">Calling <code class="text-purple">#save</code> will do <code class="text-purple">sync</code>, then call <code class="text-purple">save</code> on all nested models. This implies that the models need to implement <code class="text-purple">#save</code>. <code class="text-purple">save</code> is unavailable by default; you have to explicitly include it with <code class="text-purple">feature Save</code>:</p>
 
@@ -511,7 +511,7 @@ twin.save
 
 </code></pre>
 
-<h3 id="disposable-twin-api-nested-twin" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Nested Twin</h3>
+<h3 id="disposable-twin-api-nested-twin" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Nested Twin</span></h3>
 
 <p class="">Nested objects can be declared with an inline twin.</p>
 
@@ -531,7 +531,7 @@ twin.artist #=&gt; &lt;Twin::Artist model=&lt;Artist ..&gt;&gt;
 <pre><code class="language-ruby">property :artist, twin: TwinArtist
 </code></pre>
 
-<h3 id="disposable-twin-api-features" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Features</h3>
+<h3 id="disposable-twin-api-features" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Features</span></h3>
 
 <p class="">You can simply <code class="text-purple">include</code> feature modules into twins. If you want a feature to be included into all inline twins of your schema, use <code class="text-purple">::feature</code>.</p>
 
@@ -542,7 +542,7 @@ twin.artist #=&gt; &lt;Twin::Artist model=&lt;Artist ..&gt;&gt;
     # this will now include Coercion, too.
 </code></pre>
 
-<h3 id="disposable-twin-api-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Coercion</h3>
+<h3 id="disposable-twin-api-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Coercion</span></h3>
 
 <p class="">Twins can use <a href="https://github.com/dry-rb/dry-types" class="underline text-purple">dry-types</a> coercion. This will override the setter in your twin, coerce the incoming value, and call the original setter. <em>Nothing more</em> will happen.</p>
 
@@ -562,7 +562,7 @@ twin.id #=&gt; 1
 
 <p class="">Again, coercion only happens in the setter.</p>
 
-<h3 id="disposable-twin-api-nilify" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Nilify</h3>
+<h3 id="disposable-twin-api-nilify" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Nilify</span></h3>
 
 <p class="">Coercion also supports the conversion of blank strings (<code class="text-purple">""</code>) into <code class="text-purple">nil</code>. This is known as <em>nilify</em> and provided via the <code class="text-purple">:nilify</code> option.</p>
 
@@ -586,7 +586,7 @@ twin.id #=&gt; nil
   </div>
 </div>
 
-<h3 id="disposable-twin-api-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Defaults</h3>
+<h3 id="disposable-twin-api-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Defaults</span></h3>
 
 <p class="">Default values can be set via <code class="text-purple">:default</code>.</p>
 
@@ -604,7 +604,7 @@ end
 
 <p class="">Note that <code class="text-purple">:default</code> also works with <code class="text-purple">:virtual</code> and <code class="text-purple">readable: false</code>. <code class="text-purple">:default</code> can also be a lambda which is then executed in twin context.</p>
 
-<h3 id="disposable-twin-api-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Collections</h3>
+<h3 id="disposable-twin-api-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Collections</span></h3>
 
 <p class="">Collections can be defined analogue to <code class="text-purple">property</code>. The exposed API is the <code class="text-purple">Array</code> API.</p>
 
@@ -622,7 +622,7 @@ end
 
 <p class="">None of these operations are propagated to the model.</p>
 
-<h3 id="disposable-twin-api-collection-semantics" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Collection Semantics</h3>
+<h3 id="disposable-twin-api-collection-semantics" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Collection Semantics</span></h3>
 
 <p class="">In addition to the standard <code class="text-purple">Array</code> API the collection adds a handful of additional semantics.</p>
 
@@ -637,7 +637,7 @@ end
 
 <p class=""><a name="jsonb"></a></p>
 
-<h3 id="disposable-twin-api-property-hash" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Property::Hash</h3>
+<h3 id="disposable-twin-api-property-hash" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Property::Hash</span></h3>
 
 <p class=""><span class="gem-version">0.3.2</span></p>
 
@@ -725,7 +725,7 @@ end
 
 <p class="">The <code class="text-purple">Property::Hash</code> module also works great with <a href="#disposable-twin-api-unnest" class="underline text-purple">::unnest</a> and is a fantastic way to get rid of migrations and data that doesn’t need a dedicated column.</p>
 
-<h3 id="disposable-twin-api-twin-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Twin Collections</h3>
+<h3 id="disposable-twin-api-twin-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Twin Collections</span></h3>
 
 <p class="">To twin a collection of models, you can use <code class="text-purple">::from_collection</code>.</p>
 
@@ -734,7 +734,7 @@ end
 
 <p class="">This will decorate every song instance using a fresh twin.</p>
 
-<h3 id="disposable-twin-api-renaming" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Renaming</h3>
+<h3 id="disposable-twin-api-renaming" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Renaming</span></h3>
 
 <p class="">The <code class="text-purple">Expose</code> module allows renaming properties.</p>
 
@@ -750,7 +750,7 @@ end
 AlbumTwin.new(album).song_title #=&gt; "Run For Cover"
 </code></pre>
 
-<h3 id="disposable-twin-api-composition" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Composition</h3>
+<h3 id="disposable-twin-api-composition" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Composition</span></h3>
 
 <p class="">Compositions of objects can be mapped, too.</p>
 
@@ -770,7 +770,7 @@ AlbumTwin.new(album).song_title #=&gt; "Run For Cover"
 
 <p class="">Note that renaming works here, too.</p>
 
-<h3 id="disposable-twin-api-overriding-getter-for-presentation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overriding Getter for Presentation</h3>
+<h3 id="disposable-twin-api-overriding-getter-for-presentation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Overriding Getter for Presentation</span></h3>
 
 <p class="">You can override getters for presentation.</p>
 
@@ -792,7 +792,7 @@ AlbumTwin.new(album).song_title #=&gt; "Run For Cover"
   feature Sync::SkipGetter
 </code></pre>
 
-<h3 id="disposable-twin-api-manual-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Manual Coercion</h3>
+<h3 id="disposable-twin-api-manual-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Manual Coercion</span></h3>
 
 <p class="">You can override setters for manual coercion.</p>
 
@@ -813,7 +813,7 @@ AlbumTwin.new(album).song_title #=&gt; "Run For Cover"
   feature Setup::SkipSetter
 </code></pre>
 
-<h3 id="disposable-twin-api-change-tracking" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Change Tracking</h3>
+<h3 id="disposable-twin-api-change-tracking" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Change Tracking</span></h3>
 
 <p class="">The <code class="text-purple">Changed</code> module will allow tracking of state changes in all properties, even nested structures.</p>
 
@@ -853,7 +853,7 @@ twin.released #=&gt; true
 twin.changed?(:released) #=&gt; false
 </code></pre>
 
-<h2 id="disposable-twin-default" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Twin: Default</h2>
+<h2 id="disposable-twin-default" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Twin: Default</span></h2>
 
 <p class="">Twins allow default values to be set on the twin. This is provided by the <code class="text-purple">Default</code> module.</p>
 
@@ -873,7 +873,7 @@ end
 
 <p class="">Note that this also works for nested properties.</p>
 
-<h3 id="disposable-twin-default-struct-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Struct Defaults</h3>
+<h3 id="disposable-twin-default-struct-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Struct Defaults</span></h3>
 
 <p class="">Defaults also work for <code class="text-purple">Struct</code>.</p>
 
@@ -908,11 +908,11 @@ twin.settings.roles.admin #=&gt; "maybe"
 album.settings #=&gt; {"enabled"=&gt;"yes", "roles"=&gt;{"admin"=&gt;"maybe"}}
 </code></pre>
 
-<h2 id="disposable-disposable-callback" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Disposable: Callback</h2>
+<h2 id="disposable-disposable-callback" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Disposable: Callback</span></h2>
 
 <p class="">Callbacks in Disposable implement the <a href="/gems/operation/1.1/callback.html" class="underline text-purple">Imperative Callback</a> pattern.</p>
 
-<h3 id="disposable-disposable-callback-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Declarative API</h3>
+<h3 id="disposable-disposable-callback-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Declarative API</span></h3>
 
 <p class="">A <code class="text-purple">Callback::Group</code> allows defining nested callbacks.</p>
 
@@ -946,14 +946,14 @@ end
 end
 </code></pre>
 
-<h3 id="disposable-disposable-callback-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Invocation</h3>
+<h3 id="disposable-disposable-callback-invocation" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Invocation</span></h3>
 
 <p class="">A group is invoked using <code class="text-purple">call</code>.</p>
 
 <pre><code class="language-ruby">Group.new(twin).()
 </code></pre>
 
-<h3 id="disposable-disposable-callback-context" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Context</h3>
+<h3 id="disposable-disposable-callback-context" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Context</span></h3>
 
 <p class="">You can use an arbitrary context object to implement the callback methods.</p>
 
@@ -975,7 +975,7 @@ end
 
 <p class="">This allows leaving the <code class="text-purple">Group</code> free of implementation, as a pure definition of events, only. Also, note that you don’t have any nesting with a context object, all methods are implemented on the same level in a simple object.</p>
 
-<h3 id="disposable-disposable-callback-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Options</h3>
+<h3 id="disposable-disposable-callback-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Options</span></h3>
 
 <p class="">You may pass arbitrary options to all callback methods.</p>
 

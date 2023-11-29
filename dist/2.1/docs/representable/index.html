@@ -355,13 +355,13 @@
 
 <p class="">In case you’re looking towards implementing a REST API, check out <a href="/2.1/docs/roar.html" class="underline text-purple">Roar</a> first, which adds hypermedia semantics, media formats and more to Representable</p>
 
-<h2 id="representable-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">API</h2>
+<h2 id="representable-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>API</span></h2>
 
 <p class="">In Representable, we differentiate between three APIs.</p>
 
 <p class="">The <a href="#representable-api" class="underline text-purple">declarative API</a> is how we define representers. You can learn how to use those representers by reading about the very brief <a href="#representable-api-public-api" class="underline text-purple">public API</a>. Representable is extendable without having to hack existing code: the <a href="#representable-function-api" class="underline text-purple">function API</a> documents how to use its options to achieve what you need.</p>
 
-<h3 id="representable-api-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Declarative API</h3>
+<h3 id="representable-api-declarative-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Declarative API</span></h3>
 
 <p class="">To render objects to documents or parse documents to objects, you need to define a representer.</p>
 
@@ -810,7 +810,7 @@ end
 
 <p class="">Basically, <code class="text-purple">:inherit</code> copies the configuration from the parent property, then merges in your options from the inheriting representer. It exposes the same behaviour as <code class="text-purple">super</code> in Ruby - when using <code class="text-purple">:inherit</code> the property must exist in the parent representer.</p>
 
-<h3 id="representable-api-feature" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Feature</h3>
+<h3 id="representable-api-feature" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Feature</span></h3>
 
 <p class="">If you need to include modules in all inline representers automatically, register it as a feature.</p>
 
@@ -828,7 +828,7 @@ end
 
 <p class="">Nested representers will <code class="text-purple">include</code> the provided module automatically.</p>
 
-<h3 id="representable-api-execution-context" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Execution Context</h3>
+<h3 id="representable-api-execution-context" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Execution Context</span></h3>
 
 <p class="">Readers and Writers for properties will usually be called on the <code class="text-purple">represented</code> object. If you want to change that, so the accessors get called on the decorator instead, use <code class="text-purple">:exec_context</code>.</p>
 
@@ -841,7 +841,7 @@ end
 end
 </code></pre>
 
-<h3 id="representable-api-callable-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Callable Options</h3>
+<h3 id="representable-api-callable-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Callable Options</span></h3>
 
 <p class="">While lambdas are one option for dynamic options, you might also pass a “callable” object to a directive.</p>
 
@@ -861,7 +861,7 @@ end
 
 <p class="">This is enough to have the <code class="text-purple">Sanitizer</code> class run with all the arguments that are usually passed to the lambda (preceded by the represented object as first argument).</p>
 
-<h3 id="representable-api-read-write-restrictions" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Read/Write Restrictions</h3>
+<h3 id="representable-api-read-write-restrictions" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Read/Write Restrictions</span></h3>
 
 <p class="">Using the <code class="text-purple">:readable</code> and <code class="text-purple">:writeable</code> options access to properties can be restricted.</p>
 
@@ -870,7 +870,7 @@ end
 
 <p class="">This will leave out the <code class="text-purple">title</code> property in the rendered document. Vice-versa, <code class="text-purple">:writeable</code> will skip the property when parsing and does not assign it.</p>
 
-<h3 id="representable-api-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Coercion</h3>
+<h3 id="representable-api-coercion" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Coercion</span></h3>
 
 <p class="">If you need coercion when parsing a document you can use the Coercion module which uses <a href="https://github.com/solnic/virtus" class="underline text-purple">virtus</a> for type conversion.</p>
 
@@ -893,7 +893,7 @@ end
 
 <p class="">Note that we think coercion in the representer is wrong, and should happen on the underlying object. We have a rich <a href="/2.1/docs/disposable.html#disposable-twin-api-coercion" class="underline text-purple">coercion/constraint API for twins</a>.</p>
 
-<h3 id="representable-api-symbol-keys" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Symbol Keys</h3>
+<h3 id="representable-api-symbol-keys" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Symbol Keys</span></h3>
 
 <p class="">When parsing, Representable reads properties from hashes using their string keys.</p>
 
@@ -911,7 +911,7 @@ end
 
 <p class="">This will give you a behavior close to Rails’ <code class="text-purple">HashWithIndifferentAccess</code> by stringifying the incoming hash internally.</p>
 
-<h3 id="representable-api-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Defaults</h3>
+<h3 id="representable-api-defaults" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Defaults</span></h3>
 
 <p class="">The <code class="text-purple">defaults</code> method allows setting options that will be applied to all property definitions of a representer.</p>
 
@@ -960,7 +960,7 @@ end
 
 <p class="">All defaults are inherited to subclasses or including modules.</p>
 
-<h3 id="representable-api-standalone-hash" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Standalone Hash</h3>
+<h3 id="representable-api-standalone-hash" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Standalone Hash</span></h3>
 
 <p class="">If it’s required to represent a bare hash object, use <code class="text-purple">Representable::JSON::Hash</code> instead of <code class="text-purple">Representable::JSON</code>.</p>
 
@@ -1001,7 +1001,7 @@ SongsRepresenter.new(hash).to_json
 
 <p class="">In XML, use <code class="text-purple">XML::Hash</code>. If you want to store hash attributes in tag attributes instead of dedicated nodes, use <code class="text-purple">XML::AttributeHash</code>.</p>
 
-<h3 id="representable-api-standalone-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Standalone Collection</h3>
+<h3 id="representable-api-standalone-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Standalone Collection</span></h3>
 
 <p class="">Likewise, you can represent <em>lonely collections</em>, instances of <code class="text-purple">Array</code>.</p>
 
@@ -1027,7 +1027,7 @@ SongsRepresenter.new(ary).to_json
 
 <p class="">Note that this also works for XML.</p>
 
-<h3 id="representable-api-standalone-collection-to_a" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Standalone Collection: to_a</h3>
+<h3 id="representable-api-standalone-collection-to_a" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Standalone Collection: to_a</span></h3>
 
 <p class="">Another trick to represent collections is using a normal representer with exactly one collection property named <code class="text-purple">to_a</code>.</p>
 
@@ -1048,7 +1048,7 @@ SongsRepresenter.new(ary).from_json('[{"title": "Screenager"}]')
 
 <p class="">In order to grab the collection for rendering or parsing, Representable will now call <code class="text-purple">array.to_a</code>, which returns the array itself.</p>
 
-<h3 id="representable-api-automatic-collection-representer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Automatic Collection Representer</h3>
+<h3 id="representable-api-automatic-collection-representer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Automatic Collection Representer</span></h3>
 
 <p class="">Instead of explicitly defining representers for collections using a <a href="#representable-api-standalone-collection" class="underline text-purple">“lonely collection”</a>, you can let Representable  do that for you.</p>
 
@@ -1082,7 +1082,7 @@ SongRepresenter.for_collection.new([]).from_json(json)
 
 <p class="">Note: the implicit collection representer internally is implemented using a lonely collection. Everything you pass to <code class="text-purple">::collection_representer</code> is simply provided to the <code class="text-purple">::items</code> call in the lonely collection. That allows you to use <code class="text-purple">:populator</code> and all the other goodies, too.</p>
 
-<h3 id="representable-api-automatic-singular-and-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Automatic Singular and Collection</h3>
+<h3 id="representable-api-automatic-singular-and-collection" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Automatic Singular and Collection</span></h3>
 
 <p class="">In case you don’t want to know whether or not you’re working with a collection or singular model, use <code class="text-purple">represent</code>.</p>
 
@@ -1097,7 +1097,7 @@ SongRepresenter.represent(Song.all).to_json
 
 <p class=""><code class="text-purple">represent</code> figures out the correct representer for you. This works for parsing, too.</p>
 
-<h3 id="representable-api-public-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Public API</h3>
+<h3 id="representable-api-public-api" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Public API</span></h3>
 
 <p class="">When decorating an object with a representer, the object needs to provide readers for every defined <code class="text-purple">property</code> - and writers, if you’re planning to parse.</p>
 
@@ -1199,13 +1199,13 @@ song.title #=&gt; "Fallout"
 
 <h4 id="tohash-and-fromhash">to_hash and from_hash</h4>
 
-<h2 id="representable-function-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Function API</h2>
+<h2 id="representable-function-api" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Function API</span></h2>
 
 <p class="">Both rendering and parsing have a rich API that allows you to hook into particular steps and change behavior.</p>
 
 <p class="">If that still isn’t enough, you can create your own pipeline.</p>
 
-<h3 id="representable-function-api-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Overview</h3>
+<h3 id="representable-function-api-overview" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Overview</span></h3>
 
 <p class="">Function option are passed to <code class="text-purple">property</code>.</p>
 
@@ -1241,7 +1241,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 <pre><code class="language-ruby">if: -&gt;(fragment:, **) { fragment.nil? }
 </code></pre>
 
-<h3 id="representable-function-api-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Options</h3>
+<h3 id="representable-function-api-options" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Options</span></h3>
 
 <p class="">Here’s a list of all available options.</p>
 
@@ -1322,7 +1322,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   </tbody>
 </table>
 
-<h3 id="representable-function-api-as" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">As</h3>
+<h3 id="representable-function-api-as" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>As</span></h3>
 
 <p class="">If your property name doesn’t match the name in the document, use the :as option.</p>
 
@@ -1334,7 +1334,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 <pre><code class="language-ruby">song.to_json #=&gt; {"name":"Fallout","track":1}
 </code></pre>
 
-<h3 id="representable-function-api-getter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Getter</h3>
+<h3 id="representable-function-api-getter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Getter</span></h3>
 
 <p class="">When rendering, Representable calls the property’s getter on the represented object. For a property named <code class="text-purple">:id</code>, this will result in <code class="text-purple">represented.id</code> to retrieve the value for rendering.</p>
 
@@ -1350,7 +1350,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">As helpful as this option is, please do not overuse it. A representer is not a data mapper, but a document transformer. If your underlying data model and your representers diverge too much, consider using a <a href="/2.1/docs/disposable.html" class="underline text-purple">twin</a> to simplify the representer.</p>
 
-<h3 id="representable-function-api-setter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Setter</h3>
+<h3 id="representable-function-api-setter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Setter</span></h3>
 
 <p class="">After parsing has happened, the fragment is assigned to the represented object using the property’s setter. In the above example, Representable will call <code class="text-purple">represented.id=(fragment)</code>.</p>
 
@@ -1362,7 +1362,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">Again, don’t overuse this method and consider a twin if you find yourself using <code class="text-purple">:setter</code> for every property.</p>
 
-<h3 id="representable-function-api-if" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">If</h3>
+<h3 id="representable-function-api-if" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>If</span></h3>
 
 <p class="">You can exclude properties when rendering or parsing, as if they were not defined at all. This works with <code class="text-purple">:if</code>.</p>
 
@@ -1376,7 +1376,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 <pre><code class="language-ruby">decorator.from_json('{"id":1}', user_options: {is_admin: true})
 </code></pre>
 
-<h3 id="representable-function-api-reader" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Reader</h3>
+<h3 id="representable-function-api-reader" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Reader</span></h3>
 
 <p class="">To override the entire parsing process, use <code class="text-purple">:reader</code>. You won’t have access to <code class="text-purple">:fragment</code> here since parsing hasn’t happened, yet.</p>
 
@@ -1386,7 +1386,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">With <code class="text-purple">:reader</code>, parsing is completely up to you. Representable will only invoke the function and do nothing else.</p>
 
-<h3 id="representable-function-api-writer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Writer</h3>
+<h3 id="representable-function-api-writer" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Writer</span></h3>
 
 <p class="">To override the entire rendering process, use <code class="text-purple">:writer</code>. You won’t have access to <code class="text-purple">:input</code> here since the value query to the represented object hasn’t happened, yet.</p>
 
@@ -1396,7 +1396,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">With <code class="text-purple">:writer</code>, rendering is completely up to you. Representable will only invoke the function and do nothing else.</p>
 
-<h3 id="representable-function-api-skip-parse" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Skip Parse</h3>
+<h3 id="representable-function-api-skip-parse" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Skip Parse</span></h3>
 
 <p class="">To suppress parsing of a property, use <code class="text-purple">:skip_parse</code>.</p>
 
@@ -1406,7 +1406,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">No further processing happens with this property, should the option evaluate to true.</p>
 
-<h3 id="representable-function-api-skip-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Skip Render</h3>
+<h3 id="representable-function-api-skip-render" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Skip Render</span></h3>
 
 <p class="">To suppress rendering of a property, use <code class="text-purple">:skip_render</code>.</p>
 
@@ -1416,7 +1416,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">No further processing happens with this property, should the option evaluate to true.</p>
 
-<h3 id="representable-function-api-parse-filter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Parse Filter</h3>
+<h3 id="representable-function-api-parse-filter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Parse Filter</span></h3>
 
 <p class="">Use <code class="text-purple">:parse_filter</code> to process the parsing result.</p>
 
@@ -1428,7 +1428,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">Note that you can add multiple filters, the result from the last will be passed to the next.</p>
 
-<h3 id="representable-function-api-render-filter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render Filter</h3>
+<h3 id="representable-function-api-render-filter" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Render Filter</span></h3>
 
 <p class="">Use <code class="text-purple">:render_filter</code> to process the rendered fragment.</p>
 
@@ -1440,7 +1440,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">Note that you can add multiple filters, the result from the last will be passed to the next.</p>
 
-<h3 id="representable-function-api-deserialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Deserialize</h3>
+<h3 id="representable-function-api-deserialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Deserialize</span></h3>
 
 <p class="">When deserializing a nested fragment, the default mechanics after decorating the represented object are to call <code class="text-purple">represented.from_json(fragment)</code>.</p>
 
@@ -1452,7 +1452,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">The <code class="text-purple">:input</code> option provides the currently deserialized object.</p>
 
-<h3 id="representable-function-api-serialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Serialize</h3>
+<h3 id="representable-function-api-serialize" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Serialize</span></h3>
 
 <p class="">When serializing a nested object, the default mechanics after decorating the represented object are to call <code class="text-purple">represented.to_json</code>.</p>
 
@@ -1462,7 +1462,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   serialize: -&gt;(represented:,**) { represented.attributes.to_h }
 </code></pre>
 
-<h3 id="representable-function-api-extend" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Extend</h3>
+<h3 id="representable-function-api-extend" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Extend</span></h3>
 
 <p class="">Alias: <code class="text-purple">:decorator</code>.</p>
 
@@ -1493,7 +1493,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
 
 <p class="">This allows a dynamic polymorphic representer structure.</p>
 
-<h3 id="representable-function-api-prepare" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Prepare</h3>
+<h3 id="representable-function-api-prepare" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Prepare</span></h3>
 
 <p class="">The default mechanics when representing a nested object is decorating the object, then calling the serializer or deserializer method on it.</p>
 
@@ -1509,7 +1509,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   prepare: -&gt;(represented:,binding:,**) { binding[:extend].new(represented) }
 </code></pre>
 
-<h3 id="representable-function-api-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Class</h3>
+<h3 id="representable-function-api-class" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Class</span></h3>
 
 <p class="">When parsing a nested fragment, Representable per default creates an object for you. The class can be defined with <code class="text-purple">:class</code>.</p>
 
@@ -1523,7 +1523,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   class: -&gt;(fragment) { fragment["type"] == "rockstar" ? Rockstar : Artist }
 </code></pre>
 
-<h3 id="representable-function-api-instance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Instance</h3>
+<h3 id="representable-function-api-instance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Instance</span></h3>
 
 <p class="">Instead of using <code class="text-purple">:class</code> you can directly instantiate the represented object yourself using <code class="text-purple">:instance</code>.</p>
 
@@ -1533,7 +1533,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   end
 </code></pre>
 
-<h3 id="representable-function-api-render-nil" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render Nil</h3>
+<h3 id="representable-function-api-render-nil" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Render Nil</span></h3>
 
 <p class="">In Representable, <code class="text-purple">false</code> values are considered as a valid value and will be rendered into the document or parsed.</p>
 
@@ -1543,7 +1543,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   render_nil: true
 </code></pre>
 
-<h3 id="representable-function-api-render-empty" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Render Empty</h3>
+<h3 id="representable-function-api-render-empty" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Render Empty</span></h3>
 
 <p class="">Per default, empty collections are rendered (unless they’re <code class="text-purple">nil</code>). You can suppress rendering.</p>
 
@@ -1551,7 +1551,7 @@ options[:user_options] | The `:user_options` for the current representer. These 
   render_empty: false
 </code></pre>
 
-<h2 id="representable-xml" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">XML</h2>
+<h2 id="representable-xml" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>XML</span></h2>
 
 <p class="">If you’re enjoying the pleasure of working with XML, Representable can help you. It does render and parse XML, too, with an almost identical declarative API.</p>
 
@@ -1581,7 +1581,7 @@ SongRepresenter.new(song).to_xml
 &lt;/song&gt;
 </code></pre>
 
-<h3 id="representable-xml-tag-attributes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Tag Attributes</h3>
+<h3 id="representable-xml-tag-attributes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Tag Attributes</span></h3>
 
 <p class="">You can also map properties to tag attributes in Representable. This works only for the top-level node, though (seen from the representer’s perspective).</p>
 
@@ -1603,7 +1603,7 @@ SongRepresenter.new(song).to_xml
 
 <p class="">Naturally, this works both ways.</p>
 
-<h3 id="representable-xml-mapping-content" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Mapping Content</h3>
+<h3 id="representable-xml-mapping-content" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Mapping Content</span></h3>
 
 <p class="">The same concept can also be applied to content. If you need to map a property to the top-level node’s content, use the <code class="text-purple">:content</code> option. Again, <em>top-level</em> refers to the document fragment that maps to the representer.</p>
 
@@ -1619,7 +1619,7 @@ SongRepresenter.new(song).to_xml
 <pre><code class="language-xml">&lt;song&gt;Fallout&lt;/song&gt;
 </code></pre>
 
-<h3 id="representable-xml-wrapping-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Wrapping Collections</h3>
+<h3 id="representable-xml-wrapping-collections" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Wrapping Collections</span></h3>
 
 <p class="">It is sometimes unavoidable to wrap tag lists in a container tag.</p>
 
@@ -1647,7 +1647,7 @@ album_representer.to_xml
 &lt;/album&gt;
 </code></pre>
 
-<h3 id="representable-xml-namespace" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Namespace</h3>
+<h3 id="representable-xml-namespace" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Namespace</span></h3>
 
 <p class="">Namespaces in XML allow the use of different vocabularies, or set of names, in one document. <a href="http://books.xmlschemata.org/relaxng/relax-CHP-11-SECT-1.html" class="underline text-purple">Read this great article</a> to share our fascination about them.</p>
 
@@ -1730,11 +1730,11 @@ end
   </div>
 </div>
 
-<h2 id="representable-yaml" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">YAML</h2>
+<h2 id="representable-yaml" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>YAML</span></h2>
 
 <p class="">Representable also comes with a YAML representer. Like <a href="#representable-xml" class="underline text-purple">XML</a>, the declarative API is almost identical.</p>
 
-<h3 id="representable-yaml-flow-style-lists" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Flow Style Lists</h3>
+<h3 id="representable-yaml-flow-style-lists" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Flow Style Lists</span></h3>
 
 <p class="">A nice feature is that <code class="text-purple">#collection</code> also accepts a <code class="text-purple">:style</code> option which helps having nicely formatted inline (or “flow”) arrays in your YAML - if you want that!</p>
 
@@ -1764,7 +1764,7 @@ id: 1
 composers: [Stewart Copeland, Sting]
 </code></pre>
 
-<h2 id="representable-debugging" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Debugging</h2>
+<h2 id="representable-debugging" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Debugging</span></h2>
 
 <p class="">Representable is a generic mapper using recursions, pipelines and things that might be hard to understand from the outside. That’s why we got the <code class="text-purple">Debug</code> module which will give helpful output about what it’s doing when parsing or rendering.</p>
 
@@ -1776,11 +1776,11 @@ SongRepresenter.new(song).extend(Representable::Debug).to_json
 
 <p class="">It’s probably a good idea not to do this in production.</p>
 
-<h2 id="representable-upgrading-guide" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Upgrading Guide</h2>
+<h2 id="representable-upgrading-guide" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span>Upgrading Guide</span></h2>
 
 <p class="">We try to make upgrading as smooth as possible. Here’s the generic documentation, but don’t hesitate to ask for <a href="https://gitter.im/trailblazer/chat" class="underline text-purple">help on Gitter</a>.</p>
 
-<h3 id="representable-upgrading-guide-2-4-to-3-0" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">2.4 to 3.0</h3>
+<h3 id="representable-upgrading-guide-2-4-to-3-0" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>2.4 to 3.0</span></h3>
 
 <ul class="space-y-2">
   <li class="list-image-disc ml-10">The 3.0 line runs with Ruby &gt;2.0, only. This is to make extensive use of keyword arguments.</li>
@@ -1791,7 +1791,7 @@ SongRepresenter.new(song).extend(Representable::Debug).to_json
 -&gt;(options) { options[:user_options] }
 -&gt;(user_options:,**) { user_options }</p>
 
-<h3 id="representable-upgrading-guide-2-3-to-2-4" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">2.3 to 2.4</h3>
+<h3 id="representable-upgrading-guide-2-3-to-2-4" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>2.3 to 2.4</span></h3>
 
 <p class="">The 2.4 line contains many new features and got a major internal restructuring. It is a transitional release with deprecations for all changes.</p>
 
