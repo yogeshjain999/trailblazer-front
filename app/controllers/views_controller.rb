@@ -214,6 +214,11 @@ class ViewsController < ApplicationController
           %(<script>pageIdentifier = "#{@options.fetch(:page_identifier)}";</script>)
         end
 
+        def head_title
+          puts "@@@@@ #{@options.keys.inspect}"
+          %(#{@options[:toc_title]} - Trailblazer)
+        end
+
         def to_h
           {}
         end
@@ -432,7 +437,8 @@ class ViewsController < ApplicationController
 
       # application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: Cms::Flow.options_for_cell},
       application:  {template_file: "app/concepts/cell/application/layout.erb", context_class: Application::Cell::Layout, options_for_cell: ->(ctx, controller:, content:, belongs_to:, **) { {yield_block: content, controller: controller, belongs_to: belongs_to} }},
-      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell}
+      html:         {template_file: "app/concepts/cell/application/container.erb", context_class: Application::Cell::Container, options_for_cell: Cms::Flow.options_for_cell
+      }
     )
 
     class Render < Torture::Cms::Page::Render::WithToc
