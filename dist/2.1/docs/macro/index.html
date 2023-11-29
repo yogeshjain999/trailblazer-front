@@ -369,7 +369,7 @@
 <h3 id="macro-overview-general-notes" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>General notes</span></h3>
 
 <h4 id="macro-overview-general-notes-variable-mapping" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">General notes
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Variable mapping</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Variable mapping</span>
 
                   </h4>
 
@@ -424,7 +424,7 @@ end
 <p class="">When using <code class="text-purple">Nested()</code> with only one argument, the <em>decider</em>, we call this the “dynamic style”. Since we don’t know the possible nested activities upfront, the macro needs to compile several internals at runtime, which will be slower than its static equivalent.</p>
 
 <h4 id="macro-nested-dynamic-decider" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Dynamic
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Decider</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Decider</span>
 
                   </h4>
 
@@ -433,7 +433,7 @@ end
 <p class="">The decider receives <code class="text-purple">ctx</code> and keyword arguments just like any other step. It is run directly before the nested activity is run, it’s <strong>return value decides about</strong> which one that will be: <code class="text-purple">Id3Tag</code> or <code class="text-purple">VorbisComment</code>.</p>
 
 <h4 id="macro-nested-dynamic-nested-activity" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Dynamic
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Nested activity</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Nested activity</span>
 
                   </h4>
 
@@ -476,7 +476,7 @@ end
 <p class="">Internally, the “auto-wire” <code class="text-purple">Nested()</code> macro simply returns a small activity as illustrated above in gray. It has a <code class="text-purple">decide</code> step to figure out which nested activity to run, then runs the actual nested activity. All well-known termini (success, failure, pass_fast, fail_fast) of the nested activities are automatically connected to the <code class="text-purple">Nested()</code>’s activity’s termini.</p>
 
 <h4 id="macro-nested-auto_wire-output-wiring" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Auto_wire
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Output Wiring</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Output Wiring</span>
 
                   </h4>
 
@@ -523,7 +523,7 @@ end
 <h3 id="macro-nested-compliance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Compliance</span></h3>
 
 <h4 id="macro-nested-compliance-debugger" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugger</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugger</span>
 
                   </h4>
 
@@ -537,7 +537,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Create, params: {type: "vorbis"})</c
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/nested-static-trace-33fe6a9b27408f00c154d2d12e46da3aef68d76d76ebbd2b525e9b199bba5d5d.png" /></p>
 
 <h4 id="macro-nested-compliance-introspect" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Introspect</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Introspect</span>
 
                   </h4>
 
@@ -554,7 +554,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Create, params: {type: "vorbis"})</c
 <p class="">Note that the ID of the nested activities are the class constants.</p>
 
 <h4 id="macro-nested-compliance-patch" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Patch</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Patch</span>
 
                   </h4>
 
@@ -605,7 +605,7 @@ end
 Now, it’s your handler that is responsible to interpret that. In the example above, we simply pass on the wrapped activity’s terminal signal, making the <code class="text-purple">Upload</code> activity either continue from <code class="text-purple">success</code> or from <code class="text-purple">failure</code>.</p>
 
 <h4 id="macro-wrap-wrap-handler-routing" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Wrap handler
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Routing</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Routing</span>
 
                   </h4>
 
@@ -696,7 +696,7 @@ end
 <h3 id="macro-wrap-compliance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Compliance</span></h3>
 
 <h4 id="macro-wrap-compliance-debugger" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugger</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugger</span>
 
                   </h4>
 
@@ -710,7 +710,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Upload, params: {id: 1})</code></pre
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/wrap-trace-aa2f28f630a403fb26227db61373bc2aef89982116ed00e1f86904ddcf99f8f9.png" /></p>
 
 <h4 id="macro-wrap-compliance-introspect" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Introspect</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Introspect</span>
 
                   </h4>
 
@@ -723,7 +723,7 @@ Trailblazer::Developer.wtf?(Song::Activity::Upload, params: {id: 1})</code></pre
 </code></pre>
 
 <h4 id="macro-wrap-compliance-patch" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Patch</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Patch</span>
 
                   </h4>
 
@@ -851,7 +851,7 @@ end
 <p class="">Per default, <code class="text-purple">Each()</code> will loop over the dataset using <code class="text-purple">#each</code> and pass the iterated item and its index into each step of the block, named <code class="text-purple">:item</code> and <code class="text-purple">:index</code>.</p>
 
 <h4 id="macro-each-iterated-block-item-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Iterated Block
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>item key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">item key</span>
 
                   </h4>
 
@@ -890,7 +890,7 @@ end
 </code></pre></div></div>
 
 <h4 id="macro-each-iterated-block-operation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Iterated Block
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>operation</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">operation</span>
 
                   </h4>
 
@@ -1011,7 +1011,7 @@ end
 <p class="">This default setting assures that no data from the iteration bleeds into the outer ctx.</p>
 
 <h4 id="macro-each-variable-mapping-filtering" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Variable mapping
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Filtering</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Filtering</span>
 
                   </h4>
 
@@ -1098,7 +1098,7 @@ end
 <h3 id="macro-each-compliance" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span>Compliance</span></h3>
 
 <h4 id="macro-each-compliance-debugger" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugger</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugger</span>
 
                   </h4>
 
@@ -1117,7 +1117,7 @@ end
 <p class="">TODO: show how runtime data can be accessed for each iterated block.</p>
 
 <h4 id="macro-each-compliance-introspect" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Introspect</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Introspect</span>
 
                   </h4>
 
@@ -1130,7 +1130,7 @@ end
 </code></pre>
 
 <h4 id="macro-each-compliance-patch" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Compliance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Patch</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Patch</span>
 
                   </h4>
 
@@ -1158,7 +1158,7 @@ end
 <p class="">In operations that target existing models, the <code class="text-purple">Model::Find()</code> macro is the right tool to use.</p>
 
 <h4 id="macro-model-model-find-find_by" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Find_by</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Find_by</span>
 
                   </h4>
 
@@ -1191,7 +1191,7 @@ end
 </code></pre>
 
 <h4 id="macro-model-model-find-params_key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>params_key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">params_key</span>
 
                   </h4>
 
@@ -1208,7 +1208,7 @@ end
 </code></pre>
 
 <h4 id="macro-model-model-find-id_from" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>id_from</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">id_from</span>
 
                   </h4>
 
@@ -1229,7 +1229,7 @@ end
 <p class="">The block receives the same <code class="text-purple">ctx, **kws</code> style arguments that an ordinary step would.</p>
 
 <h4 id="macro-model-model-find-not-found" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Not Found</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Not Found</span>
 
                   </h4>
 
@@ -1258,7 +1258,7 @@ puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:not_found&gt;
 </code></pre>
 
 <h4 id="macro-model-model-find-find" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>find</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">find</span>
 
                   </h4>
 
@@ -1277,7 +1277,7 @@ end
 <p class="">This will result in an invocation like <code class="text-purple">Song.find(id)</code>. As always <code class="text-purple">:find</code> can be anything, for example, <code class="text-purple">:[]</code> in case you’re using Sequel.</p>
 
 <h4 id="macro-model-model-find-debugging" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugging</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugging</span>
 
                   </h4>
 
@@ -1364,7 +1364,7 @@ puts result[:model] #=&gt; #&lt;struct Song id=nil, title=nil&gt;
 <p class="">Internally, the <code class="text-purple">Model()</code> macro will simply invoke <code class="text-purple">Song.new</code> to populate <code class="text-purple">ctx[:model]</code>.</p>
 
 <h4 id="macro-model-model-find_by" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Find_by</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Find_by</span>
 
                   </h4>
 
@@ -1435,7 +1435,7 @@ result.success? # =&gt; false
 </code></pre></div></div>
 
 <h4 id="macro-model-model-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Key</span>
 
                   </h4>
 
@@ -1467,14 +1467,14 @@ end
 </code></pre></div></div>
 
 <h4 id="macro-model-model-find" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>find</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">find</span>
 
                   </h4>
 
 <p class="">Note that, instead of <code class="text-purple">find_by</code>, you may also use <code class="text-purple">:find</code>. This is not recommended, though, since it raises an exception, which is not the preferred way of flow control in Trailblazer.</p>
 
 <h4 id="macro-model-model-arbitrary-finder" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Arbitrary Finder</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Arbitrary Finder</span>
 
                   </h4>
 
@@ -1526,7 +1526,7 @@ result[:model] #=&gt; #&lt;struct Song id=1, title="Roxanne"&gt;
 </code></pre></div></div>
 
 <h4 id="macro-model-model-not-found" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Not Found</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Not Found</span>
 
                   </h4>
 
@@ -1577,7 +1577,7 @@ result.success? # =&gt; false
 </code></pre></div></div>
 
 <h4 id="macro-model-model-dependency-injection" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency Injection</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency Injection</span>
 
                   </h4>
 
@@ -1640,7 +1640,7 @@ result.success? # =&gt; false
 <p class="">This implies you inject all required variables at run-time.</p>
 
 <h4 id="macro-model-model-model-class" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Model class</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Model class</span>
 
                   </h4>
 
@@ -1784,7 +1784,7 @@ Create.(current_user: User.find(1))</code></pre>
 <p class="">Any other call will cause a policy breach and stop the pipe from executing after the <code class="text-purple">Policy::Pundit</code> step.</p>
 
 <h4 id="macro-policy-pundit-api" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Pundit
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>API</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">API</span>
 
                   </h4>
 
@@ -1811,7 +1811,7 @@ result[:"result.policy.default"][:policy] #=&gt; #&lt;MyPolicy ...&gt;
 <p class="">Note that the actual policy instance is available via <code class="text-purple">["result.policy.#{name}"]["policy"]</code> to be reinvoked with other rules (e.g. in the view layer).</p>
 
 <h4 id="macro-policy-pundit-name" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Pundit
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Name</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Name</span>
 
                   </h4>
 
@@ -1831,7 +1831,7 @@ result[:"result.policy.after_model"].success? #=&gt; true
 </code></pre>
 
 <h4 id="macro-policy-pundit-dependency-injection" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Pundit
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency Injection</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency Injection</span>
 
                   </h4>
 
@@ -1875,7 +1875,7 @@ result["result.policy.default"].success? #=&gt; false</code></pre>
 <p class="">Learn more about <a href="skill.md" class="underline text-purple">→ dependency injection</a> to pass params and current user into the operation. TODO: fix link</p>
 
 <h4 id="macro-policy-guard-api" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>API</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">API</span>
 
                   </h4>
 
@@ -1891,7 +1891,7 @@ end
 <p class="">The <code class="text-purple">options</code> object is passed into the guard and allows you to read and inspect data like <code class="text-purple">params</code> or <code class="text-purple">current_user</code>. Please use kw args.</p>
 
 <h4 id="macro-policy-guard-callable" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Callable</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Callable</span>
 
                   </h4>
 
@@ -1915,7 +1915,7 @@ end
 </code></pre>
 
 <h4 id="macro-policy-guard-instance-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Instance Method</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Instance Method</span>
 
                   </h4>
 
@@ -1933,7 +1933,7 @@ end
 </code></pre>
 
 <h4 id="macro-policy-guard-name" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Name</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Name</span>
 
                   </h4>
 
@@ -1952,7 +1952,7 @@ result[:"result.policy.user"].success? #=&gt; true
 </code></pre>
 
 <h4 id="macro-policy-guard-dependency-injection" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency Injection</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency Injection</span>
 
                   </h4>
 
@@ -1969,7 +1969,7 @@ result[:"result.policy.user"].success? #=&gt; true
 <p class="">This is helpful to override a certain policy for testing, or to invoke it with special rights, e.g. for an admin.</p>
 
 <h4 id="macro-policy-guard-position" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Guard
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Position</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Position</span>
 
                   </h4>
 
@@ -2058,7 +2058,7 @@ result[:"contract.default"].errors.messages
 <p class="">Trailblazer offers a few different ways to define contract classes and use them in an operation.</p>
 
 <h4 id="macro-contract-definition-explicit" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Definition
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Explicit</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Explicit</span>
 
                   </h4>
 
@@ -2093,7 +2093,7 @@ end
 <p class="">Since both operations and contracts grow during development, the completely encapsulated approach of the explicit contract is what we recommend.</p>
 
 <h4 id="macro-contract-definition-inline" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Definition
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Inline</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Inline</span>
 
                   </h4>
 
@@ -2142,7 +2142,7 @@ result["contract.default"]
 <p class="">The <code class="text-purple">Build</code> macro accepts <a href="/2.1/docs/operation.html#operation-contract-name" class="underline text-purple">the <code class="text-purple">:name</code> option</a> to change the name from <code class="text-purple">default</code>.</p>
 
 <h4 id="macro-contract-build-dependency-injection-contract-class" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Build
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency Injection / Contract class</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency Injection / Contract class</span>
 
                   </h4>
 
@@ -2214,7 +2214,7 @@ result[:"contract.default"].title #=&gt; "Rising Force"
 </div>
 
 <h4 id="macro-contract-validate-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Validate
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Key</span>
 
                   </h4>
 
@@ -2243,7 +2243,7 @@ result.success? #=&gt; false
 <p class="">Note that string vs. symbol do matter here since the operation will simply do a hash lookup using the key you provided.</p>
 
 <h4 id="macro-contract-validate-dependency-injection-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Validate
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency Injection / Key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency Injection / Key</span>
 
                   </h4>
 
@@ -2266,7 +2266,7 @@ end
 <p class="">Note that the <code class="text-purple">.default</code> part might differ depending on the name of your contract.</p>
 
 <h4 id="macro-contract-validate-dependency-injection-contract-instance" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Validate
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dependency injection / Contract instance</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dependency injection / Contract instance</span>
 
                   </h4>
 
@@ -2405,7 +2405,7 @@ end
 </div>
 
 <h4 id="macro-contract-dry-validation-dry-schema" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Dry-Validation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Dry-Schema</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Dry-Schema</span>
 
                   </h4>
 

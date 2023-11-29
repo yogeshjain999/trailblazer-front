@@ -426,7 +426,7 @@ puts result.terminus.to_h[:semantic] #=&gt; :success
 <p class="">In an operation your application code is structured into steps. These steps can be any callable Ruby object, but very often, developers use instance methods.</p>
 
 <h4 id="operation-overview-step-signature" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Signature</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Signature</span>
 
                   </h4>
 
@@ -451,7 +451,7 @@ end
 <p class="">Steps can instruct the operation about the step outcome by returning a truthy or falsey value from the step method.</p>
 
 <h4 id="operation-overview-step-state" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>State</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">State</span>
 
                   </h4>
 
@@ -481,7 +481,7 @@ puts result[:model] #=&gt; #&lt;Memo id: 1 text: "Do not forget!"&gt;
 <p class="">Activities not only help structuring, they are an entirely new development experience that provide a rich and stable API that allows to model almost any business use case.</p>
 
 <h4 id="operation-overview-features-debugging" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Features
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugging</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugging</span>
 
                   </h4>
 
@@ -504,7 +504,7 @@ puts result[:model] #=&gt; #&lt;Memo id: 1 text: "Do not forget!"&gt;
 <iframe class="mx-auto" width="560" height="315" src="https://www.youtube.com/embed/4udzPXRh1VY?si=nu5lzI0VVnspGgJG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 
 <h4 id="operation-overview-features-unlimited-wiring" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Features
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Unlimited wiring</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Unlimited wiring</span>
 
                   </h4>
 
@@ -515,7 +515,7 @@ puts result[:model] #=&gt; #&lt;Memo id: 1 text: "Do not forget!"&gt;
 <p class="">You may add additional termini to your operations to indicate state, go back and retry a particular step, error-out early, or even <a href="#operation-wiring-api-subprocess" class="underline text-purple">nest operations</a> to solve more complex business logic.</p>
 
 <h4 id="operation-overview-features-variable-mapping" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Features
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Variable mapping</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Variable mapping</span>
 
                   </h4>
 
@@ -536,7 +536,7 @@ end
 <p class="">Using our PRO debugger, you can even trace this variable flow.</p>
 
 <h4 id="operation-overview-features-bpmn-and-state-machines" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Features
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>BPMN and state machines</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">BPMN and state machines</span>
 
                   </h4>
 
@@ -555,7 +555,7 @@ end
 <p class="">Operations represent functions in your application, both in a domain-oriented way and from a programmatical point of view. That is why there’s only one way to run an operation.</p>
 
 <h4 id="operation-mechanics-invocation-call" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Call</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Call</span>
 
                   </h4>
 
@@ -567,7 +567,7 @@ end
 <p class="">And that’s literally the only way to invoke your steps. It is not allowed to run a subset of steps, only. If you need that, you might have to introduce a new operation, or <a href="#operation-wiring-api" class="underline text-purple">change the wiring</a> to achieve the same effect.</p>
 
 <h4 id="operation-mechanics-invocation-implicit-call" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Implicit call</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Implicit call</span>
 
                   </h4>
 
@@ -579,7 +579,7 @@ end
 <p class="">Anyhow, the implicit call style underlines the functional aspect of an operation. Since, per convention, the operation name is a verb (e.g. <code class="text-purple">Create</code>) there’s no need to think of another verb to actually <em>run</em> that “verb”. That’s why we love the implicit call style!</p>
 
 <h4 id="operation-mechanics-invocation-input-variables" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Input variables</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Input variables</span>
 
                   </h4>
 
@@ -604,7 +604,7 @@ end
 <p class="">While this is a breathtaking feature of Trailblazer, it’s a bit clumsy and we got a more convenient way to read from <code class="text-purple">ctx</code>.</p>
 
 <h4 id="operation-mechanics-invocation-keyword-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Keyword arguments</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Keyword arguments</span>
 
                   </h4>
 
@@ -629,7 +629,7 @@ end
 <p class="">Note that you can use any number of keyword arguments in your signature.</p>
 
 <h4 id="operation-mechanics-invocation-writing-state" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Writing state</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Writing state</span>
 
                   </h4>
 
@@ -670,7 +670,7 @@ end
 <p class="">Steps can communicate their outcome to the operation’s flow control with their return value.</p>
 
 <h4 id="operation-mechanics-flow-control-success" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Flow control
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Success</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Success</span>
 
                   </h4>
 
@@ -686,7 +686,7 @@ end
 <p class="">The return value doesn’t have to <code class="text-purple">true</code> or <code class="text-purple">false</code>, but can be any “truthy” or “falsey” (e.g. <code class="text-purple">nil</code>) value.</p>
 
 <h4 id="operation-mechanics-flow-control-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Flow control
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Failure</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Failure</span>
 
                   </h4>
 
@@ -700,7 +700,7 @@ end
 <p class="">This depressive step will always return a falsey value (<code class="text-purple">nil</code> is evaluated to <code class="text-purple">false</code>), the remaining success path steps will always be skipped. Don’t do this!</p>
 
 <h4 id="operation-mechanics-flow-control-signal" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Flow control
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Signal</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Signal</span>
 
                   </h4>
 
@@ -742,7 +742,7 @@ step :notify,
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/memo-network-error-f6a980ec98907a45c03bd3b3ddb1fddb4753cc61332d58a5a1bca7e34204575d.png" /></p>
 
 <h4 id="operation-mechanics-terminus-semantic" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Terminus
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Semantic</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Semantic</span>
 
                   </h4>
 
@@ -756,7 +756,7 @@ result.terminus.to_h[:semantic] #=&gt; :network_error
 <p class="">You can ask the terminus for its <em>semantic</em> by calling <code class="text-purple">#to_h</code>. The semantic can be any meaningful term you want, for instance, we named the success path terminus <code class="text-purple">:success</code>.</p>
 
 <h4 id="operation-mechanics-terminus-nesting" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Terminus
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Nesting</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Nesting</span>
 
                   </h4>
 
@@ -810,7 +810,7 @@ end
 <p class="">You can use Ruby’s inheritance to derive subclasses from operations.</p>
 
 <h4 id="operation-mechanics-inheritance-subclass" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Inheritance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Subclass</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Subclass</span>
 
                   </h4>
 
@@ -825,7 +825,7 @@ end
 <p class="">Subclassing will not only copy over methods, but the entire circuit of <code class="text-purple">Create</code> along with its three steps.</p>
 
 <h4 id="operation-mechanics-inheritance-customize" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Inheritance
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Customize</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Customize</span>
 
                   </h4>
 
@@ -881,7 +881,7 @@ end
 </ul>
 
 <h4 id="operation-step-dsl-railway-step" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Railway
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Step</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Step</span>
 
                   </h4>
 
@@ -908,7 +908,7 @@ end
 <p class="">Without any options, the step’s interface is expected to follow the “step interface”. # FIXME</p>
 
 <h4 id="operation-step-dsl-railway-left" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Railway
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Left</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Left</span>
 
                   </h4>
 
@@ -934,7 +934,7 @@ end
 </div>
 
 <h4 id="operation-step-dsl-railway-fail" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Railway
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Fail</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Fail</span>
 
                   </h4>
 
@@ -953,7 +953,7 @@ end
 <p class="">Both methods are identical. It is not deprecated, feel free to use it instead of <code class="text-purple">#left,</code> should your editor allow it.</p>
 
 <h4 id="operation-step-dsl-railway-pass" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Railway
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Pass</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Pass</span>
 
                   </h4>
 
@@ -981,7 +981,7 @@ end
 <p class="">When adding a step using <code class="text-purple">#step</code> or <code class="text-purple">#left</code>, the step’s interface is considered to be exposing the “step interface”. Note that you can also implement steps with a <a href="#operation-internals-circuit-interface" class="underline text-purple">low-level interface</a> called the “circuit interface” that is clumsier but also richer.</p>
 
 <h4 id="operation-step-dsl-step-instance-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Instance method</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Instance method</span>
 
                   </h4>
 
@@ -1001,7 +1001,7 @@ end
 <p class="">Signature and return value are identical to all other step types.</p>
 
 <h4 id="operation-step-dsl-step-class-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Class method</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Class method</span>
 
                   </h4>
 
@@ -1022,7 +1022,7 @@ end
 <p class="">Note that the actual class method has to be defined before retrieving the method object via <code class="text-purple">method(:validate)</code>. Again, signature and return value are identical to other styles.</p>
 
 <h4 id="operation-step-dsl-step-module-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Module method</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Module method</span>
 
                   </h4>
 
@@ -1048,7 +1048,7 @@ end
 <p class="">This is a common technique in complex Trailblazer applications for creating reusable steps with a high degree of maintainability.</p>
 
 <h4 id="operation-step-dsl-step-callable" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Callable</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Callable</span>
 
                   </h4>
 
@@ -1077,7 +1077,7 @@ end
 </div>
 
 <h4 id="operation-step-dsl-step-lambda" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Lambda</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Lambda</span>
 
                   </h4>
 
@@ -1097,7 +1097,7 @@ end
 <p class="">In addition to wiring options, there are a handful of other options known as <em>sequence options</em>. They configure where a task goes when inserted, and helps with introspection and tracing.</p>
 
 <h4 id="operation-step-dsl-sequence-options-id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>id</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">id</span>
 
                   </h4>
 
@@ -1127,7 +1127,7 @@ end
 <p class="">If no <code class="text-purple">:id</code> is provided, defaults names are given to steps - these might be awkward sometimes.</p>
 
 <h4 id="operation-step-dsl-sequence-options-delete" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Delete</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Delete</span>
 
                   </h4>
 
@@ -1149,7 +1149,7 @@ end
 <p class="">All steps are inherited, then the deletion is applied, as the introspection shows.</p>
 
 <h4 id="operation-step-dsl-sequence-options-before" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Before</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Before</span>
 
                   </h4>
 
@@ -1170,7 +1170,7 @@ end
 </code></pre>
 
 <h4 id="operation-step-dsl-sequence-options-after" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>After</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">After</span>
 
                   </h4>
 
@@ -1191,7 +1191,7 @@ end
 </code></pre>
 
 <h4 id="operation-step-dsl-sequence-options-replace" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Replace</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Replace</span>
 
                   </h4>
 
@@ -1213,7 +1213,7 @@ end
 </code></pre>
 
 <h4 id="operation-step-dsl-sequence-options-inherit" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Sequence Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Inherit</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Inherit</span>
 
                   </h4>
 
@@ -1229,7 +1229,7 @@ end
 <p class="">The public operation <code class="text-purple">Destroy</code> contains <code class="text-purple">Delete</code> as a nested activity, which itself contains <code class="text-purple">DeleteAssets</code>. In order to customize the latter one and add another step <code class="text-purple">tidy_storage</code>, you’d normally have to subclass all three activities and override steps.</p>
 
 <h4 id="operation-step-dsl-patching-patch" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Patching
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Patch</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Patch</span>
 
                   </h4>
 
@@ -1269,7 +1269,7 @@ patch(:delete, :delete_assets) { ... }</code></pre>
 <p class="">The <code class="text-purple">#patch</code> method is perfect when using inheritance to first copy over behavior and control flow, and then fine-tune it for the specific use case.</p>
 
 <h4 id="operation-step-dsl-patching-patch-option" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Patching
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Patch Option</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Patch Option</span>
 
                   </h4>
 
@@ -1405,7 +1405,7 @@ end
 <p class="">Now, let’s see how we can customize this operation using the Wiring API.</p>
 
 <h4 id="operation-wiring-api-railway-debugging" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Railway
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Debugging</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Debugging</span>
 
                   </h4>
 
@@ -1439,7 +1439,7 @@ end
 <p class="">Rewiring a particular step always starts with <code class="text-purple">Output()</code>. This DSL helper allows you to specify which <em>outgoing</em> connection you’re planning to reconnect.</p>
 
 <h4 id="operation-wiring-api-output-implicit-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Implicit output</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Implicit output</span>
 
                   </h4>
 
@@ -1464,7 +1464,7 @@ end
 <p class="">This, by the way, is how <code class="text-purple">#pass</code> is implemented.</p>
 
 <h4 id="operation-wiring-api-output-explicit-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Explicit output</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Explicit output</span>
 
                   </h4>
 
@@ -1491,7 +1491,7 @@ end
 <p class="">In this example, the new output <code class="text-purple">:database_error</code> is routed straight to the failure track. When the operation teminates, you might not be able to see why it failed: it might be better to introduce a separate terminus.</p>
 
 <h4 id="operation-wiring-api-output-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Output()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Failure</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Failure</span>
 
                   </h4>
 
@@ -1576,7 +1576,7 @@ end
 step that is “magnetic to” the desired track.</p>
 
 <h4 id="operation-wiring-api-track-helper" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Track()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Helper</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Helper</span>
 
                   </h4>
 
@@ -1601,7 +1601,7 @@ end
 <p class="">Here, the wiring algorith will connect the <code class="text-purple">:failure</code> output of the <code class="text-purple">#save</code> step to the next available step on the <code class="text-purple">:success</code> track, which is <code class="text-purple">#notify</code>.</p>
 
 <h4 id="operation-wiring-api-track-custom-track" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Track()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Custom Track</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Custom Track</span>
 
                   </h4>
 
@@ -1694,7 +1694,7 @@ end
 <p class="">For branching out a separate path in an operation, use the <code class="text-purple">Path()</code> macro. It’s a convenient, simple way to declare alternative routes, even if you could do everything it does <a href="#operation-wiring-api-track-custom-track" class="underline text-purple">manually</a>.</p>
 
 <h4 id="operation-wiring-api-path-terminus" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Terminus</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Terminus</span>
 
                   </h4>
 
@@ -1723,7 +1723,7 @@ end
 <p class="">When using <code class="text-purple">Path()</code>, the steps on the path will only have one <code class="text-purple">:success</code> output. Note that there’s no connection going to the failure track from <code class="text-purple">#charge_paypal</code>.</p>
 
 <h4 id="operation-wiring-api-path-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Failure</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Failure</span>
 
                   </h4>
 
@@ -1737,7 +1737,7 @@ end
 </div>
 
 <h4 id="operation-wiring-api-path-connect_to" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Connect_to</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Connect_to</span>
 
                   </h4>
 
@@ -1802,7 +1802,7 @@ end
 <p class="">Note how the nested operation really acts as if it’s a plain step - in fact, the execution code doesn’t even know this is a “real” separate operation.</p>
 
 <h4 id="operation-wiring-api-subprocess-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Subprocess
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Output</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Output</span>
 
                   </h4>
 
@@ -1827,7 +1827,7 @@ end
 <p class="">This is identical to connecting a “normal” step’s output and allows to treat particular outcomes of a nested operation in a non-standard way - for example, routing a “failed” terminus to a success path.</p>
 
 <h4 id="operation-wiring-api-subprocess-terminus" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Subprocess
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Terminus</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Terminus</span>
 
                   </h4>
 
@@ -1875,14 +1875,14 @@ end
 </div>
 
 <h4 id="operation-wiring-api-subprocess-strict" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Subprocess
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Strict</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Strict</span>
 
                   </h4>
 
 <p class="">The <code class="text-purple">:strict</code> option is still experimental: https://github.com/trailblazer/trailblazer-activity-dsl-linear/issues/59</p>
 
 <h4 id="operation-wiring-api-subprocess-fast-track" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Subprocess
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Fast-track</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Fast-track</span>
 
                   </h4>
 
@@ -1910,7 +1910,7 @@ end
 <p class="">The operation is based on the <a href="#operation-internals-fasttrack-layout" class="underline text-purple"><code class="text-purple">FastTrack</code> layout</a> and provides three more options for configuring a step’s connections.</p>
 
 <h4 id="operation-wiring-api-fast-track-pass_fast" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Fast-track
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>pass_fast</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">pass_fast</span>
 
                   </h4>
 
@@ -1948,7 +1948,7 @@ end
 <p class="">Note that in the example, the <code class="text-purple">#save</code> step not accessable anymore, so maybe it’s a good idea to refrain from such a layout.</p>
 
 <h4 id="operation-wiring-api-fast-track-fail_fast" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Fast-track
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>fail_fast</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">fail_fast</span>
 
                   </h4>
 
@@ -1986,7 +1986,7 @@ end
 <p class="">Even though <code class="text-purple">#handle_errors</code> is on the failure track, it won’t be reached from <code class="text-purple">#validate</code>.</p>
 
 <h4 id="operation-wiring-api-fast-track-fast_track" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Fast-track
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>fast_track</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">fast_track</span>
 
                   </h4>
 
@@ -2134,7 +2134,7 @@ end
 </div>
 
 <h4 id="operation-variable-mapping-in-mapping-hash" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">In()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Mapping hash</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Mapping hash</span>
 
                   </h4>
 
@@ -2178,7 +2178,7 @@ end
 <p class="">You should use the mapping hash when variables need to be renamed. If variables need to be added without renaming, a limiting array is your friend.</p>
 
 <h4 id="operation-variable-mapping-in-limiting-array" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">In()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Limiting array</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Limiting array</span>
 
                   </h4>
 
@@ -2204,7 +2204,7 @@ end
 #   }</code></pre>
 
 <h4 id="operation-variable-mapping-in-callable" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">In()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Callable</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Callable</span>
 
                   </h4>
 
@@ -2237,7 +2237,7 @@ end
 <p class="">However, if <code class="text-purple">:current_user</code> is <code class="text-purple">nil</code>, <code class="text-purple">Policy::Create</code> will raise an exception complaining about the <code class="text-purple">:user</code> keyword missing.</p>
 
 <h4 id="operation-variable-mapping-in-filter-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">In()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Filter method</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Filter method</span>
 
                   </h4>
 
@@ -2262,7 +2262,7 @@ end
 <p class="">The method needs to expose a step interface just like any other callable.</p>
 
 <h4 id="operation-variable-mapping-in-keyword-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">In()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Keyword arguments</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Keyword arguments</span>
 
                   </h4>
 
@@ -2319,7 +2319,7 @@ end
 <p class="">As soon as you use <code class="text-purple">Out()</code>, only variables specified through the filters will be merged with the original (outer) ctx and passed on to the next step.</p>
 
 <h4 id="operation-variable-mapping-out-limiting-array" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Out()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Limiting array</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Limiting array</span>
 
                   </h4>
 
@@ -2344,7 +2344,7 @@ end
 <p class="">You may pass any number of variables in the limiting array.</p>
 
 <h4 id="operation-variable-mapping-out-mapping-hash" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Out()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Mapping hash</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Mapping hash</span>
 
                   </h4>
 
@@ -2365,7 +2365,7 @@ end
 <p class="">Here, steps following <code class="text-purple">Policy::Create</code> will see a variable <code class="text-purple">:message_from_policy</code> merged into the ctx - which is the original <code class="text-purple">:message</code>, renamed.</p>
 
 <h4 id="operation-variable-mapping-out-callable" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Out()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Callable</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Callable</span>
 
                   </h4>
 
@@ -2405,7 +2405,7 @@ end
 </div>
 
 <h4 id="operation-variable-mapping-out-keyword-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Out()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Keyword arguments</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Keyword arguments</span>
 
                   </h4>
 
@@ -2432,7 +2432,7 @@ end
 <p class="">Any variable readable on the inner <code class="text-purple">ctx</code> that just left <code class="text-purple">Policy::Create</code> is available as a keyword argument for a callable. Note that you need to default it if its presence is not guaranteed.</p>
 
 <h4 id="operation-variable-mapping-out-outer-context" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Out()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Outer context</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Outer context</span>
 
                   </h4>
 
@@ -2503,7 +2503,7 @@ end
 <p class="">The <code class="text-purple">Inject()</code> helper is designed to handle this case.</p>
 
 <h4 id="operation-variable-mapping-inject-array-style" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Inject()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Array style</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Array style</span>
 
                   </h4>
 
@@ -2524,7 +2524,7 @@ end
 <p class="">We call this <em>qualified pass-through</em>, it means the <code class="text-purple">:action</code> variable will only be passed into the filtered ctx if it exists on <code class="text-purple">ctx</code> when the filter is invoked.</p>
 
 <h4 id="operation-variable-mapping-inject-defaulting" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Inject()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Defaulting</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Defaulting</span>
 
                   </h4>
 
@@ -2560,7 +2560,7 @@ end
 <p class="">The lambda is executed at runtime, just before the actual step is invoked. It provides access to the ctx object and allows extracting keyword arguments.</p>
 
 <h4 id="operation-variable-mapping-inject-override" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Inject()
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Override</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Override</span>
 
                   </h4>
 
@@ -2832,7 +2832,7 @@ signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:not_found&gt;
 <p class="">Using the wiring API in your own macros gives you a powerful tool for harnessing extended wiring without requiring the user to know about the details - the crucial point for a good API.</p>
 
 <h4 id="operation-macro-api-options-subprocess" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Options
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Subprocess</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Subprocess</span>
 
                   </h4>
 
@@ -2957,7 +2957,7 @@ end
 <p class="">The taskWrap can be extended at runtime, when <code class="text-purple">call</code>ing an activity. This allow for adding features to steps without having to change the actual business code.</p>
 
 <h4 id="operation-taskwrap-runtime-extension" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Extension</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Extension</span>
 
                   </h4>
 
@@ -2972,7 +2972,7 @@ end
 <p class="">You can configure where to insert the taskWrap steps using <code class="text-purple">:append</code> or <code class="text-purple">:prepend</code>.</p>
 
 <h4 id="operation-taskwrap-runtime-invoke" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Invoke</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Invoke</span>
 
                   </h4>
 
@@ -2997,7 +2997,7 @@ Song::Activity::Create.invoke(
 <p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/task_wrap_validate-2ca816c5a0ea2dd16997f39ca8913009e6f22a0e5ec68134f260ba378a738210.png" /></p>
 
 <h4 id="operation-taskwrap-runtime-step-filter" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Step filter</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Step filter</span>
 
                   </h4>
 
@@ -3027,7 +3027,7 @@ my_wrap = {validate_task =&gt; apm_extension}
 </code></pre>
 
 <h4 id="operation-taskwrap-runtime-top-activity" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Top activity</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Top activity</span>
 
                   </h4>
 
@@ -3110,7 +3110,7 @@ end
 </code></pre></div></div>
 
 <h4 id="operation-internals-introspection-api-id" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Introspection API
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>ID</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">ID</span>
 
                   </h4>
 
@@ -3128,7 +3128,7 @@ puts attrs.data[:extensions] =&gt; []
 </code></pre>
 
 <h4 id="operation-internals-introspection-api-task" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Introspection API
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Task</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Task</span>
 
                   </h4>
 
@@ -3141,7 +3141,7 @@ attrs.id #=&gt; :save
 <p class="">The returned <code class="text-purple">Attributes</code> instance behaves identically to the above.</p>
 
 <h4 id="operation-internals-introspection-api-data" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Introspection API
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Data</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Data</span>
 
                   </h4>
 
@@ -3179,7 +3179,7 @@ end
 <p class="">Both the <code class="text-purple">Create</code> activity itself and the <code class="text-purple">validate</code> step expose the circuit interface. Note that the <code class="text-purple">:task</code> option for <code class="text-purple">step</code> configures this element as a low-level circuit interface, or in other words, it will skip the wrapping with the task interface.</p>
 
 <h4 id="operation-internals-circuit-interface-invocation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Invocation</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Invocation</span>
 
                   </h4>
 
@@ -3211,7 +3211,7 @@ end
 <p class="">Make sure to always stick to the <code class="text-purple">return</code> signature on the circuit interface level.</p>
 
 <h4 id="operation-internals-circuit-interface-signature" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Signature</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Signature</span>
 
                   </h4>
 
@@ -3245,7 +3245,7 @@ end
 <p class="">Use the lonely <code class="text-purple">*</code> squat asterisk to do so.</p>
 
 <h4 id="operation-internals-circuit-interface-circuit-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Circuit options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Circuit options</span>
 
                   </h4>
 
@@ -3254,7 +3254,7 @@ end
 <p class="">The following options are available.</p>
 
 <h4 id="operation-internals-circuit-interface-start_task" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Start_task</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Start_task</span>
 
                   </h4>
 
@@ -3284,7 +3284,7 @@ signal, (ctx, flow_options) = B::Create.([ctx, flow_options], **circuit_options)
 <p class="">Note that this is a low-level option that should not be used to build “reuseable” activities. If you want different behavior for differing contexts, you should compose different activities.</p>
 
 <h4 id="operation-internals-circuit-interface-exec_context" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Exec_context</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Exec_context</span>
 
                   </h4>
 
@@ -3328,7 +3328,7 @@ signal, (ctx, flow_options) = C::Create.to_h[:circuit].([ctx, flow_options], **c
 <p class="">While this bypasses <code class="text-purple">Activity#call</code>, it gives you a powerful tool for advanced activity design.</p>
 
 <h4 id="operation-internals-circuit-interface-dsl" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Circuit Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>DSL</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">DSL</span>
 
                   </h4>
 
@@ -3382,7 +3382,7 @@ end
 <p class="">The return value can be either a subclass of <code class="text-purple">Trailblazer::Activity::Signal</code> or it will be evaluated to <code class="text-purple">true</code> or <code class="text-purple">false</code>.</p>
 
 <h4 id="operation-internals-step-interface-keyword-arguments" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Keyword Arguments</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Keyword Arguments</span>
 
                   </h4>
 
@@ -3400,7 +3400,7 @@ end
 <!-- @activity-circuit-interface-class-method <trailblazer-activity[1.0] activity, circuit interface, low level, class method -->
 
 <h4 id="operation-internals-step-interface-return-value" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Return Value</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Return Value</span>
 
                   </h4>
 
@@ -3415,7 +3415,7 @@ end
 <p class="">In a Railway activity, a true value will usually result in the flow staying on the “success” path, where a falsey return value deviates to the “failure” track. However, eventually it’s the developer’s decision how to <a href="#operation-wiring-api" class="underline text-purple">wire signals to connections</a>.</p>
 
 <h4 id="operation-internals-step-interface-return-signal" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Step Interface
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Return Signal</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Return Signal</span>
 
                   </h4>
 
@@ -3480,7 +3480,7 @@ end
 <p class="">In turn, this means that only <code class="text-purple">true</code> return values in your tasks will work. The DSL will, per default, wrap every task with the <code class="text-purple">Binary</code> interface, meaning returning <code class="text-purple">true</code> will result in <code class="text-purple">Activity::Right</code>, and false in <code class="text-purple">Activity::Left</code>. Currently, only <code class="text-purple">Right</code> signals are wired up.</p>
 
 <h4 id="operation-internals-path-layout-output" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path Layout
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Output</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Output</span>
 
                   </h4>
 
@@ -3496,7 +3496,7 @@ end
 <p class="">The <code class="text-purple">Path</code> strategy only maintains the <code class="text-purple">:success</code>/<code class="text-purple">Activity::Right</code> semantic/signal combination. Any other combination you need to define explicitly using <code class="text-purple">Output(signal, semantic)</code>.</p>
 
 <h4 id="operation-internals-path-layout-end" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Path Layout
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>End</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">End</span>
 
                   </h4>
 
@@ -3565,7 +3565,7 @@ puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:invalid&gt;
 <p class="">This layout provides up to four outputs for any step.</p>
 
 <h4 id="operation-internals-fasttrack-layout-operation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">FastTrack layout
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Operation</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Operation</span>
 
                   </h4>
 
@@ -3574,7 +3574,7 @@ puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:invalid&gt;
 <p class="">Please refer to the <a href="#operation-wiring-api-fast-track" class="underline text-purple">operation docs</a> to learn how to leverage the fast-track tracks.</p>
 
 <h4 id="operation-internals-fasttrack-layout-notes" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">FastTrack layout
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Notes</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Notes</span>
 
                   </h4>
 

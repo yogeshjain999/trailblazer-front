@@ -403,7 +403,7 @@ end
 <p class="">An endpoint is separated into two parts: protocol and adapter.</p>
 
 <h4 id="endpoint-overview-endpoint-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Protocol</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
 
                   </h4>
 
@@ -433,7 +433,7 @@ end
 <p class="">It is important to understand that the protocol doesn’t interact with the environment: while it handles all the “boring” tasks like auth* and running the actual domain activity, it does not react to that but merely communicates the outcome via one of the well-defined termini.</p>
 
 <h4 id="endpoint-overview-endpoint-adapter" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Adapter</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Adapter</span>
 
                   </h4>
 
@@ -505,7 +505,7 @@ end
 <p class="">Keep in mind that those options can be overridden using the “targeted” <code class="text-purple">::endpoint</code> method.</p>
 
 <h4 id="endpoint-configuration-controller-level-setup-action-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Action Endpoint</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Action Endpoint</span>
 
                   </h4>
 
@@ -540,7 +540,7 @@ end</code></pre>
 <h1 id="todo-domainctxfilter-currentuser">todo domain_ctx_filter, :current_user</h1>
 
 <h4 id="endpoint-configuration-controller-level-setup-directives" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Controller-level Setup
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Directives</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Directives</span>
 
                   </h4>
 
@@ -593,7 +593,7 @@ end</code></pre>
 <p class="">The particular endpoint is referenced by passing the alias to the <code class="text-purple">#endpoint</code> method, which is usually the constant of the operation.</p>
 
 <h4 id="endpoint-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Runtime
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
 
                   </h4>
 
@@ -712,7 +712,7 @@ end
 <p class="">A handful of options need to be configured using Trailblazer’s <code class="text-purple">directive</code> mechanism.</p>
 
 <h4 id="endpoint-api-interface-configuration-response" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Response</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Response</span>
 
                   </h4>
 
@@ -745,7 +745,7 @@ end
 <p class="">Last, you need to use the <code class="text-purple">::directive</code> method to register your configuration. The <code class="text-purple">:options_for_block_options</code> directive is used internally after running the endpoint and before rendering the response.</p>
 
 <h4 id="endpoint-api-interface-configuration-overriding-block-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Overriding Block options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Overriding Block options</span>
 
                   </h4>
 
@@ -760,7 +760,7 @@ end
 <p class="">This is handy to customize behavior in a particular action, or for debugging.</p>
 
 <h4 id="endpoint-api-interface-configuration-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Runtime Options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
 
                   </h4>
 
@@ -852,7 +852,7 @@ end
 <p class="">The separation of the <code class="text-purple">Protocol</code> and <code class="text-purple">Adapter</code> allows to use the same business logic in different environments, the <code class="text-purple">Adapter</code> only reacts to well-defined outcomes such as “not found” or “invalid data” and, in an API context, responds with a rendered document and a HTTP status. This behavior could and should be different [in a web UI].</p>
 
 <h4 id="endpoint-api-interface-api-endpoint-handlers" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Handlers</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Handlers</span>
 
                   </h4>
 
@@ -879,7 +879,7 @@ class Trailblazer::Endpoint::Adapter::API &lt; Web
 <p class="">Feel free to replace, extend or remove these error handlers should you not want to maintain an <code class="text-purple">errors</code> object, for instance.</p>
 
 <h4 id="endpoint-api-interface-api-endpoint-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">API endpoint
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Protocol Failure</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
 
                   </h4>
 
@@ -986,7 +986,7 @@ end</code></pre>
 <p class="">The web interface uses the well-established mechanisms and directives on the controller class level.</p>
 
 <h4 id="endpoint-web-interface-configuration-endpoint-definition" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Endpoint Definition</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Endpoint Definition</span>
 
                   </h4>
 
@@ -998,7 +998,7 @@ end</code></pre>
 </code></pre>
 
 <h4 id="endpoint-web-interface-configuration-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Options</span>
 
                   </h4>
 
@@ -1021,7 +1021,7 @@ end</code></pre>
 <p class="">This is done by setting a <code class="text-purple">options_for_endpoint</code> directive.</p>
 
 <h4 id="endpoint-web-interface-configuration-protocol" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Protocol</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol</span>
 
                   </h4>
 
@@ -1048,7 +1048,7 @@ end</code></pre>
 <p class="">As always, you don’t have to perform the policy check in the protocol.</p>
 
 <h4 id="endpoint-web-interface-configuration-generic-endpoint" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Generic endpoint</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Generic endpoint</span>
 
                   </h4>
 
@@ -1085,7 +1085,7 @@ end
 <p class="">In both blocks, the <code class="text-purple">domain_ctx</code> is available along with the <code class="text-purple">:endpoint_ctx</code> keyword argument, should you need low-level data.</p>
 
 <h4 id="endpoint-web-interface-or-dsl-runtime-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Runtime Options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Runtime Options</span>
 
                   </h4>
 
@@ -1101,7 +1101,7 @@ end
 <p class="">Run-time options will be accessable in the endpoint contenxt (<strong>not</strong> the <code class="text-purple">domain_ctx</code>).</p>
 
 <h4 id="endpoint-web-interface-or-dsl-protocol-failure" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Protocol Failure</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Protocol Failure</span>
 
                   </h4>
 
@@ -1119,7 +1119,7 @@ end
 <p class="">The block is only executed for authentication/authorization failures.</p>
 
 <h4 id="endpoint-web-interface-or-dsl-pitfalls" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Or-DSL
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Pitfalls</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Pitfalls</span>
 
                   </h4>
 

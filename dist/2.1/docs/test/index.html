@@ -500,7 +500,7 @@ end
 <p class="">The <code class="text-purple">trailblazer-test</code> gem allows to configure common options on the test level.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-default-ctx" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>default ctx</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">default ctx</span>
 
                   </h4>
 
@@ -522,7 +522,7 @@ end
 <p class="">Note that <code class="text-purple">default_ctx</code> is always the full context that you’d normally pass into <code class="text-purple">Operation.call()</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-expected-attributes" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Expected attributes</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Expected attributes</span>
 
                   </h4>
 
@@ -540,7 +540,7 @@ end
 <p class="">As in 99% of operation usage a model is created or altered, this hash represents the attributes of the <em>model</em> that were modified by the operation.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-configuration-operation" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Configuration
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>operation</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">operation</span>
 
                   </h4>
 
@@ -577,7 +577,7 @@ end
 <p class="">That’s quite a lot of code, right?</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-manual-options" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Manual options</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Manual options</span>
 
                   </h4>
 
@@ -616,7 +616,7 @@ result = Song::Operation::Create.(input)
 <p class="">Changing the form input part in order to test validations and processing is a pretty common task. The <code class="text-purple">assert_pass</code> assertion is built to minimize test code and helps you with just that.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-omit-key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Omit key</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Omit key</span>
 
                   </h4>
 
@@ -644,7 +644,7 @@ end
 </code></pre>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-model-name" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Model name</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Model name</span>
 
                   </h4>
 
@@ -653,7 +653,7 @@ end
 <p class="">In this example, the asserting code will now grab the model from <code class="text-purple">result[:song]</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Block</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Block</span>
 
                   </h4>
 
@@ -671,7 +671,7 @@ end
 <p class="">Note that the block is not run when an earlier assertion in <code class="text-purple">assert_pass</code> has failed.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_pass-result" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_pass
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Result</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Result</span>
 
                   </h4>
 
@@ -728,7 +728,7 @@ end
 </div>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-error-messages" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Error messages</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Error messages</span>
 
                   </h4>
 
@@ -751,7 +751,7 @@ end
 <p class=""><code class="text-purple">assert_fail</code> automatically wraps error messages in an array.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Block</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Block</span>
 
                   </h4>
 
@@ -768,7 +768,7 @@ end
 <p class="">The block is run in addition to <code class="text-purple">assert_fail</code>’s built-in assertions. Just as in <code class="text-purple">assert_pass</code> it receives the operation’s <code class="text-purple">result</code> object and allows you to add assertions as you desire.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_fail-result" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_fail
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Result</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Result</span>
 
                   </h4>
 
@@ -837,7 +837,7 @@ end
 <p class="">Whenever you use <code class="text-purple">Ctx()</code> the computed hash is passed through directly into the operation, so you have full control over what’s going in. Both <code class="text-purple">assert_pass</code> and <code class="text-purple">assert_fail</code> are not altering your ctx anymore.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-ctx-helper-merge" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Ctx Helper
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Merge</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Merge</span>
 
                   </h4>
 
@@ -871,7 +871,7 @@ end
 <p class="">Note how <code class="text-purple">:duration</code> is added to the existing <code class="text-purple">:song</code> hash.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-ctx-helper-exclude" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Ctx Helper
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Exclude</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Exclude</span>
 
                   </h4>
 
@@ -918,7 +918,7 @@ assert_equal "Rancid",   model.band
 <p class="">Note that <code class="text-purple">assert_exposes</code> accepts any object with a reader interface.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_exposes-reader" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_exposes
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Reader</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Reader</span>
 
                   </h4>
 
@@ -941,7 +941,7 @@ end
 <p class="">Now the value is read via <code class="text-purple">model.get(:title)</code>.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-assert_exposes-lambda" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">assert_exposes
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>Lambda</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">Lambda</span>
 
                   </h4>
 
@@ -983,7 +983,7 @@ end
 <p class="">Also, you can safely use FactoryGirl’s <code class="text-purple">attributes_for</code> to generate input.</p>
 
 <h4 id="trailblazer-test-operation-unit-tests-factory-mock_step" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">factory
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium"><span>mock_step</span></span>
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium">mock_step</span>
 
                   </h4>
 
