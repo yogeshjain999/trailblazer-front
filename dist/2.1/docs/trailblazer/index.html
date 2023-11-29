@@ -370,260 +370,44 @@
 
 <p class="">We firmly believe that the utilization of ready-to-use layers will always prevail over a documentation-driven approach. In the latter, reliance on constantly outdated “architecture docs” creates a continuous struggle for a designated senior to document the process of creating a specific type of object.</p>
 
-<h3 id="trailblazer-about-gems" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Gems</h3>
-
-<p class="">The following list of gems is an overview of the most important core components in Trailblazer.</p>
-
-<table class="table table-striped-gems">
-  <thead>
-    <tr>
-      <th colspan="2">Gem</th>
-      <th colspan="3">Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="trailblazer-group">
-      <td colspan="2"></td>
-      <td colspan="3" class="text-center"><strong>CORE</strong></td>
-      <td colspan="2"></td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-rails">trailblazer-rails</a></nobr>
-      </td>
-      <td colspan="3">
-        Glue code for conveniently using TRB in a Rails project. Adds <code>Controller#run</code> for invoking operations and <code>Controller#cell</code> to render cells.
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/activity.html">trailblazer-activity</a></nobr>
-      </td>
-      <td colspan="3">
-        Callable run-time circuits that control the execution flow of your tasks.
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/activity.html#activity-overview-dsl">trailblazer-activity-dsl-linear</a></nobr>
-      </td>
-      <td colspan="3">
-        DSL that provides <code>Path</code>, <code>Railway</code> and <code>FastTrack</code> activities.
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-context">trailblazer-context</a></nobr>
-      </td>
-      <td colspan="3">
-        Context implementation.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-option">trailblazer-option</a></nobr>
-      </td>
-      <td colspan="3">
-        Callables implementation.
-      </td>
-
-    </tr>
-
-    <tr class="trailblazer-group">
-      <td colspan="2"></td>
-      <td colspan="3" class="text-center"><strong>HELPER</strong></td>
-      <td colspan="2"></td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/endpoint.html">trailblazer-endpoint</a></nobr>
-      </td>
-      <td colspan="3">
-        Implement the entire controller flow, from authentication until rendering, via activities.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/operation.html">trailblazer-operation</a></nobr>
-      </td>
-      <td colspan="3">
-        Thin API around <code>FastTrack</code> exposing the "old" <code>call</code>-API named <code>Operation</code>.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/operation.html#operation-macros">trailblazer-macro</a></nobr>
-      </td>
-      <td colspan="3">
-        Provides <code>Nested()</code>, <code>Model()</code> and other macros for everyday usage.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/operation.html#operation-contract-validate">trailblazer-macro-contract</a></nobr>
-      </td>
-      <td colspan="3">
-        Provides the <code>Contract::Validate()</code> macro and friends.
-      </td>
-
-    </tr>
-
-    <tr class="trailblazer-group">
-      <td colspan="2"></td>
-      <td colspan="3" class="text-center"><strong>TOOLS</strong></td>
-      <td colspan="2"></td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-developer">trailblazer-developer</a></nobr>
-      </td>
-      <td colspan="3">
-        Activity visualization, tracing, debugging, PRO Editor communication.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/trailblazer.html#trailblazer-test">trailblazer-test</a></nobr>
-      </td>
-      <td colspan="3">
-        Minitest assertions and tools for fast TRB testing.
-      </td>
-
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="#">trailblazer-rspec</a></nobr>
-      </td>
-      <td colspan="3">
-        Rspec testing extensions.
-      </td>
-
-    </tr>
-
-    <tr class="trailblazer-group">
-      <td colspan="2"></td>
-      <td colspan="3" class="text-center"><strong>PRO</strong></td>
-      <td colspan="2"></td>
-      <td></td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="#">trailblazer-workflow</a></nobr>
-      </td>
-      <td colspan="3">
-        Long-running activities with process engine, events and collaboration.
-      </td>
-
-    </tr>
-  </tbody>
-</table>
-
-<p class="">Along with the core gems goes a rich list of eco-system gems.</p>
-
-<table class="table table-striped-gems">
-  <thead>
-    <tr>
-      <th colspan="2">Gem</th>
-      <th colspan="3">Summary</th>
-      <th colspan="2">Dependencies</th>
-      <th>Source</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/reform.html">reform</a></nobr>
-      </td>
-      <td colspan="3">
-        Form objects.
-      </td>
-      <td colspan="2">
-      </td>
-      <td>
-        <nobr><a href="https://github.com/trailblazer/reform" target="_blank"><i class="fab fa-github"></i></a></nobr>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/cells.html">cells</a></nobr>
-      </td>
-      <td colspan="3">
-        Generic view components.
-      </td>
-      <td colspan="2">
-      </td>
-      <td>
-        <nobr><a href="https://github.com/trailblazer/cells" target="_blank"><i class="fab fa-github"></i></a></nobr>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/representable.html">representable</a></nobr>
-      </td>
-      <td colspan="3">
-        Maps representation documents from and to Ruby objects.
-      </td>
-      <td colspan="2">
-      </td>
-      <td>
-        <nobr><a href="https://github.com/trailblazer/representable" target="_blank"><i class="fab fa-github"></i></a></nobr>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/disposable.html">disposable</a></nobr>
-      </td>
-      <td colspan="3">
-        Decorators on top of your ORM layer.
-      </td>
-      <td colspan="2">
-      </td>
-      <td>
-        <nobr><a href="https://github.com/apotonick/disposable" target="_blank"><i class="fab fa-github"></i></a></nobr>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <nobr><a href="/2.1/docs/roar.html">roar</a></nobr>
-      </td>
-      <td colspan="3">
-        Parse and render REST API documents using representers.
-      </td>
-      <td colspan="2">
-      </td>
-      <td>
-        <nobr><a href="https://github.com/trailblazer/roar" target="_blank"><i class="fab fa-github"></i></a></nobr>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 <h2 id="trailblazer-learn" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">Learn</h2>
+
+<p class="">Believe it or not, but you can learn about Trailblazer step-wise! It’s usually smart to start checking out operations, then form gems using Reform, and after that macros and Rails integration.</p>
+
+<h3 id="trailblazer-learn-trailblazer-tales" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Trailblazer Tales</h3>
+
+<p class="">For a while we’ve been pushing very short 5-min videos teaching you how operations work, what testing looks like and which features they bring for your daily development.</p>
+
+<iframe class="mx-auto" width="560" height="315" src="https://www.youtube.com/embed/9elpobV4HSw?si=tDFD1Z1RX7yMwYb-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<p class="">Producing those instructional screencasts turned out to be a lot of fun (and a bit of work), so expect a new episode every few weeks. This is definitely much simpler than writing books!</p>
+
+<p class="">Grab a coffee and watch the first few episodes to quickly grasp how to master this indispensable tool to structure your business logic.</p>
+
+<h3 id="trailblazer-learn-books" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Books</h3>
+
+<p class="">The <a href="https://leanpub.com/trailblazer" class="underline text-purple">Trailblazer - A new architecture for Rails</a> book from 2017 is very outdated and discusses Trailblazer 1.x!  However, the first two chapters are worth a read, if you want to pick up the spirit.</p>
+
+<p class=""><a href="https://leanpub.com/trailblazer">
+<img class="mt-12 mb-12 mx-auto" src="/assets/s_hero-d11f11d7cc54a819b89a6b5507f51e2b1af1922a21b214b37befc5646ba391f3.webp" />
+</a></p>
+
+<p class="">It’s free to download.</p>
+
+<p class="">The <a href="https://leanpub.com/buildalib" class="underline text-purple">Building your own authentication library with Trailblazer</a> book, however, is up-to-date. It’s missing part II which discusses Rails integration, but gives you a nice tour through operations.</p>
+
+<p class=""><a href="https://leanpub.com/buildalib">
+<img class="mt-12 mb-12 mx-auto" src="/assets/buildalib-cover-de52d7544f38f60a9a8cd563782b58f0d8e28ca56ada6c0b56050fd59d9b2b1e.webp" />
+</a></p>
+
+<p class="">Everything discussed in the “Buildalib” book is also covered in our videos.</p>
+
+<h3 id="trailblazer-learn-tutorials" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center">Tutorials</h3>
+
+<p class="">Here’s the link to the <a href="https://ornate-heliotrope-1c15e2.netlify.app/2.1/docs/tutorials/activity#tutorials-quick-start-03-rails-basics" class="underline text-purple">“Rails Basics” tutorial</a>.</p>
+
+<p class="">We are revisiting our tutorial section in 2024.</p>
 
 <h2 id="trailblazer-2-1-migration" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center">2.1 Migration</h2>
 
@@ -1307,10 +1091,6 @@ left = outputs[0] #=&gt; output object
 
     
   
-    <a class="block px-2 leading-8" href="#trailblazer-about-gems">Gems</a>
-
-    
-  
 </div>
 
 
@@ -1319,6 +1099,18 @@ left = outputs[0] #=&gt; output object
      Learn
   </h4>
 
+  
+    <a class="block px-2 leading-8" href="#trailblazer-learn-trailblazer-tales">Trailblazer Tales</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-learn-books">Books</a>
+
+    
+  
+    <a class="block px-2 leading-8" href="#trailblazer-learn-tutorials">Tutorials</a>
+
+    
   
 </div>
 
