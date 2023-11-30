@@ -10,3 +10,5 @@ pin "highlight.js/lib/core", to: "highlight.js--lib--core.js" # @11.9.0
 pin "highlight.js/lib/languages/ruby", to: "highlight.js--lib--languages--ruby.js" # @11.9.0
 pin "jquery" # @3.7.1
 pin "jquery.parallax-scroll"
+# bin/importmap pin @docsearch/js@3
+pin "@docsearch/js", to: "https://ga.jspm.io/npm:@docsearch/js@3.5.2/dist/esm/index.js"

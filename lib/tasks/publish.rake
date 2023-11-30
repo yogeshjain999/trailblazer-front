@@ -5,6 +5,10 @@ namespace :site do
     Cms::Render.()
   end
 
+  task :produce_pages do
+    Cms::Render.()
+  end
+
   task :deploy do
 
     FileUtils.chdir Rails.application.root do
@@ -12,7 +16,8 @@ namespace :site do
       system("RAILS_ENV=production rails assets:precompile") # copy assets to public/assets with fingerprints.
 
       puts "=== compile site"
-      Cms::Render.() # for some reasons, fingerprints are set? # render to {public/}
+      # Cms::Render.() # for some reasons, fingerprints are set? # render to {public/}
+      system("RAILS_ENV=production rails site:produce_pages")
 
       system("rm -r dist/")
       system("cp -R public dist")
