@@ -3,6 +3,7 @@ import ruby from 'highlight.js/lib/languages/ruby';
 import anchorJS from 'anchor-js';
 
 import 'navigations'; // FIXME: here, part of the code should only be run when "docs".
+import './docsearch';
 
 import jquery from 'jquery';
 

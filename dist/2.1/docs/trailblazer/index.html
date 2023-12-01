@@ -6,22 +6,23 @@
     <meta content="width=device-width,initial-scale=1" name="viewport"/>
     
     
-    <link rel="stylesheet" href="/assets/tailwind-8f15cbd7f2c8c766d3adfa9f7e4b840e9220fb11a8435f33193f89a76b1564c2.css" />
+    <link rel="stylesheet" href="/assets/tailwind-ce6e7a3c4e922e92216cab79a30bcd9957f57a3f0929f567b04396a2f34e3558.css" />
 <link rel="stylesheet" href="/assets/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" />
-    <link rel="stylesheet" href="/assets/application-e90144030d3ddedb521195c82273d47776f7f85012b6cc8d95c64466591b600f.css" />
+    <link rel="stylesheet" href="/assets/application-55084551438f60bf81d36839138359e9e402436bd972ceaffc84c96f75d0c778.css" />
     <script>pageIdentifier = "docs";</script>
     <script type="importmap" data-turbo-track="reload">{
   "imports": {
-    "application": "/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js",
+    "application": "/assets/application-90866b021f1d489bb3e490a5ee4b51a4ee0b9287d72a7fceea3e4b7c68e1693f.js",
     "anchor-js": "/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js",
     "navigations": "/assets/navigations-27f57ba888008b48256d2635e15bd2f0be7a039b32c8e84140da87596cbf9547.js",
     "highlight.js/lib/core": "/assets/highlight.js--lib--core-d83dc99104442fb344c757a56d28fa888edee01ed7e6dad88a445f7c7ec6d4c9.js",
     "highlight.js/lib/languages/ruby": "/assets/highlight.js--lib--languages--ruby-f74e4cf7cb12132c4f16865b466beac81cd62a84a8119ebf005060b9d5945175.js",
     "jquery": "/assets/jquery-9292661fe0d8c5ef2ef35f5ca64d541d70c87e9f6d7f2716d646591a295b7f36.js",
-    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js"
+    "jquery.parallax-scroll": "/assets/jquery.parallax-scroll-a50d2125650d18a234bc9a3eea0a0f1c40871f3ccfba877d0eae70e690955825.js",
+    "@docsearch/js": "https://cdn.jsdelivr.net/npm/@docsearch/js@3.5.2/dist/umd/index.min.js"
   }
 }</script>
-<link rel="modulepreload" href="/assets/application-e668100add93b10dcecaea50f9d1e2e5b6cbd64bf8d0bbd950e7f01a22373d01.js">
+<link rel="modulepreload" href="/assets/application-90866b021f1d489bb3e490a5ee4b51a4ee0b9287d72a7fceea3e4b7c68e1693f.js">
 <link rel="modulepreload" href="/assets/anchor-js-821952d04abcd941bb3541822cd1c1f0234e5168bef1f9b2a050868af608aa5a.js">
 <script src="/assets/es-module-shims.min-4ca9b3dd5e434131e3bb4b0c1d7dff3bfd4035672a5086deec6f73979a49be73.js" async="async" data-turbo-track="reload"></script>
 <script type="module">import "application"</script>
@@ -71,7 +72,13 @@
       <button class="lg:hidden absolute right-4 top-4 text-3xl text-white" id="sideNavHideButton">
         X
       </button>
-      <div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
+      <!--
+<div class="lg:pt-5 lg:pl-5 xl:pl-20 pr-10 pl-20">
+  <div id="docsearch" class="flex flex-col w-full"></div>
+</div>
+ -->
+
+<div class="lg:pt-10 lg:pl-5 xl:pl-20 p-10 pl-20 text-white leading-10 space-y-1 h-full overflow-auto">
   
 
 
@@ -1228,6 +1235,9 @@ left = outputs[0] #=&gt; output object
       <a href="/2.1/" class="block shrink-0 w-fit mx-auto lg:mx-0" >
         <img class="w-48" src="/assets/logo_white_ruby-01c45713d0879788514c52d65ac53e92d7735b42cec0baf6e080b08f9a0fb595.svg" />
       </a>
+      <div class="name">
+        <a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-dark.svg" alt="Deploys by Netlify" /> </a>
+      </div>
       <div class="lg:block hidden">
         © 2023 Trailblazer GmbH
       </div>
