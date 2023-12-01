@@ -11,4 +11,4 @@ pin "highlight.js/lib/languages/ruby", to: "highlight.js--lib--languages--ruby.j
 pin "jquery" # @3.7.1
 pin "jquery.parallax-scroll"
 # bin/importmap pin @docsearch/js@3
-pin "@docsearch/js", to: "https://ga.jspm.io/npm:@docsearch/js@3.5.2/dist/esm/index.js"
+pin "@docsearch/js", to: "https://cdn.jsdelivr.net/npm/@docsearch/js@3.5.2/dist/umd/index.min.js"
