@@ -22,13 +22,17 @@ $ foreman start -f Procfile.dev
 
 Note that in this mode, only "real" controller actions work, URLs like `/2.1/docs` won't show up formatted.
 
+Browse to
+
+`https://localhost:3000/docs`
+`https://localhost:3000/landing`
+`https://localhost:3000/pro`
 
 If styles don't show up, run
 
 ```
 $ rails assets:clobber
 ```
-
 
 ## Publishing
 
@@ -41,7 +45,7 @@ Will update `dist/` and push everything to `main`.
 
 ## Algolia
 
-Check crawls
+Check crawls, relaunch crawler
 
 https://crawler.algolia.com/admin/crawlers/870e3bcd-5879-4bfd-9d57-8241620b249b/overview
 
