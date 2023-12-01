@@ -1,5 +1,4 @@
-import docsearch from '@docsearch/js';
-import  process from '@docsearch/js';
+import '@docsearch/js';
 
 docsearch({
   container: '#docsearch',
