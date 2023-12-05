@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 @layer components {
+/*  FIXME: doesn't show up*/
+  .DocSearch-Button {
+    @apply !rounded !bg-black !h-20;
+  }
+
   .hamburger-toggle {
     @apply
     [&>div]:h-0
