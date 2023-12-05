@@ -1,7 +1,7 @@
 /*! @docsearch/css 3.5.2 | MIT License | Â© Algolia, Inc. and contributors | https://docsearch.algolia.com */
 :root {
-    --docsearch-primary-color: #5468ff;
-    --docsearch-text-color: #1c1e21;
+    --docsearch-primary-color: #292262;
+    --docsearch-text-color: #989CAA;
     --docsearch-spacing: 12px;
     --docsearch-icon-stroke-width: 1.4;
     --docsearch-highlight-color: var(--docsearch-primary-color);
@@ -75,13 +75,18 @@ html[data-theme="dark"] {
 }
 .DocSearch-Search-Icon {
     stroke-width: 1.6;
+    stroke: grey;
+/*    height: 14px;*/
+padding-left: 9px;
+/*padding-right: 9px;*/
 }
 .DocSearch-Button .DocSearch-Search-Icon {
     color: var(--docsearch-text-color);
 }
 .DocSearch-Button-Placeholder {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 0 12px 0 6px;
+    color: var(--docsearch-text-color);
 }
 .DocSearch-Button-Keys {
     display: flex;
@@ -103,12 +108,11 @@ html[data-theme="dark"] {
     top: -1px;
     width: 20px;
 }
-@media (max-width: 768px) {
-    .DocSearch-Button-Keys,
-    .DocSearch-Button-Placeholder {
+/*@media (max-width: 768px) {*/
+    .DocSearch-Button-Keys {
         display: none;
     }
-}
+/*}*/
 .DocSearch--active {
     overflow: hidden !important;
 }
