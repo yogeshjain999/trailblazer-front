@@ -179,6 +179,7 @@ padding-left: 9px;
     outline: none;
     padding: 0 0 0 8px;
     width: 80%;
+    --tw-ring-shadow: 0 0 #000 !important;
 }
 .DocSearch-Input::placeholder {
     color: var(--docsearch-muted-color);
