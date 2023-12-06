@@ -9,9 +9,6 @@ import jquery from 'jquery';
 
 import { ParallaxScroll } from "jquery.parallax-scroll";
 
-
-// import  './jquery.scrollspy';
-
 hljs.registerLanguage('ruby', ruby);
 hljs.highlightAll();
 
