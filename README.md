@@ -34,6 +34,18 @@ If styles don't show up, run
 $ rails assets:clobber
 ```
 
+### Troubleshooting
+
+```
+The asset "tailwind.css" is not present in the asset pipeline. (Sprockets::Rails::Helper::AssetNotFound)
+```
+
+Run
+
+```
+rails tailwindcss:build
+```
+
 ## Publishing
 
 ```
