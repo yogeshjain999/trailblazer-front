@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    // if (location.href.indexOf("#invite_token") != -1) {
+        var urlSplit = document.URL.split("#");
+        var anchor = urlSplit[1];
+        var new_anchor = anchor.replace("activity-", "operation-");
+        window.location = `/2.1/docs/operation/#${new_anchor}`;
+      // }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
