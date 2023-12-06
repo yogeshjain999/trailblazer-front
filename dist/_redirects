@@ -1,2 +1,6 @@
 # Redirects from what the browser requests to what we serve
 /                /2.1
+
+/2.1/docs/activity.html#activity-* /2.1/docs/operation.html#operation-:splat
+/2.1/docs/activity.html#activity-wiring-api-subprocess /2.1/docs/operation.html#operation-wiring-api-subprocess
+/2.1/docs/activity.html /2.1/docs/operation.html
