@@ -3,6 +3,7 @@
 pin "application", preload: true
 pin "anchor-js", preload: true # @5.0.0
 pin "navigations"
+pin "docsearch" # the local file we wrote.
 
 # bin/importmap pin --download highlight.js/lib/core DOESN'T WORK I downloaded highlight.js/lib/core.js manually and put it in vendor with the --ed name
 #                              highlight.js/lib/languages/ruby
