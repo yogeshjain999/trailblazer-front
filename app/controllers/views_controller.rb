@@ -891,7 +891,7 @@ class ViewsController < ApplicationController
     },
 
     "landing" => {
-      toc_title: "Trailblazer",
+      toc_title: "Trailblazer - The advanced business logic framework",
       include_in_toc: false,
       "2.1" => {
         page_identifier: "landing",
