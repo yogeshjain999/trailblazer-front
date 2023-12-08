@@ -710,6 +710,31 @@ It is the runtime object that actually invokes your steps.</p>
 
                   </h4>
 
+<h3 id="internals-activity-invocation-process" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Invocation process</span></h3>
+
+<h4 id="internals-activity-invocation-process-call-method" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation process
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Call method</span>
+
+                  </h4>
+
+<p class="">Every step (technically, it’s a <em>task</em>) will be run by invoking its <code class="text-purple">#call</code> method. This was a design decision to simplify building activities without having to wrap each step into some adapter that then dispatches the invocation to the actual step.</p>
+
+<h4 id="internals-activity-invocation-process-circuit" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation process
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Circuit</span>
+
+                  </h4>
+
+<p class="">The circuit, when invoked via <code class="text-purple">#call</code> (DISCUSS: maybe that’s not necessary) runs one step after another and figures out the next step.</p>
+
+<p class="">It uses a <code class="text-purple">Runner</code> to actually invoke each step.</p>
+
+<h4 id="internals-activity-invocation-process-runner" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Invocation process
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Runner</span>
+
+                  </h4>
+
+<p class="">The idea of the <code class="text-purple">Runner</code> is to provide different ways of invoking a step (which could also be any operation). Currently, we provide a simple <code class="text-purple">#call</code>ing implementation, and one that runs each step using a taskWrap.</p>
+
 <h2 id="internals-operation" class="text-2xl font-bold text-neutral-500 lg:text-3xl py-2 flex items-center"><span class="header-text">Operation</span></h2>
 
 <p class=""><a href="https://github.com/trailblazer/trailblazer-operation" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-operation 0.10.0</a></p>
@@ -1087,6 +1112,16 @@ end
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-activity-schema-nodes">Nodes</a>
     
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-activity-schema-attributes">Attributes</a>
+    
+  
+    <a class="block px-2 leading-8" href="#internals-activity-invocation-process">Invocation process</a>
+
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-activity-invocation-process-call-method">Call method</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-activity-invocation-process-circuit">Circuit</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-activity-invocation-process-runner">Runner</a>
     
   
 </div>
