@@ -922,7 +922,6 @@ class ViewsController < ApplicationController
         "../../app/concepts/cell/application/footer.erb" => { snippet_file: "" },
       }
     },
-
   }
 
   def docs # TODO: remove me, this is only for development.
