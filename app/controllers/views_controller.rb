@@ -658,7 +658,7 @@ class ViewsController < ApplicationController
 
 
     "pro" => {
-      toc_title: "Test",
+      toc_title: "Trailblazer PRO",
       include_in_toc: false, # TODO: include!
       "2.1" => {
         title: "Trailblazer PRO",
