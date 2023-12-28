@@ -656,6 +656,21 @@ class ViewsController < ApplicationController
       }
     },
 
+
+    "pro" => {
+      toc_title: "Test",
+      include_in_toc: false, # TODO: include!
+      "2.1" => {
+        title: "Trailblazer PRO",
+        snippet_dir: "../trailblazer-test/test/docs",
+        section_dir: "section/pro",
+        target_file: "public/2.1/docs/pro/index.html",
+        target_url:  "/2.1/docs/pro/index.html",
+
+        "pro.md.erb" => {snippet_file: "assertions/pass_fail_test.rb"},
+      }
+    },
+
     "macro" => {
       toc_title: "Macro",
       "2.1" => {

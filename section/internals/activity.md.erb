@@ -24,3 +24,20 @@ The schema hash can be accessed using `Activity#to_h`. It consists of four manda
 <%= h4 "Nodes" %>
 
 <%= h4 "Attributes" %>
+
+
+<%= h3 "Invocation process" %>
+
+<%= h4 "Call method" %>
+
+Every step (technically, it's a *task*) will be run by invoking its `#call` method. This was a design decision to simplify building activities without having to wrap each step into some adapter that then dispatches the invocation to the actual step.
+
+<%= h4 "Circuit" %>
+
+The circuit, when invoked via `#call` (DISCUSS: maybe that's not necessary) runs one step after another and figures out the next step.
+
+It uses a `Runner` to actually invoke each step.
+
+<%= h4 "Runner" %>
+
+The idea of the `Runner` is to provide different ways of invoking a step (which could also be any operation). Currently, we provide a simple `#call`ing implementation, and one that runs each step using a taskWrap.
