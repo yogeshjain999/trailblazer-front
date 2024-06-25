@@ -10,6 +10,16 @@ You could easily write this code yourself, nevertheless, our macro comes with a 
 
 In operations that target existing models, the `Model::Find()` macro is the right tool to use.
 
+
+When using this macro, a small nested activity is added as a step to your operation.
+
+<%= image_tag "model_find.png" %>
+
+It comprises of two steps.
+
+1. `extract_id` which attempts to find the model's ID in `params`. This code can be configured using `:params_key` or [a manual block](#macro-model-model-find-id-block).
+2. `find.Song` is the actual step running the finder code against your database.
+
 <%= h4 "Find_by" %>
 
 To find a model by its ID using `Song.find_by(id: id)` use the macro like so.
