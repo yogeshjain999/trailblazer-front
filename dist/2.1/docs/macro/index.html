@@ -1155,7 +1155,10 @@ end
 
 <h3 id="macro-model-model-find" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Model::Find</span></h3>
 
-<p class=""><a href="https://github.com/trailblazer/trailblazer-macro" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-macro 2.1.16</a></p>
+<p class=""><span class="flex max-w-fit max-h-7 border border-grey uppercase text-grey text-xs pt-1 pb-1 pl-2 pr-2 pr-1 ml-4 rounded">
+            <svg class="fill-grey mt-[2px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M168.5 72L256 165l87.5-93h-175zM383.9 99.1L311.5 176h129L383.9 99.1zm50 124.9H256 78.1L256 420.3 433.9 224zM71.5 176h129L128.1 99.1 71.5 176zm434.3 40.1l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152c4.5-6.1 11.7-9.8 19.3-9.8H376c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4z"></path></svg>
+            <a href="https://github.com/trailblazer/trailblazer-macro/tree/v2.1.16" class="ml-1" title="This feature was introduced in trailblazer-macro v2.1.16.">trailblazer-macro 2.1.16</a>
+          </span></p>
 
 <p class="">In operations that target existing models, the <code class="text-purple">Model::Find()</code> macro is the right tool to use.</p>
 
@@ -1184,6 +1187,7 @@ end
 
 <pre class=""><code class="rounded">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
+    puts "yoo"
     step Model::Find(Song, find_by: :short_id) # Song.find_by(short_id: params[:short_id])
     step :validate
     step :save
@@ -1209,8 +1213,8 @@ end
 end
 </code></pre>
 
-<h4 id="macro-model-model-find-id_from" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
-                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">id_from</span>
+<h4 id="macro-model-model-find-id-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">ID block</span>
 
                   </h4>
 
@@ -1230,6 +1234,30 @@ end
 
 <p class="">The block receives the same <code class="text-purple">ctx, **kws</code> style arguments that an ordinary step would.</p>
 
+<h4 id="macro-model-model-find-query" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
+                  <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Query</span>
+
+                  </h4>
+
+<p class="">You can also implement the entire find logic manually using the <code class="text-purple">:query</code> option.</p>
+
+<pre class=""><code class="rounded">module Song::Activity
+  class Update &lt; Trailblazer::Activity::Railway
+    step Model::Find(
+      Song,
+      query: -&gt;(ctx, id:, current_user:, **) { where(id: id, user: current_user) }
+    )
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre>
+
+<p class="">The lamdba you implement will be called directly on the model class, mimickin <code class="text-purple">scope</code> from ActiveRecord.</p>
+
+<p class="">The lambda receives <code class="text-purple">ctx</code> and keyword options just like any other step in the operation, except for the <code class="text-purple">:id</code> variable, which is the extracted ID from previous <code class="text-purple">Find()</code> step.</p>
+
 <h4 id="macro-model-model-find-not-found" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Not Found</span>
 
@@ -1247,7 +1275,7 @@ end
       step Model::Find(Song, find_by: :id, not_found_terminus: true)
       step :validate
       step :save
-      include T.def_steps(:validate, :save)
+      # ...
     end
   end
 end
@@ -1805,9 +1833,9 @@ end
 
 <p class="">After running the <code class="text-purple">Pundit</code> step, its result is readable from the <code class="text-purple">Result</code> object.</p>
 
-<pre class=""><code class="rounded">result = Create.(params: {}, current_user: Module)
-result[:"result.policy.default"].success? #=&gt; true
-result[:"result.policy.default"][:policy] #=&gt; #&lt;MyPolicy ...&gt;
+<pre class=""><code class="rounded">  result = Create.(params: {}, current_user: Module)
+  result[:"result.policy.default"].success? #=&gt; true
+  result[:"result.policy.default"][:policy] #=&gt; #&lt;MyPolicy ...&gt;
 </code></pre>
 
 <p class="">Note that the actual policy instance is available via <code class="text-purple">["result.policy.#{name}"]["policy"]</code> to be reinvoked with other rules (e.g. in the view layer).</p>
@@ -2673,7 +2701,9 @@ result[:"result.contract.default"].errors.messages #=&gt; {:length=&gt;["is not 
     
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#macro-model-model-find-params_key">params_key</a>
     
-      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#macro-model-model-find-id_from">id_from</a>
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#macro-model-model-find-id-block">ID block</a>
+    
+      <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#macro-model-model-find-query">Query</a>
     
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#macro-model-model-find-not-found">Not Found</a>
     
