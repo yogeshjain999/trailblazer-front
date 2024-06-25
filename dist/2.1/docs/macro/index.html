@@ -1256,7 +1256,7 @@ end
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(
       Song,
-      query: -&gt;(ctx, id:, current_user:, **) { where(id: id, user: current_user) }
+      query: -&gt;(ctx, id:, current_user:, **) { where(id: id, user: current_user).first }
     )
     step :validate
     step :save
