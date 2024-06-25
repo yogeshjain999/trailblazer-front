@@ -6,7 +6,7 @@ You could easily write this code yourself, nevertheless, our macro comes with a 
 
 <%= h3 "Model::Find" %>
 
-<a href="https://github.com/trailblazer/trailblazer-macro" class="pink"><i class="fa fa-gem" aria-hidden="true"></i> trailblazer-macro 2.1.16</a>
+<%= gem_version "trailblazer-macro", "2.1.16" %>
 
 In operations that target existing models, the `Model::Find()` macro is the right tool to use.
 
@@ -30,13 +30,23 @@ Sometimes the ID key and the `params` key differ. Use the `:params_key` option i
 
 <%= code :params_key, collapse: "meths" %>
 
-<%= h4 "id_from" %>
+<%= h4 "ID block" %>
 
 If the ID extraction is more complicated, maybe you need to look into a deeply nested hash in `params`, use the block style to implement your own extraction.
 
 <%= code :id_from, collapse: "meths" %>
 
 The block receives the same `ctx, **kws` style arguments that an ordinary step would.
+
+<%= h4 "Query" %>
+
+You can also implement the entire find logic manually using the `:query` option.
+
+<%= code "query", collapse: "meths" %>
+
+The lamdba you implement will be called directly on the model class, mimickin `scope` from ActiveRecord.
+
+The lambda receives `ctx` and keyword options just like any other step in the operation, except for the `:id` variable, which is the extracted ID from previous `Find()` step.
 
 <%= h4 "Not Found" %>
 
@@ -46,7 +56,7 @@ You can wire the `Model::Find()` step to a dedicated terminus `:not_found` in ca
 
 To add the explicit `End.not_found`terminus, pass the `:not_found_terminus` option to the macro.
 
-<%= code "not-found" %>
+<%= code "not-found", collapse: "meths" %>
 
 When running the `Update` activity with an invalid ID, it terminates on `End.not_found`.
 
