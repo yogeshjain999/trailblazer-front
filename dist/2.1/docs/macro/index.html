@@ -1162,6 +1162,17 @@ end
 
 <p class="">In operations that target existing models, the <code class="text-purple">Model::Find()</code> macro is the right tool to use.</p>
 
+<p class="">When using this macro, a small nested activity is added as a step to your operation.</p>
+
+<p class=""><img class="mt-12 mb-12 mx-auto" src="/assets/model_find-87235f2fdc27b323d3f3e800e0b61550ac8d4621566be801b673936fa71ce3b6.png" /></p>
+
+<p class="">It comprises of two steps.</p>
+
+<ol>
+  <li class="list-image-disc ml-10"><code class="text-purple">extract_id</code> which attempts to find the model’s ID in <code class="text-purple">params</code>. This code can be configured using <code class="text-purple">:params_key</code> or <a href="#macro-model-model-find-id-block" class="underline text-purple">a manual block</a>.</li>
+  <li class="list-image-disc ml-10"><code class="text-purple">find.Song</code> is the actual step running the finder code against your database.</li>
+</ol>
+
 <h4 id="macro-model-model-find-find_by" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">Find_by</span>
 
@@ -1344,7 +1355,7 @@ end
   <img src="/assets/info_icon-faf751d86d27155660995d9f129cfd3b63ce05a3a91e1acdda7d214f55bdb347.svg" />
   <div class="space-y-3">
     
-<p class="">The <code class="text-purple">Model()</code> macro will be deprecated and removed in Trailblazer 2.2. Please switch over to the more powerful <a href="/2.1/docs/macro.html#macro-model-model-find" class="underline text-purple"><code class="text-purple">Model::Find</code> and friends</a>.</p>
+<p class="">The <code class="text-purple">Model()</code> macro will be deprecated and removed in Trailblazer 2.2. Please switch over to the more powerful <a href="/2.1/docs/macro/index.html#macro-model-model-find" class="underline text-purple"><code class="text-purple">Model::Find</code> and friends</a>.</p>
 
   </div>
 </div>
