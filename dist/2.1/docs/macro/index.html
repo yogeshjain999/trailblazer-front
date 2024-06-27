@@ -1180,7 +1180,14 @@ end
 
 <p class="">To find a model by its ID using <code class="text-purple">Song.find_by(id: id)</code> use the macro like so.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(Song, find_by: :id)
     step :validate
@@ -1188,7 +1195,15 @@ end
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(Song, find_by: :id)
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <p class="">The <code class="text-purple">id</code> value is extracted from <code class="text-purple">id = params[:id]</code>.</p>
 
@@ -1196,16 +1211,30 @@ end
 
 <p class="">The <code class="text-purple">id:</code> key is also up to you. As an example, you can dictate a query with a different key using the following code.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
-    puts "yoo"
     step Model::Find(Song, find_by: :short_id) # Song.find_by(short_id: params[:short_id])
     step :validate
     step :save
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(Song, find_by: :short_id) # Song.find_by(short_id: params[:short_id])
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <h4 id="macro-model-model-find-params_key" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">params_key</span>
@@ -1214,7 +1243,14 @@ end
 
 <p class="">Sometimes the ID key and the <code class="text-purple">params</code> key differ. Use the <code class="text-purple">:params_key</code> option if you want to look into <code class="text-purple">params</code> using a different key.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(Song, find_by: :id, params_key: :slug) # Song.find_by(id: params[:slug])
     step :validate
@@ -1222,7 +1258,15 @@ end
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(Song, find_by: :id, params_key: :slug) # Song.find_by(id: params[:slug])
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <h4 id="macro-model-model-find-id-block" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">ID block</span>
@@ -1231,7 +1275,14 @@ end
 
 <p class="">If the ID extraction is more complicated, maybe you need to look into a deeply nested hash in <code class="text-purple">params</code>, use the block style to implement your own extraction.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(Song, find_by: :id) { |ctx, params:, **|
       params[:song] &amp;&amp; params[:song][:id]
@@ -1241,7 +1292,17 @@ end
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(Song, find_by: :id) { |ctx, params:, **|
+      params[:song] &amp;&amp; params[:song][:id]
+    }
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <p class="">The block receives the same <code class="text-purple">ctx, **kws</code> style arguments that an ordinary step would.</p>
 
@@ -1252,7 +1313,14 @@ end
 
 <p class="">You can also implement the entire find logic manually using the <code class="text-purple">:query</code> option.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(
       Song,
@@ -1263,7 +1331,18 @@ end
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(
+      Song,
+      query: -&gt;(ctx, id:, current_user:, **) { where(id: id, user: current_user).first }
+    )
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <p class="">The lamdba you implement will be called directly on the model class, mimickin <code class="text-purple">scope</code> from ActiveRecord.</p>
 
@@ -1280,7 +1359,14 @@ end
 
 <p class="">To add the explicit <code class="text-purple">End.not_found</code>terminus, pass the <code class="text-purple">:not_found_terminus</code> option to the macro.</p>
 
-<pre class=""><code class="rounded">class Song
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">class Song
   module Activity
     class Update &lt; Trailblazer::Activity::Railway
       step Model::Find(Song, find_by: :id, not_found_terminus: true)
@@ -1290,13 +1376,32 @@ end
     end
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">class Song
+  module Activity
+    class Update &lt; Trailblazer::Operation
+      step Model::Find(Song, find_by: :id, not_found_terminus: true)
+      step :validate
+      step :save
+      # ...
+    end
+  end
+end
+</code></pre></div></div>
 
 <p class="">When running the <code class="text-purple">Update</code> activity with an invalid ID, it terminates on <code class="text-purple">End.not_found</code>.</p>
 
-<pre class=""><code class="rounded">signal, (ctx, _) = Trailblazer::Activity::TaskWrap.invoke(Song::Activity::Update, [{params: {id: nil}},{}])
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">signal, (ctx, _) = Trailblazer::Activity::TaskWrap.invoke(Song::Activity::Update, [{params: {id: nil}},{}])
 puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:not_found&gt;
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">result = Trailblazer::Operation::TaskWrap.invoke(Song::Operation::Update, [{params: {id: nil}},{}])
+result.success? # =&gt; false
+</code></pre></div></div>
 
 <h4 id="macro-model-model-find-find" class="font-bold text-neutral-500 lg:text-1xl text-xl py-2">Model::Find
                   <span class="text-purple bg-lighter-purple p-2 rounded font-medium header-text">find</span>
@@ -1305,7 +1410,14 @@ puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:not_found&gt;
 
 <p class="">In case your model needs to be retrieved using a positional ID argument, use the <code class="text-purple">:find</code> style without a hash.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Update &lt; Trailblazer::Activity::Railway
     step Model::Find(Song, :find) # Song.find(id)
     step :validate
@@ -1313,7 +1425,15 @@ puts signal #=&gt; #&lt;Trailblazer::Activity::End semantic=:not_found&gt;
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Update &lt; Trailblazer::Operation
+    step Model::Find(Song, :find) # Song.find(id)
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <p class="">This will result in an invocation like <code class="text-purple">Song.find(id)</code>. As always <code class="text-purple">:find</code> can be anything, for example, <code class="text-purple">:[]</code> in case you’re using Sequel.</p>
 
@@ -1335,7 +1455,14 @@ end
 
 <p class="">For <code class="text-purple">Create</code> operations without an existing model you can use <code class="text-purple">Model::Build</code> to instantiate a new model.</p>
 
-<pre class=""><code class="rounded">module Song::Activity
+<div class="spacing-y-0"><div class="spacing-x-1 mb-[6px]">
+            <a href="#" data-toggle="code-tab" data-type="code-tab-activity">
+              <span class="font-semi-bold bg-bg-purple-1 p-2 rounded-t" data-show="code-tab-activity" data-hide="code-tab-operation" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Activity</span>
+            </a>
+            <a href="#" data-toggle="code-tab" data-type="code-tab-operation">
+              <span class="font-semi-bold bg-[#E4E4E4] p-2 rounded-t" data-show="code-tab-operation" data-hide="code-tab-activity" data-show-color="bg-bg-purple-1" data-hide-color="bg-[#E4E4E4]">Operation</span>
+            </a>
+          </div><div class="code-tab-activity code-tab-content"><pre class=""><code class="rounded-tr rounded-b">module Song::Activity
   class Create &lt; Trailblazer::Activity::Railway
     step Model::Build(Song, :new)
     step :validate
@@ -1343,7 +1470,15 @@ end
     # ...
   end
 end
-</code></pre>
+</code></pre></div><div class="code-tab-operation code-tab-content hidden"><pre class=""><code class="rounded-tr rounded-b">module Song::Operation
+  class Create &lt; Trailblazer::Operation
+    step Model::Build(Song, :new)
+    step :validate
+    step :save
+    # ...
+  end
+end
+</code></pre></div></div>
 
 <p class="">Here, <code class="text-purple">:new</code> might be replace with any method you want to be called on <code class="text-purple">Song</code>, e.g. <code class="text-purple">:build</code>.</p>
 
