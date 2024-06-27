@@ -24,7 +24,7 @@ It comprises of two steps.
 
 To find a model by its ID using `Song.find_by(id: id)` use the macro like so.
 
-<%= code :find_by_id, collapse: "meths" %>
+<%= code_tabs :find_by_id, collapse: "meths" %>
 
 The `id` value is extracted from `id = params[:id]`.
 
@@ -32,19 +32,19 @@ Note that the finder method doesn't have to be `find_by` - you may pass any meth
 
 The `id:` key is also up to you. As an example, you can dictate a query with a different key using the following code.
 
-<%= code :find_by_column, collapse: "meths" %>
+<%= code_tabs :find_by_column, collapse: "meths" %>
 
 <%= h4 "params_key" %>
 
 Sometimes the ID key and the `params` key differ. Use the `:params_key` option if you want to look into `params` using a different key.
 
-<%= code :params_key, collapse: "meths" %>
+<%= code_tabs :params_key, collapse: "meths" %>
 
 <%= h4 "ID block" %>
 
 If the ID extraction is more complicated, maybe you need to look into a deeply nested hash in `params`, use the block style to implement your own extraction.
 
-<%= code :id_from, collapse: "meths" %>
+<%= code_tabs :id_from, collapse: "meths" %>
 
 The block receives the same `ctx, **kws` style arguments that an ordinary step would.
 
@@ -52,7 +52,7 @@ The block receives the same `ctx, **kws` style arguments that an ordinary step w
 
 You can also implement the entire find logic manually using the `:query` option.
 
-<%= code "query", collapse: "meths" %>
+<%= code_tabs "query", collapse: "meths" %>
 
 The lamdba you implement will be called directly on the model class, mimickin `scope` from ActiveRecord.
 
@@ -66,17 +66,17 @@ You can wire the `Model::Find()` step to a dedicated terminus `:not_found` in ca
 
 To add the explicit `End.not_found`terminus, pass the `:not_found_terminus` option to the macro.
 
-<%= code "not-found", collapse: "meths" %>
+<%= code_tabs "not-found", collapse: "meths" %>
 
 When running the `Update` activity with an invalid ID, it terminates on `End.not_found`.
 
-<%= code "not-found-invoke" %>
+<%= code_tabs "not-found-invoke" %>
 
 <%= h4 "find" %>
 
 In case your model needs to be retrieved using a positional ID argument, use the `:find` style without a hash.
 
-<%= code :find, collapse: "meths" %>
+<%= code_tabs :find, collapse: "meths" %>
 
 This will result in an invocation like `Song.find(id)`. As always `:find` can be anything, for example, `:[]` in case you're using Sequel.
 
@@ -93,7 +93,7 @@ With tracing turned on, you can see that `Model::Find()` actually creates a tiny
 
 For `Create` operations without an existing model you can use `Model::Build` to instantiate a new model.
 
-<%= code :new, collapse: "meths" %>
+<%= code_tabs :new, collapse: "meths" %>
 
 Here, `:new` might be replace with any method you want to be called on `Song`, e.g. `:build`.
 

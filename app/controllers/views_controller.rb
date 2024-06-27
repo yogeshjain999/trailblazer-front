@@ -685,7 +685,7 @@ class ViewsController < ApplicationController
         "nested/auto_wire.md.erb"   => {snippet_file: "nested_static_test.rb"},
         "wrap.md.erb"   => {snippet_file: "wrap_test.rb"},
         "each.md.erb"   => {snippet_file: "each_test.rb"},
-        "model_find.md.erb"   => {snippet_file: "model/find_test.rb"},
+        "model_find.md.erb"   => {snippet_file: "model_find_test.rb"},
         "model.md.erb"   => {snippet_file: "model_test.rb"},
         "rescue.md.erb"   => {snippet_file: "rescue_test.rb"},
         "policy.md.erb"   => {snippet_file: "policy_test.rb"},
