@@ -710,14 +710,14 @@ class ViewsController < ApplicationController
       toc_title: "Endpoint",
       "2.1" => {
         title: "Endpoint",
-        snippet_dir: "../trailblazer-endpoint/test/rails-app",
+        snippet_dir: "../trailblazer-endpoint/test/rails-app/test/controllers",
         section_dir: "section/endpoint",
         target_file: "public/2.1/docs/endpoint/index.html",
         target_url:  "/2.1/docs/endpoint/index.html",
 
-        "overview.md.erb"      => {snippet_file: "basics_test.rb"},
-        "api.md.erb"           => {snippet_file: "basics_test.rb"},
-        "web.md.erb"           => {snippet_file: "basics_test.rb"},
+        "overview.md.erb"      => {snippet_file: "memo_controller_test.rb"},
+        # "api.md.erb"           => {snippet_file: "basics_test.rb"},
+        # "web.md.erb"           => {snippet_file: "basics_test.rb"},
 
       }
     },
