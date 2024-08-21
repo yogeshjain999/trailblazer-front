@@ -124,7 +124,13 @@ This will result in a flow diagram similar to this.
 
 <%= image_tag "endpoint-fast-track-rw.png" %>
 
+Here, the distinction between `failure` and `fail_fast` gets lost after the endpoint has been run. In most scenarios, this is desired, as this mimics querying the result object via `result.success?`.
 
+However, in some cases, you might want to deal with a `fail_fast` or `pass_fast` termination of your operation. Simply override it when defining the specific endpoint.
+
+<%= code "b-controller", zoom: "fast-track" %>
+
+Your endpoint now needs to define those two additional termini, so they can be properly connected.
 
 <%= h4 "protocol_block" %>
 <%= h4 "ctx" %>
