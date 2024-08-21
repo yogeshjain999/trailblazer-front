@@ -1,10 +1,10 @@
-Whenever you need an operation "around" your actual business operation, to add authentication, policy checks or more steps "around" your domain code, you want to start using endpoints.
+Whenever you need an *operation "around"* your actual business operation, to add authentication, policy checks or more steps before or after your domain code, you want to start using endpoints.
 
 Instead of you manually calling operations, endpoints are planned to become the canonical way of invoking operations in controllers, jobs and tests.
 
 * Endpoints provide a simple way of defining possible outcomes of an operation
 * They come with a simple runtime API that allows you to provide matchers for each outcome. For example, you can handle a "model not found" outcome generically, but override how a success outcome is handled.
-* Endpoints are a much better abstraction to customize how your operations are run. In current projects, many users override `#call_with_public_method` to add aliases or tweak standard variables in the ctx. This now becomes nothing but another step in the endpoint, before the domain operation.
+* Endpoints are a much better abstraction to customize how your operations are run, and what gets injected. In current projects, many users override `Operation.call_with_public_method` to add aliases or tweak standard variables in the ctx. This now becomes nothing but another step in the endpoint, before the domain operation.
 
 
 
@@ -22,21 +22,124 @@ The key idea is to have specific handlers for all outcomes that you write once, 
 
 <%= h3 "Example" %>
 
-Endpoints and the matcher interface can be used anywhere, in controllers, tests, background jobs, or wherever you need to invoke an operation. This example focuses on controllers.
+Endpoints and the matcher interface can be used anywhere, in controllers, tests, background jobs, or wherever you need to invoke an operation. This example showcases a typical Rails controllers.
 
 <%= code "endpoint-controller" %>
 
-Endpoints (currently!) have to be defined on the controller class level using the `::endpoint` method. Calling the endpoint and your operation works via the `#invoke` instance method, which you typically place in a controller action.
+Endpoints (currently!) have to be defined on the controller class level using the `::endpoint` method. Additional options allow configuring how the operation is wired in the endpoint.
 
-The matcher interface in the block is where it gets interesting. It allows to provide code blocks to handle different outcomes. However, the beautiful part is that you can inherit generic matchers from the `ApplicationController` (or wherever you inherit from).
+Actually calling the endpoint (along with your operation) works via the `#invoke` instance method, which you typically place in a controller action.
+
+The block handed to `#invoke` is where it gets interesting. The matcher interface allows to provide code blocks to handle different outcomes. However, the beautiful part is that you can inherit generic matchers from the `ApplicationController` (or wherever you inherit from).
 
 <%= code "application-controller", file: "../../app/controllers/application_controller.rb", collapse: "config" %>
 
-Here, using `default_block`, generic matchers can be defined.
+Here, using `default_block`, generic matchers can be defined, saving you tons of code in the controller, and making nested `rescue` shenanigans in your application controller unnecessary.
 
 The `Controller` module from the `endpoint` gem ships with several configuration directives, like what to pass into the `ctx`, default matchers, or whether or not fast-track termini should be wired to the standard railway termini.
 
-<<!--
+<%= info do %>
+The `endpoint` gem can be used in frameworks other than Rails (for instance, Grape). Being the mainstream choice of many, these docs focus on Rails.
+<% end %>
+
+<%= h2 "Controller" %>
+
+To use endpoint's runtime tool `#invoke` and its configuration directives, include the `Controller` module in your `ApplicationController`.
+
+<%= code "application-controller-include", file: "../../app/controllers/application_controller.rb" %>
+
+Your controller and all subclasses are now ready to configure and run endpoints. Move all generic, reusable configuration to the uppermost controller - usually that'd be the `ApplicationController`.
+
+The easiest way to configure is using the `::endpoint` block DSL.
+
+<%= code :ruby do %>
+class ApplicationController < ActionController::Base
+  include Trailblazer::Endpoint::Controller.module
+
+  endpoint do
+    options do
+      # ...
+    end
+
+    ctx do
+      # ...
+    end
+
+    default_matcher do
+      # ...
+    end
+  end
+<% end %>
+
+<%= h3 "Inheritance" %>
+
+Per default, all configuration options are inherited, allowing you very lean concrete controllers that only override specific directives.
+
+<%= code "endpoint-controller-head" %>
+
+(We're planning to allow merging *and* overriding for each directive.)
+
+<%= h3 "Configuration" %>
+
+Setting default values for endpoints on the controller level can be done in two ways.
+
+1. The recommended way is to use the configuration DSL provided in the `::endpoint` block. This section explains each option. Note that `::endpoint` can also be used without a block, to define individual endpoints.
+2. Another way would be to [override particular methods](https://github.com/trailblazer/trailblazer-endpoint/blob/1273ddac56dc7c7192540707b3e56712a6830f27/test/controller_test.rb#L290) in the controller. This is undocumented and should only be done if you're using anything else but Rails.
+
+<%= h4 "Overview" %>
+
+Use the `::endpoint` block DSL on the controller class level to configure how endpoints are built and run.
+
+<%= code "application-controller", zoom: "endpoint", file: "../../app/controllers/application_controller.rb" %>
+
+Available options are explained in the following sections.
+
+<%= h4 "default_matcher" %>
+
+You can keep controller actions very lean by defining generic handlers once, on the `ApplicationController` level using the `default_matcher` block.
+
+<%= code "endpoint", zoom: "default_matcher", file: "../../app/controllers/application_controller.rb" %>
+
+The returned hash may provide matchers for any possible outcome.
+
+The blocks receive the `ctx` after your endpoint is run, along with keyword arguments, exactly what you're used to from operation steps. Note that the block is executed in the controller context, allowing to use its API, e.g. `#render` or `#head`.
+
+You can override specific handlers in controller actions.
+
+<%= h4 "options" %>
+
+The compilation of your controller's endpoints can be configured using `options`.
+
+<%= code "endpoint", zoom: "options", file: "../../app/controllers/application_controller.rb" %>
+
+Make sure you provide a `:protocol` as this is the only requirement in this directive. # TODO: link to protocol.
+
+<%= h4 "fast_track_to_railway" %>
+
+If you're not interested in handling your operation's `pass_fast` and `fail_fast` termination separately, you can use the `:fast_track_to_railway` shortcut in `options` to wire the two fast track termini to their railway friends.
+
+<%= code "endpoint", zoom: "options", collapse: "protocol", file: "../../app/controllers/application_controller.rb" %>
+
+This will result in a flow diagram similar to this.
+
+<%= image_tag "endpoint-fast-track-rw.png" %>
+
+
+
+<%= h4 "protocol_block" %>
+<%= h4 "ctx" %>
+<%= h4 "flow_options" %>
+
+<%= h2 "Runtime" %>
+
+<%= h3 "Invoke" %>
+<%= h3 "No protocol" %>
+
+<%= h2 "Protocol" %>
+
+Inheritance
+
+<!--
 As visible in this illustreous diagram, invoking an endpoint usually involves two steps.
 
 1. Running authentication and authorization, allowing to move this logic from the controller's `before_filter`s to a traceable activity.
