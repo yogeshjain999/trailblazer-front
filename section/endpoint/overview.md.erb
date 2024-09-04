@@ -132,9 +132,59 @@ However, in some cases, you might want to deal with a `fail_fast` or `pass_fast`
 
 Your endpoint now needs to define those two additional termini, so they can be properly connected.
 
-<%= h4 "protocol_block" %>
 <%= h4 "ctx" %>
+
+Use the `ctx` block to define what ctx variables to pass into the endpoint (and operation) invocation by default.
+
+<%= code "endpoint", zoom: "ctx", file: "../../app/controllers/application_controller.rb" %>
+
+The block is executed in controller instance context and allows you to access the environment you have within a controller action, e.g. `params` or `request`.
+
+You can override this directive per controller (on the class level), or add variables in the controller action [via `#invoke`](#endpoint-runtime-invoke).
+
+<%= h4 "protocol_block" %>
+
+It is possible to set a default wiring for your domain operations in their endpoint using the `:protocol_block`. The following example connects the `not_found` terminus to the endpoint's `not_found` track. As this is not a standard railway/fast-track terminus, it's not wired automatically.
+
+<%= code "d-controller", zoom: "options", collapse: "protocol" %>
+
+The block simply needs to return a hash that contains [Wiring API](/2.1/docs/operation/index.html#operation-wiring-api) instructions. Here is the resulting diagram of that endpoint part.
+
+<%= image_tag "endpoint-protocol-block.png" %>
+
+Keep in mind, though, that this wiring is applied to all operations in this controller. If a particular operation doesn't expose a `not_found` output, this will raise an exception yelling `No "not_found" output found for :domain_activity`. In this case, [override the wiring](#endpoint-controller-endpoint-wiring) for the respective endpoint.
+
 <%= h4 "flow_options" %>
+
+<%= h3 "Endpoint" %>
+
+While the [block version of `::endpoint`](#endpoint-controller-configuration) allows to configure the build process and some runtime variables, most of the time you will be using this method to define endpoints per controller action in a concrete controller.
+
+<%= code "endpoint-controller", zoom: "define" %>
+
+This will, at compile time, build and store a dedicated endpoint for your `Memo::Operation::Create` operation. You can now use that endpoint in your controller actions using `#invoke`.
+
+<%= info do %>
+Currently, this is a required step, as compiling an endpoint takes time and technically only has to be done once - at compile time.
+
+However, we might come up with a solution that makes defining endpoints redundant in the future.
+<% end %>
+
+<%= h4 "Wiring" %>
+
+
+<%= h4 "Name" %>
+
+If you need one distinct operation in several endpoints, pass a name instead of the class.
+
+<%= code "e-controller", zoom: "domain_activity" %>
+
+The actual operation to be embedded in the endpoint is specified via `:domain_activity`. Note that you may pass additional build options here.
+
+In the controller action, you now need to pass the *name* to `#invoke`.
+
+<%= code "e-controller", zoom: "create", collapse: "action" %>
+
 
 <%= h2 "Runtime" %>
 
