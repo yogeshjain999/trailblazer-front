@@ -152,7 +152,17 @@ The block simply needs to return a hash that contains [Wiring API](/2.1/docs/ope
 
 <%= image_tag "endpoint-protocol-block.png" %>
 
-Keep in mind, though, that this wiring is applied to all operations in this controller. If a particular operation doesn't expose a `not_found` output, this will raise an exception yelling `No "not_found" output found for :domain_activity`. In this case, [override the wiring](#endpoint-controller-endpoint-wiring) for the respective endpoint.
+Keep in mind, though, that this wiring is applied to all operations in this controller. If a particular operation doesn't expose a `not_found` output, this will raise an exception!
+
+<%= code :ruby do %>
+`No "not_found" output found for :domain_activity`...
+<% end %>
+
+In this case, [override the wiring](#endpoint-controller-endpoint-wiring) for the respective endpoint.
+
+Alternatively, you may use conditional code leveraging the operation's introspection API. The `protocol_block` is executed in the respective operation context each time you're adding a concrete endpoint.
+
+<%= code "dd-controller", zoom: "endpoint", collapse: "misc" %>
 
 <%= h4 "flow_options" %>
 
@@ -172,6 +182,15 @@ However, we might come up with a solution that makes defining endpoints redundan
 
 <%= h4 "Wiring" %>
 
+You may add arbitrary wiring for your operation when defining the concrete endpoint. This is done by passing a block after the endpoint's constant.
+
+<%= code "d-memo", zoom: "endpoint" %>
+
+This wiring block will override any `:protocol_block` in an inherited controller.
+
+Keep in mind that you can also "turn off" the wiring from a super-controller by returning an empty hash.
+
+<%= code "empty" %>
 
 <%= h4 "Name" %>
 
