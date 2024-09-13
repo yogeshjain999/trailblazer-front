@@ -204,10 +204,33 @@ In the controller action, you now need to pass the *name* to `#invoke`.
 
 <%= code "e-controller", zoom: "create", collapse: "action" %>
 
-
 <%= h2 "Runtime" %>
 
+The real fun starts when using endpoints in a controller action. This is when the endpoint and your business logic is executed and the respective matcher is run.
+
 <%= h3 "Invoke" %>
+
+You can invoke the controller's endpoints using `#invoke`. Just pass the endpoint's name, which is usually the class constant.
+
+<%= code "endpoint-controller", zoom: "create" %>
+
+This will run the endpoint, along with your embedded domain operation. Using the matcher block, you can override specific handlers ad-hoc, in case the inherited default matchers don't suit the controller action.
+
+<%= h4 "Variables" %>
+
+Keep in mind that, per default, only the variables configured in the [`ctx {}` block](/2.1/docs/endpoint/index.html#endpoint-controller-configuration-ctx) are passed into the endpoint, and the operation.
+
+<%= code "endpoint", zoom: "ctx", file: "../../app/controllers/application_controller.rb" %>
+
+In the operation, you will only see the variables configured above.
+
+<%= code "params-keys" %>
+
+If you need additional variables, simply pass them to `#invoke`.
+
+<%= code "f-controller", zoom: "runtime", collapse: "misc" %>
+
+
 <%= h3 "No protocol" %>
 
 <%= h2 "Protocol" %>
