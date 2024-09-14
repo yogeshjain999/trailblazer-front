@@ -224,12 +224,17 @@ Keep in mind that, per default, only the variables configured in the [`ctx {}` b
 
 In the operation, you will only see the variables configured above.
 
-<%= code "params-keys" %>
+<%= code "params-keys", collapse: "misc" %>
 
 If you need additional variables, simply pass them to `#invoke`.
 
 <%= code "f-controller", zoom: "runtime", collapse: "misc" %>
 
+Your operation can now see the `:storage` variable, too.
+
+<%= code "storage" %>
+
+Variables handed to `#invoke` will override default variables from the [`ctx {}` block](/2.1/docs/endpoint/index.html#endpoint-controller-configuration-ctx).
 
 <%= h3 "No protocol" %>
 
