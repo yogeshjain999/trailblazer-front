@@ -122,6 +122,7 @@ class ViewsController < ApplicationController
           dsl: ["trailblazer-activity-dsl-linear", "https://github.com/trailblazer/trailblazer-activity-dsl-linear"],
           "trailblazer-rails" => ["trailblazer-rails", "https://github.com/trailblazer/trailblazer-rails"],
           "trailblazer-macro" => ["trailblazer-macro", "https://github.com/trailblazer/trailblazer-macro"],
+          "trailblazer-endpoint" => ["trailblazer-endpoint", "https://github.com/trailblazer/trailblazer-endpoint"],
 
         }
 

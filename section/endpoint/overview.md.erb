@@ -1,3 +1,9 @@
+<%= info do %>
+The stable `endpoint` gem will be released November 2024.
+<% end %>
+
+<%= gem_version "trailblazer-endpoint", "0.1.0" %>
+
 Whenever you need an *operation "around"* your actual business operation, to add authentication, policy checks or more steps before or after your domain code, you want to start using endpoints.
 
 Instead of you manually calling operations, endpoints are planned to become the canonical way of invoking operations in controllers, jobs and tests.
@@ -165,6 +171,10 @@ Alternatively, you may use conditional code leveraging the operation's introspec
 <%= code "dd-controller", zoom: "endpoint", collapse: "misc" %>
 
 <%= h4 "flow_options" %>
+
+You can set `flow_options` that are injected into the endpoint (or operation) invocation using the same-named block. This is where you would set ctx aliases, for instance.
+
+<%= code "endpoint", zoom: "flow_options", file: "../../app/controllers/application_controller.rb" %>
 
 <%= h3 "Endpoint" %>
 
