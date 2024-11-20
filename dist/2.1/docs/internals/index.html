@@ -1003,6 +1003,15 @@ Trailblazer::Core.convert_operation_test("test/docs/composable_variable_mapping_
 
                   </h4>
 
+<h3 id="internals-core-developer-hash-inspect" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Hash inspect</span></h3>
+
+<p class="">From Ruby 3.4 onwards, <code class="text-purple">Hash#inspect</code> looks different and breaks our tests. Since we use a lot of string assertions for safety reasons, please use <code class="text-purple">Trailblazer::Core::Utils.inspect</code> to render the asserted object.</p>
+
+<pre class=""><code class="rounded">
+assert_equal CU.inspect(result[:params]), %({:x=&gt;1})</code></pre>
+
+<p class="">The <code class="text-purple">Utils.inspect</code> will make sure the rendered string contains “old style” hash syntax.</p>
+
 <h3 id="internals-core-developer-deprecate" class="font-bold text-neutral-500 lg:text-2xl text-xl py-2 flex items-center"><span class="header-text">Deprecate</span></h3>
 
 <p class="">Always use <code class="text-purple">Activity::Deprecate.warn</code> when marking a method as deprecated.</p>
@@ -1221,6 +1230,10 @@ end
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-core-developer-convert-operation-test-ignore">ignore</a>
     
       <a class="block px-2 pt-[.33rem] pb-[.33rem] leading-snug text-purple pl-6" href="#internals-core-developer-convert-operation-test-skip">skip</a>
+    
+  
+    <a class="block px-2 leading-8" href="#internals-core-developer-hash-inspect">Hash inspect</a>
+
     
   
     <a class="block px-2 leading-8" href="#internals-core-developer-deprecate">Deprecate</a>
