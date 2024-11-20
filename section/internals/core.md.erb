@@ -30,3 +30,13 @@ Trailblazer::Core.convert_operation_test("test/docs/composable_variable_mapping_
 <%= h4 "ctx to result" %>
 <%= h4 "ignore" %>
 <%= h4 "skip" %>
+
+<%= h3 "Hash inspect" %>
+
+From Ruby 3.4 onwards, `Hash#inspect` looks different and breaks our tests. Since we use a lot of string assertions for safety reasons, please use `Trailblazer::Core::Utils.inspect` to render the asserted object.
+
+<%= code :ruby do %>
+assert_equal CU.inspect(result[:params]), %({:x=>1})
+<% end %>
+
+The `Utils.inspect` will make sure the rendered string contains "old style" hash syntax.
