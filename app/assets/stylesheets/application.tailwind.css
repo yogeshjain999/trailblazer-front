@@ -67,4 +67,8 @@
   .display_block {
     display: block;
   }
+
+  .toc-right-height {
+    height: calc(100dvh - 10rem);
+  }
 }
