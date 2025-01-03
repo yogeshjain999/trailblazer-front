@@ -3,7 +3,6 @@ import ruby from 'highlight.js/lib/languages/ruby';
 import anchorJS from 'anchor-js';
 
 import 'navigations'; // FIXME: here, part of the code should only be run when "docs".
-import 'docsearch';
 
 import jquery from 'jquery';
 
@@ -14,6 +13,8 @@ hljs.highlightAll();
 
 if (pageIdentifier == "landing") {
   jquery(document).ready(function() {
+    import("lottie-player");
+
     ParallaxScroll.init();
 
     // TODO: move to separate  function/file.
@@ -36,6 +37,8 @@ if (pageIdentifier == "landing") {
 
 if (pageIdentifier == "docs") {
   jquery(document).ready(function() {
+    import("docsearch");
+
     let h2_map = [];
 
     // wyof-scrollspy

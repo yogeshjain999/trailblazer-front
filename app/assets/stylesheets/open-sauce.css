@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-LightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-ExtraBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce One';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Open Sauce One'), url('/assets/open-sauce/OpenSauceOne-BlackItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Italic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-LightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-LightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-ExtraBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-ExtraBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Sans';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Open Sauce Sans'), url('/assets/open-sauce/OpenSauceSans-BlackItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Open Sauce Two';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Open Sauce Two'), url('/assets/open-sauce/OpenSauceTwo-BlackItalic.ttf') format('truetype');
+}
+
